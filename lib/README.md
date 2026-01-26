@@ -49,3 +49,6 @@ Quad RC low-pass filter bank with a 1x12 header for IN/OUT/GND per channel.
 
 - lib/circuit16.tscircuit.tsx
 60% keyboard matrix using a Pico microcontroller and `layouts.default60`.
+
+- lib/circuit17.tscircuit.tsx
+Pico W driving a 3x5 WS2812B LED matrix, chained with data-in from GP6 and shared 5V/GND.
