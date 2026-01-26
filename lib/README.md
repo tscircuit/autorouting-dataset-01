@@ -55,3 +55,12 @@ Pico W driving a 3x5 WS2812B LED matrix with chained data and shared 5V/GND.
 
 - lib/circuit18.tscircuit.tsx
 ISM330DHCX IMU + MMC5983MA magnetometer breakout with I2C headers, jumpers, and LED.
+
+- lib/circuit19.tscircuit.tsx
+QRE1113 reflectance sensor breakout with 3-pin header and bias resistors.
+
+- lib/circuit20.tscircuit.tsx
+QRE1113 analog line sensor breakout with labeled silkscreen and 3-pin header.
+
+- lib/circuit21.tscircuit.tsx
+RFID reader module breakout for ID-xx boards with dual headers.
