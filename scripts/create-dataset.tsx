@@ -18,10 +18,18 @@ const main = async () => {
   for (const file of files) {
     const baseName = file.replace(/\.tscircuit\.tsx$/, "")
     const modulePath = `lib/${file.replace(/\.tsx$/, "")}`
-    const { default: Circuit } = await import(modulePath)
+    let Circuit: unknown
+    try {
+      ;({ default: Circuit } = await import(modulePath))
+    } catch (err) {
+      const reason = err instanceof Error ? err.message : String(err)
+      console.log(`[Ignored] ${file} due to import failure: ${reason}`)
+      continue
+    }
 
     const circuit = new RootCircuit()
-    circuit.add(<Circuit />)
+    const CircuitComponent = Circuit as any
+    circuit.add(<CircuitComponent />)
 
     const outputPath = path.join(
       datasetDir,
