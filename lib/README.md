@@ -52,3 +52,6 @@ Quad RC low-pass filter bank with a 1x12 header for IN/OUT/GND per channel.
 
 - lib/circuit17.tscircuit.tsx
 Pico W driving a 3x5 WS2812B LED matrix, chained with data-in from GP6 and shared 5V/GND.
+
+- lib/circuit18.tscircuit.tsx
+ISM330DHCX IMU + MMC5983MA magnetometer breakout with I2C headers, jumpers, and status LED.

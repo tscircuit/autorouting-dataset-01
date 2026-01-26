@@ -7,8 +7,14 @@ ATTiny85 microcontroller in SOIC-8.
 - imports/AVR_ISP_2x3.tsx
 2x3 AVR ISP programming header footprint.
 
+- imports/ISM330DHCX.tsx
+ST ISM330DHCX 6-axis IMU (accel/gyro) footprint.
+
 - imports/JoystickThumb.tsx
 Joystick module footprint with multiple pins.
+
+- imports/MMC5983MA_QFN16.tsx
+MMC5983MA 3-axis magnetometer QFN-16 footprint.
 
 - imports/PinHeader1x4.tsx
 1x4 pin header footprint.

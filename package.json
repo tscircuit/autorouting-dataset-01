@@ -23,6 +23,7 @@
     "@tsci/seveibar.WS2812B_2020": "^0.0.1",
     "@tsci/seveibar.esp32-s3-mini-1-n8": "^0.1.0",
     "@tsci/seveibar.keyboard-utils": "^0.0.18",
+    "@tsci/seveibar.push-button": "^0.1.1",
     "@tsci/seveibar.reg-5v-to-3v": "^0.0.1",
     "@tsci/seveibar.smd-usb-c": "^0.0.2"
   }

@@ -11,6 +11,7 @@
         "@tsci/seveibar.WS2812B_2020": "^0.0.1",
         "@tsci/seveibar.esp32-s3-mini-1-n8": "^0.1.0",
         "@tsci/seveibar.keyboard-utils": "^0.0.18",
+        "@tsci/seveibar.push-button": "^0.1.1",
         "@tsci/seveibar.reg-5v-to-3v": "^0.0.1",
         "@tsci/seveibar.smd-usb-c": "^0.0.2",
       },
@@ -166,6 +167,8 @@
     "@tsci/seveibar.esp32-s3-mini-1-n8": ["@tsci/seveibar.esp32-s3-mini-1-n8@0.1.0", "https://npm.tscircuit.com/package_files/download?package_name=seveibar%2Fesp32-s3-mini-1-n8&package_file_id=19fdf973-a65e-4b66-861c-dbd05f1ce106", {}, "sha512-o+jQRyPOSmocAUFaqBsu9B4owLAB9yR8JlxeF41DAeUo4l6iepCSh39LWmDE16XIo7Hmax9ss5qVHClveeIchQ=="],
 
     "@tsci/seveibar.keyboard-utils": ["@tsci/seveibar.keyboard-utils@0.0.18", "https://npm.tscircuit.com/package_files/download?package_name=seveibar%2Fkeyboard-utils&package_file_id=1a3ab34e-155b-4ec1-b6cf-a1b86252b34e", {}, "sha512-SC4vEDFTI/TUlXSSTviQGazsajxdienOv1JQu2NLJT0cwiqfpoKARbGKkcwoKK5EPOujaULqj7pf/2BANstmJA=="],
+
+    "@tsci/seveibar.push-button": ["@tsci/seveibar.push-button@0.1.1", "https://npm.tscircuit.com/package_files/download?package_name=seveibar%2Fpush-button&package_file_id=a84de949-2166-4c6e-970a-cd4f9b6c6654", {}, "sha512-7+5GnhR2flKwOBID945A4tVt5c2BTgn8b7XD14EuBI3BrLFCDUNcMtiCjb5Wt9llJO7tILU4F4695OpVyMNndg=="],
 
     "@tsci/seveibar.reg-5v-to-3v": ["@tsci/seveibar.reg-5v-to-3v@0.0.1", "https://npm.tscircuit.com/package_files/download?package_name=seveibar%2Freg-5v-to-3v&package_file_id=e0d6208a-5d3e-415b-b1e9-024e1d89b96a", {}, "sha512-Uje+Adt9fAGmJtO573wCtcaq9KILR487RqkRWYMdtXM4UPMj7qLCI/dYt477Z3YwN2sMLmd2T9kDcfVftRsDBw=="],
 
