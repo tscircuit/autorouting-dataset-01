@@ -8,7 +8,7 @@ import { sel } from "tscircuit";
  * - Exposes IN/OUT/GND for each channel on a single header.
  */
 export default () => (
-  <board width="35mm" height="25mm">
+  <board width="35mm" height="32mm">
     <pinheader
       name="J1"
       pinCount={12}
