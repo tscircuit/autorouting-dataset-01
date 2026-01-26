@@ -1,5 +1,12 @@
 import { sel } from "tscircuit";
 
+const GRID_MM = 5;
+const ORIGIN = { x: 0, y: 0 };
+const g = (x: number, y: number) => ({
+  pcbX: ORIGIN.x + x * GRID_MM,
+  pcbY: ORIGIN.y + y * GRID_MM,
+});
+
 /**
  * Large fluid LED bar (10 LEDs) with gyro header.
  *
@@ -8,13 +15,12 @@ import { sel } from "tscircuit";
  * - Ten LED channels arranged as a long bar.
  */
 export default () => (
-    <board width="70mm" height="40mm">
+    <board width="170mm" height="80mm">
       <pinheader
         name="J1"
         pinCount={4}
         pitch="2.54mm"
-        pcbX={-30}
-        pcbY={5}
+        {...g(-15, 2)}
         pcbRotation={90}
         connections={{
           pin1: sel.net.GND,
@@ -28,8 +34,7 @@ export default () => (
         name="J2"
         pinCount={12}
         pitch="2.54mm"
-        pcbX={-30}
-        pcbY={-5}
+        {...g(-15, -2)}
         pcbRotation={90}
         connections={{
           pin1: sel.net().VCC,
@@ -51,8 +56,7 @@ export default () => (
         name="R1"
         resistance="2.2k"
         footprint="0603"
-        pcbX={-22}
-        pcbY={8}
+        {...g(-11, 4)}
         connections={{
           pin1: sel.net().VCC,
           pin2: sel.net().SDA,
@@ -62,8 +66,7 @@ export default () => (
         name="R2"
         resistance="2.2k"
         footprint="0603"
-        pcbX={-18}
-        pcbY={8}
+        {...g(-9, 4)}
         connections={{
           pin1: sel.net().VCC,
           pin2: sel.net().SCL,
@@ -74,8 +77,7 @@ export default () => (
         name="C1"
         capacitance="0.1uF"
         footprint="0603"
-        pcbX={-20}
-        pcbY={4}
+        {...g(-10, 2)}
         connections={{
           pin1: sel.net().VCC,
           pin2: sel.net.GND,
@@ -86,8 +88,7 @@ export default () => (
         name="R3"
         resistance="1k"
         footprint="0603"
-        pcbX={-18}
-        pcbY={2}
+        {...g(-9, 1)}
         connections={{
           pin1: sel.net().VCC,
           pin2: sel.net().LED1_A,
@@ -97,8 +98,7 @@ export default () => (
         name="D1"
         color="red"
         footprint="0603"
-        pcbX={-18}
-        pcbY={-2}
+        {...g(-9, -1)}
         connections={{
           pin1: sel.net().LED1_A,
           pin2: sel.net().LED1,
@@ -109,8 +109,7 @@ export default () => (
         name="R4"
         resistance="1k"
         footprint="0603"
-        pcbX={-14}
-        pcbY={2}
+        {...g(-7, 1)}
         connections={{
           pin1: sel.net().VCC,
           pin2: sel.net().LED2_A,
@@ -120,8 +119,7 @@ export default () => (
         name="D2"
         color="yellow"
         footprint="0603"
-        pcbX={-14}
-        pcbY={-2}
+        {...g(-7, -1)}
         connections={{
           pin1: sel.net().LED2_A,
           pin2: sel.net().LED2,
@@ -132,8 +130,7 @@ export default () => (
         name="R5"
         resistance="1k"
         footprint="0603"
-        pcbX={-10}
-        pcbY={2}
+        {...g(-5, 1)}
         connections={{
           pin1: sel.net().VCC,
           pin2: sel.net().LED3_A,
@@ -143,8 +140,7 @@ export default () => (
         name="D3"
         color="yellow"
         footprint="0603"
-        pcbX={-10}
-        pcbY={-2}
+        {...g(-5, -1)}
         connections={{
           pin1: sel.net().LED3_A,
           pin2: sel.net().LED3,
@@ -155,8 +151,7 @@ export default () => (
         name="R6"
         resistance="1k"
         footprint="0603"
-        pcbX={-6}
-        pcbY={2}
+        {...g(-3, 1)}
         connections={{
           pin1: sel.net().VCC,
           pin2: sel.net().LED4_A,
@@ -166,8 +161,7 @@ export default () => (
         name="D4"
         color="green"
         footprint="0603"
-        pcbX={-6}
-        pcbY={-2}
+        {...g(-3, -1)}
         connections={{
           pin1: sel.net().LED4_A,
           pin2: sel.net().LED4,
@@ -178,8 +172,7 @@ export default () => (
         name="R7"
         resistance="1k"
         footprint="0603"
-        pcbX={-2}
-        pcbY={2}
+        {...g(-1, 1)}
         connections={{
           pin1: sel.net().VCC,
           pin2: sel.net().LED5_A,
@@ -189,8 +182,7 @@ export default () => (
         name="D5"
         color="green"
         footprint="0603"
-        pcbX={-2}
-        pcbY={-2}
+        {...g(-1, -1)}
         connections={{
           pin1: sel.net().LED5_A,
           pin2: sel.net().LED5,
@@ -201,8 +193,7 @@ export default () => (
         name="R8"
         resistance="1k"
         footprint="0603"
-        pcbX={2}
-        pcbY={2}
+        {...g(1, 1)}
         connections={{
           pin1: sel.net().VCC,
           pin2: sel.net().LED6_A,
@@ -212,8 +203,7 @@ export default () => (
         name="D6"
         color="green"
         footprint="0603"
-        pcbX={2}
-        pcbY={-2}
+        {...g(1, -1)}
         connections={{
           pin1: sel.net().LED6_A,
           pin2: sel.net().LED6,
@@ -224,8 +214,7 @@ export default () => (
         name="R9"
         resistance="1k"
         footprint="0603"
-        pcbX={6}
-        pcbY={2}
+        {...g(3, 1)}
         connections={{
           pin1: sel.net().VCC,
           pin2: sel.net().LED7_A,
@@ -235,8 +224,7 @@ export default () => (
         name="D7"
         color="blue"
         footprint="0603"
-        pcbX={6}
-        pcbY={-2}
+        {...g(3, -1)}
         connections={{
           pin1: sel.net().LED7_A,
           pin2: sel.net().LED7,
@@ -247,8 +235,7 @@ export default () => (
         name="R10"
         resistance="1k"
         footprint="0603"
-        pcbX={10}
-        pcbY={2}
+        {...g(5, 1)}
         connections={{
           pin1: sel.net().VCC,
           pin2: sel.net().LED8_A,
@@ -258,8 +245,7 @@ export default () => (
         name="D8"
         color="blue"
         footprint="0603"
-        pcbX={10}
-        pcbY={-2}
+        {...g(5, -1)}
         connections={{
           pin1: sel.net().LED8_A,
           pin2: sel.net().LED8,
@@ -270,8 +256,7 @@ export default () => (
         name="R11"
         resistance="1k"
         footprint="0603"
-        pcbX={14}
-        pcbY={2}
+        {...g(7, 1)}
         connections={{
           pin1: sel.net().VCC,
           pin2: sel.net().LED9_A,
@@ -281,8 +266,7 @@ export default () => (
         name="D9"
         color="blue"
         footprint="0603"
-        pcbX={14}
-        pcbY={-2}
+        {...g(7, -1)}
         connections={{
           pin1: sel.net().LED9_A,
           pin2: sel.net().LED9,
@@ -293,8 +277,7 @@ export default () => (
         name="R12"
         resistance="1k"
         footprint="0603"
-        pcbX={18}
-        pcbY={2}
+        {...g(9, 1)}
         connections={{
           pin1: sel.net().VCC,
           pin2: sel.net().LED10_A,
@@ -304,8 +287,7 @@ export default () => (
         name="D10"
         color="red"
         footprint="0603"
-        pcbX={18}
-        pcbY={-2}
+        {...g(9, -1)}
         connections={{
           pin1: sel.net().LED10_A,
           pin2: sel.net().LED10,

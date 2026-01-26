@@ -1,5 +1,12 @@
 import { sel } from "tscircuit";
 
+const GRID_MM = 1
+const ORIGIN = { x: 0, y: 0 }
+const g = (x: number, y: number) => ({
+  pcbX: ORIGIN.x + x * GRID_MM,
+  pcbY: ORIGIN.y + y * GRID_MM,
+})
+
 /**
  * 5x12 full-size keyboard matrix.
  *
@@ -70,8 +77,7 @@ export default () => {
         name="J1"
         pinCount={19}
         pitch="2.54mm"
-        pcbX={-54}
-        pcbY={0}
+        {...g(-54, 0)}
         pcbRotation={90}
         connections={{
           pin1: nets.VCC,
@@ -100,8 +106,7 @@ export default () => {
         name="C1"
         capacitance="0.1uF"
         footprint="0603"
-        pcbX={-44}
-        pcbY={-12}
+        {...g(-44, -12)}
         connections={{
           pin1: nets.VCC,
           pin2: nets.GND,
@@ -114,8 +119,7 @@ export default () => {
           name={key.name}
           pinCount={2}
           pitch="2.54mm"
-          pcbX={key.x}
-          pcbY={key.y}
+          {...g(key.x, key.y)}
           connections={{
             pin1: nets[key.row],
             pin2: nets[key.col],
