@@ -6,6 +6,7 @@
     "outDir": "dist",
     "strict": true,
     "esModuleInterop": true,
+    "baseUrl": ".",
     "moduleResolution": "node",
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -14,7 +15,8 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "types": [
-      "tscircuit"
+      "tscircuit",
+      "node"
     ]
   }
 }
