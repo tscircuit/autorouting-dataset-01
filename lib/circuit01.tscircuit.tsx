@@ -1,3 +1,10 @@
+/**
+ * Minimal RC network demo board.
+ *
+ * What the board does:
+ * - Places a resistor and capacitor and connects them with a single trace.
+ * - Serves as a simple autorouting/placement test case.
+ */
 const Circuit01 = () => (
   <board height={"10"}>
     <resistor resistance="1k" footprint="0402" name="R1" schX={3} pcbX={3} />

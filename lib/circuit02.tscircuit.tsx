@@ -2,6 +2,14 @@ import { sel } from "tscircuit";
 import { TC78H670FTG_EL } from "imports/TC78H670FTG_EL";
 import { VGF39NCHXT_B103 } from "imports/VGF39NCHXT_B103";
 
+/**
+ * TC78H670FTG-based motor driver breakout.
+ *
+ * What the board does:
+ * - Breaks out the motor driver IC pins for VM, logic, and outputs.
+ * - Includes input/output filtering and reference components.
+ * - Intended as a compact test board for routing and power layouts.
+ */
 export default () => (
   <board width="15.24mm" height="20.32mm">
     <schematictext
