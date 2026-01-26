@@ -7,6 +7,8 @@
       "dependencies": {
         "@tsci/imrishabh18.TB6612FNG": "^0.1.0",
         "@tsci/seveibar.PICO": "^0.1.0",
+        "@tsci/seveibar.PICO_W": "^0.1.0",
+        "@tsci/seveibar.WS2812B_2020": "^0.0.1",
         "@tsci/seveibar.esp32-s3-mini-1-n8": "^0.1.0",
         "@tsci/seveibar.keyboard-utils": "^0.0.18",
         "@tsci/seveibar.reg-5v-to-3v": "^0.0.1",
@@ -156,6 +158,10 @@
     "@tsci/imrishabh18.TB6612FNG": ["@tsci/imrishabh18.TB6612FNG@0.1.0", "https://npm.tscircuit.com/package_files/download?package_name=imrishabh18%2Ftb6612fng&package_file_id=24200b53-55e5-4c94-800a-cf574105e7b0", {}, "sha512-+tRT5o0TVDY4z9soEyyYNFf3qAVqeQPK6ZAUsjDTEJQRj3+R95SPUlM8Lh6gwzpo2yfx+2kNQzRtml/U9l/+mg=="],
 
     "@tsci/seveibar.PICO": ["@tsci/seveibar.PICO@0.1.0", "https://npm.tscircuit.com/package_files/download?package_name=seveibar%2Fpico&package_file_id=65595139-2a92-4046-a7da-57816b8c3089", {}, "sha512-1yW1IIB/gHkbty18w20VdGGHawdSwh9WceXJoivXNRc1Cx8SAul1pMRIzZWSk+fr9cg2xspTwqS3kjyx1CB3tA=="],
+
+    "@tsci/seveibar.PICO_W": ["@tsci/seveibar.PICO_W@0.1.0", "https://npm.tscircuit.com/package_files/download?package_name=seveibar%2Fpico_w&package_file_id=0536d8a2-c212-491d-a853-d71e0f1d674c", {}, "sha512-4oxoJIUJSF2LGRTr1/+cQdtEF7NqVtbXFH+r2cSP7DP6sCdSEa3LTD73I1SZB1Y3mZRJTzOjH2cqZsvCmnSTgQ=="],
+
+    "@tsci/seveibar.WS2812B_2020": ["@tsci/seveibar.WS2812B_2020@0.0.1", "https://npm.tscircuit.com/package_files/download?package_name=seveibar%2Fws2812b_2020&package_file_id=246993fc-6ead-45e9-b45b-f3e7c392d94c", {}, "sha512-f/CyB0ka514Dln74Hvhn+RzEdhiJeT0aoMkLlEkth+ZPoOg6VtGOhWZ13n4KP7uSaTUgqfUPcs/IzTVL/D7rfw=="],
 
     "@tsci/seveibar.esp32-s3-mini-1-n8": ["@tsci/seveibar.esp32-s3-mini-1-n8@0.1.0", "https://npm.tscircuit.com/package_files/download?package_name=seveibar%2Fesp32-s3-mini-1-n8&package_file_id=19fdf973-a65e-4b66-861c-dbd05f1ce106", {}, "sha512-o+jQRyPOSmocAUFaqBsu9B4owLAB9yR8JlxeF41DAeUo4l6iepCSh39LWmDE16XIo7Hmax9ss5qVHClveeIchQ=="],
 
