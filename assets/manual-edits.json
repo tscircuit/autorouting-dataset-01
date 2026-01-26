@@ -1,0 +1,33 @@
+{
+  "pcb_placements": [
+    {
+      "selector": "C3",
+      "center": {
+        "x": 1,
+        "y": 5.225806451612904
+      },
+      "relative_to": "group_center",
+      "_edit_event_id": "0.8257349681150397"
+    },
+    {
+      "selector": "C1",
+      "center": {
+        "x": -1.3225806451612883,
+        "y": 5.225806451612902
+      },
+      "relative_to": "group_center",
+      "_edit_event_id": "0.23677774255304196"
+    },
+    {
+      "selector": "C2",
+      "center": {
+        "x": -0.03225806451613167,
+        "y": 7.806451612903226
+      },
+      "relative_to": "group_center",
+      "_edit_event_id": "0.7735206084238306"
+    }
+  ],
+  "edit_events": [],
+  "manual_trace_hints": []
+}
