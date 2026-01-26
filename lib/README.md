@@ -29,3 +29,5 @@ A 30x30mm TB6612FNG motor driver board with dual 8-pin headers and bypass capaci
 - lib/circuit09.tscircuit.tsx
 The component includes a USB-C connector, ESP32-S3 MINI module, 5V to 3.3V regulator, and pull-down resistors for USB-C configuration.
 
+- lib/circuit10.tscircuit.tsx
+ACS37800-based Qwiic power meter board with I2C connectors, alert pins, and high-current holes.
