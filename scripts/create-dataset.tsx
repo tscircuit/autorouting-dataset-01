@@ -39,27 +39,48 @@ const main = async () => {
     console.log("[Start]", baseName)
 
     const simpleRouteWritten = new Promise<void>((resolve, reject) => {
+      let settled = false
+      const cleanup = () => {
+        if (settled) return
+        settled = true
+      }
       circuit.on("autorouting:start", async ({ simpleRouteJson }) => {
+        if (settled) return
         try {
           await writeFile(
             outputPath,
             JSON.stringify(simpleRouteJson, null, 2)
           )
           console.log("[Done]", baseName)
+          cleanup()
           resolve()
         } catch (err) {
           console.log("[Error] writeFile", baseName)
+          cleanup()
           reject(err)
         }
       })
       circuit.on("autorouting:error", (err) => {
+        if (settled) return
         console.log("[Error] autorouting", baseName)
+        cleanup()
         reject(err)
       })
     })
 
-    circuit.render()
-    await simpleRouteWritten
+    const timeoutMs = 60_000
+    const timeout = new Promise<void>((_, reject) => {
+      setTimeout(() => reject(new Error("autorouting timeout")), timeoutMs)
+    })
+
+    try {
+      circuit.render()
+      await Promise.race([simpleRouteWritten, timeout])
+    } catch (err) {
+      const reason = err instanceof Error ? err.message : String(err)
+      console.log(`[Ignored] ${file} due to autorouting failure: ${reason}`)
+      continue
+    }
   }
 }
 
