@@ -1,3 +1,4 @@
+/** 60% keyboard matrix using a Pico microcontroller and layouts.default60. */
 // @ts-ignore
 import { PICO } from "@tsci/seveibar.PICO";
 // @ts-ignore

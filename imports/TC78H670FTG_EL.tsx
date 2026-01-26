@@ -1,3 +1,4 @@
+/** Toshiba TC78H670FTG motor driver IC footprint. */
 import type { ChipProps } from "@tscircuit/props"
 
 const pinLabels = {

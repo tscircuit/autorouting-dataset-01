@@ -1,3 +1,4 @@
+/** 3-pin component footprint used in circuit02. */
 import type { ChipProps } from "@tscircuit/props"
 
 const pinLabels = {

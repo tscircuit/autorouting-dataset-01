@@ -1,3 +1,4 @@
+/** JST SH 4-pin right-angle connector footprint. */
 import type { ChipProps } from "@tscircuit/props"
 
 const pinLabels = {

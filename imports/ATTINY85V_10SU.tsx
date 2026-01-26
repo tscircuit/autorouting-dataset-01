@@ -1,3 +1,4 @@
+/** ATTiny85 microcontroller in SOIC-8. */
 import type { ChipProps } from "@tscircuit/props"
 
 const pinLabels = {

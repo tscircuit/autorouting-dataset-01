@@ -1,3 +1,4 @@
+/** ACS37800 power monitor IC footprint wrapper. */
 import type { ChipProps } from "@tscircuit/props";
 
 const pinLabels = {

@@ -1,3 +1,4 @@
+/** 2x3 AVR ISP programming header footprint. */
 import type { ChipProps } from "@tscircuit/props"
 
 const pinLabels = {

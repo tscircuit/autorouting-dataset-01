@@ -1,3 +1,4 @@
+/** 1x4 pin header footprint. */
 import type { ChipProps } from "@tscircuit/props"
 
 const pinLabels = {

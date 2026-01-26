@@ -1,3 +1,4 @@
+/** ST ISM330DHCX 6-axis IMU (accelerometer/gyro) footprint. */
 import type { ChipProps } from "@tscircuit/props"
 
 const pinLabels = {

@@ -1,3 +1,4 @@
+/** ISM330DHCX IMU + MMC5983MA magnetometer breakout with I2C headers, jumpers, and LED. */
 import { ISM330DHCX } from "../imports/ISM330DHCX";
 import { sel } from "tscircuit";
 import { MMC5983MA_QFN16 } from "../imports/MMC5983MA_QFN16";

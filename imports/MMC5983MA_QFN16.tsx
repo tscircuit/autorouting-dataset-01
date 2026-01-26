@@ -1,3 +1,4 @@
+/** MMC5983MA 3-axis magnetometer QFN-16 footprint. */
 import type { ChipProps } from "@tscircuit/props"
 
 const pinLabels = {

@@ -1,3 +1,4 @@
+/** Joystick module footprint with multiple pins. */
 import type { ChipProps } from "@tscircuit/props"
 
 const pinLabels = {
