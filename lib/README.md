@@ -13,3 +13,12 @@ ATTiny85-based joystick/I2C breakout with optional I2C pull-ups, an ISP header, 
 
 - lib/circuit04.tscircuit.tsx
 Variant of circuit03 with similar functionality and slightly shifted PCB placements.
+
+- lib/circuit05.tscircuit.tsx
+Simple voltage-divider with LED indicator and 1x3 header for VIN/VOUT/GND.
+
+- lib/circuit06.tscircuit.tsx
+Dual RC low-pass filter board with a 1x6 header for two signal channels.
+
+- lib/circuit07.tscircuit.tsx
+Button input with pull-up and LED output, using headers for external connections.
