@@ -15,5 +15,11 @@
   "devDependencies": {
     "@types/react": "^19.2.9",
     "tscircuit": "^0.0.1168"
+  },
+  "dependencies": {
+    "@tsci/imrishabh18.TB6612FNG": "^0.1.0",
+    "@tsci/seveibar.esp32-s3-mini-1-n8": "^0.1.0",
+    "@tsci/seveibar.reg-5v-to-3v": "^0.0.1",
+    "@tsci/seveibar.smd-usb-c": "^0.0.2"
   }
 }

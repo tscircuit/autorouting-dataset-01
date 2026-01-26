@@ -22,3 +22,10 @@ Dual RC low-pass filter board with a 1x6 header for two signal channels.
 
 - lib/circuit07.tscircuit.tsx
 Button input with pull-up and LED output, using headers for external connections.
+
+- lib/circuit08.tscircuit.tsx
+A 30x30mm TB6612FNG motor driver board with dual 8-pin headers and bypass capacitors for motor control and power regulation
+
+- lib/circuit09.tscircuit.tsx
+The component includes a USB-C connector, ESP32-S3 MINI module, 5V to 3.3V regulator, and pull-down resistors for USB-C configuration.
+
