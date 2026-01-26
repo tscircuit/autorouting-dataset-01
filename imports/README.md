@@ -13,6 +13,9 @@ Joystick module footprint with multiple pins.
 - imports/PinHeader1x4.tsx
 1x4 pin header footprint.
 
+- imports/PinHeader1x3.tsx
+1x3 pin header footprint.
+
 - imports/SM04B_SRSS_TB_LF__SN.tsx
 JST SH 4-pin right-angle connector footprint.
 

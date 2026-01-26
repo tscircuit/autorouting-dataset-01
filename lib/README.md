@@ -31,3 +31,48 @@ The component includes a USB-C connector, ESP32-S3 MINI module, 5V to 3.3V regul
 
 - lib/circuit10.tscircuit.tsx
 ACS37800-based Qwiic power meter board with I2C connectors, alert pins, and high-current holes.
+
+- lib/circuit11.tscircuit.tsx
+I2C Qwiic splitter with dual JST SH connectors, a 1x4 header, and onboard pull-ups.
+
+- lib/circuit12.tscircuit.tsx
+Low-side load switch breakout using a small 3-pin FET, gate pull-down, and signal LED.
+
+- lib/circuit13.tscircuit.tsx
+Dual LED indicator board with external control pins and a 1x4 header.
+
+- lib/circuit14.tscircuit.tsx
+Joystick thumbstick breakout with a single 1x8 header for axes and switch signals.
+
+- lib/circuit15.tscircuit.tsx
+Quad RC low-pass filter bank with a 1x12 header for IN/OUT/GND per channel.
+
+- lib/circuit16.tscircuit.tsx
+2-key macro pad matrix with a status LED and row/column breakout.
+
+- lib/circuit17.tscircuit.tsx
+3x3 ortholinear keypad matrix with a 1x6 row/column header.
+
+- lib/circuit18.tscircuit.tsx
+4x4 numpad-style matrix with row pull-ups and a 1x10 header.
+
+- lib/circuit19.tscircuit.tsx
+Split ergonomic keyboard matrix (3x6 per side) with a shared row/column header.
+
+- lib/circuit20.tscircuit.tsx
+5x12 full-size keyboard matrix with VCC/GND and row/column header.
+
+- lib/circuit21.tscircuit.tsx
+Small gyro tilt indicator with I2C header, pull-ups, and a 3-LED fluid bar.
+
+- lib/circuit22.tscircuit.tsx
+Medium gyro fluid bar with I2C header, pull-ups, and five LED channels.
+
+- lib/circuit23.tscircuit.tsx
+Gyro LED ring (8 LEDs) with I2C header and LED cathodes broken out.
+
+- lib/circuit24.tscircuit.tsx
+Large 10-LED fluid bar with gyro I2C header and LED control header.
+
+- lib/circuit25.tscircuit.tsx
+Compass-style gyro indicator with 4 cardinal LEDs and I2C header.
