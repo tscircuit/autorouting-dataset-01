@@ -28,10 +28,13 @@ const main = async () => {
       `${baseName}.simple-route-before.json`
     )
 
+    console.log("[Start]", baseName)
+
     const simpleRouteWritten = new Promise<void>((resolve, reject) => {
       const timeout = setTimeout(() => {
+        console.log("[Timeout] autorouting:start", baseName)
         reject(new Error(`autorouting:start not emitted for ${baseName}`))
-      }, 30_000)
+      }, 1_000)
 
       circuit.on("autorouting:start", async ({ simpleRouteJson }) => {
         try {
@@ -40,21 +43,32 @@ const main = async () => {
             JSON.stringify(simpleRouteJson, null, 2)
           )
           clearTimeout(timeout)
+          console.log("[Done]", baseName)
           resolve()
         } catch (err) {
           clearTimeout(timeout)
+          console.log("[Error] writeFile", baseName)
           reject(err)
         }
       })
       circuit.on("autorouting:error", (err) => {
         clearTimeout(timeout)
+        console.log("[Error] autorouting", baseName)
         reject(err)
       })
     })
 
-    await circuit.renderUntilSettled()
+    circuit.render()
     await simpleRouteWritten
   }
 }
 
-void main()
+void main().then(
+  () => {
+    process.exit(0)
+  },
+  (err) => {
+    console.error(err)
+    process.exit(1)
+  }
+)
