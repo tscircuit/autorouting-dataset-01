@@ -20,7 +20,7 @@ const collectFiles = (dir: string) => {
       continue
     }
     if (!entry.isFile()) continue
-    if (dir.startsWith("lib") && entry.name.endsWith(".tscircuit.tsx")) files.push(entryPath)
+    if (dir.startsWith("lib") && entry.name.endsWith(".tsx")) files.push(entryPath)
     if (dir.startsWith("imports") && entry.name.endsWith(".tsx")) files.push(entryPath)
   }
 }

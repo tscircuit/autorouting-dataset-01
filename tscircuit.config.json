@@ -1,4 +1,4 @@
 {
   "$schema": "https://cdn.jsdelivr.net/npm/@tscircuit/cli/types/tscircuit.config.schema.json",
-  "mainEntrypoint": "lib/circuit01.tscircuit.tsx"
+  "mainEntrypoint": "lib/circuit001.tsx"
 }

@@ -11,12 +11,10 @@ const main = async () => {
 
   await mkdir(datasetDir, { recursive: true })
 
-  const files = (await readdir(libDir)).filter((file) =>
-    file.endsWith(".tscircuit.tsx")
-  )
+  const files = (await readdir(libDir)).filter((file) => file.endsWith(".tsx"))
 
   for (const file of files) {
-    const baseName = file.replace(/\.tscircuit\.tsx$/, "")
+    const baseName = file.replace(/\.tsx$/, "")
     const modulePath = `lib/${file.replace(/\.tsx$/, "")}`
     let Circuit: unknown
     try {
