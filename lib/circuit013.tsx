@@ -1,4 +1,4 @@
-import { sel } from "tscircuit";
+import { sel } from "tscircuit"
 
 /**
  * Dual LED indicator board with external control pins.
@@ -73,4 +73,4 @@ export default () => (
       }}
     />
   </board>
-);
+)

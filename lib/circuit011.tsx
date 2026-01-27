@@ -1,5 +1,5 @@
-import { sel } from "tscircuit";
-import { SM04B_SRSS_TB_LF__SN } from "imports/SM04B_SRSS_TB_LF__SN";
+import { SM04B_SRSS_TB_LF__SN } from "imports/SM04B_SRSS_TB_LF__SN"
+import { sel } from "tscircuit"
 
 /**
  * I2C bus splitter with Qwiic connectors and header breakout.
@@ -11,7 +11,12 @@ import { SM04B_SRSS_TB_LF__SN } from "imports/SM04B_SRSS_TB_LF__SN";
  */
 export default () => (
   <board width="32mm" height="20mm">
-    <schematictext text="I2C Qwiic Splitter" fontSize={0.35} color="brown" schY={6} />
+    <schematictext
+      text="I2C Qwiic Splitter"
+      fontSize={0.35}
+      color="brown"
+      schY={6}
+    />
 
     <SM04B_SRSS_TB_LF__SN
       name="J1"
@@ -90,4 +95,4 @@ export default () => (
       }}
     />
   </board>
-);
+)

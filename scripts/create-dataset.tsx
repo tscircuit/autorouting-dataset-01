@@ -1,10 +1,10 @@
+import { mkdir, readdir, writeFile } from "node:fs/promises"
+import path from "node:path"
 import { RootCircuit } from "@tscircuit/core"
-import { mkdir, readdir, writeFile } from "fs/promises"
-import path from "path"
 
 /*
  * This script creates a dataset of simple-route-before.json files
-*/
+ */
 const main = async () => {
   const libDir = path.resolve("lib")
   const datasetDir = path.resolve("dataset")
@@ -12,6 +12,8 @@ const main = async () => {
   await mkdir(datasetDir, { recursive: true })
 
   const files = (await readdir(libDir)).filter((file) => file.endsWith(".tsx"))
+
+  const generatedFiles: string[] = []
 
   for (const file of files) {
     const baseName = file.replace(/\.tsx$/, "")
@@ -31,7 +33,7 @@ const main = async () => {
 
     const outputPath = path.join(
       datasetDir,
-      `${baseName}.simple-route-before.json`
+      `${baseName}.simple-route-before.json`,
     )
 
     console.log("[Start]", baseName)
@@ -45,10 +47,7 @@ const main = async () => {
       circuit.on("autorouting:start", async ({ simpleRouteJson }) => {
         if (settled) return
         try {
-          await writeFile(
-            outputPath,
-            JSON.stringify(simpleRouteJson, null, 2)
-          )
+          await writeFile(outputPath, JSON.stringify(simpleRouteJson, null, 2))
           console.log("[Done]", baseName)
           cleanup()
           resolve()
@@ -74,12 +73,24 @@ const main = async () => {
     try {
       circuit.render()
       await Promise.race([simpleRouteWritten, timeout])
+      generatedFiles.push(baseName)
     } catch (err) {
       const reason = err instanceof Error ? err.message : String(err)
       console.log(`[Ignored] ${file} due to autorouting failure: ${reason}`)
-      continue
     }
   }
+
+  const datasetFiles = (await readdir(datasetDir)).filter((file) =>
+    file.endsWith(".simple-route-before.json"),
+  )
+
+  const indexContent = datasetFiles
+    .map((file) => {
+      const name = file.replace(".simple-route-before.json", "")
+      return `export { default as ${name.replace(/-/g, "_")} } from "./${file}"`
+    })
+    .join("\n")
+  await writeFile(path.join(datasetDir, "index.ts"), indexContent)
 }
 
 void main().then(
@@ -89,5 +100,5 @@ void main().then(
   (err) => {
     console.error(err)
     process.exit(1)
-  }
+  },
 )

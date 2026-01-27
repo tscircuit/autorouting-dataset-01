@@ -1,4 +1,4 @@
-import { sel } from "tscircuit";
+import { sel } from "tscircuit"
 
 /**
  * Dual RC low-pass filter with test header.
@@ -72,4 +72,4 @@ export default () => (
       }}
     />
   </board>
-);
+)

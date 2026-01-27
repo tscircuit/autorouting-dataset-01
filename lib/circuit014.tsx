@@ -1,5 +1,5 @@
-import { sel } from "tscircuit";
-import { JoystickThumb } from "imports/JoystickThumb";
+import { JoystickThumb } from "imports/JoystickThumb"
+import { sel } from "tscircuit"
 
 /**
  * Joystick thumbstick breakout with single 1x8 header.
@@ -45,4 +45,4 @@ export default () => (
       }}
     />
   </board>
-);
+)

@@ -112,21 +112,21 @@ export default () => (
       pcbY={-3}
       pcbX={2.4}
       pcbRotation={90}
-      />
+    />
     <silkscreentext
       text="VCC"
       fontSize={1}
       pcbY={-3}
       pcbX={-0.1}
       pcbRotation={90}
-      />
+    />
     <silkscreentext
       text="OUT"
       fontSize={1}
       pcbY={-3}
       pcbX={-2.6}
       pcbRotation={90}
-      />
+    />
     <silkscreentext
       text="OUT"
       fontSize={1}
@@ -134,7 +134,7 @@ export default () => (
       pcbX={2.4}
       pcbRotation={90}
       layer="bottom"
-      />
+    />
     <silkscreentext
       text="VCC"
       fontSize={1}
@@ -142,7 +142,7 @@ export default () => (
       pcbX={-0.1}
       pcbRotation={90}
       layer="bottom"
-      />
+    />
     <silkscreentext
       text="GND"
       fontSize={1}
@@ -150,7 +150,7 @@ export default () => (
       pcbX={-2.6}
       pcbRotation={90}
       layer="bottom"
-      />
+    />
     <netlabel
       net="GND"
       anchorSide="top"
@@ -187,59 +187,42 @@ export default () => (
       pcbY={5.715}
       pcbRotation={270}
     />
-    
+
     <chip
       name="U1"
       manufacturerPartNumber="QRE1113"
       schPinArrangement={{
-        topSide:{
+        topSide: {
           direction: "left-to-right",
-          pins: [3,1]
+          pins: [3, 1],
         },
-        bottomSide:{
+        bottomSide: {
           direction: "left-to-right",
-          pins: [4,2]
-        }
-
+          pins: [4, 2],
+        },
       }}
       pcbRotation={180}
       schPinStyle={{
         pin1: {
-          leftMargin: 0.4
+          leftMargin: 0.4,
         },
         pin2: {
-          leftMargin: 0.4
+          leftMargin: 0.4,
         },
       }}
       connections={{
         pin1: sel.R1.pin1,
-        pin3: sel.R2.pin1
+        pin3: sel.R2.pin1,
       }}
       footprint={U1_FOOTPRINT}
       schX={2.6}
       schY={-0.74}
-        pcbY={ 9.525}
-      />
-    <hole diameter="3.302mm" pcbY={0.635}/>
-    <silkscreentext
-      text="QRE1113"
-      fontSize={1}
-      pcbY={-8}
-      />
-     <silkscreentext
-      text="Analog"
-      fontSize={1}
-      pcbY={-9}
-      />
-    <silkscreentext
-      text="line"
-      fontSize={1}
-      pcbY={-10}
-      />
-    <silkscreentext
-      text="sensor"
-      fontSize={1}
-      pcbY={-11}
-      />
+      pcbY={9.525}
+    />
+    <hole diameter="3.302mm" pcbY={0.635} />
+    <silkscreentext text="QRE1113" fontSize={1} pcbY={-8} />
+    <silkscreentext text="Analog" fontSize={1} pcbY={-9} />
+    <silkscreentext text="line" fontSize={1} pcbY={-10} />
+    <silkscreentext text="sensor" fontSize={1} pcbY={-11} />
   </board>
 )

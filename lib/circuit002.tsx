@@ -1,6 +1,6 @@
-import { sel } from "tscircuit";
-import { TC78H670FTG_EL } from "imports/TC78H670FTG_EL";
-import { VGF39NCHXT_B103 } from "imports/VGF39NCHXT_B103";
+import { TC78H670FTG_EL } from "imports/TC78H670FTG_EL"
+import { VGF39NCHXT_B103 } from "imports/VGF39NCHXT_B103"
+import { sel } from "tscircuit"
 
 /**
  * TC78H670FTG-based motor driver breakout.
@@ -170,7 +170,6 @@ export default () => (
       }}
     />
 
-
     <schematictext
       text="Pull-up/down Resistors"
       fontSize={0.4}
@@ -191,7 +190,7 @@ export default () => (
       schY={-3.5}
       connections={{
         pin1: sel.net().EN,
-        pin2: sel.net.GND
+        pin2: sel.net.GND,
       }}
     />
 
@@ -351,6 +350,5 @@ export default () => (
         pin8: sel.net().GND,
       }}
     />
-
   </board>
-);
+)

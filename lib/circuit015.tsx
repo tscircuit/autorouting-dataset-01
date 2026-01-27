@@ -1,4 +1,4 @@
-import { sel } from "tscircuit";
+import { sel } from "tscircuit"
 
 /**
  * Quad RC low-pass filter bank with a 1x12 header.
@@ -124,4 +124,4 @@ export default () => (
       }}
     />
   </board>
-);
+)

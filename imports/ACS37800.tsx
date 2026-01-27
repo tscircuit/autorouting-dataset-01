@@ -1,5 +1,5 @@
 /** ACS37800 power monitor IC footprint wrapper. */
-import type { ChipProps } from "@tscircuit/props";
+import type { ChipProps } from "@tscircuit/props"
 
 const pinLabels = {
   pin1: ["pin1"],
@@ -18,7 +18,7 @@ const pinLabels = {
   pin14: ["pin14"],
   pin15: ["pin15"],
   pin16: ["pin16"],
-} as const;
+} as const
 
 export const ACS37800 = (props: ChipProps<typeof pinLabels>) => {
   return (
@@ -170,5 +170,5 @@ export const ACS37800 = (props: ChipProps<typeof pinLabels>) => {
       }
       {...props}
     />
-  );
-};
+  )
+}

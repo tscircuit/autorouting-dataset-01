@@ -1,7 +1,8 @@
 /** ISM330DHCX IMU + MMC5983MA magnetometer breakout with I2C headers, jumpers, and LED. */
-import { ISM330DHCX } from "../imports/ISM330DHCX";
-import { sel } from "tscircuit";
-import { MMC5983MA_QFN16 } from "../imports/MMC5983MA_QFN16";
+
+import { sel } from "tscircuit"
+import { ISM330DHCX } from "../imports/ISM330DHCX"
+import { MMC5983MA_QFN16 } from "../imports/MMC5983MA_QFN16"
 
 export const D1_FOOTPRINT = (
   <footprint>
@@ -29,7 +30,7 @@ export const D1_FOOTPRINT = (
       portHints={["A", "anode"]}
     />
   </footprint>
-);
+)
 
 export const J_FOOTPRINT = (
   <footprint>
@@ -91,8 +92,7 @@ export const J_FOOTPRINT = (
       portHints={["4"]}
     />
   </footprint>
-);
-
+)
 
 export default () => (
   <board width="25.4mm" height="25.4mm">
@@ -524,4 +524,4 @@ export default () => (
     <hole diameter="3.32mm" pcbX={10.16} pcbY={-10.16} />
     <hole diameter="3.32mm" pcbX={10.16} pcbY={10.16} />
   </board>
-);
+)

@@ -2,9 +2,11 @@ import fs from "node:fs"
 import path from "node:path"
 
 const params = {
-  dirs: (process.argv
-    .find((arg) => arg.startsWith("--dirs="))
-    ?.slice("--dirs=".length) ?? "lib,imports")
+  dirs: (
+    process.argv
+      .find((arg) => arg.startsWith("--dirs="))
+      ?.slice("--dirs=".length) ?? "lib,imports"
+  )
     .split(",")
     .filter(Boolean),
 }
@@ -20,8 +22,10 @@ const collectFiles = (dir: string) => {
       continue
     }
     if (!entry.isFile()) continue
-    if (dir.startsWith("lib") && entry.name.endsWith(".tsx")) files.push(entryPath)
-    if (dir.startsWith("imports") && entry.name.endsWith(".tsx")) files.push(entryPath)
+    if (dir.startsWith("lib") && entry.name.endsWith(".tsx"))
+      files.push(entryPath)
+    if (dir.startsWith("imports") && entry.name.endsWith(".tsx"))
+      files.push(entryPath)
   }
 }
 
@@ -55,10 +59,14 @@ for (const file of files) {
 
 for (const [dir, dirFiles] of filesByDir.entries()) {
   const readmePath = path.join(dir, "README.md")
-  const existing = fs.existsSync(readmePath) ? fs.readFileSync(readmePath, "utf8") : ""
+  const existing = fs.existsSync(readmePath)
+    ? fs.readFileSync(readmePath, "utf8")
+    : ""
   const firstListIndex = existing.search(/^\s*-\s+/m)
   const preamble =
-    firstListIndex === -1 ? existing.trimEnd() : existing.slice(0, firstListIndex).trimEnd()
+    firstListIndex === -1
+      ? existing.trimEnd()
+      : existing.slice(0, firstListIndex).trimEnd()
   const lines: string[] = []
   if (preamble) lines.push(preamble, "")
   const sorted = dirFiles.slice().sort()
@@ -67,7 +75,7 @@ for (const [dir, dirFiles] of filesByDir.entries()) {
     const doc = extractJsdoc(content) || "MISSING JSDOC"
     lines.push(`- ${file}`, doc, "")
   }
-  fs.writeFileSync(readmePath, lines.join("\n").trimEnd() + "\n")
+  fs.writeFileSync(readmePath, `${lines.join("\n").trimEnd()}\n`)
 }
 
 console.log(`Updated README.md for ${params.dirs.length} directories.`)
