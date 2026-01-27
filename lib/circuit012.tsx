@@ -1,6 +1,6 @@
-import { sel } from "tscircuit";
-import { PinHeader1x3 } from "imports/PinHeader1x3";
-import { VGF39NCHXT_B103 } from "imports/VGF39NCHXT_B103";
+import { sel } from "tscircuit"
+import { PinHeader1x3 } from "imports/PinHeader1x3"
+import { VGF39NCHXT_B103 } from "imports/VGF39NCHXT_B103"
 
 /**
  * Low-side load switch with gate pull-down and status LED.
@@ -12,7 +12,12 @@ import { VGF39NCHXT_B103 } from "imports/VGF39NCHXT_B103";
  */
 export default () => (
   <board width="22mm" height="22mm">
-    <schematictext text="Low-Side Switch" fontSize={0.35} color="brown" schY={5.5} />
+    <schematictext
+      text="Low-Side Switch"
+      fontSize={0.35}
+      color="brown"
+      schY={5.5}
+    />
 
     <PinHeader1x3
       name="J1"
@@ -85,4 +90,4 @@ export default () => (
       }}
     />
   </board>
-);
+)

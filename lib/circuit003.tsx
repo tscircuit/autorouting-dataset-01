@@ -1,9 +1,9 @@
-import { sel } from "tscircuit";
-import { ATTINY85V_10SU } from "imports/ATTINY85V_10SU";
-import { SM04B_SRSS_TB_LF__SN } from "imports/SM04B_SRSS_TB_LF__SN";
-import { JoystickThumb } from "imports/JoystickThumb";
-import { PinHeader1x4 } from "imports/PinHeader1x4";
-import { AVR_ISP_2x3 } from "imports/AVR_ISP_2x3";
+import { sel } from "tscircuit"
+import { ATTINY85V_10SU } from "imports/ATTINY85V_10SU"
+import { SM04B_SRSS_TB_LF__SN } from "imports/SM04B_SRSS_TB_LF__SN"
+import { JoystickThumb } from "imports/JoystickThumb"
+import { PinHeader1x4 } from "imports/PinHeader1x4"
+import { AVR_ISP_2x3 } from "imports/AVR_ISP_2x3"
 
 /**
  * ATTiny85-based joystick/I2C breakout board with onboard pull-ups and status LED.
@@ -298,7 +298,7 @@ export default () => (
       schX={15.6}
       schY={1}
     />
-    
+
     <schematictext
       text="I2C Connections"
       fontSize={0.4}
@@ -309,7 +309,7 @@ export default () => (
     <SM04B_SRSS_TB_LF__SN
       name="J4"
       pcbX={9.62}
-      pcbY={12.70}
+      pcbY={12.7}
       pcbRotation={90}
       schX={-1.5}
       schY={-5.5}
@@ -317,7 +317,7 @@ export default () => (
     <SM04B_SRSS_TB_LF__SN
       name="J1"
       pcbX={-9.62}
-      pcbY={12.70}
+      pcbY={12.7}
       pcbRotation={270}
       schX={1.5}
       schY={-5.5}
@@ -426,7 +426,7 @@ export default () => (
     <JoystickThumb
       name="S1"
       pcbX={0}
-      pcbY={-12.70}
+      pcbY={-12.7}
       pcbRotation={0}
       schPinArrangement={{
         leftSide: {
@@ -465,7 +465,6 @@ export default () => (
       connection="S1.pin2"
     />
 
-
     <hole name="MH1" diameter={3.302} pcbX={-10.16} pcbY={22.86} />
     <hole name="MH2" diameter={3.302} pcbX={10.16} pcbY={22.86} />
     <hole name="MH3" diameter={3.302} pcbX={-10.16} pcbY={2.54} />
@@ -473,4 +472,4 @@ export default () => (
     <hole name="MH5" diameter={3.302} pcbX={10.16} pcbY={2.54} />
     <hole name="MH6" diameter={3.302} pcbX={10.16} pcbY={-22.86} />
   </board>
-);
+)

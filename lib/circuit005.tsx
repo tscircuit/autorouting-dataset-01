@@ -1,4 +1,4 @@
-import { sel } from "tscircuit";
+import { sel } from "tscircuit"
 
 /**
  * Simple voltage-divider with LED indicator and 1x3 header.
@@ -72,4 +72,4 @@ export default () => (
       }}
     />
   </board>
-);
+)

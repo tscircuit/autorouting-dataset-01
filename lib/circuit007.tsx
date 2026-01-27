@@ -1,4 +1,4 @@
-import { sel } from "tscircuit";
+import { sel } from "tscircuit"
 
 /**
  * Button input with pull-up and LED output.
@@ -74,4 +74,4 @@ export default () => (
       }}
     />
   </board>
-);
+)

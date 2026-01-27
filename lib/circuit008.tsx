@@ -4,7 +4,12 @@ import manaulEdits from "assets/manual-edits.json"
 
 export default () => {
   return (
-    <board width="25mm" height="25mm" autorouter="auto-cloud" manualEdits={manaulEdits}>
+    <board
+      width="25mm"
+      height="25mm"
+      autorouter="auto-cloud"
+      manualEdits={manaulEdits}
+    >
       <MotorDriver name="M1" />
       <pinheader
         name="JP1"

@@ -81,10 +81,9 @@ export default () => (
         },
       }}
       pcbY={-5.715}
-      
       layer="bottom"
       schFacingDirection="left"
-      pcbPinLabels={{pin1: "VCC", pin2: "OUT", pin3: "GND"}}
+      pcbPinLabels={{ pin1: "VCC", pin2: "OUT", pin3: "GND" }}
     />
     <netlabel
       net="VCC"

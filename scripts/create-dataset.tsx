@@ -4,7 +4,7 @@ import path from "path"
 
 /*
  * This script creates a dataset of simple-route-before.json files
-*/
+ */
 const main = async () => {
   const libDir = path.resolve("lib")
   const datasetDir = path.resolve("dataset")
@@ -31,7 +31,7 @@ const main = async () => {
 
     const outputPath = path.join(
       datasetDir,
-      `${baseName}.simple-route-before.json`
+      `${baseName}.simple-route-before.json`,
     )
 
     console.log("[Start]", baseName)
@@ -45,10 +45,7 @@ const main = async () => {
       circuit.on("autorouting:start", async ({ simpleRouteJson }) => {
         if (settled) return
         try {
-          await writeFile(
-            outputPath,
-            JSON.stringify(simpleRouteJson, null, 2)
-          )
+          await writeFile(outputPath, JSON.stringify(simpleRouteJson, null, 2))
           console.log("[Done]", baseName)
           cleanup()
           resolve()
@@ -89,5 +86,5 @@ void main().then(
   (err) => {
     console.error(err)
     process.exit(1)
-  }
+  },
 )

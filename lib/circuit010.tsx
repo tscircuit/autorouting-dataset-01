@@ -1,6 +1,6 @@
-import { sel } from "tscircuit";
-import { ACS37800 } from "imports/ACS37800";
-import { SM04B_SRSS_TB_LF__SN } from "imports/SM04B_SRSS_TB_LF__SN";
+import { sel } from "tscircuit"
+import { ACS37800 } from "imports/ACS37800"
+import { SM04B_SRSS_TB_LF__SN } from "imports/SM04B_SRSS_TB_LF__SN"
 
 /**
  * ACS37800-based Qwiic power meter board with high-current pass-through holes.
@@ -13,8 +13,18 @@ import { SM04B_SRSS_TB_LF__SN } from "imports/SM04B_SRSS_TB_LF__SN";
  */
 export default () => (
   <board width="50mm" height="30mm">
-    <schematictext text="ACS37800 Power Meter" fontSize={0.4} color="brown" schY={6} />
-    <schematictext text="I2C Addr: 0x60" fontSize={0.25} color="brown" schY={5.4} />
+    <schematictext
+      text="ACS37800 Power Meter"
+      fontSize={0.4}
+      color="brown"
+      schY={6}
+    />
+    <schematictext
+      text="I2C Addr: 0x60"
+      fontSize={0.25}
+      color="brown"
+      schY={5.4}
+    />
 
     <ACS37800
       name="U1"
@@ -132,10 +142,22 @@ export default () => (
       }}
     />
 
-    <netlabel net="ALERT" anchorSide="left" schX={-2.5} schY={-1} connection="U1.pin5" />
-    <netlabel net="ZCD" anchorSide="left" schX={-2.5} schY={-2} connection="U1.pin6" />
+    <netlabel
+      net="ALERT"
+      anchorSide="left"
+      schX={-2.5}
+      schY={-1}
+      connection="U1.pin5"
+    />
+    <netlabel
+      net="ZCD"
+      anchorSide="left"
+      schX={-2.5}
+      schY={-2}
+      connection="U1.pin6"
+    />
 
     <hole name="H1" diameter={6.35} pcbX={-20} pcbY={-6} />
     <hole name="H2" diameter={6.35} pcbX={20} pcbY={-6} />
   </board>
-);
+)
