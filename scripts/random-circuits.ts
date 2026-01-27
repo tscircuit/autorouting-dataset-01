@@ -1,6 +1,6 @@
 import { generateRandomDataset } from "utils/generateRandomDataset"
 import { defaultConfiguration } from "utils/defaultConfiguration"
-import { GenerationContext } from "utils/GenerationContext"
+import { GenerationContext } from "types/GenerationContext"
 
 const main = async () => {
   const context: GenerationContext = {

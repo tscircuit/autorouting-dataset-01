@@ -1,6 +1,6 @@
 import { writeFile } from "fs/promises"
 import path from "path"
-import { ComponentSpecification } from "utils/ComponentSpecification"
+import { ComponentSpecification } from "types/ComponentSpecification"
 import { componentToJsx } from "utils/componentToJsx"
 
 /**

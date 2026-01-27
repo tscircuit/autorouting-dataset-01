@@ -1,18 +1,3 @@
-- utils/Bounds.ts
-Represents the bounding box of a component or area.
-
-- utils/ComponentSpecification.ts
-Detailed specification for a circuit component.
-
-- utils/ComponentType.ts
-Supported component types for generation.
-
-- utils/GenerationConfiguration.ts
-Configuration options for the random circuit generation.
-
-- utils/GenerationContext.ts
-Context object passed through the generation process.
-
 - utils/buildConnections.ts
 Randomly assigns connections between component pins.
 

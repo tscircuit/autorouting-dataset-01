@@ -1,8 +1,8 @@
-import { ComponentSpecification } from "utils/ComponentSpecification"
-import { Bounds } from "utils/Bounds"
+import { ComponentSpecification } from "types/ComponentSpecification"
+import { Bounds } from "types/Bounds"
 import { randInt } from "utils/randInt"
 import { findDeterministicPlacement } from "utils/findDeterministicPlacement"
-import { GenerationContext } from "utils/GenerationContext"
+import { GenerationContext } from "types/GenerationContext"
 
 /**
  * Places components on the board such that they do not overlap.

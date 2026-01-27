@@ -9,9 +9,9 @@ import { getPinCounts } from "utils/getPinCounts"
 import { placeComponentsDeterministically } from "utils/placeComponentsDeterministically"
 import { buildConnections } from "utils/buildConnections"
 import { generateCircuitFile } from "utils/generateCircuitFile"
-import { GenerationContext } from "utils/GenerationContext"
-import { ComponentSpecification } from "utils/ComponentSpecification"
-import { ComponentType } from "utils/ComponentType"
+import { GenerationContext } from "types/GenerationContext"
+import { ComponentSpecification } from "types/ComponentSpecification"
+import { ComponentType } from "types/ComponentType"
 
 /**
  * Orchestrates the creation of a dataset of random circuit designs.

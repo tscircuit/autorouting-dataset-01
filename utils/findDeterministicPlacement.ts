@@ -1,8 +1,8 @@
-import { Bounds } from "utils/Bounds"
+import { Bounds } from "types/Bounds"
 import { getInnerBoard } from "utils/getInnerBoard"
 import { isWithin } from "utils/isWithin"
 import { overlaps } from "utils/overlaps"
-import { GenerationContext } from "utils/GenerationContext"
+import { GenerationContext } from "types/GenerationContext"
 
 /**
  * Finds a valid deterministic placement for a component footprint.

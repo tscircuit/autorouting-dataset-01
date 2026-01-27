@@ -1,4 +1,4 @@
-import { ComponentSpecification } from "utils/ComponentSpecification"
+import { ComponentSpecification } from "types/ComponentSpecification"
 import { randInt } from "utils/randInt"
 
 /**

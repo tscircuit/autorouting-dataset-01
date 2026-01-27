@@ -1,4 +1,4 @@
-import { ComponentType } from "utils/ComponentType"
+import { ComponentType } from "types/ComponentType"
 import { footprintToPinCount } from "utils/footprintToPinCount"
 
 /**

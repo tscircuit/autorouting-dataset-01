@@ -1,4 +1,4 @@
-import { ComponentType } from "utils/ComponentType"
+import { ComponentType } from "types/ComponentType"
 
 /**
  * Detailed specification for a circuit component.

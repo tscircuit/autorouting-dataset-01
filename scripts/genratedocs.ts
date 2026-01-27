@@ -4,7 +4,7 @@ const main = () => {
   const directoriesToProcess = (
     process.argv
       .find((arg) => arg.startsWith("--dirs="))
-      ?.slice("--dirs=".length) ?? "lib,imports,utils"
+      ?.slice("--dirs=".length) ?? "lib,imports,utils,types"
   )
     .split(",")
     .filter(Boolean)
