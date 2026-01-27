@@ -1,29 +1,37 @@
 /** Randomly generated circuit 261. */
 export default () => (
-  <board width="17.00mm" height="17.00mm">
-    <transistor name="transistor-1" footprint="SOT-23" pcbX={0.00} pcbY={0.00} connections={{
-        pin2: "net.N2",
+  <board width="23.00mm" height="23.00mm">
+    <chip name="chip-1" footprint="pinrow6" pcbX={0.00} pcbY={0.00} connections={{
+        pin4: "net.N1",
         pin3: "net.N2",
+        pin2: "net.N5",
+        pin6: "net.N6",
+        pin5: "net.N7",
+        pin1: "net.N7",
+      }} manufacturerPartNumber="GENERIC" />
+    <diode name="diode-1" footprint="SOD-323" pcbX={-6.00} pcbY={-6.00} connections={{
         pin1: "net.N4",
-      }} type="npn" />
-    <transistor name="transistor-2" footprint="SOT-23" pcbX={-3.50} pcbY={-3.50} connections={{
-        pin1: "net.N2",
+        pin2: "net.N7",
+      }} />
+    <chip name="chip-5" footprint="pinrow6" pcbX={-3.50} pcbY={5.00} connections={{
+        pin4: "net.N1",
         pin3: "net.N3",
-        pin2: "net.N3",
-      }} type="npn" />
-    <transistor name="transistor-3" footprint="SOT-23" pcbX={-3.50} pcbY={3.50} connections={{
-        pin1: "net.N2",
-        pin3: "net.N4",
         pin2: "net.N4",
-      }} type="npn" />
-    <transistor name="transistor-5" footprint="SOT-23" pcbX={1.50} pcbY={-3.50} connections={{
-        pin3: "net.N1",
-        pin2: "net.N3",
-        pin1: "net.N3",
-      }} type="npn" />
-    <inductor name="inductor-1" footprint="0603" pcbX={1.00} pcbY={3.50} connections={{
+        pin5: "net.N4",
+        pin6: "net.N6",
+        pin1: "net.N7",
+      }} manufacturerPartNumber="GENERIC" />
+    <capacitor name="capacitor-1" footprint="0805" pcbX={-2.00} pcbY={-4.00} connections={{
+        pin2: "net.N5",
+        pin1: "net.N7",
+      }} capacitance="0.1uF" />
+    <diode name="diode-2" footprint="SOD-323" pcbX={4.00} pcbY={-6.00} connections={{
         pin1: "net.N1",
-        pin2: "net.N1",
-      }} inductance="10uH" />
+        pin2: "net.N3",
+      }} />
+    <diode name="diode-4" footprint="SOD-123" pcbX={5.00} pcbY={4.00} connections={{
+        pin1: "net.N2",
+        pin2: "net.N6",
+      }} />
   </board>
 )

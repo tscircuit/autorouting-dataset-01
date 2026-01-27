@@ -1,10 +1,43 @@
 /** Randomly generated circuit 219. */
 export default () => (
-  <board width="16.00mm" height="16.00mm">
-    <transistor name="transistor-1" footprint="SOT-23" pcbX={0.00} pcbY={0.00} connections={{
-        pin2: "net.N1",
+  <board width="21.00mm" height="21.00mm">
+    <chip name="chip-1" footprint="soic16" pcbX={0.00} pcbY={0.00} connections={{
         pin3: "net.N1",
-        pin1: "net.N1",
-      }} type="npn" />
+        pin6: "net.N1",
+        pin11: "net.N2",
+        pin14: "net.N2",
+        pin5: "net.N3",
+        pin4: "net.N3",
+        pin13: "net.N3",
+        pin2: "net.N4",
+        pin10: "net.N4",
+        pin9: "net.N4",
+        pin1: "net.N5",
+        pin16: "net.N6",
+        pin15: "net.N6",
+        pin7: "net.N8",
+        pin12: "net.N8",
+        pin8: "net.N8",
+      }} manufacturerPartNumber="GENERIC" />
+    <inductor name="inductor-1" footprint="0603" pcbX={-6.00} pcbY={-7.00} connections={{
+        pin1: "net.N5",
+        pin2: "net.N8",
+      }} inductance="10uH" />
+    <inductor name="inductor-2" footprint="0603" pcbX={-4.50} pcbY={4.50} connections={{
+        pin2: "net.N5",
+        pin1: "net.N6",
+      }} inductance="10uH" />
+    <inductor name="inductor-5" footprint="0603" pcbX={0.00} pcbY={-7.00} connections={{
+        pin2: "net.N1",
+        pin1: "net.N5",
+      }} inductance="10uH" />
+    <pinheader name="pinhead-2" footprint="pinheader2" pcbX={1.00} pcbY={5.50} connections={{
+        pin1: "net.N2",
+        pin2: "net.N7",
+      }} pinCount={2} pitch="2.54mm" />
+    <inductor name="inductor-6" footprint="0805" pcbX={4.00} pcbY={-5.00} connections={{
+        pin1: "net.N7",
+        pin2: "net.N8",
+      }} inductance="10uH" />
   </board>
 )
