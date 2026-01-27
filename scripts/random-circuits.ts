@@ -301,8 +301,8 @@ const main = async () => {
             pinhead: 0
         }
         const boardSize = {
-            width: partsCount * argsValues.maxGapBetweenParts * 2,
-            height: partsCount * argsValues.maxGapBetweenParts * 2,
+            width: partsCount * randInt(rng, argsValues.minGapBetweenParts, argsValues.maxGapBetweenParts + 1) * 2,
+            height: partsCount * randInt(rng, argsValues.minGapBetweenParts, argsValues.maxGapBetweenParts + 1) * 2,
         }
 
         for (let p = 0; p < partsCount; p++) {
