@@ -1,6 +1,6 @@
+import { mkdir, readdir, writeFile } from "node:fs/promises"
+import path from "node:path"
 import { RootCircuit } from "@tscircuit/core"
-import { mkdir, readdir, writeFile } from "fs/promises"
-import path from "path"
 
 /*
  * This script creates a dataset of simple-route-before.json files

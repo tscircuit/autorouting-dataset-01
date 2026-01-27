@@ -75,7 +75,7 @@ for (const [dir, dirFiles] of filesByDir.entries()) {
     const doc = extractJsdoc(content) || "MISSING JSDOC"
     lines.push(`- ${file}`, doc, "")
   }
-  fs.writeFileSync(readmePath, lines.join("\n").trimEnd() + "\n")
+  fs.writeFileSync(readmePath, `${lines.join("\n").trimEnd()}\n`)
 }
 
 console.log(`Updated README.md for ${params.dirs.length} directories.`)

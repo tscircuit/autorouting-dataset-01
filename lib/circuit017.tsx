@@ -18,8 +18,8 @@ export default () => {
         offsetX: 20,
         offsetY: 5,
       }).map(({ center, index }) => {
-        const ledName = "LED" + (index + 1)
-        const prevLedName = index > 0 ? "LED" + index : null
+        const ledName = `LED${index + 1}`
+        const prevLedName = index > 0 ? `LED${index}` : null
         return (
           <>
             {/* LED */}
@@ -32,15 +32,12 @@ export default () => {
             />
 
             {/* Connecting the LED to GND and VDD */}
-            <trace from={".LED" + (index + 1) + " .GND"} to="net.GND" />
-            <trace from={".LED" + (index + 1) + " .VDD"} to="net.V5" />
+            <trace from={`.${ledName} .GND`} to="net.GND" />
+            <trace from={`.${ledName} .VDD`} to="net.V5" />
 
             {/* Connecting the LED to the previous LED */}
             {prevLedName && (
-              <trace
-                from={".LED" + index + " .DO"}
-                to={".LED" + (index + 1) + " .DI"}
-              />
+              <trace from={`.LED${index} .DO`} to={`.LED${index + 1} .DI`} />
             )}
           </>
         )
