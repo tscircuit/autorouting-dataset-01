@@ -25,5 +25,8 @@ export const collectFiles = (directory: string, fileList: string[]): void => {
     if (directory.startsWith("types") && entry.name.endsWith(".ts")) {
       fileList.push(entryPath)
     }
+    if (directory.startsWith("scripts") && (entry.name.endsWith(".ts") || entry.name.endsWith(".tsx"))) {
+      fileList.push(entryPath)
+    }
   }
 }
