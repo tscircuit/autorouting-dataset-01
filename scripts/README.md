@@ -5,4 +5,4 @@ Main script to generate a dataset from the circuits defined in the lib directory
 Script to automatically generate README.md files for specified directories. It parses the files in each directory and updates the corresponding README.md with information about the exported components or functions. Usage: bun scripts/genratedocs.ts [--dirs=lib,imports,utils,types,scripts]
 
 - scripts/random-circuits.ts
-Script to generate a dataset of random circuits. This is used for stress testing or creating varied routing challenges. It uses the default configuration to generate a set of random circuits.
+Script to generate a dataset of random circuits. Its slides the components on the board and creates random connections between them. It uses the default configuration to generate a set of random circuits.
