@@ -1,5 +1,5 @@
 {
-  "name": "autorouting-dataset-01",
+  "name": "@tscircuit/autorouting-dataset-01",
   "version": "1.0.0",
   "main": "index.tsx",
   "keywords": [
@@ -17,6 +17,7 @@
     "tscircuit": "^0.0.1168"
   },
   "dependencies": {
+    "@biomejs/biome": "^2.3.13",
     "@tsci/imrishabh18.TB6612FNG": "^0.1.0",
     "@tsci/seveibar.PICO": "^0.1.0",
     "@tsci/seveibar.PICO_W": "^0.1.0",
