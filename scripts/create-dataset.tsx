@@ -74,7 +74,6 @@ const main = async () => {
     } catch (err) {
       const reason = err instanceof Error ? err.message : String(err)
       console.log(`[Ignored] ${file} due to autorouting failure: ${reason}`)
-      continue
     }
   }
 }

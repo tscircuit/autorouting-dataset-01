@@ -1,6 +1,6 @@
-import { sel } from "tscircuit"
 import { TC78H670FTG_EL } from "imports/TC78H670FTG_EL"
 import { VGF39NCHXT_B103 } from "imports/VGF39NCHXT_B103"
+import { sel } from "tscircuit"
 
 /**
  * TC78H670FTG-based motor driver breakout.

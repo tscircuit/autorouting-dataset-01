@@ -1,6 +1,6 @@
-import { sel } from "tscircuit"
 import { PinHeader1x3 } from "imports/PinHeader1x3"
 import { VGF39NCHXT_B103 } from "imports/VGF39NCHXT_B103"
+import { sel } from "tscircuit"
 
 /**
  * Low-side load switch with gate pull-down and status LED.

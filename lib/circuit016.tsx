@@ -1,10 +1,11 @@
 /** 60% keyboard matrix using a Pico microcontroller and layouts.default60. */
-import { PICO } from "@tsci/seveibar.PICO"
+
 import {
-  type KLELayout,
   KeyMatrix,
+  type KLELayout,
   layouts,
 } from "@tsci/seveibar.keyboard-utils"
+import { PICO } from "@tsci/seveibar.PICO"
 
 // We'll need more rows and columns for a 60% keyboard
 const rowPins = ["net.ROW0", "net.ROW1", "net.ROW2", "net.ROW3", "net.ROW4"]

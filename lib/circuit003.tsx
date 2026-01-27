@@ -1,9 +1,9 @@
-import { sel } from "tscircuit"
 import { ATTINY85V_10SU } from "imports/ATTINY85V_10SU"
-import { SM04B_SRSS_TB_LF__SN } from "imports/SM04B_SRSS_TB_LF__SN"
+import { AVR_ISP_2x3 } from "imports/AVR_ISP_2x3"
 import { JoystickThumb } from "imports/JoystickThumb"
 import { PinHeader1x4 } from "imports/PinHeader1x4"
-import { AVR_ISP_2x3 } from "imports/AVR_ISP_2x3"
+import { SM04B_SRSS_TB_LF__SN } from "imports/SM04B_SRSS_TB_LF__SN"
+import { sel } from "tscircuit"
 
 /**
  * ATTiny85-based joystick/I2C breakout board with onboard pull-ups and status LED.

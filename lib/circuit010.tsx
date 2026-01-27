@@ -1,6 +1,6 @@
-import { sel } from "tscircuit"
 import { ACS37800 } from "imports/ACS37800"
 import { SM04B_SRSS_TB_LF__SN } from "imports/SM04B_SRSS_TB_LF__SN"
+import { sel } from "tscircuit"
 
 /**
  * ACS37800-based Qwiic power meter board with high-current pass-through holes.

@@ -1,5 +1,5 @@
-import { sel } from "tscircuit"
 import { SM04B_SRSS_TB_LF__SN } from "imports/SM04B_SRSS_TB_LF__SN"
+import { sel } from "tscircuit"
 
 /**
  * I2C bus splitter with Qwiic connectors and header breakout.
