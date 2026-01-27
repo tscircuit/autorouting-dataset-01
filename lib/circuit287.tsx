@@ -1,52 +1,135 @@
 /** Randomly generated circuit 287. */
 export default () => (
   <board width="38.00mm" height="38.00mm">
-    <pinheader name="pinhead-1" footprint="pinheader2" pcbX={0.00} pcbY={0.00} connections={{
+    <pinheader
+      name="pinhead-1"
+      footprint="pinheader2"
+      pcbX={0.0}
+      pcbY={0.0}
+      connections={{
         pin1: "net.N5",
         pin2: "net.N10",
-      }} pinCount={2} pitch="2.54mm" />
-    <inductor name="inductor-1" footprint="0402" pcbX={-6.00} pcbY={-6.00} connections={{
+      }}
+      pinCount={2}
+      pitch="2.54mm"
+    />
+    <inductor
+      name="inductor-1"
+      footprint="0402"
+      pcbX={-6.0}
+      pcbY={-6.0}
+      connections={{
         pin1: "net.N8",
         pin2: "net.N10",
-      }} inductance="10uH" />
-    <inductor name="inductor-2" footprint="0402" pcbX={-4.00} pcbY={4.00} connections={{
+      }}
+      inductance="10uH"
+    />
+    <inductor
+      name="inductor-2"
+      footprint="0402"
+      pcbX={-4.0}
+      pcbY={4.0}
+      connections={{
         pin2: "net.N11",
         pin1: "net.N12",
-      }} inductance="10uH" />
-    <resistor name="resistor-1" footprint="0402" pcbX={-2.50} pcbY={-4.00} connections={{
+      }}
+      inductance="10uH"
+    />
+    <resistor
+      name="resistor-1"
+      footprint="0402"
+      pcbX={-2.5}
+      pcbY={-4.0}
+      connections={{
         pin2: "net.N7",
         pin1: "net.N10",
-      }} resistance="1k" />
-    <resistor name="resistor-2" footprint="0402" pcbX={4.50} pcbY={9.00} connections={{
+      }}
+      resistance="1k"
+    />
+    <resistor
+      name="resistor-2"
+      footprint="0402"
+      pcbX={4.5}
+      pcbY={9.0}
+      connections={{
         pin1: "net.N2",
         pin2: "net.N10",
-      }} resistance="1k" />
-    <resistor name="resistor-3" footprint="0805" pcbX={4.00} pcbY={-6.00} connections={{
+      }}
+      resistance="1k"
+    />
+    <resistor
+      name="resistor-3"
+      footprint="0805"
+      pcbX={4.0}
+      pcbY={-6.0}
+      connections={{
         pin1: "net.N6",
         pin2: "net.N6",
-      }} resistance="1k" />
-    <transistor name="transistor-1" footprint="SOT-23" pcbX={0.50} pcbY={4.00} connections={{
+      }}
+      resistance="1k"
+    />
+    <transistor
+      name="transistor-1"
+      footprint="SOT-23"
+      pcbX={0.5}
+      pcbY={4.0}
+      connections={{
         pin1: "net.N4",
         pin2: "net.N6",
         pin3: "net.N7",
-      }} type="npn" />
-    <resistor name="resistor-4" footprint="0603" pcbX={-8.00} pcbY={-1.00} connections={{
+      }}
+      type="npn"
+    />
+    <resistor
+      name="resistor-4"
+      footprint="0603"
+      pcbX={-8.0}
+      pcbY={-1.0}
+      connections={{
         pin2: "net.N5",
         pin1: "net.N6",
-      }} resistance="1k" />
-    <resistor name="resistor-5" footprint="0603" pcbX={8.00} pcbY={0.00} connections={{
+      }}
+      resistance="1k"
+    />
+    <resistor
+      name="resistor-5"
+      footprint="0603"
+      pcbX={8.0}
+      pcbY={0.0}
+      connections={{
         pin1: "net.N9",
         pin2: "net.N13",
-      }} resistance="1k" />
-    <capacitor name="capacitor-1" footprint="0603" pcbX={5.00} pcbY={4.00} connections={{
+      }}
+      resistance="1k"
+    />
+    <capacitor
+      name="capacitor-1"
+      footprint="0603"
+      pcbX={5.0}
+      pcbY={4.0}
+      connections={{
         pin1: "net.N3",
         pin2: "net.N12",
-      }} capacitance="0.1uF" />
-    <inductor name="inductor-3" footprint="0805" pcbX={-9.00} pcbY={9.00} connections={{
+      }}
+      capacitance="0.1uF"
+    />
+    <inductor
+      name="inductor-3"
+      footprint="0805"
+      pcbX={-9.0}
+      pcbY={9.0}
+      connections={{
         pin1: "net.N1",
         pin2: "net.N2",
-      }} inductance="10uH" />
-    <chip name="chip-1" footprint="pinrow8" pcbX={-9.50} pcbY={-10.00} connections={{
+      }}
+      inductance="10uH"
+    />
+    <chip
+      name="chip-1"
+      footprint="pinrow8"
+      pcbX={-9.5}
+      pcbY={-10.0}
+      connections={{
         pin1: "net.N2",
         pin5: "net.N3",
         pin7: "net.N5",
@@ -55,23 +138,53 @@ export default () => (
         pin8: "net.N8",
         pin2: "net.N9",
         pin3: "net.N13",
-      }} manufacturerPartNumber="GENERIC" />
-    <transistor name="transistor-2" footprint="SOT-23" pcbX={-4.50} pcbY={7.50} connections={{
+      }}
+      manufacturerPartNumber="GENERIC"
+    />
+    <transistor
+      name="transistor-2"
+      footprint="SOT-23"
+      pcbX={-4.5}
+      pcbY={7.5}
+      connections={{
         pin2: "net.N3",
         pin3: "net.N11",
         pin1: "net.N13",
-      }} type="npn" />
-    <capacitor name="capacitor-2" footprint="0603" pcbX={12.00} pcbY={-12.00} connections={{
+      }}
+      type="npn"
+    />
+    <capacitor
+      name="capacitor-2"
+      footprint="0603"
+      pcbX={12.0}
+      pcbY={-12.0}
+      connections={{
         pin2: "net.N5",
         pin1: "net.N12",
-      }} capacitance="0.1uF" />
-    <capacitor name="capacitor-3" footprint="0402" pcbX={12.00} pcbY={12.00} connections={{
+      }}
+      capacitance="0.1uF"
+    />
+    <capacitor
+      name="capacitor-3"
+      footprint="0402"
+      pcbX={12.0}
+      pcbY={12.0}
+      connections={{
         pin2: "net.N1",
         pin1: "net.N4",
-      }} capacitance="0.1uF" />
-    <resistor name="resistor-6" footprint="0402" pcbX={5.50} pcbY={-3.00} connections={{
+      }}
+      capacitance="0.1uF"
+    />
+    <resistor
+      name="resistor-6"
+      footprint="0402"
+      pcbX={5.5}
+      pcbY={-3.0}
+      connections={{
         pin1: "net.N4",
         pin2: "net.N11",
-      }} resistance="1k" />
+      }}
+      resistance="1k"
+    />
   </board>
 )

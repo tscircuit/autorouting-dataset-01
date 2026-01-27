@@ -1,11 +1,11 @@
-import { Bounds } from "types/Bounds"
+import type { Bounds } from "types/Bounds"
 
 /**
  * Calculates the inner board boundaries based on board size and padding.
  */
 export const getInnerBoard = (
   boardSize: { width: number; height: number },
-  padding: number
+  padding: number,
 ): Bounds => {
   return {
     minX: -boardSize.width / 2 + padding,

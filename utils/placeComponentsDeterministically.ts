@@ -1,8 +1,8 @@
-import { ComponentSpecification } from "types/ComponentSpecification"
-import { Bounds } from "types/Bounds"
-import { randInt } from "utils/randInt"
+import type { Bounds } from "types/Bounds"
+import type { ComponentSpecification } from "types/ComponentSpecification"
+import type { GenerationContext } from "types/GenerationContext"
 import { findDeterministicPlacement } from "utils/findDeterministicPlacement"
-import { GenerationContext } from "types/GenerationContext"
+import { randInt } from "utils/randInt"
 
 /**
  * Places components on the board such that they do not overlap.
@@ -13,7 +13,7 @@ export const placeComponentsDeterministically = (
     components: ComponentSpecification[]
     boardSize: { width: number; height: number }
   },
-  ctx: GenerationContext
+  ctx: GenerationContext,
 ): ComponentSpecification[] => {
   const { rng, components, boardSize } = options
   const placed: ComponentSpecification[] = []
@@ -33,7 +33,7 @@ export const placeComponentsDeterministically = (
         boardSize,
         gap,
       },
-      ctx
+      ctx,
     )
     if (!position) {
       continue

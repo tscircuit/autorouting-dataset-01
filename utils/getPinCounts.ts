@@ -1,4 +1,4 @@
-import { ComponentType } from "types/ComponentType"
+import type { ComponentType } from "types/ComponentType"
 import { footprintToPinCount } from "utils/footprintToPinCount"
 
 /**
@@ -6,7 +6,7 @@ import { footprintToPinCount } from "utils/footprintToPinCount"
  */
 export const getPinCounts = (
   componentType: ComponentType,
-  footprint: string
+  footprint: string,
 ): number => {
   switch (componentType) {
     case "resistor":

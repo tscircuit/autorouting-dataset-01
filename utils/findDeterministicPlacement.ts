@@ -1,8 +1,8 @@
-import { Bounds } from "types/Bounds"
+import type { Bounds } from "types/Bounds"
+import type { GenerationContext } from "types/GenerationContext"
 import { getInnerBoard } from "utils/getInnerBoard"
 import { isWithin } from "utils/isWithin"
 import { overlaps } from "utils/overlaps"
-import { GenerationContext } from "types/GenerationContext"
 
 /**
  * Finds a valid deterministic placement for a component footprint.
@@ -14,7 +14,7 @@ export const findDeterministicPlacement = (
     boardSize: { width: number; height: number }
     gap: number
   },
-  ctx: GenerationContext
+  ctx: GenerationContext,
 ): { pcbX: number; pcbY: number; width: number; height: number } | null => {
   const { footprintSize, existingBounds, boardSize, gap } = options
   const padding = Math.max(2, ctx.configuration.maxGapBetweenParts)
@@ -40,7 +40,9 @@ export const findDeterministicPlacement = (
 
         let collision = false
         for (const existing of existingBounds) {
-          if (overlaps({ boundsA: candidate, boundsB: existing, margin: gap })) {
+          if (
+            overlaps({ boundsA: candidate, boundsB: existing, margin: gap })
+          ) {
             collision = true
             break
           }

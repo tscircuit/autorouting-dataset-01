@@ -1,6 +1,6 @@
-import { writeFile } from "fs/promises"
-import path from "path"
-import { ComponentSpecification } from "types/ComponentSpecification"
+import { writeFile } from "node:fs/promises"
+import path from "node:path"
+import type { ComponentSpecification } from "types/ComponentSpecification"
 import { componentToJsx } from "utils/componentToJsx"
 
 /**
@@ -29,7 +29,7 @@ export const generateCircuitFile = async (options: {
   }. */
 export default () => (
   <board width="${boardSize.width.toFixed(2)}mm" height="${boardSize.height.toFixed(
-    2
+    2,
   )}mm">
 ${body}
   </board>

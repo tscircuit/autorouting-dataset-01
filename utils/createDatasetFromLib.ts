@@ -12,7 +12,7 @@ export const createDatasetFromLib = async (): Promise<void> => {
   await mkdir(datasetDirectory, { recursive: true })
 
   const files = (await readdir(libDirectory)).filter((file) =>
-    file.endsWith(".tsx")
+    file.endsWith(".tsx"),
   )
 
   const processedBaseNames: string[] = []
@@ -33,7 +33,7 @@ export const createDatasetFromLib = async (): Promise<void> => {
   }
 
   const datasetFiles = (await readdir(datasetDirectory)).filter((file) =>
-    file.endsWith(".simple-route-before.json")
+    file.endsWith(".simple-route-before.json"),
   )
 
   const indexContent = datasetFiles

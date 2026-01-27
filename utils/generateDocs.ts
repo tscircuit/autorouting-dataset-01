@@ -5,9 +5,7 @@ import { updateReadmeForDirectory } from "utils/updateReadmeForDirectory"
 /**
  * Automates the generation of README.md documentation for the project.
  */
-export const generateDocs = (options: {
-  directories: string[]
-}): void => {
+export const generateDocs = (options: { directories: string[] }): void => {
   const { directories } = options
   const fileList: string[] = []
 

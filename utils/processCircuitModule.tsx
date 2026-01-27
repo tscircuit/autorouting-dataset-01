@@ -1,6 +1,6 @@
-import { RootCircuit } from "@tscircuit/core"
 import { writeFile } from "node:fs/promises"
 import path from "node:path"
+import { RootCircuit } from "@tscircuit/core"
 
 /**
  * Loads a circuit module and saves its simple route JSON to the dataset.
@@ -25,7 +25,7 @@ export const processCircuitModule = async (options: {
 
   const outputPath = path.join(
     datasetDirectory,
-    `${baseName}.simple-route-before.json`
+    `${baseName}.simple-route-before.json`,
   )
 
   console.log("[Start]", baseName)
@@ -69,7 +69,7 @@ export const processCircuitModule = async (options: {
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : String(error)
     console.log(
-      `[Ignored] ${baseName} due to autorouting failure: ${errorMessage}`
+      `[Ignored] ${baseName} due to autorouting failure: ${errorMessage}`,
     )
     return null
   }

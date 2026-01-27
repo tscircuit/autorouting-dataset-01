@@ -1,4 +1,4 @@
-import { ComponentSpecification } from "types/ComponentSpecification"
+import type { ComponentSpecification } from "types/ComponentSpecification"
 import { randInt } from "utils/randInt"
 
 /**
@@ -6,7 +6,7 @@ import { randInt } from "utils/randInt"
  */
 export const buildConnections = (
   rng: () => number,
-  components: ComponentSpecification[]
+  components: ComponentSpecification[],
 ): void => {
   const allPins: { component: ComponentSpecification; pin: string }[] = []
   for (const component of components) {
@@ -28,7 +28,7 @@ export const buildConnections = (
   while (currentPinIndex < allPins.length) {
     const groupSize = Math.min(
       randInt({ rng, min: 2, max: 5 }),
-      allPins.length - currentPinIndex
+      allPins.length - currentPinIndex,
     )
     if (groupSize < 2) break
     const netName = `net.N${netIndex}`

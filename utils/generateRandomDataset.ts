@@ -1,23 +1,23 @@
-import { mkdir } from "fs/promises"
-import path from "path"
-import { mulberry32 } from "utils/mulberry32"
-import { randInt } from "utils/randInt"
-import { pick } from "utils/pick"
-import { footprints } from "utils/footprints"
-import { footprintSizes } from "utils/footprintSizes"
-import { getPinCounts } from "utils/getPinCounts"
-import { placeComponentsDeterministically } from "utils/placeComponentsDeterministically"
+import { mkdir } from "node:fs/promises"
+import path from "node:path"
+import type { ComponentSpecification } from "types/ComponentSpecification"
+import type { ComponentType } from "types/ComponentType"
+import type { GenerationContext } from "types/GenerationContext"
 import { buildConnections } from "utils/buildConnections"
+import { footprintSizes } from "utils/footprintSizes"
+import { footprints } from "utils/footprints"
 import { generateCircuitFile } from "utils/generateCircuitFile"
-import { GenerationContext } from "types/GenerationContext"
-import { ComponentSpecification } from "types/ComponentSpecification"
-import { ComponentType } from "types/ComponentType"
+import { getPinCounts } from "utils/getPinCounts"
+import { mulberry32 } from "utils/mulberry32"
+import { pick } from "utils/pick"
+import { placeComponentsDeterministically } from "utils/placeComponentsDeterministically"
+import { randInt } from "utils/randInt"
 
 /**
  * Orchestrates the creation of a dataset of random circuit designs.
  */
 export const generateRandomDataset = async (
-  ctx: GenerationContext
+  ctx: GenerationContext,
 ): Promise<void> => {
   const libDirectory = path.resolve("lib")
   await mkdir(libDirectory, { recursive: true })
@@ -96,7 +96,7 @@ export const generateRandomDataset = async (
 
     const placedComponents = placeComponentsDeterministically(
       { rng, components, boardSize },
-      ctx
+      ctx,
     )
     buildConnections(rng, placedComponents)
     await generateCircuitFile({

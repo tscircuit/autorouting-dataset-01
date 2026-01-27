@@ -1,4 +1,4 @@
-import { Bounds } from "types/Bounds"
+import type { Bounds } from "types/Bounds"
 
 /**
  * Checks if two bounding boxes overlap, with an optional margin.

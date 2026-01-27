@@ -1,4 +1,4 @@
-import { GenerationConfiguration } from "types/GenerationConfiguration"
+import type { GenerationConfiguration } from "types/GenerationConfiguration"
 
 /**
  * Default configuration values for circuit generation.
