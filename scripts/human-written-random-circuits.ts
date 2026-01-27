@@ -73,13 +73,48 @@ const overlaps = (a: Bounds, b: Bounds, margin: number = 0): boolean => {
         a.minY - margin > b.maxY + margin)
 }
 
-const placeComponent = (rng: () => number, compType: ComponentType, bounds: Bounds[], footprintSize: { width: number, height: number }): {
-    pcbX: number,
-    pcbY: number,
+const placeComponent = (rng: () => number, compType: ComponentType, bounds: Bounds[], footprintSize: { width: number, height: number }, boardSize: { width: number, height: number }): {
+    center: {
+        pcbX: number,
+        pcbY: number,
+    },
     width: number,
     height: number,
 } => {
-    throw new Error("TODO: ");
+    const attempts = 500
+
+    for (let i = 0; i < attempts; i++) {
+        const gap = randInt(rng, argsValues.minGapBetweenParts, argsValues.maxGapBetweenParts + 1)
+        const pcbX = rng() * Math.max(0, boardSize.width - footprintSize.width)
+        const pcbY = rng() * Math.max(0, boardSize.height - footprintSize.height)
+        const candidate: Bounds = {
+            minX: pcbX - footprintSize.width / 2,
+            maxX: pcbX + footprintSize.width / 2,
+            minY: pcbY - footprintSize.height / 2,
+            maxY: pcbY + footprintSize.height / 2,
+        }
+
+        let collision = false
+        for (const existing of bounds) {
+            if (overlaps(candidate, existing, gap)) {
+                collision = true
+                break
+            }
+        }
+        if (collision) continue
+
+        return {
+            center: { pcbX, pcbY },
+            width: footprintSize.width,
+            height: footprintSize.height,
+        }
+    }
+
+    return {
+        center: { pcbX: 0, pcbY: 0 },
+        width: footprintSize.width,
+        height: footprintSize.height,
+    }
 }
 
 const getPinCounts = (comType: ComponentType): number => {
@@ -98,12 +133,97 @@ const getPinCounts = (comType: ComponentType): number => {
 }
 
 const buildConnections = (rng: () => number, components: ComponentSpec[]) => {
-    throw new Error("Function not implemented.")
+    const allPins: { component: ComponentSpec, pin: string }[] = []
+    for (const comp of components) {
+        comp.connections = {}
+        for (let i = 1; i <= comp.pinCount; i++) {
+            allPins.push({ component: comp, pin: `pin${i}` })
+        }
+    }
+
+    for (let i = allPins.length - 1; i > 0; i--) {
+        const j = Math.floor(rng() * (i + 1))
+        const tmp = allPins[i]
+        allPins[i] = allPins[j]
+        allPins[j] = tmp
+    }
+
+    let netIndex = 1
+    let idx = 0
+    while (idx < allPins.length) {
+        const groupSize = Math.min(randInt(rng, 2, 5), allPins.length - idx)
+        if (groupSize < 2) break
+        const netName = `net.N${netIndex}`
+        for (let i = 0; i < groupSize; i++) {
+            const pinRef = allPins[idx + i]
+            pinRef.component.connections[pinRef.pin] = netName
+        }
+        idx += groupSize
+        netIndex++
+    }
+
+    if (idx < allPins.length && netIndex > 1) {
+        const fallbackNet = `net.N${netIndex - 1}`
+        for (let i = idx; i < allPins.length; i++) {
+            const pinRef = allPins[i]
+            pinRef.component.connections[pinRef.pin] = fallbackNet
+        }
+    }
 }
+
+const formatConnections = (connections: Record<string, string>) => {
+    const entries = Object.entries(connections)
+    if (entries.length === 0) return "{}"
+    const lines = entries
+        .map(([pin, net]) => `        ${pin}: "${net}",`)
+        .join("\n")
+    return `{
+${lines}
+      }`
+}
+
+const componentToJsx = (component: ComponentSpec) => {
+    const baseProps = [
+        `name="${component.name}"`,
+        `footprint="${component.footprint}"`,
+        `pcbX={${component.pcbX.toFixed(2)}}`,
+        `pcbY={${component.pcbY.toFixed(2)}}`,
+        `connections={${formatConnections(component.connections)}}`,
+    ]
+
+    if (component.type === "resistor") {
+        return `    <resistor ${baseProps.join(" ")} resistance="1k" />`
+    }
+    if (component.type === "capacitor") {
+        return `    <capacitor ${baseProps.join(" ")} capacitance="0.1uF" />`
+    }
+    if (component.type === "inductor") {
+        return `    <inductor ${baseProps.join(" ")} inductance="10uH" />`
+    }
+    if (component.type === "diode") {
+        return `    <diode ${baseProps.join(" ")} />`
+    }
+    return `    <transistor ${baseProps.join(" ")} />`
+}
+
+const generateFiles = async (libDir: string, allowedStartIndex: number, partIndex: number, component: ComponentSpec[], boardSize: { width: number, height: number }) => {
+    const body = component.map(componentToJsx).join("\n")
+    const circuitIndex = String(allowedStartIndex + partIndex).padStart(3, "0")
+    const filename = `circuit${circuitIndex}.tsx`
+    const outputPath = path.join(libDir, filename)
+    const source = `/** Randomly generated circuit ${allowedStartIndex + partIndex}. */
+export default () => (
+  <board width="${boardSize.width.toFixed(2)}mm" height="${boardSize.height.toFixed(2)}mm">
+${body}
+  </board>
+)
+`
+    await writeFile(outputPath, source)
+}
+
 
 type argsType = {
     allowedStartIndex: number,
-    allowedEndIndex: number,
     count: number,
     minParts: number,
     maxParts: number,
@@ -114,7 +234,6 @@ type argsType = {
 
 const DEFAULT_ARGS: argsType = {
     allowedStartIndex: 100,
-    allowedEndIndex: 300,
     count: 5,
     minParts: 5,
     maxParts: 20,
@@ -144,6 +263,10 @@ const main = async () => {
             diode: 0,
             transistor: 0,
         }
+        const boardSize = {
+            width: argsValues.count * argsValues.maxGapBetweenParts * 2,
+            height: argsValues.count * argsValues.maxGapBetweenParts * 2,
+        }
 
         for (let p = 0; p < partsCount; p++) {
             const compType = pick(rng, ["resistor", "capacitor", "inductor", "diode", "transistor"] as const)
@@ -151,30 +274,31 @@ const main = async () => {
             const compName = `${compType}-${counts[compType]}`
             const footprint = pick(rng, FOOTPRINTS[compType])
             const footprintSize = FOOTPRINT_SIZES[footprint]
-            const position = placeComponent(rng, compType, bounds, footprintSize)
+
+            const position = placeComponent(rng, compType, bounds, footprintSize, boardSize)
             bounds.push({
-                minX: position.pcbX,
-                maxX: position.pcbX + footprintSize.width,
-                minY: position.pcbY,
-                maxY: position.pcbY + footprintSize.height,
+                minX: position.center.pcbX - position.width / 2,
+                maxX: position.center.pcbX + position.width / 2,
+                minY: position.center.pcbY - position.height / 2,
+                maxY: position.center.pcbY + position.height / 2,
             })
             component.push({
                 type: compType,
                 name: compName,
                 footprint: footprint,
                 pinCount: getPinCounts(compType),
-                pcbX: position.pcbX,
-                pcbY: position.pcbY,
-                width: footprintSize.width,
-                height: footprintSize.height,
+                pcbX: position.center.pcbX,
+                pcbY: position.center.pcbY,
+                width: position.width,
+                height: position.height,
                 connections: {}
             })
         }
 
         buildConnections(rng, component)
+        await generateFiles(libDir, argsValues.allowedStartIndex, partIndex, component, boardSize)
     }
 }
 
 
 main()
-
