@@ -87,10 +87,8 @@ const overlaps = (a: Bounds, b: Bounds, margin: number = 0): boolean => {
 }
 
 const placeComponent = (rng: () => number, compType: ComponentType, bounds: Bounds[], footprintSize: { width: number, height: number }, boardSize: { width: number, height: number }): {
-    center: {
-        pcbX: number,
-        pcbY: number,
-    },
+    pcbX: number,
+    pcbY: number,
     width: number,
     height: number,
 } => {
@@ -117,14 +115,16 @@ const placeComponent = (rng: () => number, compType: ComponentType, bounds: Boun
         if (collision) continue
 
         return {
-            center: { pcbX, pcbY },
+            pcbX,
+            pcbY,
             width: footprintSize.width,
             height: footprintSize.height,
         }
     }
 
     return {
-        center: { pcbX: 0, pcbY: 0 },
+        pcbX: 0,
+        pcbY: 0,
         width: footprintSize.width,
         height: footprintSize.height,
     }
@@ -312,18 +312,18 @@ const main = async () => {
 
             const position = placeComponent(rng, compType, bounds, footprintSize, boardSize)
             bounds.push({
-                minX: position.center.pcbX - position.width / 2,
-                maxX: position.center.pcbX + position.width / 2,
-                minY: position.center.pcbY - position.height / 2,
-                maxY: position.center.pcbY + position.height / 2,
+                minX: position.pcbX,
+                maxX: position.pcbX + position.width,
+                minY: position.pcbY,
+                maxY: position.pcbY + position.height,
             })
             component.push({
                 type: compType,
                 name: compName,
                 footprint: footprint,
                 pinCount: getPinCounts(compType, footprint),
-                pcbX: position.center.pcbX,
-                pcbY: position.center.pcbY,
+                pcbX: position.pcbX,
+                pcbY: position.pcbY,
                 width: position.width,
                 height: position.height,
                 connections: {}
