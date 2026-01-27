@@ -1,7 +1,7 @@
 {
   "name": "@tscircuit/autorouting-dataset-01",
   "version": "1.0.0",
-  "main": "index.tsx",
+  "main": "dataset/index.ts",
   "keywords": [
     "tscircuit"
   ],
