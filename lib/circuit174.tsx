@@ -1,10 +1,9 @@
 /** Randomly generated circuit 174. */
 export default () => (
   <board width="10.00mm" height="10.00mm">
-    <transistor name="transistor-1" footprint="SOT-23" pcbX={0.00} pcbY={0.00} connections={{
-        pin3: "net.N1",
-        pin1: "net.N1",
+    <capacitor name="capacitor-1" footprint="0402" pcbX={0.00} pcbY={0.00} connections={{
         pin2: "net.N1",
-      }} type="npn" />
+        pin1: "net.N1",
+      }} capacitance="0.1uF" />
   </board>
 )

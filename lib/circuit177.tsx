@@ -5,7 +5,7 @@ export default () => (
         pin2: "net.N1",
         pin1: "net.N2",
       }} inductance="10uH" />
-    <resistor name="resistor-1" footprint="0603" pcbX={-1.50} pcbY={-3.00} connections={{
+    <resistor name="resistor-1" footprint="0805" pcbX={-1.50} pcbY={-3.00} connections={{
         pin1: "net.N1",
         pin2: "net.N1",
       }} resistance="1k" />

@@ -1,15 +1,21 @@
 /** Randomly generated circuit 198. */
 export default () => (
   <board width="19.00mm" height="19.00mm">
-    <chip name="chip-1" footprint="dip8" pcbX={0.00} pcbY={0.00} connections={{
+    <diode name="diode-1" footprint="SOD-323" pcbX={0.00} pcbY={0.00} connections={{
         pin2: "net.N1",
         pin1: "net.N1",
-        pin8: "net.N1",
-        pin4: "net.N1",
-        pin5: "net.N2",
-        pin3: "net.N2",
-        pin6: "net.N2",
-        pin7: "net.N2",
-      }} manufacturerPartNumber="GENERIC" />
+      }} />
+    <capacitor name="capacitor-3" footprint="0603" pcbX={-3.00} pcbY={-3.00} connections={{
+        pin2: "net.N1",
+        pin1: "net.N2",
+      }} capacitance="0.1uF" />
+    <diode name="diode-4" footprint="SOD-323" pcbX={-5.00} pcbY={5.00} connections={{
+        pin1: "net.N2",
+        pin2: "net.N2",
+      }} />
+    <capacitor name="capacitor-4" footprint="0402" pcbX={1.00} pcbY={5.00} connections={{
+        pin2: "net.N1",
+        pin1: "net.N2",
+      }} capacitance="0.1uF" />
   </board>
 )

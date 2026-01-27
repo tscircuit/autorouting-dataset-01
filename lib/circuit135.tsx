@@ -5,15 +5,15 @@ export default () => (
         pin2: "net.N2",
         pin1: "net.N2",
       }} resistance="1k" />
-    <resistor name="resistor-2" footprint="0402" pcbX={-3.00} pcbY={-3.00} connections={{
+    <resistor name="resistor-2" footprint="0603" pcbX={-3.00} pcbY={-3.00} connections={{
         pin1: "net.N1",
         pin2: "net.N2",
       }} resistance="1k" />
-    <inductor name="inductor-1" footprint="0402" pcbX={-3.00} pcbY={3.00} connections={{
+    <inductor name="inductor-1" footprint="0603" pcbX={-3.00} pcbY={3.00} connections={{
         pin1: "net.N1",
         pin2: "net.N2",
       }} inductance="10uH" />
-    <transistor name="transistor-3" footprint="SOT-23" pcbX={4.50} pcbY={-2.50} connections={{
+    <transistor name="transistor-1" footprint="SOT-23" pcbX={4.50} pcbY={-2.50} connections={{
         pin3: "net.N1",
         pin2: "net.N1",
         pin1: "net.N2",

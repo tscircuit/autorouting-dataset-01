@@ -1,9 +1,10 @@
 /** Randomly generated circuit 115. */
 export default () => (
   <board width="10.00mm" height="8.00mm">
-    <diode name="diode-1" footprint="SOD-123" pcbX={0.00} pcbY={0.00} connections={{
+    <transistor name="transistor-1" footprint="SOT-23" pcbX={0.00} pcbY={0.00} connections={{
         pin2: "net.N1",
+        pin3: "net.N1",
         pin1: "net.N1",
-      }} />
+      }} type="npn" />
   </board>
 )
