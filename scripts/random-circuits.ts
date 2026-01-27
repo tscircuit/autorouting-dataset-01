@@ -233,7 +233,7 @@ const componentToJsx = (component: ComponentSpec) => {
         return `    <diode ${baseProps.join(" ")} />`
     }
     if (component.type === "transistor") {
-        return `    <transistor ${baseProps.join(" ")} />`
+        return `    <transistor ${baseProps.join(" ")} type="npn" />`
     }
     if (component.type === "pinhead") {
         return `    <pinheader ${baseProps.join(" ")} pinCount={${component.pinCount}} pitch="2.54mm" />`
