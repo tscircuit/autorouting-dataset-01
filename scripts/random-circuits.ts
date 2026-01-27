@@ -269,7 +269,7 @@ type argsType = {
 
 const DEFAULT_ARGS: argsType = {
     allowedStartIndex: 100,
-    count: 5,
+    count: 200,
     minParts: 5,
     maxParts: 20,
     seed: 42,
@@ -301,8 +301,8 @@ const main = async () => {
             pinhead: 0
         }
         const boardSize = {
-            width: argsValues.count * argsValues.maxGapBetweenParts * 2,
-            height: argsValues.count * argsValues.maxGapBetweenParts * 2,
+            width: partsCount * argsValues.maxGapBetweenParts * 2,
+            height: partsCount * argsValues.maxGapBetweenParts * 2,
         }
 
         for (let p = 0; p < partsCount; p++) {
