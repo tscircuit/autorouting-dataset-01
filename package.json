@@ -10,7 +10,10 @@
     "build": "tsci build",
     "snapshot": "tsci snapshot",
     "snapshot:update": "tsci snapshot --update",
-    "start": "tsci dev"
+    "start": "tsci dev",
+    "format": "biome format --write",
+    "lint": "biome lint",
+    "lint:fix": "biome lint --fix"
   },
   "devDependencies": {
     "@types/react": "^19.2.9",
