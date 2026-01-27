@@ -86,50 +86,104 @@ const overlaps = (a: Bounds, b: Bounds, margin: number = 0): boolean => {
         a.minY - margin > b.maxY + margin)
 }
 
-const placeComponent = (rng: () => number, compType: ComponentType, bounds: Bounds[], footprintSize: { width: number, height: number }, boardSize: { width: number, height: number }): {
-    pcbX: number,
-    pcbY: number,
-    width: number,
-    height: number,
-} => {
-    const attempts = 500
+const getInnerBoard = (boardSize: { width: number, height: number }, padding: number) => {
+    return {
+        minX: -boardSize.width / 2 + padding,
+        maxX: boardSize.width / 2 - padding,
+        minY: -boardSize.height / 2 + padding,
+        maxY: boardSize.height / 2 - padding,
+    }
+}
 
-    for (let i = 0; i < attempts; i++) {
-        const gap = randInt(rng, argsValues.minGapBetweenParts, argsValues.maxGapBetweenParts + 1)
-        const maxX = Math.max(0, boardSize.width / 2 - footprintSize.width / 2)
-        const maxY = Math.max(0, boardSize.height / 2 - footprintSize.height / 2)
-        const pcbX = rng() * (maxX * 2) - maxX
-        const pcbY = rng() * (maxY * 2) - maxY
-        const candidate: Bounds = {
-            minX: pcbX - footprintSize.width / 2,
-            maxX: pcbX + footprintSize.width / 2,
-            minY: pcbY - footprintSize.height / 2,
-            maxY: pcbY + footprintSize.height / 2,
-        }
+const isWithin = (bounds: Bounds, inner: Bounds) => {
+    return bounds.minX >= inner.minX &&
+        bounds.maxX <= inner.maxX &&
+        bounds.minY >= inner.minY &&
+        bounds.maxY <= inner.maxY
+}
 
-        let collision = false
-        for (const existing of bounds) {
-            if (overlaps(candidate, existing, gap)) {
-                collision = true
-                break
+const findDeterministicPlacement = (
+    footprintSize: { width: number, height: number },
+    bounds: Bounds[],
+    boardSize: { width: number, height: number },
+    gap: number,
+) => {
+    const padding = Math.max(2, argsValues.maxGapBetweenParts)
+    const inner = getInnerBoard(boardSize, padding)
+    const step = Math.max(0.5, gap / 2)
+    const maxSpanX = Math.max(0, inner.maxX - inner.minX - footprintSize.width)
+    const maxSpanY = Math.max(0, inner.maxY - inner.minY - footprintSize.height)
+    const maxRing = Math.ceil(Math.max(maxSpanX, maxSpanY) / step)
+
+    for (let ring = 0; ring <= maxRing; ring++) {
+        for (let dx = -ring; dx <= ring; dx++) {
+            for (let dy = -ring; dy <= ring; dy++) {
+                if (Math.abs(dx) !== ring && Math.abs(dy) !== ring) continue
+                const pcbX = dx * step
+                const pcbY = dy * step
+                const candidate: Bounds = {
+                    minX: pcbX - footprintSize.width / 2,
+                    maxX: pcbX + footprintSize.width / 2,
+                    minY: pcbY - footprintSize.height / 2,
+                    maxY: pcbY + footprintSize.height / 2,
+                }
+                if (!isWithin(candidate, inner)) continue
+
+                let collision = false
+                for (const existing of bounds) {
+                    if (overlaps(candidate, existing, gap)) {
+                        collision = true
+                        break
+                    }
+                }
+                if (collision) continue
+
+                return {
+                    pcbX,
+                    pcbY,
+                    width: footprintSize.width,
+                    height: footprintSize.height,
+                }
             }
         }
-        if (collision) continue
+    }
 
-        return {
-            pcbX,
-            pcbY,
-            width: footprintSize.width,
-            height: footprintSize.height,
+    return null
+}
+
+const placeComponentsDeterministically = (
+    rng: () => number,
+    components: ComponentSpec[],
+    boardSize: { width: number, height: number },
+) => {
+    const placed: ComponentSpec[] = []
+    const bounds: Bounds[] = []
+
+    for (let i = 0; i < components.length; i++) {
+        const comp = components[i]
+        const gap = randInt(rng, argsValues.minGapBetweenParts, argsValues.maxGapBetweenParts + 1)
+        const position = findDeterministicPlacement(
+            { width: comp.width, height: comp.height },
+            bounds,
+            boardSize,
+            gap
+        )
+        if (!position) {
+            continue
         }
+
+        comp.pcbX = position.pcbX
+        comp.pcbY = position.pcbY
+        bounds.push({
+            minX: comp.pcbX - comp.width / 2,
+            maxX: comp.pcbX + comp.width / 2,
+            minY: comp.pcbY - comp.height / 2,
+            maxY: comp.pcbY + comp.height / 2,
+        })
+        placed.push(comp)
     }
 
-    return {
-        pcbX: 0,
-        pcbY: 0,
-        width: footprintSize.width,
-        height: footprintSize.height,
-    }
+    return placed
 }
 
 const footprintToPinCount = (footprint: string) => {
@@ -269,12 +323,12 @@ type argsType = {
 
 const DEFAULT_ARGS: argsType = {
     allowedStartIndex: 100,
-    count: 100,
-    minParts: 5,
-    maxParts: 20,
+    count: 10,
+    minParts: 15,
+    maxParts: 50,
     seed: 42,
     minGapBetweenParts: 1,
-    maxGapBetweenParts: 5,
+    maxGapBetweenParts: 3,
 }
 
 // DO NOT implement args parsing from command line
@@ -290,7 +344,6 @@ const main = async () => {
         const partsCount = randInt(rng, argsValues.minParts, argsValues.maxParts + 1)
 
         const component: ComponentSpec[] = []
-        const bounds: Bounds[] = []
         const counts: Record<ComponentType, number> =  {
             resistor: 0,
             capacitor: 0,
@@ -300,9 +353,10 @@ const main = async () => {
             chip: 0,
             pinhead: 0
         }
+        const innerPadding = Math.max(2, argsValues.maxGapBetweenParts)
         const boardSize = {
-            width: partsCount * randInt(rng, argsValues.minGapBetweenParts, argsValues.maxGapBetweenParts),
-            height: partsCount * randInt(rng, argsValues.minGapBetweenParts, argsValues.maxGapBetweenParts),
+            width: partsCount * randInt(rng, argsValues.minGapBetweenParts, argsValues.maxGapBetweenParts) + innerPadding * 2,
+            height: partsCount * randInt(rng, argsValues.minGapBetweenParts, argsValues.maxGapBetweenParts) + innerPadding * 2,
         }
 
         for (let p = 0; p < partsCount; p++) {
@@ -311,29 +365,23 @@ const main = async () => {
             const compName = `${compType}-${counts[compType]}`
             const footprint = pick(rng, FOOTPRINTS[compType])
             const footprintSize = FOOTPRINT_SIZES[footprint]
-
-            const position = placeComponent(rng, compType, bounds, footprintSize, boardSize)
-            bounds.push({
-                minX: position.pcbX,
-                maxX: position.pcbX + position.width,
-                minY: position.pcbY,
-                maxY: position.pcbY + position.height,
-            })
+            // Store all components at 0,0 first, then deterministically slide into place.
             component.push({
                 type: compType,
                 name: compName,
                 footprint: footprint,
                 pinCount: getPinCounts(compType, footprint),
-                pcbX: position.pcbX,
-                pcbY: position.pcbY,
-                width: position.width,
-                height: position.height,
+                pcbX: 0,
+                pcbY: 0,
+                width: footprintSize.width,
+                height: footprintSize.height,
                 connections: {}
             })
         }
 
-        buildConnections(rng, component)
-        await generateFiles(libDir, argsValues.allowedStartIndex, partIndex, component, boardSize)
+        const placedComponents = placeComponentsDeterministically(rng, component, boardSize)
+        buildConnections(rng, placedComponents)
+        await generateFiles(libDir, argsValues.allowedStartIndex, partIndex, placedComponents, boardSize)
     }
 }
 
