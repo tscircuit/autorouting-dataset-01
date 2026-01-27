@@ -324,7 +324,7 @@ type argsType = {
 const DEFAULT_ARGS: argsType = {
     allowedStartIndex: 100,
     count: 10,
-    minParts: 15,
+    minParts: 2,
     maxParts: 50,
     seed: 42,
     minGapBetweenParts: 1,
