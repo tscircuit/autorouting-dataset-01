@@ -130,7 +130,18 @@ const placeComponent = (rng: () => number, compType: ComponentType, bounds: Boun
     }
 }
 
-const getPinCounts = (comType: ComponentType): number => {
+const footprintToPinCount = (footprint: string) => {
+    if (footprint === "soic16") return 16
+    if (footprint === "soic8" || footprint === "dip8") return 8
+    if (footprint === "pinrow8") return 8
+    if (footprint === "pinrow6") return 6
+    if (footprint === "pinheader6") return 6
+    if (footprint === "pinheader4") return 4
+    if (footprint === "pinheader2") return 2
+    return 2
+}
+
+const getPinCounts = (comType: ComponentType, footprint: string): number => {
     switch (comType) {
         case "resistor":
         case "capacitor":
@@ -140,6 +151,9 @@ const getPinCounts = (comType: ComponentType): number => {
             return 2
         case "transistor":
             return 3
+        case "chip":
+        case "pinhead":
+            return footprintToPinCount(footprint)
         default:
             return 2
     }
@@ -216,7 +230,13 @@ const componentToJsx = (component: ComponentSpec) => {
     if (component.type === "diode") {
         return `    <diode ${baseProps.join(" ")} />`
     }
-    return `    <transistor ${baseProps.join(" ")} />`
+    if (component.type === "transistor") {
+        return `    <transistor ${baseProps.join(" ")} />`
+    }
+    if (component.type === "pinhead") {
+        return `    <pinheader ${baseProps.join(" ")} pinCount={${component.pinCount}} pitch="2.54mm" />`
+    }
+    return `    <chip ${baseProps.join(" ")} manufacturerPartNumber="GENERIC" />`
 }
 
 const generateFiles = async (libDir: string, allowedStartIndex: number, partIndex: number, component: ComponentSpec[], boardSize: { width: number, height: number }) => {
@@ -301,7 +321,7 @@ const main = async () => {
                 type: compType,
                 name: compName,
                 footprint: footprint,
-                pinCount: getPinCounts(compType),
+                pinCount: getPinCounts(compType, footprint),
                 pcbX: position.center.pcbX,
                 pcbY: position.center.pcbY,
                 width: position.width,
