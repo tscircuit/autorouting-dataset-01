@@ -96,8 +96,10 @@ const placeComponent = (rng: () => number, compType: ComponentType, bounds: Boun
 
     for (let i = 0; i < attempts; i++) {
         const gap = randInt(rng, argsValues.minGapBetweenParts, argsValues.maxGapBetweenParts + 1)
-        const pcbX = rng() * Math.max(0, boardSize.width - footprintSize.width)
-        const pcbY = rng() * Math.max(0, boardSize.height - footprintSize.height)
+        const maxX = Math.max(0, boardSize.width / 2 - footprintSize.width / 2)
+        const maxY = Math.max(0, boardSize.height / 2 - footprintSize.height / 2)
+        const pcbX = rng() * (maxX * 2) - maxX
+        const pcbY = rng() * (maxY * 2) - maxY
         const candidate: Bounds = {
             minX: pcbX - footprintSize.width / 2,
             maxX: pcbX + footprintSize.width / 2,
