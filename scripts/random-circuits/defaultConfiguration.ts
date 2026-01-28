@@ -4,7 +4,7 @@ import type { GenerationConfiguration } from "types/GenerationConfiguration"
  * Default configuration values for circuit generation.
  */
 export const defaultConfiguration: GenerationConfiguration = {
-  allowedStartIndex: 200,
+  allowedStartIndex: 100,
   count: 1,
   minParts: 4,
   maxParts: 30,
