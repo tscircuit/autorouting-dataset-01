@@ -94,7 +94,7 @@ export const generateRandomDataset = async (
       const size = footprintSizes[footprint]
       const pinInfo = getPinInfo(componentType, footprint)
       const pcbRotation = pick({ rng, items: rotationAngles })
-      const layer = pick({ rng, items: layers })
+      const layer = rng() < 0.8 ? layers[0] : layers[1]
       components.push({
         type: componentType,
         name: componentName,
