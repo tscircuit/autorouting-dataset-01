@@ -3,7 +3,7 @@ import { Bounds } from "maths/box";
 /**
  * Calculates the inner board boundaries based on board size and padding.
  */
-export const getInnerBoard = (
+export const getBoardBoundsWithPadding = (
   boardSize: { width: number; height: number },
   padding: number,
 ): Bounds => {

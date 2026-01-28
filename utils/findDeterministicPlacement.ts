@@ -1,6 +1,6 @@
 import { Bounds, doBoundsOverlap } from "maths/box"
 import type { GenerationContext } from "types/GenerationContext"
-import { getInnerBoard } from "utils/getInnerBoard"
+import { getBoardBoundsWithPadding } from "utils/getInnerBoard"
 import { isWithin } from "utils/isWithin"
 
 /**
@@ -17,7 +17,7 @@ export const findDeterministicPlacement = (
 ): { pcbX: number; pcbY: number; width: number; height: number } | null => {
   const { footprintSize, existingBounds, boardSize, gap } = options
   const padding = Math.max(2, ctx.configuration.maxGapBetweenParts)
-  const inner = getInnerBoard(boardSize, padding)
+  const inner = getBoardBoundsWithPadding(boardSize, padding)
   const step = Math.max(0.5, gap / 2)
   const maxSpanX = Math.max(0, inner.maxX - inner.minX - footprintSize.width)
   const maxSpanY = Math.max(0, inner.maxY - inner.minY - footprintSize.height)
