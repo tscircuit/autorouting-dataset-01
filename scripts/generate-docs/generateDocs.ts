@@ -41,7 +41,10 @@ export const generateDocs = (options: {
         subdirMap.get(subdir)?.push(file)
       }
       for (const [subdir, subdirFiles] of subdirMap.entries()) {
-        updateReadmeForDirectory({ directory: subdir, directoryFiles: subdirFiles })
+        updateReadmeForDirectory({
+          directory: subdir,
+          directoryFiles: subdirFiles,
+        })
       }
       continue
     }

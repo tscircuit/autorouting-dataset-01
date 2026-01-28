@@ -24,13 +24,7 @@ export const generateRandomDataset = async (
   const rotationWeights = [0.75, 0.05, 0.075, 0.125]
   const layers = ["top", "bottom"] as const
   const layerWeights = [0.8, 0.2]
-  const transistorTypes = [
-    "npn",
-    "pnp",
-    "bjt",
-    "jfet",
-    "mosfet",
-  ] as const
+  const transistorTypes = ["npn", "pnp", "bjt", "jfet", "mosfet"] as const
   const libDirectory = path.resolve("lib", "circuit")
   await mkdir(libDirectory, { recursive: true })
 
