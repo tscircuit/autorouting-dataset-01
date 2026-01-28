@@ -1,4 +1,4 @@
-import type { Bounds } from "types/Bounds"
+import { Bounds } from "maths/box";
 
 /**
  * Calculates the inner board boundaries based on board size and padding.

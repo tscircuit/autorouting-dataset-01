@@ -1,4 +1,4 @@
-import type { Bounds } from "types/Bounds"
+import { Bounds } from "maths/box"
 
 /**
  * Checks if a bounding box is completely within another.

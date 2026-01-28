@@ -1,4 +1,4 @@
-import type { Bounds } from "types/Bounds"
+import { Bounds } from "maths/box"
 import type { ComponentSpecification } from "types/ComponentSpecification"
 import type { GenerationContext } from "types/GenerationContext"
 import { findDeterministicPlacement } from "utils/findDeterministicPlacement"
