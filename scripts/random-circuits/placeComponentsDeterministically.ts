@@ -40,7 +40,10 @@ export const placeComponentsDeterministically = (
 ): ComponentSpecification[] => {
   const { rng, components, boardSize } = options
   const placed: ComponentSpecification[] = []
-  const bounds: Bounds[] = []
+  const boundsByLayer: Record<"top" | "bottom", Bounds[]> = {
+    top: [],
+    bottom: [],
+  }
   const padding = Math.max(2, ctx.configuration.maxGapBetweenParts)
   const inner = getBoardBoundsWithPadding(boardSize, padding)
 
@@ -71,7 +74,8 @@ export const placeComponentsDeterministically = (
         }
 
         let collision = false
-        for (const existing of bounds) {
+        const layerBounds = boundsByLayer[component.layer]
+        for (const existing of layerBounds) {
           if (
             boundsAreaOverlap(candidate, existing) > 0 &&
             boundsDistance(candidate, existing) < gap
@@ -84,7 +88,7 @@ export const placeComponentsDeterministically = (
 
         component.pcbX = position.pcbX
         component.pcbY = position.pcbY
-        bounds.push(candidate)
+        boundsByLayer[component.layer].push(candidate)
         placed.push(component)
         placedHere = true
         break

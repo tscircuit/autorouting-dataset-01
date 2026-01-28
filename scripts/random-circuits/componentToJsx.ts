@@ -11,6 +11,7 @@ export const componentToJsx = (component: ComponentSpecification): string => {
     `pcbX={${component.pcbX.toFixed(2)}}`,
     `pcbY={${component.pcbY.toFixed(2)}}`,
     `pcbRotation={${component.pcbRotation.toFixed(2)}}`,
+    `layer="${component.layer}"`,
     `connections={${formatConnections(component.connections)}}`,
   ]
 

@@ -20,7 +20,16 @@ export const generateRandomDataset = async (
   ctx: GenerationContext,
 ): Promise<void> => {
   const rotationAngles = [0, 15, 45, 90, 180]
-  const transistorTypes = ["npn", "pnp", "bjt", "ibjt", "jfet", "mosfet", "npm"] as const
+  const layers = ["top", "bottom"] as const
+  const transistorTypes = [
+    "npn",
+    "pnp",
+    "bjt",
+    "ibjt",
+    "jfet",
+    "mosfet",
+    "npn",
+  ] as const
   const libDirectory = path.resolve("lib", "circuit")
   await mkdir(libDirectory, { recursive: true })
 
@@ -85,6 +94,7 @@ export const generateRandomDataset = async (
       const size = footprintSizes[footprint]
       const pinInfo = getPinInfo(componentType, footprint)
       const pcbRotation = pick({ rng, items: rotationAngles })
+      const layer = pick({ rng, items: layers })
       components.push({
         type: componentType,
         name: componentName,
@@ -94,6 +104,7 @@ export const generateRandomDataset = async (
         pcbX: 0,
         pcbY: 0,
         pcbRotation,
+        layer,
         width: size.width,
         height: size.height,
         connections: {},

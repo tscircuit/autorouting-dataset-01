@@ -12,8 +12,9 @@ export type ComponentSpecification = {
   pcbX: number
   pcbY: number
   pcbRotation: number
+  layer: "top" | "bottom"
   width: number
   height: number
   connections: Record<string, string>
-  transistorType?: "npn" | "pnp" | "bjt" | "ibjt" | "jfet" | "mosfet" | "npm"
+  transistorType?: "npn" | "pnp" | "bjt" | "ibjt" | "jfet" | "mosfet" | "npn"
 }
