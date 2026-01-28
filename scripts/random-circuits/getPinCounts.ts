@@ -1,27 +1,23 @@
-import { fp } from "@tscircuit/footprinter"
-
+import type { ComponentType } from "types/ComponentType"
+import { PinInfo } from "types/PinInfo"
+import { normalizeFootprintForFootprinter } from "scripts/random-circuits/normalizeFootprintForFootprinter"
+import { getFootprinterPinNames } from "scripts/random-circuits/getFootprinterPinNames"
+import { filterPinNamesForComponent } from "scripts/random-circuits/filterPinNamesForComponent"
 
 /**
- * Returns the number of pins based on component type and footprint.
+ * Returns the pin count and pin names based on component type and footprint.
  */
-export const getPinCounts = (
+export const getPinInfo = (
+  componentType: ComponentType,
   footprint: string,
-): number => {
-  const circuitJson = fp.string(footprint).circuitJson()
-  const pinHints = new Set<string>()
-  let padCount = 0
-
-  for (const element of circuitJson) {
-    const typed = element as { type?: string; port_hints?: string[] }
-    if (typed.type === "pcb_smtpad" || typed.type === "pcb_plated_hole") {
-      padCount += 1
-    }
-    if (Array.isArray(typed.port_hints)) {
-      for (const hint of typed.port_hints) {
-        pinHints.add(String(hint))
-      }
-    }
+): PinInfo => {
+  const normalized = normalizeFootprintForFootprinter(footprint)
+  const pinNames = filterPinNamesForComponent(
+    componentType,
+    getFootprinterPinNames(normalized),
+  )
+  return {
+    pinCount: pinNames.length,
+    pinNames,
   }
-
-  return pinHints.size > 0 ? pinHints.size : padCount
 }

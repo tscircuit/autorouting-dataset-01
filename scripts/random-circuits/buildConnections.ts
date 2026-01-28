@@ -11,8 +11,8 @@ export const buildConnections = (
   const allPins: { component: ComponentSpecification; pin: string }[] = []
   for (const component of components) {
     component.connections = {}
-    for (let i = 1; i <= component.pinCount; i++) {
-      allPins.push({ component: component, pin: `pin${i}` })
+    for (const pin of component.pinNames) {
+      allPins.push({ component: component, pin })
     }
   }
 

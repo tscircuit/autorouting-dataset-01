@@ -7,7 +7,7 @@ import { buildConnections } from "scripts/random-circuits/buildConnections"
 import { footprintSizes } from "scripts/random-circuits/footprintSizes"
 import { footprints } from "scripts/random-circuits/footprints"
 import { generateCircuitFile } from "scripts/random-circuits/generateCircuitFile"
-import { getPinCounts } from "scripts/random-circuits/getPinCounts"
+import { getPinInfo } from "scripts/random-circuits/getPinCounts"
 import { placeComponentsDeterministically } from "scripts/random-circuits/placeComponentsDeterministically"
 import type { ComponentSpecification } from "types/ComponentSpecification"
 import type { ComponentType } from "types/ComponentType"
@@ -81,11 +81,13 @@ export const generateRandomDataset = async (
       const componentName = `${componentType}-${typeCounts[componentType]}`
       const footprint = pick({ rng, items: footprints[componentType] })
       const size = footprintSizes[footprint]
+      const pinInfo = getPinInfo(componentType, footprint)
       components.push({
         type: componentType,
         name: componentName,
         footprint: footprint,
-        pinCount: getPinCounts(footprint),
+        pinCount: pinInfo.pinCount,
+        pinNames: pinInfo.pinNames,
         pcbX: 0,
         pcbY: 0,
         width: size.width,

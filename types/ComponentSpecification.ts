@@ -1,4 +1,4 @@
-import type { ComponentType } from "types/ComponentType"
+import { ComponentType } from "types/ComponentType"
 
 /**
  * Detailed specification for a circuit component.
@@ -8,6 +8,7 @@ export type ComponentSpecification = {
   name: string
   footprint: string
   pinCount: number
+  pinNames: string[]
   pcbX: number
   pcbY: number
   width: number
