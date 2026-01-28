@@ -26,20 +26,17 @@ export const getFootprinterPinNames = (footprint: string): string[] => {
     }
   }
 
-  if (numericPinHints.size > 0) {
-    return [...numericPinHints]
-      .map((value) => Number(value))
-      .sort((a, b) => a - b)
-      .map((value) => `pin${value}`)
+  switch (true) {
+    case numericPinHints.size > 0:
+      return [...numericPinHints]
+        .map((value) => Number(value))
+        .sort((a, b) => a - b)
+        .map((value) => `pin${value}`)
+    case namedPinHints.size > 0:
+      return [...namedPinHints]
+    case padCount > 0:
+      return Array.from({ length: padCount }, (_, index) => `pin${index + 1}`)
+    default:
+      return []
   }
-
-  if (namedPinHints.size > 0) {
-    return [...namedPinHints]
-  }
-
-  if (padCount > 0) {
-    return Array.from({ length: padCount }, (_, index) => `pin${index + 1}`)
-  }
-
-  return []
 }
