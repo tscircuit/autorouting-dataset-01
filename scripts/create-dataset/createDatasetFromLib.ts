@@ -6,12 +6,12 @@ import { processCircuitModule } from "scripts/create-dataset/processCircuitModul
  * Iterates through the lib directory and processes each TSX file into the dataset.
  */
 export const createDatasetFromLib = async (): Promise<void> => {
-  const libDirectory = path.resolve("lib")
-  const datasetDirectory = path.resolve("dataset")
+  const circuitsDirectory = path.resolve("lib", "circuit")
+  const datasetDirectory = path.resolve("lib", "dataset")
 
   await mkdir(datasetDirectory, { recursive: true })
 
-  const files = (await readdir(libDirectory)).filter((file) =>
+  const files = (await readdir(circuitsDirectory)).filter((file) =>
     file.endsWith(".tsx"),
   )
 
@@ -19,7 +19,7 @@ export const createDatasetFromLib = async (): Promise<void> => {
 
   for (const file of files) {
     const baseName = file.replace(/\.tsx$/, "")
-    const modulePath = `lib/${baseName}`
+    const modulePath = `lib/circuit/${baseName}`
 
     const result = await processCircuitModule({
       baseName,

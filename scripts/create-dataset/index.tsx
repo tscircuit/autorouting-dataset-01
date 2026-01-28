@@ -1,9 +1,9 @@
 import { createDatasetFromLib } from "scripts/create-dataset/createDatasetFromLib"
 
 /**
- * Main script to generate a dataset from the circuits defined in the lib directory.
- * It iterates through all circuit files in `lib/`, renders them, and saves the
- * resulting tscircuit JSON to the `dataset/` directory.
+ * Main script to generate a dataset from the circuits defined in lib/circuit.
+ * It iterates through all circuit files in `lib/circuit/`, renders them, and saves the
+ * resulting tscircuit JSON to the `lib/dataset/` directory.
  */
 const main = async () => {
   await createDatasetFromLib()
