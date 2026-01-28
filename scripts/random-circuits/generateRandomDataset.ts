@@ -20,6 +20,7 @@ export const generateRandomDataset = async (
   ctx: GenerationContext,
 ): Promise<void> => {
   const rotationAngles = [0, 15, 45, 90, 180]
+  const transistorTypes = ["npn", "pnp", "bjt", "ibjt", "jfet", "mosfet", "npm"] as const
   const libDirectory = path.resolve("lib", "circuit")
   await mkdir(libDirectory, { recursive: true })
 
@@ -98,7 +99,7 @@ export const generateRandomDataset = async (
         connections: {},
         transistorType:
           componentType === "transistor"
-            ? pick({ rng, items: ["npn", "pnp"] as const })
+            ? pick({ rng, items: transistorTypes })
             : undefined,
       })
     }
