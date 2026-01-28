@@ -1,4 +1,4 @@
-import { SM04B_SRSS_TB_LF__SN } from "imports/SM04B_SRSS_TB_LF__SN"
+import { SM04B_SRSS_TB_LF__SN } from "lib/imports/SM04B_SRSS_TB_LF__SN"
 import { sel } from "tscircuit"
 
 /**

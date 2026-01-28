@@ -1,8 +1,8 @@
 /** ISM330DHCX IMU + MMC5983MA magnetometer breakout with I2C headers, jumpers, and LED. */
 
 import { sel } from "tscircuit"
-import { ISM330DHCX } from "../imports/ISM330DHCX"
-import { MMC5983MA_QFN16 } from "../imports/MMC5983MA_QFN16"
+import { ISM330DHCX } from "lib/imports/ISM330DHCX"
+import { MMC5983MA_QFN16 } from "lib/imports/MMC5983MA_QFN16"
 
 export const D1_FOOTPRINT = (
   <footprint>

@@ -1,5 +1,5 @@
-import { TC78H670FTG_EL } from "imports/TC78H670FTG_EL"
-import { VGF39NCHXT_B103 } from "imports/VGF39NCHXT_B103"
+import { TC78H670FTG_EL } from "lib/imports/TC78H670FTG_EL"
+import { VGF39NCHXT_B103 } from "lib/imports/VGF39NCHXT_B103"
 import { sel } from "tscircuit"
 
 /**

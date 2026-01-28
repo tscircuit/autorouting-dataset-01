@@ -1,5 +1,5 @@
-import { PinHeader1x3 } from "imports/PinHeader1x3"
-import { VGF39NCHXT_B103 } from "imports/VGF39NCHXT_B103"
+import { PinHeader1x3 } from "lib/imports/PinHeader1x3"
+import { VGF39NCHXT_B103 } from "lib/imports/VGF39NCHXT_B103"
 import { sel } from "tscircuit"
 
 /**

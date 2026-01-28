@@ -1,4 +1,4 @@
-import { JoystickThumb } from "imports/JoystickThumb"
+import { JoystickThumb } from "lib/imports/JoystickThumb"
 import { sel } from "tscircuit"
 
 /**

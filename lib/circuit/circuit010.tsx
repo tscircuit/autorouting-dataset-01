@@ -1,5 +1,5 @@
-import { ACS37800 } from "imports/ACS37800"
-import { SM04B_SRSS_TB_LF__SN } from "imports/SM04B_SRSS_TB_LF__SN"
+import { ACS37800 } from "lib/imports/ACS37800"
+import { SM04B_SRSS_TB_LF__SN } from "lib/imports/SM04B_SRSS_TB_LF__SN"
 import { sel } from "tscircuit"
 
 /**

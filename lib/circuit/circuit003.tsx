@@ -1,8 +1,8 @@
-import { ATTINY85V_10SU } from "imports/ATTINY85V_10SU"
-import { AVR_ISP_2x3 } from "imports/AVR_ISP_2x3"
-import { JoystickThumb } from "imports/JoystickThumb"
-import { PinHeader1x4 } from "imports/PinHeader1x4"
-import { SM04B_SRSS_TB_LF__SN } from "imports/SM04B_SRSS_TB_LF__SN"
+import { ATTINY85V_10SU } from "lib/imports/ATTINY85V_10SU"
+import { AVR_ISP_2x3 } from "lib/imports/AVR_ISP_2x3"
+import { JoystickThumb } from "lib/imports/JoystickThumb"
+import { PinHeader1x4 } from "lib/imports/PinHeader1x4"
+import { SM04B_SRSS_TB_LF__SN } from "lib/imports/SM04B_SRSS_TB_LF__SN"
 import { sel } from "tscircuit"
 
 /**
