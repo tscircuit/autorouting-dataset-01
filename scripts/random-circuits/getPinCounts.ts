@@ -1,26 +1,27 @@
-import { footprintToPinCount } from "scripts/random-circuits/footprintToPinCount"
-import type { ComponentType } from "types/ComponentType"
+import { fp } from "@tscircuit/footprinter"
+
 
 /**
  * Returns the number of pins based on component type and footprint.
  */
 export const getPinCounts = (
-  componentType: ComponentType,
   footprint: string,
 ): number => {
-  switch (componentType) {
-    case "resistor":
-    case "capacitor":
-    case "inductor":
-      return 2
-    case "diode":
-      return 2
-    case "transistor":
-      return 3
-    case "chip":
-    case "pinhead":
-      return footprintToPinCount(footprint)
-    default:
-      return 2
+  const circuitJson = fp.string(footprint).circuitJson()
+  const pinHints = new Set<string>()
+  let padCount = 0
+
+  for (const element of circuitJson) {
+    const typed = element as { type?: string; port_hints?: string[] }
+    if (typed.type === "pcb_smtpad" || typed.type === "pcb_plated_hole") {
+      padCount += 1
+    }
+    if (Array.isArray(typed.port_hints)) {
+      for (const hint of typed.port_hints) {
+        pinHints.add(String(hint))
+      }
+    }
   }
+
+  return pinHints.size > 0 ? pinHints.size : padCount
 }

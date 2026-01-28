@@ -15,6 +15,7 @@
         "@tsci/seveibar.push-button": "^0.1.1",
         "@tsci/seveibar.reg-5v-to-3v": "^0.0.1",
         "@tsci/seveibar.smd-usb-c": "^0.0.2",
+        "@tscircuit/footprints": "^0.0.21",
         "@tscircuit/math-utils": "^0.0.33",
       },
       "devDependencies": {
@@ -195,6 +196,8 @@
     "@tscircuit/eval": ["@tscircuit/eval@0.0.594", "", { "peerDependencies": { "@tscircuit/core": "*", "circuit-json": "*", "typescript": "^5.0.0", "zod": "3" } }, "sha512-VWN27649ZzzfTeH+eCFzP02RzqEtEh6a0MKY+wORMM5kQgJH74AQA/0N3lcTlSD1oFe6CYuvZuxmdpcSC+HDiw=="],
 
     "@tscircuit/footprinter": ["@tscircuit/footprinter@0.0.288", "", { "dependencies": { "@tscircuit/mm": "^0.0.8", "zod": "^3.23.8" }, "peerDependencies": { "circuit-json": "*" } }, "sha512-a7WWnFxLdDZ10j38+NnK4HRaOUFaPgW/rpXjieaCYQMT5csCC/wR2vKCpqrR/9ywx8+gOXVM0+W8dVnl5mb8sg=="],
+
+    "@tscircuit/footprints": ["@tscircuit/footprints@0.0.21", "", { "peerDependencies": { "typescript": "^5.0.0" } }, "sha512-D0IEzWjrg+72rJwmFuiaD3rVL+hbNtMwlExyl9kVjC7JHPWz2pLYhDWZ2E/+sWxsoSvPKzVnGQR8UKozXshOlg=="],
 
     "@tscircuit/infgrid-ijump-astar": ["@tscircuit/infgrid-ijump-astar@0.0.35", "", {}, "sha512-PZx3GyD7mDNEhLJn8+7n8NjrieOvrX03g7Gx1cvwXv9mmgSC4M+yTA0WC4DgOvcRdTnarf0R8xvwtDeJ4tMK9Q=="],
 

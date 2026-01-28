@@ -85,7 +85,7 @@ export const generateRandomDataset = async (
         type: componentType,
         name: componentName,
         footprint: footprint,
-        pinCount: getPinCounts(componentType, footprint),
+        pinCount: getPinCounts(footprint),
         pcbX: 0,
         pcbY: 0,
         width: size.width,
