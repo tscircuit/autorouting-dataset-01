@@ -5,24 +5,26 @@ import { updateReadmeForDirectory } from "scripts/generate-docs/updateReadmeForD
 /**
  * Automates the generation of README.md documentation for the project.
  */
-export const generateDocs = (options: { directories: string[] }): void => {
+export const generateDocs = (options: {
+  directories: Array<{ path: string; depth: number }>
+}): void => {
   const { directories } = options
   const fileList: string[] = []
 
   for (const directory of directories) {
-    collectFiles(directory, fileList)
+    collectFiles(directory.path, fileList, directory.depth)
   }
 
   const filesByDirectoryCache = new Map<string, string[]>()
   for (const directory of directories) {
-    filesByDirectoryCache.set(directory, [])
+    filesByDirectoryCache.set(directory.path, [])
   }
 
   for (const file of fileList) {
     const normalizedPath = toPosix(file)
     for (const directory of directories) {
-      if (normalizedPath.startsWith(`${directory}/`)) {
-        filesByDirectoryCache.get(directory)?.push(normalizedPath)
+      if (normalizedPath.startsWith(`${directory.path}/`)) {
+        filesByDirectoryCache.get(directory.path)?.push(normalizedPath)
         break
       }
     }

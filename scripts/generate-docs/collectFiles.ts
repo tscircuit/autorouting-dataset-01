@@ -4,12 +4,29 @@ import path from "node:path"
 /**
  * Recursively collects all .tsx files from the given directory.
  */
-export const collectFiles = (directory: string, fileList: string[]): void => {
+export const collectFiles = (
+  directory: string,
+  fileList: string[],
+  maxDepth = -1,
+): void => {
   if (!fs.existsSync(directory)) return
+  if (maxDepth === 0) return
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
     const entryPath = path.join(directory, entry.name)
     if (entry.isDirectory()) {
-      collectFiles(entryPath, fileList)
+      if (maxDepth === 1) {
+        const indexCandidates = ["index.ts", "index.tsx"]
+        for (const filename of indexCandidates) {
+          const indexPath = path.join(entryPath, filename)
+          if (fs.existsSync(indexPath)) {
+            fileList.push(indexPath)
+            break
+          }
+        }
+        continue
+      }
+      const nextDepth = maxDepth === -1 ? -1 : maxDepth - 1
+      collectFiles(entryPath, fileList, nextDepth)
       continue
     }
     if (!entry.isFile()) continue

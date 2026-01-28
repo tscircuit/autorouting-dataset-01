@@ -64,3 +64,6 @@ QRE1113 analog line sensor breakout with labeled silkscreen and 3-pin header.
 
 - lib/circuit021.tsx
 RFID reader module breakout for ID-xx boards with dual headers.
+
+- lib/circuit200.tsx
+Randomly generated circuit 200.

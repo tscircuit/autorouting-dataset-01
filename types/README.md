@@ -9,3 +9,6 @@ Configuration options for the random circuit generation.
 
 - types/GenerationContext.ts
 Context object passed through the generation process.
+
+- types/PinInfo.ts
+Information about the pins of a component.
