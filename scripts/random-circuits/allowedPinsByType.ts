@@ -1,4 +1,3 @@
-import { ComponentType } from "types/ComponentType";
 import {
   capacitorPins,
   diodePins,
@@ -6,7 +5,10 @@ import {
   resistorPins,
   transistorPinsLabels,
 } from "@tscircuit/props"
-export const allowedPinsByType: Partial<Record<ComponentType, readonly string[]>> = {
+import type { ComponentType } from "types/ComponentType"
+export const allowedPinsByType: Partial<
+  Record<ComponentType, readonly string[]>
+> = {
   resistor: resistorPins,
   capacitor: capacitorPins,
   inductor: inductorPins,

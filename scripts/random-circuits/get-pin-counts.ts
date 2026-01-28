@@ -1,8 +1,8 @@
-import type { ComponentType } from "types/ComponentType"
-import { PinInfo } from "types/PinInfo"
-import { normalizeFootprintForFootprinter } from "scripts/random-circuits/normalizeFootprintForFootprinter"
-import { getFootprinterPinNames } from "scripts/random-circuits/getFootprinterPinNames"
 import { filterPinNamesForComponent } from "scripts/random-circuits/filterPinNamesForComponent"
+import { getFootprinterPinNames } from "scripts/random-circuits/getFootprinterPinNames"
+import { normalizeFootprintForFootprinter } from "scripts/random-circuits/normalizeFootprintForFootprinter"
+import type { ComponentType } from "types/ComponentType"
+import type { PinInfo } from "types/PinInfo"
 
 /**
  * Returns the pin count and pin names based on component type and footprint.

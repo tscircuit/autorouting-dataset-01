@@ -1,11 +1,11 @@
 import type { Bounds } from "maths/box"
 import { boundsAreaOverlap, boundsDistance } from "maths/box"
 import { shuffleInPlace } from "maths/random/shuffleInPlace"
+import { buildGridPositions } from "scripts/random-circuits/buildGridPositions"
 import { getBoardBoundsWithPadding } from "scripts/random-circuits/getBoardBoundsWithPadding"
 import type { ComponentSpecification } from "types/ComponentSpecification"
 import type { ComponentType } from "types/ComponentType"
 import type { GenerationContext } from "types/GenerationContext"
-import { buildGridPositions } from "scripts/random-circuits/buildGridPositions"
 
 const placementOrder: ComponentType[] = [
   "resistor",
@@ -46,7 +46,9 @@ export const placeComponentsDeterministically = (
 
   for (const type of placementOrder) {
     const gap = gridGapByType[type]
-    const typeComponents = components.filter((component) => component.type === type)
+    const typeComponents = components.filter(
+      (component) => component.type === type,
+    )
 
     for (const component of typeComponents) {
       const positions = buildGridPositions(inner, gap)
@@ -63,7 +65,10 @@ export const placeComponentsDeterministically = (
 
         let collision = false
         for (const existing of bounds) {
-          if (boundsAreaOverlap(candidate, existing) > 0 && boundsDistance(candidate, existing) < gap) {
+          if (
+            boundsAreaOverlap(candidate, existing) > 0 &&
+            boundsDistance(candidate, existing) < gap
+          ) {
             collision = true
             break
           }
@@ -79,7 +84,6 @@ export const placeComponentsDeterministically = (
       }
 
       if (!placedHere) {
-        continue
       }
     }
   }

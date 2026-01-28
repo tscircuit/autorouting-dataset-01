@@ -1,4 +1,4 @@
-import { Bounds } from "maths/box";
+import type { Bounds } from "maths/box"
 
 export const buildGridPositions = (
   bounds: Bounds,

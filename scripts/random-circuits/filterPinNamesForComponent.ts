@@ -1,5 +1,5 @@
-import { ComponentType } from "types/ComponentType"
 import { allowedPinsByType } from "scripts/random-circuits/allowedPinsByType"
+import type { ComponentType } from "types/ComponentType"
 
 /**
  * Filters footprinter pins by the component's allowed pin labels.
