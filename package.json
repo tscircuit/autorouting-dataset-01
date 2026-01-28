@@ -33,6 +33,7 @@
     "@tsci/seveibar.keyboard-utils": "^0.0.18",
     "@tsci/seveibar.push-button": "^0.1.1",
     "@tsci/seveibar.reg-5v-to-3v": "^0.0.1",
-    "@tsci/seveibar.smd-usb-c": "^0.0.2"
+    "@tsci/seveibar.smd-usb-c": "^0.0.2",
+    "@tscircuit/math-utils": "^0.0.33"
   }
 }
