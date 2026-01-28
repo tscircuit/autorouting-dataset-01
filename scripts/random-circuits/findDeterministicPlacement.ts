@@ -1,4 +1,4 @@
-import { type Bounds, doBoundsOverlap } from "maths/box"
+import { type Bounds, boundsAreaOverlap, boundsDistance } from "maths/box"
 import { getBoardBoundsWithPadding } from "scripts/random-circuits/getBoardBoundsWithPadding"
 import type { GenerationContext } from "types/GenerationContext"
 
@@ -34,11 +34,11 @@ export const findDeterministicPlacement = (
           minY: pcbY - footprintSize.height / 2,
           maxY: pcbY + footprintSize.height / 2,
         }
-        if (!doBoundsOverlap(candidate, inner)) continue
+        if (!boundsAreaOverlap(candidate, inner)) continue
 
         let collision = false
         for (const existing of existingBounds) {
-          if (doBoundsOverlap(candidate, existing)) {
+          if (boundsDistance(candidate, existing) < gap) {
             collision = true
             break
           }
