@@ -76,10 +76,9 @@ export const placeComponentsDeterministically = (
         let collision = false
         const layerBounds = boundsByLayer[component.layer]
         for (const existing of layerBounds) {
-          if (
-            boundsAreaOverlap(candidate, existing) > 0 &&
-            boundsDistance(candidate, existing) < gap
-          ) {
+          const overlapArea = boundsAreaOverlap(candidate, existing)
+          const distance = boundsDistance(candidate, existing)
+          if (overlapArea > 0 || distance < gap) {
             collision = true
             break
           }
