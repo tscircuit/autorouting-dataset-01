@@ -20,7 +20,7 @@ export const generateRandomDataset = async (
   ctx: GenerationContext,
 ): Promise<void> => {
   const rotationAngles = [0, 15, 45, 90, 180]
-  const libDirectory = path.resolve("lib")
+  const libDirectory = path.resolve("lib", "circuit")
   await mkdir(libDirectory, { recursive: true })
 
   for (
