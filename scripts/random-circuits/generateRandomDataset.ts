@@ -2,6 +2,7 @@ import { mkdir } from "node:fs/promises"
 import path from "node:path"
 import { mulberry32 } from "lib/maths/random/mulberry32"
 import { pick } from "lib/maths/random/pick"
+import { pickWeighted } from "lib/maths/random/pickWeighted"
 import { randInt } from "lib/maths/random/randInt"
 import { buildConnections } from "scripts/random-circuits/buildConnections"
 import { footprintSizes } from "scripts/random-circuits/footprintSizes"
@@ -19,16 +20,16 @@ import type { GenerationContext } from "types/GenerationContext"
 export const generateRandomDataset = async (
   ctx: GenerationContext,
 ): Promise<void> => {
-  const rotationAngles = [0, 15, 45, 90, 180]
+  const rotationAngles = [0, 15, 45, 90]
+  const rotationWeights = [0.5, 0.1, 0.15, 0.25]
   const layers = ["top", "bottom"] as const
+  const layerWeights = [0.8, 0.2]
   const transistorTypes = [
     "npn",
     "pnp",
     "bjt",
-    "ibjt",
     "jfet",
     "mosfet",
-    "npn",
   ] as const
   const libDirectory = path.resolve("lib", "circuit")
   await mkdir(libDirectory, { recursive: true })
@@ -93,8 +94,12 @@ export const generateRandomDataset = async (
       const footprint = pick({ rng, items: footprints[componentType] })
       const size = footprintSizes[footprint]
       const pinInfo = getPinInfo(componentType, footprint)
-      const pcbRotation = pick({ rng, items: rotationAngles })
-      const layer = rng() < 0.8 ? layers[0] : layers[1]
+      const pcbRotation = pickWeighted({
+        rng,
+        items: rotationAngles,
+        weights: rotationWeights,
+      })
+      const layer = pickWeighted({ rng, items: layers, weights: layerWeights })
       components.push({
         type: componentType,
         name: componentName,

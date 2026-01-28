@@ -16,5 +16,5 @@ export type ComponentSpecification = {
   width: number
   height: number
   connections: Record<string, string>
-  transistorType?: "npn" | "pnp" | "bjt" | "ibjt" | "jfet" | "mosfet" | "npn"
+  transistorType?: "npn" | "pnp" | "bjt" | "jfet" | "mosfet"
 }
