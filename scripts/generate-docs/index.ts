@@ -18,7 +18,10 @@ const main = () => {
     .split(",")
     .filter(Boolean)
     .map((entry) => {
-      const [path, depthRaw] = entry.trim().split(/[:=\s]+/).filter(Boolean)
+      const [path, depthRaw] = entry
+        .trim()
+        .split(/[:=\s]+/)
+        .filter(Boolean)
       const depth = depthRaw ? Number.parseInt(depthRaw, 10) : defaultDepth
       return {
         path,
