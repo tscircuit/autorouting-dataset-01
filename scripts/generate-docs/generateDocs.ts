@@ -31,6 +31,20 @@ export const generateDocs = (options: {
   }
 
   for (const [directory, directoryFiles] of filesByDirectoryCache.entries()) {
+    if (directory === "lib") {
+      const subdirMap = new Map<string, string[]>()
+      for (const file of directoryFiles) {
+        const parts = file.split("/")
+        if (parts.length < 3) continue
+        const subdir = `${parts[0]}/${parts[1]}`
+        if (!subdirMap.has(subdir)) subdirMap.set(subdir, [])
+        subdirMap.get(subdir)?.push(file)
+      }
+      for (const [subdir, subdirFiles] of subdirMap.entries()) {
+        updateReadmeForDirectory({ directory: subdir, directoryFiles: subdirFiles })
+      }
+      continue
+    }
     updateReadmeForDirectory({ directory, directoryFiles })
   }
 }
