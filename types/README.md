@@ -1,6 +1,3 @@
-- types/Bounds.ts
-Represents the bounding box of a component or area.
-
 - types/ComponentSpecification.ts
 Detailed specification for a circuit component.
 
