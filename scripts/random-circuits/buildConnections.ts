@@ -1,4 +1,4 @@
-import { randInt } from "maths/random/randInt"
+import { randInt } from "lib/maths/random/randInt"
 import type { ComponentSpecification } from "types/ComponentSpecification"
 
 /**

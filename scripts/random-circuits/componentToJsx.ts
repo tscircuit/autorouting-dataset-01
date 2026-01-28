@@ -10,6 +10,7 @@ export const componentToJsx = (component: ComponentSpecification): string => {
     `footprint="${component.footprint}"`,
     `pcbX={${component.pcbX.toFixed(2)}}`,
     `pcbY={${component.pcbY.toFixed(2)}}`,
+    `pcbRotation={${component.pcbRotation.toFixed(2)}}`,
     `connections={${formatConnections(component.connections)}}`,
   ]
 
@@ -26,7 +27,8 @@ export const componentToJsx = (component: ComponentSpecification): string => {
     return `    <diode ${baseProperties.join(" ")} />`
   }
   if (component.type === "transistor") {
-    return `    <transistor ${baseProperties.join(" ")} type="npn" />`
+    const transistorType = component.transistorType ?? "npn"
+    return `    <transistor ${baseProperties.join(" ")} type="${transistorType}" />`
   }
   if (component.type === "pinhead") {
     return `    <pinheader ${baseProperties.join(" ")} pinCount={${

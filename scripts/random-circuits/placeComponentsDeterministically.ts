@@ -1,6 +1,6 @@
-import type { Bounds } from "maths/box"
-import { boundsAreaOverlap, boundsDistance } from "maths/box"
-import { shuffleInPlace } from "maths/random/shuffleInPlace"
+import type { Bounds } from "lib/maths/box"
+import { boundsAreaOverlap, boundsDistance } from "lib/maths/box"
+import { shuffleInPlace } from "lib/maths/random/shuffleInPlace"
 import { buildGridPositions } from "scripts/random-circuits/buildGridPositions"
 import { getBoardBoundsWithPadding } from "scripts/random-circuits/getBoardBoundsWithPadding"
 import type { ComponentSpecification } from "types/ComponentSpecification"
@@ -56,11 +56,18 @@ export const placeComponentsDeterministically = (
 
       let placedHere = false
       for (const position of positions) {
+        const rotationRadians = (component.pcbRotation * Math.PI) / 180
+        const rotatedWidth =
+          Math.abs(Math.cos(rotationRadians)) * component.width +
+          Math.abs(Math.sin(rotationRadians)) * component.height
+        const rotatedHeight =
+          Math.abs(Math.sin(rotationRadians)) * component.width +
+          Math.abs(Math.cos(rotationRadians)) * component.height
         const candidate: Bounds = {
-          minX: position.pcbX - component.width / 2,
-          maxX: position.pcbX + component.width / 2,
-          minY: position.pcbY - component.height / 2,
-          maxY: position.pcbY + component.height / 2,
+          minX: position.pcbX - rotatedWidth / 2,
+          maxX: position.pcbX + rotatedWidth / 2,
+          minY: position.pcbY - rotatedHeight / 2,
+          maxY: position.pcbY + rotatedHeight / 2,
         }
 
         let collision = false

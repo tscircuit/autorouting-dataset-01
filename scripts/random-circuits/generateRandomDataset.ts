@@ -1,8 +1,8 @@
 import { mkdir } from "node:fs/promises"
 import path from "node:path"
-import { mulberry32 } from "maths/random/mulberry32"
-import { pick } from "maths/random/pick"
-import { randInt } from "maths/random/randInt"
+import { mulberry32 } from "lib/maths/random/mulberry32"
+import { pick } from "lib/maths/random/pick"
+import { randInt } from "lib/maths/random/randInt"
 import { buildConnections } from "scripts/random-circuits/buildConnections"
 import { footprintSizes } from "scripts/random-circuits/footprintSizes"
 import { footprints } from "scripts/random-circuits/footprints"
@@ -19,6 +19,7 @@ import type { GenerationContext } from "types/GenerationContext"
 export const generateRandomDataset = async (
   ctx: GenerationContext,
 ): Promise<void> => {
+  const rotationAngles = [0, 15, 45, 90, 180]
   const libDirectory = path.resolve("lib")
   await mkdir(libDirectory, { recursive: true })
 
@@ -82,6 +83,7 @@ export const generateRandomDataset = async (
       const footprint = pick({ rng, items: footprints[componentType] })
       const size = footprintSizes[footprint]
       const pinInfo = getPinInfo(componentType, footprint)
+      const pcbRotation = pick({ rng, items: rotationAngles })
       components.push({
         type: componentType,
         name: componentName,
@@ -90,9 +92,14 @@ export const generateRandomDataset = async (
         pinNames: pinInfo.pinNames,
         pcbX: 0,
         pcbY: 0,
+        pcbRotation,
         width: size.width,
         height: size.height,
         connections: {},
+        transistorType:
+          componentType === "transistor"
+            ? pick({ rng, items: ["npn", "pnp"] as const })
+            : undefined,
       })
     }
 

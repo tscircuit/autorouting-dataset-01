@@ -1,4 +1,4 @@
-import { type Bounds, boundsAreaOverlap, boundsDistance } from "maths/box"
+import { type Bounds, boundsAreaOverlap, boundsDistance } from "lib/maths/box"
 import { getBoardBoundsWithPadding } from "scripts/random-circuits/getBoardBoundsWithPadding"
 import type { GenerationContext } from "types/GenerationContext"
 

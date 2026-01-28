@@ -11,7 +11,9 @@ export type ComponentSpecification = {
   pinNames: string[]
   pcbX: number
   pcbY: number
+  pcbRotation: number
   width: number
   height: number
   connections: Record<string, string>
+  transistorType?: "npn" | "pnp"
 }
