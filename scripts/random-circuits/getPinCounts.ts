@@ -1,5 +1,5 @@
-import type { ComponentType } from "types/ComponentType"
 import { footprintToPinCount } from "scripts/random-circuits/footprintToPinCount"
+import type { ComponentType } from "types/ComponentType"
 
 /**
  * Returns the number of pins based on component type and footprint.

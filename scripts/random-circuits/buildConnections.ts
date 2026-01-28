@@ -1,5 +1,5 @@
-import type { ComponentSpecification } from "types/ComponentSpecification"
 import { randInt } from "maths/random/randInt"
+import type { ComponentSpecification } from "types/ComponentSpecification"
 
 /**
  * Randomly assigns connections between component pins.

@@ -1,5 +1,5 @@
-import type { ComponentSpecification } from "types/ComponentSpecification"
 import { formatConnections } from "scripts/random-circuits/formatConnections"
+import type { ComponentSpecification } from "types/ComponentSpecification"
 
 /**
  * Converts a component specification to a JSX string.

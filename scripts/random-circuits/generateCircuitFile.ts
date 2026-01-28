@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises"
 import path from "node:path"
-import type { ComponentSpecification } from "types/ComponentSpecification"
 import { componentToJsx } from "scripts/random-circuits/componentToJsx"
+import type { ComponentSpecification } from "types/ComponentSpecification"
 
 /**
  * Generates and writes a .tsx circuit file based on specifications.

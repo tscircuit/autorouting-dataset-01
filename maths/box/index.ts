@@ -1,4 +1,3 @@
-import { Bounds, doBoundsOverlap } from "@tscircuit/math-utils";
+import { Bounds, doBoundsOverlap } from "@tscircuit/math-utils"
 
-
-export { Bounds, doBoundsOverlap };
+export { Bounds, doBoundsOverlap }

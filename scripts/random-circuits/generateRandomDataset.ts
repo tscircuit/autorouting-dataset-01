@@ -1,17 +1,17 @@
 import { mkdir } from "node:fs/promises"
 import path from "node:path"
-import type { ComponentSpecification } from "types/ComponentSpecification"
-import type { ComponentType } from "types/ComponentType"
-import type { GenerationContext } from "types/GenerationContext"
+import { mulberry32 } from "maths/random/mulberry32"
+import { pick } from "maths/random/pick"
+import { randInt } from "maths/random/randInt"
 import { buildConnections } from "scripts/random-circuits/buildConnections"
 import { footprintSizes } from "scripts/random-circuits/footprintSizes"
 import { footprints } from "scripts/random-circuits/footprints"
 import { generateCircuitFile } from "scripts/random-circuits/generateCircuitFile"
 import { getPinCounts } from "scripts/random-circuits/getPinCounts"
-import { mulberry32 } from "maths/random/mulberry32"
-import { pick } from "maths/random/pick"
 import { placeComponentsDeterministically } from "scripts/random-circuits/placeComponentsDeterministically"
-import { randInt } from "maths/random/randInt"
+import type { ComponentSpecification } from "types/ComponentSpecification"
+import type { ComponentType } from "types/ComponentType"
+import type { GenerationContext } from "types/GenerationContext"
 
 /**
  * Orchestrates the creation of a dataset of random circuit designs.
