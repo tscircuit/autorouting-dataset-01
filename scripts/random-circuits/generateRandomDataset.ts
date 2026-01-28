@@ -21,7 +21,7 @@ export const generateRandomDataset = async (
   ctx: GenerationContext,
 ): Promise<void> => {
   const rotationAngles = [0, 15, 45, 90]
-  const rotationWeights = [0.5, 0.1, 0.15, 0.25]
+  const rotationWeights = [0.75, 0.05, 0.075, 0.125]
   const layers = ["top", "bottom"] as const
   const layerWeights = [0.8, 0.2]
   const transistorTypes = [
