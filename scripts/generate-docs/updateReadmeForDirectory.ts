@@ -1,6 +1,6 @@
 import fs from "node:fs"
 import path from "node:path"
-import { extractJsdoc } from "utils/extractJsdoc"
+import { extractJsdoc } from "scripts/generate-docs/extractJsdoc"
 
 /**
  * Updates the README.md in a directory based on JSDoc comments in its files.

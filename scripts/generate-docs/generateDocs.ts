@@ -1,6 +1,6 @@
-import { collectFiles } from "utils/collectFiles"
-import { toPosix } from "utils/toPosix"
-import { updateReadmeForDirectory } from "utils/updateReadmeForDirectory"
+import { collectFiles } from "scripts/generate-docs/collectFiles"
+import { toPosix } from "scripts/generate-docs/toPosix"
+import { updateReadmeForDirectory } from "scripts/generate-docs/updateReadmeForDirectory"
 
 /**
  * Automates the generation of README.md documentation for the project.

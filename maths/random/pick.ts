@@ -1,4 +1,4 @@
-import { randInt } from "utils/randInt"
+import { randInt } from "maths/random/randInt"
 
 /**
  * Randomly picks an item from a list.

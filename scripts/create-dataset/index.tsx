@@ -1,4 +1,4 @@
-import { createDatasetFromLib } from "utils/createDatasetFromLib"
+import { createDatasetFromLib } from "scripts/create-dataset/createDatasetFromLib"
 
 /**
  * Main script to generate a dataset from the circuits defined in the lib directory.

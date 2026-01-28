@@ -1,7 +1,6 @@
 import { Bounds, doBoundsOverlap } from "maths/box"
 import type { GenerationContext } from "types/GenerationContext"
-import { getBoardBoundsWithPadding } from "utils/getInnerBoard"
-import { isWithin } from "utils/isWithin"
+import { getBoardBoundsWithPadding } from "scripts/random-circuits/getBoardBoundsWithPadding"
 
 /**
  * Finds a valid deterministic placement for a component footprint.
@@ -35,7 +34,7 @@ export const findDeterministicPlacement = (
           minY: pcbY - footprintSize.height / 2,
           maxY: pcbY + footprintSize.height / 2,
         }
-        if (!isWithin(candidate, inner)) continue
+        if (!doBoundsOverlap(candidate, inner)) continue
 
         let collision = false
         for (const existing of existingBounds) {

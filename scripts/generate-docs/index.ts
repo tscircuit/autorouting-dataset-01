@@ -1,4 +1,4 @@
-import { generateDocs } from "utils/generateDocs"
+import { generateDocs } from "scripts/generate-docs/generateDocs"
 
 /**
  * Script to automatically generate README.md files for specified directories.

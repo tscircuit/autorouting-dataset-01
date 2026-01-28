@@ -1,6 +1,6 @@
 import { mkdir, readdir, writeFile } from "node:fs/promises"
 import path from "node:path"
-import { processCircuitModule } from "utils/processCircuitModule"
+import { processCircuitModule } from "scripts/create-dataset/processCircuitModule"
 
 /**
  * Iterates through the lib directory and processes each TSX file into the dataset.

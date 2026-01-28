@@ -1,6 +1,6 @@
 import type { GenerationContext } from "types/GenerationContext"
-import { defaultConfiguration } from "utils/defaultConfiguration"
-import { generateRandomDataset } from "utils/generateRandomDataset"
+import { defaultConfiguration } from "scripts/random-circuits/defaultConfiguration"
+import { generateRandomDataset } from "scripts/random-circuits/generateRandomDataset"
 
 /**
  * Script to generate a dataset of random circuits.

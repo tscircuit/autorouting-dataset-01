@@ -1,8 +1,8 @@
 import { Bounds } from "maths/box"
 import type { ComponentSpecification } from "types/ComponentSpecification"
 import type { GenerationContext } from "types/GenerationContext"
-import { findDeterministicPlacement } from "utils/findDeterministicPlacement"
-import { randInt } from "utils/randInt"
+import { findDeterministicPlacement } from "scripts/random-circuits/findDeterministicPlacement"
+import { randInt } from "maths/random/randInt"
 
 /**
  * Places components on the board such that they do not overlap.
