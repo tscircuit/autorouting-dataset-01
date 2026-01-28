@@ -1,4 +1,4 @@
-import type { GenerationConfiguration } from "/GenerationConfiguration"
+import { GenerationConfiguration } from "types/GenerationConfiguration"
 
 /**
  * Context object passed through the generation process.
