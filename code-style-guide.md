@@ -80,6 +80,6 @@ const userProfile = ctx.user_profile
 
 6.1 A file at most can contain one function/component/class
 
-7. Please for the new code use root impots like(lib/blabla, foldername/blbla)
+7. Please for the new code use root impost like(lib/foldername, foldername/filename)
 
 8. Look into global utils and math-utils and see if any new function added can be replaced with an existing version
