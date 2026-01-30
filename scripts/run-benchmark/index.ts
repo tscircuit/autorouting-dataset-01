@@ -23,6 +23,7 @@ const main = async () => {
       "",
       "Options:",
       "  --scenario-limit <count>  Limit number of scenarios (default: 5)",
+      "  --output-dir <path>       Output directory (default: cwd)",
       "  -h, --help                Show this help text",
       "",
       "Examples:",
@@ -53,7 +54,7 @@ const main = async () => {
   const summaryJsonText = JSON.stringify(summaryJson, null, 2)
   const detailJsonText = JSON.stringify(detailJson, null, 2)
 
-  const outputDirectory = path.resolve("scripts", "run-benchmark")
+  const outputDirectory = path.resolve(cliOptions.outputDirectory)
   await writeBenchmarkOutput({
     outputDirectory,
     outputText,
