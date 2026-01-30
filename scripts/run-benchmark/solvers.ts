@@ -8,3 +8,14 @@ export const SOLVER_CONSTRUCTOR_LIST: SolverConstructor[] = [
   AutoroutingPipelineSolver2_PortPointPathing,
   AutoroutingPipeline1_OriginalUnravel,
 ]
+
+export const solverDisplayNameByConstructor = new Map<
+  SolverConstructor,
+  string
+>([
+  [
+    AutoroutingPipelineSolver2_PortPointPathing,
+    "AutoroutingPipelineSolver2_PortPointPathing",
+  ],
+  [AutoroutingPipeline1_OriginalUnravel, "AutoroutingPipeline1_OriginalUnravel"],
+])

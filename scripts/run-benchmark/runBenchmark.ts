@@ -1,8 +1,10 @@
 import { detectUnfixableRoutingIssues } from "scripts/run-benchmark/detectUnfixableRoutingIssues"
+import { formatTimeSeconds } from "scripts/run-benchmark/formatTimeSeconds"
 import { getPercentileMs } from "scripts/run-benchmark/getPercentileMs"
 import type { BenchmarkRow } from "types/run-benchmark/BenchmarkRow"
 import type { Scenario } from "types/run-benchmark/Scenario"
 import type { SolverConstructor } from "types/run-benchmark/SolverConstructor"
+import { solverDisplayNameByConstructor } from "scripts/run-benchmark/solvers"
 
 /**
  * Run the benchmark across scenarios and solvers.
@@ -15,6 +17,8 @@ const runBenchmark = (inputs: {
   const resultRowList: BenchmarkRow[] = []
 
   for (const solverClass of solverConstructorList) {
+    const solverDisplayName =
+      solverDisplayNameByConstructor.get(solverClass) ?? solverClass.name
     let totalTimeMs = 0
     let successCount = 0
     let relaxedDrcPassedCount = 0
@@ -25,6 +29,8 @@ const runBenchmark = (inputs: {
       const startMs = Date.now()
       solver.solve()
       const elapsedMs = Date.now() - startMs
+      const connectionsCount =
+        scenario.simpleRouteJson.connections?.length ?? 0
       totalTimeMs += elapsedMs
       elapsedTimeMsList.push(elapsedMs)
 
@@ -32,6 +38,10 @@ const runBenchmark = (inputs: {
       if (solved) {
         successCount += 1
       }
+      const scenarioStatus = solved ? "Solved" : "Failed"
+      console.log(
+        `[${solverDisplayName}] ${scenarioStatus} ${scenario.scenarioName} in ${formatTimeSeconds(elapsedMs)} (connections: ${connectionsCount})`,
+      )
 
       const relaxedDrcPassed = detectUnfixableRoutingIssues()
       if (relaxedDrcPassed) {
@@ -48,7 +58,7 @@ const runBenchmark = (inputs: {
         : (relaxedDrcPassedCount / scenarioCount) * 100
 
     resultRowList.push({
-      solverName: solverClass.name,
+      solverName: solverDisplayName,
       totalTimeMs,
       p50TimeMs: getPercentileMs(elapsedTimeMsList, 0.5),
       p95TimeMs: getPercentileMs(elapsedTimeMsList, 0.95),
