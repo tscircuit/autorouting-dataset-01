@@ -1,12 +1,12 @@
 import { detectUnfixableRoutingIssues } from "scripts/run-benchmark/detectUnfixableRoutingIssues"
 import { formatTimeSeconds } from "scripts/run-benchmark/formatTimeSeconds"
 import { getPercentileMs } from "scripts/run-benchmark/getPercentileMs"
-import type { BenchmarkRow } from "types/run-benchmark/BenchmarkRow"
+import { solverDisplayNameByConstructor } from "scripts/run-benchmark/solvers"
 import type { BenchmarkResult } from "types/run-benchmark/BenchmarkResult"
+import type { BenchmarkRow } from "types/run-benchmark/BenchmarkRow"
 import type { BenchmarkScenarioResult } from "types/run-benchmark/BenchmarkScenarioResult"
 import type { Scenario } from "types/run-benchmark/Scenario"
 import type { SolverConstructor } from "types/run-benchmark/SolverConstructor"
-import { solverDisplayNameByConstructor } from "scripts/run-benchmark/solvers"
 
 /**
  * Run the benchmark across scenarios and solvers.
@@ -38,8 +38,7 @@ const runBenchmark = (inputs: {
       const startMs = Date.now()
       solver.solve()
       const elapsedMs = Date.now() - startMs
-      const connectionsCount =
-        scenario.simpleRouteJson.connections?.length ?? 0
+      const connectionsCount = scenario.simpleRouteJson.connections?.length ?? 0
       totalTimeMs += elapsedMs
       elapsedTimeMsList.push(elapsedMs)
 

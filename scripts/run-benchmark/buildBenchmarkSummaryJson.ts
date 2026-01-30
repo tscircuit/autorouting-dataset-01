@@ -1,6 +1,6 @@
+import { buildBenchmarkTableRows } from "scripts/run-benchmark/buildBenchmarkTableRows"
 import type { BenchmarkRow } from "types/run-benchmark/BenchmarkRow"
 import type { Scenario } from "types/run-benchmark/Scenario"
-import { buildBenchmarkTableRows } from "scripts/run-benchmark/buildBenchmarkTableRows"
 
 /**
  * Build JSON summary output for benchmark results.

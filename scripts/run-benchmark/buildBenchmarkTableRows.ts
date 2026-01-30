@@ -1,5 +1,5 @@
-import type { BenchmarkRow } from "types/run-benchmark/BenchmarkRow"
 import { formatTimeSeconds } from "scripts/run-benchmark/formatTimeSeconds"
+import type { BenchmarkRow } from "types/run-benchmark/BenchmarkRow"
 
 /**
  * Build table headers and rows for benchmark output.

@@ -17,5 +17,8 @@ export const solverDisplayNameByConstructor = new Map<
     AutoroutingPipelineSolver2_PortPointPathing,
     "AutoroutingPipelineSolver2_PortPointPathing",
   ],
-  [AutoroutingPipeline1_OriginalUnravel, "AutoroutingPipeline1_OriginalUnravel"],
+  [
+    AutoroutingPipeline1_OriginalUnravel,
+    "AutoroutingPipeline1_OriginalUnravel",
+  ],
 ])

@@ -1,4 +1,4 @@
-import { readFile, readdir } from "node:fs/promises"
+import { readdir, readFile } from "node:fs/promises"
 import path from "node:path"
 import type { Scenario } from "types/run-benchmark/Scenario"
 import type { SimpleRouteJson } from "types/run-benchmark/SimpleRouteJson"
@@ -22,10 +22,7 @@ const loadScenarioList = async (inputs: {
   for (const fileName of limitedFileList) {
     const scenarioName = fileName.replace(".simple-route-before.json", "")
     const simpleRouteJsonPath = path.join(datasetDirectory, fileName)
-    const simpleRouteJsonText = await readFile(
-      simpleRouteJsonPath,
-      "utf8",
-    )
+    const simpleRouteJsonText = await readFile(simpleRouteJsonPath, "utf8")
     const simpleRouteJson = JSON.parse(simpleRouteJsonText) as SimpleRouteJson
     scenarioList.push({ scenarioName, simpleRouteJsonPath, simpleRouteJson })
   }

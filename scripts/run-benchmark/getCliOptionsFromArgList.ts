@@ -47,10 +47,7 @@ const getCliOptionsFromArgList = (argList: string[]): CliOptions => {
         } else if (arg.startsWith("--scenario-limit=")) {
           const scenarioLimitText = arg.split("=", 2)[1]
           const scenarioLimitNumber = Number(scenarioLimitText)
-          if (
-            Number.isFinite(scenarioLimitNumber) &&
-            scenarioLimitNumber > 0
-          ) {
+          if (Number.isFinite(scenarioLimitNumber) && scenarioLimitNumber > 0) {
             cliOptions.scenarioCountLimit = Math.floor(scenarioLimitNumber)
           }
         } else if (arg.startsWith("--output-dir=")) {

@@ -5,10 +5,7 @@ import type { BenchmarkScenarioResult } from "types/run-benchmark/BenchmarkScena
  */
 const buildBenchmarkDetailsJson = (inputs: {
   scenarioResultList: BenchmarkScenarioResult[]
-}): Record<
-  string,
-  BenchmarkScenarioResult["solverResultBySolverName"]
-> => {
+}): Record<string, BenchmarkScenarioResult["solverResultBySolverName"]> => {
   const { scenarioResultList } = inputs
   const detailsByScenarioPath: Record<
     string,
