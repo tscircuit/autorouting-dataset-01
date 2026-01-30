@@ -2,6 +2,8 @@ import { detectUnfixableRoutingIssues } from "scripts/run-benchmark/detectUnfixa
 import { formatTimeSeconds } from "scripts/run-benchmark/formatTimeSeconds"
 import { getPercentileMs } from "scripts/run-benchmark/getPercentileMs"
 import type { BenchmarkRow } from "types/run-benchmark/BenchmarkRow"
+import type { BenchmarkResult } from "types/run-benchmark/BenchmarkResult"
+import type { BenchmarkScenarioResult } from "types/run-benchmark/BenchmarkScenarioResult"
 import type { Scenario } from "types/run-benchmark/Scenario"
 import type { SolverConstructor } from "types/run-benchmark/SolverConstructor"
 import { solverDisplayNameByConstructor } from "scripts/run-benchmark/solvers"
@@ -12,9 +14,16 @@ import { solverDisplayNameByConstructor } from "scripts/run-benchmark/solvers"
 const runBenchmark = (inputs: {
   scenarioList: Scenario[]
   solverConstructorList: SolverConstructor[]
-}): BenchmarkRow[] => {
+}): BenchmarkResult => {
   const { scenarioList, solverConstructorList } = inputs
   const resultRowList: BenchmarkRow[] = []
+  const scenarioResultList: BenchmarkScenarioResult[] = scenarioList.map(
+    (scenario) => ({
+      scenarioName: scenario.scenarioName,
+      simpleRouteJsonPath: scenario.simpleRouteJsonPath,
+      solverResultBySolverName: {},
+    }),
+  )
 
   for (const solverClass of solverConstructorList) {
     const solverDisplayName =
@@ -24,7 +33,7 @@ const runBenchmark = (inputs: {
     let relaxedDrcPassedCount = 0
     const elapsedTimeMsList: number[] = []
 
-    for (const scenario of scenarioList) {
+    for (const [scenarioIndex, scenario] of scenarioList.entries()) {
       const solver = new solverClass(scenario.simpleRouteJson)
       const startMs = Date.now()
       solver.solve()
@@ -47,6 +56,13 @@ const runBenchmark = (inputs: {
       if (relaxedDrcPassed) {
         relaxedDrcPassedCount += 1
       }
+      scenarioResultList[scenarioIndex].solverResultBySolverName[
+        solverDisplayName
+      ] = {
+        didSolve: solved,
+        elapsedTimeMs: elapsedMs,
+        relaxedDrcPassed,
+      }
     }
 
     const scenarioCount = scenarioList.length
@@ -67,7 +83,7 @@ const runBenchmark = (inputs: {
     })
   }
 
-  return resultRowList
+  return { resultRowList, scenarioResultList }
 }
 
 export { runBenchmark }

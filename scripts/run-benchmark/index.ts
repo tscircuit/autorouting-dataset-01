@@ -1,4 +1,6 @@
 import path from "node:path"
+import { buildBenchmarkDetailsJson } from "scripts/run-benchmark/buildBenchmarkDetailsJson"
+import { buildBenchmarkSummaryJson } from "scripts/run-benchmark/buildBenchmarkSummaryJson"
 import { getCliOptionsFromArgList } from "scripts/run-benchmark/getCliOptionsFromArgList"
 import { loadScenarioList } from "scripts/run-benchmark/loadScenarioList"
 import { outputTabled } from "scripts/run-benchmark/outputTabled"
@@ -38,7 +40,7 @@ const main = async () => {
     return
   }
 
-  const resultRowList = runBenchmark({
+  const { resultRowList, scenarioResultList } = runBenchmark({
     scenarioList,
     solverConstructorList: SOLVER_CONSTRUCTOR_LIST,
   })
@@ -46,8 +48,18 @@ const main = async () => {
   const outputText = outputTabled({ resultRowList, scenarioList })
   console.log(outputText)
 
+  const summaryJson = buildBenchmarkSummaryJson({ resultRowList, scenarioList })
+  const detailJson = buildBenchmarkDetailsJson({ scenarioResultList })
+  const summaryJsonText = JSON.stringify(summaryJson, null, 2)
+  const detailJsonText = JSON.stringify(detailJson, null, 2)
+
   const outputDirectory = path.resolve("scripts", "run-benchmark")
-  await writeBenchmarkOutput({ outputDirectory, outputText })
+  await writeBenchmarkOutput({
+    outputDirectory,
+    outputText,
+    summaryJsonText,
+    detailJsonText,
+  })
 }
 
 void main()

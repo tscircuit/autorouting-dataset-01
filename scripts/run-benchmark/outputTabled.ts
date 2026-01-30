@@ -1,6 +1,6 @@
 import type { BenchmarkRow } from "types/run-benchmark/BenchmarkRow"
 import type { Scenario } from "types/run-benchmark/Scenario"
-import { formatTimeSeconds } from "scripts/run-benchmark/formatTimeSeconds"
+import { buildBenchmarkTableRows } from "scripts/run-benchmark/buildBenchmarkTableRows"
 
 /**
  * Render benchmark results as a table.
@@ -10,27 +10,13 @@ const outputTabled = (inputs: {
   scenarioList: Scenario[]
 }): string => {
   const { resultRowList, scenarioList } = inputs
-  const tableHeaders = [
-    "Solver",
-    "% Completed",
-    "% Relaxed DRC Pass",
-    "P50 Time",
-    "P95 Time",
-  ]
+  const { tableHeaderList, tableRowList } = buildBenchmarkTableRows({
+    resultRowList,
+  })
 
-  const tableRows = resultRowList.map((result) => [
-    result.solverName,
-    `${result.successRatePercent.toFixed(1)}%`,
-    result.relaxedDrcRatePercent === null
-      ? "n/a"
-      : `${result.relaxedDrcRatePercent.toFixed(1)}%`,
-    formatTimeSeconds(result.p50TimeMs),
-    formatTimeSeconds(result.p95TimeMs),
-  ])
-
-  const columnWidths = tableHeaders.map((header, columnIndex) => {
+  const columnWidths = tableHeaderList.map((header, columnIndex) => {
     let maxWidth = header.length
-    for (const rowCells of tableRows) {
+    for (const rowCells of tableRowList) {
       const cellText = rowCells[columnIndex]
       if (cellText.length > maxWidth) {
         maxWidth = cellText.length
@@ -43,11 +29,11 @@ const outputTabled = (inputs: {
     .map((width) => "-".repeat(width + 2))
     .join("+")}+`
 
-  const headerLine = `| ${tableHeaders
+  const headerLine = `| ${tableHeaderList
     .map((header, columnIndex) => header.padEnd(columnWidths[columnIndex]))
     .join(" | ")} |`
 
-  const bodyLines = tableRows.map(
+  const bodyLines = tableRowList.map(
     (rowCells) =>
       `| ${rowCells
         .map((cellText, columnIndex) =>
