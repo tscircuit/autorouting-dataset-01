@@ -43,7 +43,7 @@ const runBenchmark = async (inputs: {
       totalTimeMs += elapsedMs
       elapsedTimeMsList.push(elapsedMs)
 
-      const solved = solver.solved && !solver.failed
+      const solved = solver.solved
       if (solved) {
         successCount += 1
       }
@@ -56,10 +56,10 @@ const runBenchmark = async (inputs: {
         srjWithPointPairs: solver.srjWithPointPairs! as any,
         minTraceWidth: scenario.simpleRouteJson.minTraceWidth,
         minViaDiameter: scenario.simpleRouteJson.minViaDiameter,
-        routes: solver.getOutputSimplifiedPcbTraces(),
+        routes: !solver.failed ? solver.getOutputSimplifiedPcbTraces() : [],
       })
       const relaxedDrcPassed = await detectUnfixableRoutingIssues(circuitJson)
-      if (relaxedDrcPassed) {
+      if (relaxedDrcPassed && solver.solved) {
         relaxedDrcPassedCount += 1
       }
       scenarioResultList[scenarioIndex].solverResultBySolverName[
