@@ -1,6 +1,8 @@
 /** 60% keyboard matrix using a Pico microcontroller and layouts.default60. */
 
+// @ts-ignore
 import { KeyMatrix, layouts } from "@tsci/seveibar.keyboard-utils"
+// @ts-ignore
 import { PICO } from "@tsci/seveibar.PICO"
 
 // We'll need more rows and columns for a 60% keyboard
