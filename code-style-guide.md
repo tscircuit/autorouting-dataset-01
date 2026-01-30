@@ -78,7 +78,7 @@ const userProfile = ctx.user_profile
 
 6. A large file should be broken up into smaller files
 
-6.1 A file at most can contain one function/component/class
+6.1 A file at most can contain one function/component/class; and all of the function and class should have a jsdoc 1-2 lines
 
 7. Please for the new code use root impost like(lib/foldername, foldername/filename)
 
