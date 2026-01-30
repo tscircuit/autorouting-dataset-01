@@ -1,4 +1,4 @@
-import { detectUnfixableRoutingIssues } from "scripts/run-benchmark/detectUnfixableRoutingIssues"
+import { detectUnfixableRoutingIssues } from "lib/checks/detectUnfixableRoutingIssues"
 import { formatTimeSeconds } from "scripts/run-benchmark/formatTimeSeconds"
 import { getPercentileMs } from "scripts/run-benchmark/getPercentileMs"
 import { solverDisplayNameByConstructor } from "scripts/run-benchmark/solvers"
