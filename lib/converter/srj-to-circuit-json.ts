@@ -1,28 +1,26 @@
 import type {
   AnyCircuitElement,
   LayerRef,
-  PcbBoard,
   PCBKeepout,
+  PcbBoard,
   PcbPort,
   PcbSmtPad,
   PcbTrace,
   PcbTraceRoutePoint,
-  SourceTrace,
   PcbVia,
+  SourceTrace,
 } from "circuit-json"
 import type { SimpleRouteJson, SimplifiedPcbTrace } from "tscircuit"
 
 /**
  * Convert a SimpleRouteJson and its routed traces into Circuit JSON for DRC use.
  */
-export const convertToCircuteJson = (
-  inputs: {
-    srjWithPointPairs: SimpleRouteJson
-    routes: SimplifiedPcbTrace[]
-    minTraceWidth?: number
-    minViaDiameter?: number
-  },
-): AnyCircuitElement[] => {
+export const convertToCircuteJson = (inputs: {
+  srjWithPointPairs: SimpleRouteJson
+  routes: SimplifiedPcbTrace[]
+  minTraceWidth?: number
+  minViaDiameter?: number
+}): AnyCircuitElement[] => {
   const { srjWithPointPairs, routes } = inputs
   const minTraceWidth = inputs.minTraceWidth ?? 0.1
   const minViaDiameter = inputs.minViaDiameter ?? 0.6
@@ -82,7 +80,9 @@ export const convertToCircuteJson = (
         point.pcb_port_id ?? `pcb_port_${connection.name}_${pointIndex}`
       connectedSourcePortIdList.push(pcb_port_id)
       if (!pcbPortByPcbPortId.has(pcb_port_id)) {
-        const pointLayers = Array.isArray((point as { layers?: unknown }).layers)
+        const pointLayers = Array.isArray(
+          (point as { layers?: unknown }).layers,
+        )
           ? ((point as { layers?: LayerRef[] }).layers ?? [])
           : point.layer
             ? [point.layer as LayerRef]
@@ -99,8 +99,7 @@ export const convertToCircuteJson = (
       }
     }
 
-    const existingSourceTrace =
-      sourceTraceBySourceTraceId.get(connectionName)
+    const existingSourceTrace = sourceTraceBySourceTraceId.get(connectionName)
     if (existingSourceTrace) {
       existingSourceTrace.connected_source_port_ids = Array.from(
         new Set([
@@ -160,9 +159,7 @@ export const convertToCircuteJson = (
       circuitJson.push(pcb_keepout)
       continue
     }
-    const pcb_port_id = connectedTo.find((id) =>
-      id.startsWith("pcb_port_"),
-    )
+    const pcb_port_id = connectedTo.find((id) => id.startsWith("pcb_port_"))
     const pcb_smtpad_hint_id = connectedTo.find((id) =>
       id.startsWith("pcb_smtpad_"),
     )
@@ -239,8 +236,8 @@ export const convertToCircuteJson = (
       (trace as { connection_name?: string }).connection_name ??
       (trace as { connectionName?: string }).connectionName
     const sourceTraceId = traceConnectionName
-      ? connectionNameByConnectionName.get(traceConnectionName) ??
-        traceConnectionName
+      ? (connectionNameByConnectionName.get(traceConnectionName) ??
+        traceConnectionName)
       : undefined
     const route = trace.route
       .map((routePoint): PcbTraceRoutePoint | null => {
@@ -268,7 +265,9 @@ export const convertToCircuteJson = (
         }
         return null
       })
-      .filter((routePoint): routePoint is PcbTraceRoutePoint => routePoint !== null)
+      .filter(
+        (routePoint): routePoint is PcbTraceRoutePoint => routePoint !== null,
+      )
 
     const pcb_trace: PcbTrace = {
       type: "pcb_trace",
