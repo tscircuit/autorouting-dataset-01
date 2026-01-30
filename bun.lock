@@ -20,6 +20,7 @@
         "@tscircuit/math-utils": "^0.0.33",
       },
       "devDependencies": {
+        "@tscircuit/checks": "^0.0.87",
         "@types/react": "^19.2.9",
         "tscircuit": "^0.0.1168",
       },

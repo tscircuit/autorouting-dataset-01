@@ -20,6 +20,7 @@
     "check:write": "biome check --write --unsafe"
   },
   "devDependencies": {
+    "@tscircuit/checks": "^0.0.87",
     "@types/react": "^19.2.9",
     "tscircuit": "^0.0.1168"
   },
