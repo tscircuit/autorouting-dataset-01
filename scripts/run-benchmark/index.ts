@@ -17,14 +17,14 @@ const main = async () => {
   if (cliOptions.shouldShowHelp) {
     console.log([
       "Usage:",
-      "  bun scripts/run-benchmark/index.ts [options]",
+      "  bun scripts/run-benchmark [options]",
       "",
       "Options:",
       "  --scenario-limit <count>  Limit number of scenarios (default: 5)",
       "  -h, --help                Show this help text",
       "",
       "Examples:",
-      "  bun scripts/run-benchmark/index.ts --scenario-limit 5",
+      "  bun scripts/run-benchmark --scenario-limit 5",
     ].join("\n"))
     return
   }
