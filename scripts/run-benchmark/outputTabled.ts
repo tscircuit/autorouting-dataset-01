@@ -1,6 +1,10 @@
 import type { BenchmarkRow } from "types/run-benchmark/BenchmarkRow"
 import type { Scenario } from "types/run-benchmark/Scenario"
+import { formatTimeSeconds } from "scripts/run-benchmark/formatTimeSeconds"
 
+/**
+ * Render benchmark results as a table.
+ */
 const outputTabled = (inputs: {
   resultRowList: BenchmarkRow[]
   scenarioList: Scenario[]
@@ -8,18 +12,20 @@ const outputTabled = (inputs: {
   const { resultRowList, scenarioList } = inputs
   const tableHeaders = [
     "Solver",
-    "Total Time (ms)",
-    "Success Rate",
-    "% Relaxed DRC Passed",
+    "% Completed",
+    "% Relaxed DRC Pass",
+    "P50 Time",
+    "P95 Time",
   ]
 
   const tableRows = resultRowList.map((result) => [
     result.solverName,
-    `${Math.round(result.totalTimeMs)}`,
     `${result.successRatePercent.toFixed(1)}%`,
     result.relaxedDrcRatePercent === null
       ? "n/a"
       : `${result.relaxedDrcRatePercent.toFixed(1)}%`,
+    formatTimeSeconds(result.p50TimeMs),
+    formatTimeSeconds(result.p95TimeMs),
   ])
 
   const columnWidths = tableHeaders.map((header, columnIndex) => {
