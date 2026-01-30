@@ -8,7 +8,7 @@ import { writeBenchmarkOutput } from "scripts/run-benchmark/writeBenchmarkOutput
 
 /**
  * Run benchmark script that benchmarks the autorouter against predefined
- * scenarios and outputs the results.3
+ * scenarios and outputs the results in a table format.
  */
 const main = async () => {
   const datasetDirectory = path.resolve("lib", "dataset")
