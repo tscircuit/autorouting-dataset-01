@@ -5,13 +5,16 @@ import type { SimpleRouteJson } from "types/run-benchmark/SimpleRouteJson"
 
 const loadScenarioList = async (inputs: {
   datasetDirectory: string
-  scenarioCountLimit: number
+  scenarioCountLimit: number | null
 }): Promise<Scenario[]> => {
   const { datasetDirectory, scenarioCountLimit } = inputs
   const datasetFileList = (await readdir(datasetDirectory))
     .filter((fileName) => fileName.endsWith(".simple-route-before.json"))
     .sort()
-  const limitedFileList = datasetFileList.slice(0, scenarioCountLimit)
+  const limitedFileList =
+    scenarioCountLimit === null
+      ? datasetFileList
+      : datasetFileList.slice(0, scenarioCountLimit)
 
   if (limitedFileList.length === 0) {
     return []

@@ -1,5 +1,5 @@
 type CliOptions = {
-  scenarioCountLimit: number
+  scenarioCountLimit: number | null
   outputDirectory: string
   shouldShowHelp: boolean
 }
@@ -8,10 +8,9 @@ type CliOptions = {
  * Parse CLI args for run-benchmark using a simple state machine.
  */
 const getCliOptionsFromArgList = (argList: string[]): CliOptions => {
-  const defaultScenarioCountLimit = 5
   const defaultOutputDirectory = process.cwd()
   const cliOptions: CliOptions = {
-    scenarioCountLimit: defaultScenarioCountLimit,
+    scenarioCountLimit: null,
     outputDirectory: defaultOutputDirectory,
     shouldShowHelp: false,
   }
@@ -21,11 +20,11 @@ const getCliOptionsFromArgList = (argList: string[]): CliOptions => {
     switch (parseState) {
       case "scenario_limit": {
         const scenarioCountLimitInput = Number(arg)
-        if (
-          Number.isFinite(scenarioCountLimitInput) &&
-          scenarioCountLimitInput > 0
-        ) {
-          cliOptions.scenarioCountLimit = Math.floor(scenarioCountLimitInput)
+        if (Number.isFinite(scenarioCountLimitInput)) {
+          const scenarioCountLimitValue = Math.floor(scenarioCountLimitInput)
+          if (scenarioCountLimitValue > 0) {
+            cliOptions.scenarioCountLimit = scenarioCountLimitValue
+          }
         }
         parseState = "default"
         break
@@ -47,8 +46,11 @@ const getCliOptionsFromArgList = (argList: string[]): CliOptions => {
         } else if (arg.startsWith("--scenario-limit=")) {
           const scenarioLimitText = arg.split("=", 2)[1]
           const scenarioLimitNumber = Number(scenarioLimitText)
-          if (Number.isFinite(scenarioLimitNumber) && scenarioLimitNumber > 0) {
-            cliOptions.scenarioCountLimit = Math.floor(scenarioLimitNumber)
+          if (Number.isFinite(scenarioLimitNumber)) {
+            const scenarioCountLimitValue = Math.floor(scenarioLimitNumber)
+            if (scenarioCountLimitValue > 0) {
+              cliOptions.scenarioCountLimit = scenarioCountLimitValue
+            }
           }
         } else if (arg.startsWith("--output-dir=")) {
           const outputDirectoryText = arg.split("=", 2)[1]

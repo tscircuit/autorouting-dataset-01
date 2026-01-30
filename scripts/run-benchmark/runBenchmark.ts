@@ -25,6 +25,9 @@ const runBenchmark = async (inputs: {
       solverResultBySolverName: {},
     }),
   )
+  const totalRunCount = scenarioList.length * solverConstructorList.length
+  let completedRunCount = 0
+  let averageRunTimeMs = 0
 
   for (const solverClass of solverConstructorList) {
     const solverDisplayName =
@@ -50,6 +53,16 @@ const runBenchmark = async (inputs: {
       const scenarioStatus = solved ? "Solved" : "Failed"
       console.log(
         `[${solverDisplayName}] ${scenarioStatus} ${scenario.scenarioName} in ${formatTimeSeconds(elapsedMs)} (connections: ${connectionsCount})`,
+      )
+      completedRunCount += 1
+      averageRunTimeMs +=
+        (elapsedMs - averageRunTimeMs) / Math.max(completedRunCount, 1)
+      const remainingRunCount = Math.max(totalRunCount - completedRunCount, 0)
+      const etaMs = Math.max(averageRunTimeMs * remainingRunCount, 0)
+      const percentComplete =
+        totalRunCount === 0 ? 100 : (completedRunCount / totalRunCount) * 100
+      console.log(
+        `[Progress] ${completedRunCount}/${totalRunCount} (${percentComplete.toFixed(1)}%) ETA ${formatTimeSeconds(etaMs)}`,
       )
 
       const circuitJson = convertToCircuteJson({

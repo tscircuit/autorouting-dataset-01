@@ -24,7 +24,7 @@ const main = async () => {
         "  bun scripts/run-benchmark [options]",
         "",
         "Options:",
-        "  --scenario-limit <count>  Limit number of scenarios (default: 5)",
+        "  --scenario-limit <count>  Limit number of scenarios (default: all)",
         "  --output-dir <path>       Output directory (default: cwd)",
         "  -h, --help                Show this help text",
         "",
@@ -43,6 +43,12 @@ const main = async () => {
     console.log("No dataset files found in lib/dataset.")
     return
   }
+
+  const solverCount = SOLVER_CONSTRUCTOR_LIST.length
+  const totalRunCount = scenarioList.length * solverCount
+  console.log(
+    `Loaded ${scenarioList.length} scenarios across ${solverCount} solvers (${totalRunCount} total runs).`,
+  )
 
   const { resultRowList, scenarioResultList } = await runBenchmark({
     scenarioList,
