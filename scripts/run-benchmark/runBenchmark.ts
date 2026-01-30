@@ -1,4 +1,5 @@
 import { detectUnfixableRoutingIssues } from "lib/checks/detectUnfixableRoutingIssues"
+import { convertToCircuteJson } from "lib/converter/srj-to-circuit-json"
 import { formatTimeSeconds } from "scripts/run-benchmark/formatTimeSeconds"
 import { getPercentileMs } from "scripts/run-benchmark/getPercentileMs"
 import { solverDisplayNameByConstructor } from "scripts/run-benchmark/solvers"
@@ -11,10 +12,10 @@ import type { SolverConstructor } from "types/run-benchmark/SolverConstructor"
 /**
  * Run the benchmark across scenarios and solvers.
  */
-const runBenchmark = (inputs: {
+const runBenchmark = async (inputs: {
   scenarioList: Scenario[]
   solverConstructorList: SolverConstructor[]
-}): BenchmarkResult => {
+}): Promise<BenchmarkResult> => {
   const { scenarioList, solverConstructorList } = inputs
   const resultRowList: BenchmarkRow[] = []
   const scenarioResultList: BenchmarkScenarioResult[] = scenarioList.map(
@@ -51,7 +52,13 @@ const runBenchmark = (inputs: {
         `[${solverDisplayName}] ${scenarioStatus} ${scenario.scenarioName} in ${formatTimeSeconds(elapsedMs)} (connections: ${connectionsCount})`,
       )
 
-      const relaxedDrcPassed = detectUnfixableRoutingIssues()
+      const circuitJson = convertToCircuteJson({
+        srjWithPointPairs: solver.srjWithPointPairs! as any,
+        minTraceWidth: scenario.simpleRouteJson.minTraceWidth,
+        minViaDiameter: scenario.simpleRouteJson.minViaDiameter,
+        routes: solver.getOutputSimplifiedPcbTraces(),
+      })
+      const relaxedDrcPassed = await detectUnfixableRoutingIssues(circuitJson)
       if (relaxedDrcPassed) {
         relaxedDrcPassedCount += 1
       }

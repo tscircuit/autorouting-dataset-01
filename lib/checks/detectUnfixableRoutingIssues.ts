@@ -1,11 +1,17 @@
-const detectUnfixableRoutingIssues = () => {
-  /**
-   * TODO:
-   * - some of the trace generated are impossible to fixed like they are on same layer crossing other trace of different net.
-   * - some trace could enter the wrong obstacle pad area, it still connections but this is just wrong
-   */
-  // Relaxed DRC Passed  = detectUnfixableRoutingIssues
-  return false
+import { runAllChecks } from "@tscircuit/checks"
+import type { AnyCircuitElement } from "circuit-json"
+
+/**
+ * Detect relaxed DRC failures that indicate routing is fundamentally invalid.
+ */
+const detectUnfixableRoutingIssues = async (
+  circuitJson: AnyCircuitElement[],
+): Promise<boolean> => {
+  const errorList = await runAllChecks(circuitJson)
+  const traceErrorList = errorList.filter(
+    (error) => "error_type" in error && error.error_type === "pcb_trace_error",
+  )
+  return traceErrorList.length === 0
 }
 
 export { detectUnfixableRoutingIssues }

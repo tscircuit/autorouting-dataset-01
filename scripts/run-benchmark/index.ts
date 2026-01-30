@@ -44,7 +44,7 @@ const main = async () => {
     return
   }
 
-  const { resultRowList, scenarioResultList } = runBenchmark({
+  const { resultRowList, scenarioResultList } = await runBenchmark({
     scenarioList,
     solverConstructorList: SOLVER_CONSTRUCTOR_LIST,
   })
