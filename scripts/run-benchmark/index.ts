@@ -1,6 +1,7 @@
 import path from "node:path"
 import { buildBenchmarkDetailsJson } from "scripts/run-benchmark/buildBenchmarkDetailsJson"
 import { buildBenchmarkSummaryJson } from "scripts/run-benchmark/buildBenchmarkSummaryJson"
+import { generateHtmlVisualization } from "scripts/run-benchmark/generateHtmlVisualization"
 import { getCliOptionsFromArgList } from "scripts/run-benchmark/getCliOptionsFromArgList"
 import { loadScenarioList } from "scripts/run-benchmark/loadScenarioList"
 import { outputTabled } from "scripts/run-benchmark/outputTabled"
@@ -17,18 +18,20 @@ const main = async () => {
   const argList = process.argv.slice(2)
   const cliOptions = getCliOptionsFromArgList(argList)
   if (cliOptions.shouldShowHelp) {
-    console.log([
-      "Usage:",
-      "  bun scripts/run-benchmark [options]",
-      "",
-      "Options:",
-      "  --scenario-limit <count>  Limit number of scenarios (default: 5)",
-      "  --output-dir <path>       Output directory (default: cwd)",
-      "  -h, --help                Show this help text",
-      "",
-      "Examples:",
-      "  bun scripts/run-benchmark --scenario-limit 5",
-    ].join("\n"))
+    console.log(
+      [
+        "Usage:",
+        "  bun scripts/run-benchmark [options]",
+        "",
+        "Options:",
+        "  --scenario-limit <count>  Limit number of scenarios (default: 5)",
+        "  --output-dir <path>       Output directory (default: cwd)",
+        "  -h, --help                Show this help text",
+        "",
+        "Examples:",
+        "  bun scripts/run-benchmark --scenario-limit 5",
+      ].join("\n"),
+    )
     return
   }
   const scenarioList = await loadScenarioList({
@@ -54,12 +57,19 @@ const main = async () => {
   const summaryJsonText = JSON.stringify(summaryJson, null, 2)
   const detailJsonText = JSON.stringify(detailJson, null, 2)
 
+  const html_text = generateHtmlVisualization({
+    summary_json: summaryJson,
+    detail_json: detailJson,
+    result_row_list: resultRowList,
+  })
+
   const outputDirectory = path.resolve(cliOptions.outputDirectory)
   await writeBenchmarkOutput({
     outputDirectory,
     outputText,
     summaryJsonText,
     detailJsonText,
+    html_text,
   })
 }
 
