@@ -24,6 +24,7 @@ jobs:
         run: bun install --frozen-lockfile
       - name: Run benchmark
         run: |
+          mkdir -p "${{ inputs.output_dir }}"
           args=(bun scripts/run-benchmark --output-dir "${{ inputs.output_dir }}")
           if [[ -n "${{ inputs.scenario_limit }}" && "${{ inputs.scenario_limit }}" =~ ^[1-9][0-9]*$ ]]; then
             args+=(--scenario-limit "${{ inputs.scenario_limit }}")
