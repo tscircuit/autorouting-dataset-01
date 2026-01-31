@@ -14,7 +14,6 @@
         "@tsci/seveibar.keyboard-utils": "^0.0.18",
         "@tsci/seveibar.push-button": "^0.1.1",
         "@tsci/seveibar.reg-5v-to-3v": "^0.0.1",
-        "@tsci/seveibar.smd-usb-c": "^0.0.2",
         "@tscircuit/capacity-autorouter": "^0.0.266",
         "@tscircuit/checks": "^0.0.87",
         "@tscircuit/footprints": "^0.0.21",
@@ -175,8 +174,6 @@
     "@tsci/seveibar.push-button": ["@tsci/seveibar.push-button@0.1.1", "https://npm.tscircuit.com/package_files/download?package_name=seveibar%2Fpush-button&package_file_id=a84de949-2166-4c6e-970a-cd4f9b6c6654", {}, "sha512-7+5GnhR2flKwOBID945A4tVt5c2BTgn8b7XD14EuBI3BrLFCDUNcMtiCjb5Wt9llJO7tILU4F4695OpVyMNndg=="],
 
     "@tsci/seveibar.reg-5v-to-3v": ["@tsci/seveibar.reg-5v-to-3v@0.0.1", "https://npm.tscircuit.com/package_files/download?package_name=seveibar%2Freg-5v-to-3v&package_file_id=e0d6208a-5d3e-415b-b1e9-024e1d89b96a", {}, "sha512-Uje+Adt9fAGmJtO573wCtcaq9KILR487RqkRWYMdtXM4UPMj7qLCI/dYt477Z3YwN2sMLmd2T9kDcfVftRsDBw=="],
-
-    "@tsci/seveibar.smd-usb-c": ["@tsci/seveibar.smd-usb-c@0.0.2", "https://npm.tscircuit.com/package_files/download?package_name=seveibar%2Fsmd-usb-c&package_file_id=7779df01-ee1d-46f5-a338-c922e7190d8e", {}, "sha512-XQif1iluoAKtOmZbUdGpVxqxbOzouGniccEhNHmXtXZl2X1NR7gDpoaCYbuAdKkcO3dosRKGoE1sm9Tf5/g7tg=="],
 
     "@tscircuit/alphabet": ["@tscircuit/alphabet@0.0.17", "", { "peerDependencies": { "typescript": "^5.0.0" } }, "sha512-cuXgG7GSalJhwZmPZhWkkK4IU6vdz22Y1irC+wCGEtluwnkVTzcdzr1KCuN1ec4nYlpS293eHklUwxH9RbAB2g=="],
 
