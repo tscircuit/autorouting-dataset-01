@@ -19,6 +19,9 @@
     "check": "biome check",
     "check:write": "biome check --write --unsafe"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@tscircuit/checks": "^0.0.87",
     "@types/react": "^19.2.9",
