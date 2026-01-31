@@ -21,7 +21,7 @@ jobs:
         with:
           bun-version: latest
       - name: Install dependencies
-        run: bun install --frozen-lockfile
+        run: bun install
       - name: Run benchmark
         run: |
           mkdir -p "${{ inputs.output_dir }}"
