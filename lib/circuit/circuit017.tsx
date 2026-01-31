@@ -1,4 +1,5 @@
 /** Pico W driving a 3x5 WS2812B LED matrix with chained data and shared 5V/GND. */
+// @ts-expect-error
 import { usePICO_W } from "@tsci/seveibar.PICO_W"
 import { WS2812B_2020 as LedWithIc } from "@tsci/seveibar.WS2812B_2020"
 import { grid } from "@tscircuit/math-utils"

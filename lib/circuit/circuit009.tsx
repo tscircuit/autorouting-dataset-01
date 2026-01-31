@@ -1,6 +1,7 @@
 /** USB-C + ESP32-S3 Mini board with 5V-to-3.3V regulation and USB-C config resistors. */
 
 import { useESP32_S3_MINI_1_N8 } from "@tsci/seveibar.esp32-s3-mini-1-n8"
+// @ts-expect-error
 import { Reg5vTo3v3 } from "@tsci/seveibar.reg-5v-to-3v"
 import { useUsbC } from "@tsci/seveibar.smd-usb-c"
 import { useResistor } from "@tscircuit/core"

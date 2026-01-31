@@ -1,0 +1,1 @@
+This file contains logic for validating solver outputs. It primarily re-exports functionality from the @tscircuit/checks module and serves as a middle layer for custom implementations.

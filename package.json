@@ -20,10 +20,9 @@
     "check:write": "biome check --write --unsafe"
   },
   "devDependencies": {
+    "@tscircuit/checks": "^0.0.87",
     "@types/react": "^19.2.9",
-    "tscircuit": "^0.0.1168"
-  },
-  "dependencies": {
+    "tscircuit": "^0.0.1168",
     "@biomejs/biome": "^2.3.13",
     "@tsci/imrishabh18.TB6612FNG": "^0.1.0",
     "@tsci/seveibar.PICO": "^0.1.0",
@@ -34,7 +33,9 @@
     "@tsci/seveibar.push-button": "^0.1.1",
     "@tsci/seveibar.reg-5v-to-3v": "^0.0.1",
     "@tsci/seveibar.smd-usb-c": "^0.0.2",
+    "@tscircuit/capacity-autorouter": "^0.0.266",
     "@tscircuit/footprints": "^0.0.21",
-    "@tscircuit/math-utils": "^0.0.33"
+    "@tscircuit/math-utils": "^0.0.33",
+    "circuit-json": "^0.0.371"
   }
 }

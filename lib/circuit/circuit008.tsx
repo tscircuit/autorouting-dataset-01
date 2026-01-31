@@ -1,4 +1,5 @@
 /** TB6612FNG motor driver board with dual 8-pin headers and bypass capacitors. */
+// @ts-expect-error
 import { TB6612FNG_C_8_EL as MotorDriver } from "@tsci/imrishabh18.TB6612FNG"
 import manaulEdits from "assets/manual-edits.json"
 
