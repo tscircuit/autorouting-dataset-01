@@ -15,6 +15,8 @@ export const createDatasetFromLib = async (): Promise<void> => {
     file.endsWith(".tsx"),
   )
 
+  files.sort()
+
   const processedBaseNames: string[] = []
 
   for (const file of files) {

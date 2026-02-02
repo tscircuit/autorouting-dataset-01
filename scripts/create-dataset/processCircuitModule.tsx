@@ -21,6 +21,11 @@ export const processCircuitModule = async (options: {
   }
 
   const circuit = new RootCircuit()
+  // TODO: more research on which parts to disable so we still get the callbacks
+  // but the autorouter is disabled
+  // circuit.pcbRoutingDisabled = true
+  circuit.schematicDisabled = true
+  // circuit.pcbDisabled = true
   circuit.add(<Circuit />)
 
   const outputPath = path.join(

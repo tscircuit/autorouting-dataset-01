@@ -24,3 +24,5 @@
 //     </board>
 //   )
 // }
+
+export default () => <board width="66.00mm" height="36.00mm" />
