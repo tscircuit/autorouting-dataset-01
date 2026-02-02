@@ -25,6 +25,4 @@
 //   )
 // }
 
-export default () => (
-    <board width="66.00mm" height="36.00mm" />
-)
+export default () => <board width="66.00mm" height="36.00mm" />

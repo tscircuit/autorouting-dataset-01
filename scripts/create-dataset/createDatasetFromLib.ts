@@ -14,7 +14,7 @@ export const createDatasetFromLib = async (): Promise<void> => {
   const files = (await readdir(circuitsDirectory)).filter((file) =>
     file.endsWith(".tsx"),
   )
-  
+
   files.sort()
 
   const processedBaseNames: string[] = []
