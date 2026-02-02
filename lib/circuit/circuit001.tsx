@@ -1,4 +1,5 @@
 /** Minimal RC network demo board: one resistor, one capacitor, and a single trace between them. */
+// @ts-ignore
 import { SmdUsbC } from "@tsci/seveibar.smd-usb-c"
 
 export default () => {

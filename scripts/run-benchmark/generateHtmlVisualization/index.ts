@@ -1,5 +1,4 @@
 import { generateChartScripts } from "scripts/run-benchmark/generateHtmlVisualization/generateChartScripts"
-import { generateDetailedMetrics } from "scripts/run-benchmark/generateHtmlVisualization/generateDetailedMetrics"
 import { generateHeader } from "scripts/run-benchmark/generateHtmlVisualization/generateHeader"
 import { generatePerformanceOverview } from "scripts/run-benchmark/generateHtmlVisualization/generatePerformanceOverview"
 import { generateScenarioDetails } from "scripts/run-benchmark/generateHtmlVisualization/generateScenarioDetails"
@@ -35,7 +34,6 @@ export const generateHtmlVisualization = (inputs: {
     <div class="max-w-7xl mx-auto">
         ${generateHeader(summary_json)}
         ${generatePerformanceOverview()}
-        ${generateDetailedMetrics()}
         ${generateSummaryTable(summary_json)}
         ${generateScenarioDetails(detail_json)}
     </div>
