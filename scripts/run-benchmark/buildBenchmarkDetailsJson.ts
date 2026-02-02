@@ -1,3 +1,4 @@
+import path from "node:path"
 import type { BenchmarkScenarioResult } from "types/run-benchmark/BenchmarkScenarioResult"
 
 /**
@@ -13,7 +14,8 @@ const buildBenchmarkDetailsJson = (inputs: {
   > = {}
 
   for (const scenarioResult of scenarioResultList) {
-    detailsByScenarioPath[scenarioResult.simpleRouteJsonPath] =
+    const scenarioFileName = path.basename(scenarioResult.simpleRouteJsonPath)
+    detailsByScenarioPath[scenarioFileName] =
       scenarioResult.solverResultBySolverName
   }
 
