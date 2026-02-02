@@ -247,7 +247,7 @@ export default () => (
     <chip
       name="chip-1"
       footprint="soic16"
-      pcbX={-20.0}
+      pcbX={-24.0}
       pcbY={-24.0}
       pcbRotation={15.0}
       layer="top"
