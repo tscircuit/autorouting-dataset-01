@@ -1,5 +1,4 @@
 import { generateChartConfig } from "scripts/run-benchmark/generateHtmlVisualization/generateChartConfig"
-import { generatePerformanceRadarChart } from "scripts/run-benchmark/generateHtmlVisualization/generatePerformanceRadarChart"
 import { generateSuccessRateChart } from "scripts/run-benchmark/generateHtmlVisualization/generateSuccessRateChart"
 import { generateTimeChart } from "scripts/run-benchmark/generateHtmlVisualization/generateTimeChart"
 import type { BenchmarkRow } from "types/run-benchmark/BenchmarkRow"
@@ -13,6 +12,5 @@ export const generateChartScripts = (result_row_list: BenchmarkRow[]) => {
     ${generateChartConfig()}
     ${generateSuccessRateChart()}
     ${generateTimeChart()}
-    ${generatePerformanceRadarChart()}
 </script>`
 }
