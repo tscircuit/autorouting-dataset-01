@@ -10,8 +10,8 @@ const buildBenchmarkTableRows = (inputs: {
   const { resultRowList } = inputs
   const tableHeaderList = [
     "Solver",
-    "% Completed",
-    "% Relaxed DRC Pass",
+    "Completed %",
+    "Relaxed DRC Pass %",
     "P50 Time",
     "P95 Time",
   ]

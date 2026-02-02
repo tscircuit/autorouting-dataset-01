@@ -13,7 +13,7 @@ A set of tscircuit problems to benchmark autorouting (currently 16 circuits in `
 
 1. Get 200 problems
 2. Convert 200 problems to simple route json
-3. Run against every pipeline, and report % completion, inside a file. Check for fatal DRC errors. (Completed 43%, DRC Pass 30%)
+3. Run against every pipeline, and report completion %, inside a file. Check for fatal DRC errors. (Completed 43%, DRC Pass 30%)
 
 | Pipeline | Completed | DRC Pass | Avg Time per Circuit |
 | -------- | --------- | -------- | ----- |
