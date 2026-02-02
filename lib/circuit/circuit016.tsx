@@ -26,7 +26,15 @@ const colPins = [
 ]
 
 export default () => (
-  <board>
+  <board
+    routingDisabled={
+      (typeof globalThis !== "undefined" &&
+        (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
+      (typeof process !== "undefined" &&
+        !!process.env &&
+        process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
+    }
+  >
     {/* Place the Pico */}
     <PICO
       name="U1"

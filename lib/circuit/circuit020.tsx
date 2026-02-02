@@ -87,7 +87,17 @@ export const R_FOOTPRINT = (
   </footprint>
 )
 export default () => (
-  <board width="7.62mm" height="24.13mm">
+  <board
+    routingDisabled={
+      (typeof globalThis !== "undefined" &&
+        (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
+      (typeof process !== "undefined" &&
+        !!process.env &&
+        process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
+    }
+    width="7.62mm"
+    height="24.13mm"
+  >
     <pinheader
       gender="female"
       footprint={JP1_FOOTPRINT}

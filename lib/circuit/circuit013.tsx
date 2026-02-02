@@ -9,7 +9,17 @@ import { sel } from "tscircuit"
  * - Breaks out VCC/GND and two LED control pins on a 1x4 header.
  */
 export default () => (
-  <board width="20mm" height="18mm">
+  <board
+    routingDisabled={
+      (typeof globalThis !== "undefined" &&
+        (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
+      (typeof process !== "undefined" &&
+        !!process.env &&
+        process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
+    }
+    width="20mm"
+    height="18mm"
+  >
     <pinheader
       name="J1"
       pinCount={4}

@@ -8,7 +8,17 @@ import { sel } from "tscircuit"
  * - Exposes IN_A/OUT_A and IN_B/OUT_B on a 1x6 header.
  */
 export default () => (
-  <board width="22.86mm" height="17.78mm">
+  <board
+    routingDisabled={
+      (typeof globalThis !== "undefined" &&
+        (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
+      (typeof process !== "undefined" &&
+        !!process.env &&
+        process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
+    }
+    width="22.86mm"
+    height="17.78mm"
+  >
     <pinheader
       name="J1"
       pinCount={6}

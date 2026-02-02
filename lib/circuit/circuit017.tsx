@@ -7,7 +7,17 @@ import { grid } from "@tscircuit/math-utils"
 export default () => {
   const U1 = usePICO_W("U1")
   return (
-    <board width="65mm" height="60mm">
+    <board
+      routingDisabled={
+        (typeof globalThis !== "undefined" &&
+          (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
+        (typeof process !== "undefined" &&
+          !!process.env &&
+          process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
+      }
+      width="65mm"
+      height="60mm"
+    >
       <U1 pcbRotation="90deg" pcbX={-15} pcbY={0} />
 
       {/* LED matrix */}

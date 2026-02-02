@@ -81,7 +81,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-1"
-      footprint="pinheader2"
+      footprint="pinrow2"
       pcbX={-9.0}
       pcbY={3.5}
       pcbRotation={15.0}

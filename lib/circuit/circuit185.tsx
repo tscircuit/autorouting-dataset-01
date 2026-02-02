@@ -10,7 +10,7 @@ export default () => (
       layer="top"
       connections={{
         pin1: "net.N3",
-        pin2: "net.N5",
+        pin2: "net.N18",
       }}
       resistance="1k"
     />
@@ -22,8 +22,8 @@ export default () => (
       pcbRotation={0.0}
       layer="top"
       connections={{
-        pin2: "net.N9",
-        pin1: "net.N19",
+        pin1: "net.N8",
+        pin2: "net.N13",
       }}
       resistance="1k"
     />
@@ -35,7 +35,7 @@ export default () => (
       pcbRotation={45.0}
       layer="top"
       connections={{
-        pin2: "net.N7",
+        pin2: "net.N14",
         pin1: "net.N16",
       }}
       resistance="1k"
@@ -48,8 +48,8 @@ export default () => (
       pcbRotation={0.0}
       layer="top"
       connections={{
-        pin2: "net.N1",
-        pin1: "net.N15",
+        pin1: "net.N9",
+        pin2: "net.N23",
       }}
       capacitance="0.1uF"
     />
@@ -61,8 +61,8 @@ export default () => (
       pcbRotation={0.0}
       layer="bottom"
       connections={{
-        pin2: "net.N24",
-        pin1: "net.N25",
+        pin2: "net.N1",
+        pin1: "net.N21",
       }}
       capacitance="0.1uF"
     />
@@ -74,8 +74,8 @@ export default () => (
       pcbRotation={0.0}
       layer="top"
       connections={{
-        pin2: "net.N3",
-        pin1: "net.N15",
+        pin1: "net.N2",
+        pin2: "net.N18",
       }}
       inductance="10uH"
     />
@@ -87,8 +87,8 @@ export default () => (
       pcbRotation={45.0}
       layer="top"
       connections={{
-        pin1: "net.N19",
-        pin2: "net.N31",
+        pin2: "net.N22",
+        pin1: "net.N30",
       }}
       inductance="10uH"
     />
@@ -100,8 +100,8 @@ export default () => (
       pcbRotation={0.0}
       layer="top"
       connections={{
-        pin2: "net.N23",
-        pin1: "net.N26",
+        pin1: "net.N5",
+        pin2: "net.N7",
       }}
       inductance="10uH"
     />
@@ -113,8 +113,8 @@ export default () => (
       pcbRotation={0.0}
       layer="top"
       connections={{
-        pin1: "net.N14",
-        pin2: "net.N24",
+        pin2: "net.N12",
+        pin1: "net.N22",
       }}
       inductance="10uH"
     />
@@ -126,8 +126,8 @@ export default () => (
       pcbRotation={0.0}
       layer="top"
       connections={{
-        pin1: "net.N8",
-        pin2: "net.N8",
+        pin2: "net.N10",
+        pin1: "net.N11",
       }}
       inductance="10uH"
     />
@@ -139,45 +139,45 @@ export default () => (
       pcbRotation={90.0}
       layer="top"
       connections={{
-        pin2: "net.N9",
+        pin2: "net.N3",
         pin1: "net.N14",
       }}
       inductance="10uH"
     />
     <diode
       name="diode-1"
-      footprint="SOD-123"
+      footprint="sod123"
       pcbX={21.0}
       pcbY={4.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
-        pin1: "net.N13",
         pin2: "net.N15",
+        pin1: "net.N17",
       }}
     />
     <diode
       name="diode-2"
-      footprint="SOD-123"
+      footprint="sod123"
       pcbX={25.0}
       pcbY={-1.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
-        pin1: "net.N12",
-        pin2: "net.N17",
+        pin1: "net.N19",
+        pin2: "net.N20",
       }}
     />
     <diode
       name="diode-3"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={-21.0}
       pcbY={-8.0}
       pcbRotation={0.0}
       layer="bottom"
       connections={{
-        pin1: "net.N2",
-        pin2: "net.N21",
+        pin1: "net.N9",
+        pin2: "net.N25",
       }}
     />
     <transistor
@@ -188,9 +188,9 @@ export default () => (
       pcbRotation={0.0}
       layer="top"
       connections={{
-        pin2: "net.N4",
-        pin1: "net.N23",
-        pin3: "net.N27",
+        pin2: "net.N10",
+        pin3: "net.N22",
+        pin1: "net.N26",
       }}
       type="pnp"
     />
@@ -202,9 +202,9 @@ export default () => (
       pcbRotation={0.0}
       layer="top"
       connections={{
-        pin2: "net.N6",
-        pin3: "net.N24",
-        pin1: "net.N27",
+        pin3: "net.N4",
+        pin1: "net.N19",
+        pin2: "net.N26",
       }}
       type="jfet"
     />
@@ -216,8 +216,8 @@ export default () => (
       pcbRotation={45.0}
       layer="top"
       connections={{
-        pin3: "net.N4",
-        pin1: "net.N9",
+        pin1: "net.N15",
+        pin3: "net.N24",
         pin2: "net.N28",
       }}
       type="npn"
@@ -230,9 +230,9 @@ export default () => (
       pcbRotation={0.0}
       layer="bottom"
       connections={{
-        pin1: "net.N13",
-        pin3: "net.N26",
-        pin2: "net.N29",
+        pin2: "net.N7",
+        pin3: "net.N17",
+        pin1: "net.N18",
       }}
       type="jfet"
     />
@@ -244,9 +244,9 @@ export default () => (
       pcbRotation={0.0}
       layer="top"
       connections={{
-        pin2: "net.N12",
-        pin3: "net.N20",
-        pin1: "net.N23",
+        pin2: "net.N15",
+        pin3: "net.N16",
+        pin1: "net.N27",
       }}
       type="bjt"
     />
@@ -258,39 +258,22 @@ export default () => (
       pcbRotation={0.0}
       layer="top"
       connections={{
-        pin10: "net.N2",
-        pin11: "net.N2",
-        pin4: "net.N5",
-        pin8: "net.N6",
-        pin9: "net.N11",
-        pin7: "net.N13",
-        pin3: "net.N14",
-        pin13: "net.N15",
-        pin14: "net.N16",
-        pin6: "net.N17",
-        pin1: "net.N18",
+        pin3: "net.N1",
+        pin1: "net.N4",
+        pin13: "net.N4",
+        pin7: "net.N6",
+        pin12: "net.N11",
+        pin5: "net.N12",
+        pin6: "net.N13",
+        pin14: "net.N15",
+        pin4: "net.N17",
+        pin10: "net.N20",
+        pin9: "net.N21",
         pin15: "net.N23",
-        pin16: "net.N27",
-        pin2: "net.N28",
-        pin12: "net.N29",
-        pin5: "net.N31",
-      }}
-      manufacturerPartNumber="GENERIC"
-    />
-    <chip
-      name="chip-3"
-      footprint="pinrow6"
-      pcbX={-20.0}
-      pcbY={11.0}
-      pcbRotation={0.0}
-      layer="top"
-      connections={{
-        pin1: "net.N5",
-        pin2: "net.N9",
-        pin3: "net.N11",
-        pin5: "net.N25",
-        pin4: "net.N29",
-        pin6: "net.N30",
+        pin11: "net.N25",
+        pin8: "net.N27",
+        pin16: "net.N28",
+        pin2: "net.N29",
       }}
       manufacturerPartNumber="GENERIC"
     />
@@ -302,37 +285,37 @@ export default () => (
       pcbRotation={0.0}
       layer="bottom"
       connections={{
-        pin14: "net.N2",
-        pin16: "net.N4",
+        pin16: "net.N2",
+        pin15: "net.N4",
+        pin10: "net.N5",
+        pin6: "net.N6",
+        pin8: "net.N8",
+        pin9: "net.N8",
         pin12: "net.N10",
-        pin9: "net.N10",
-        pin1: "net.N12",
-        pin8: "net.N13",
-        pin11: "net.N18",
-        pin10: "net.N20",
-        pin15: "net.N21",
-        pin5: "net.N22",
-        pin7: "net.N22",
-        pin2: "net.N24",
-        pin6: "net.N25",
-        pin3: "net.N30",
-        pin13: "net.N30",
-        pin4: "net.N31",
+        pin11: "net.N11",
+        pin7: "net.N19",
+        pin14: "net.N19",
+        pin3: "net.N20",
+        pin2: "net.N21",
+        pin4: "net.N29",
+        pin13: "net.N29",
+        pin1: "net.N29",
+        pin5: "net.N30",
       }}
       manufacturerPartNumber="GENERIC"
     />
     <pinheader
       name="pinhead-1"
-      footprint="pinheader4"
-      pcbX={10.0}
-      pcbY={9.0}
+      footprint="pinrow4"
+      pcbX={-24.0}
+      pcbY={13.0}
       pcbRotation={90.0}
       layer="top"
       connections={{
-        pin1: "net.N1",
-        pin4: "net.N7",
-        pin3: "net.N11",
-        pin2: "net.N16",
+        pin1: "net.N2",
+        pin2: "net.N8",
+        pin3: "net.N21",
+        pin4: "net.N24",
       }}
       pinCount={4}
       pitch="2.54mm"

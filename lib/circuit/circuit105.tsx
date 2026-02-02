@@ -44,7 +44,7 @@ export default () => (
       name="capacitor-2"
       footprint="0402"
       pcbX={19.0}
-      pcbY={9.0}
+      pcbY={8.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -94,7 +94,7 @@ export default () => (
     />
     <diode
       name="diode-1"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={19.0}
       pcbY={-11.0}
       pcbRotation={0.0}
@@ -106,7 +106,7 @@ export default () => (
     />
     <diode
       name="diode-2"
-      footprint="SOD-123"
+      footprint="sod123"
       pcbX={-2.0}
       pcbY={3.0}
       pcbRotation={0.0}
@@ -118,7 +118,7 @@ export default () => (
     />
     <diode
       name="diode-3"
-      footprint="SOD-123"
+      footprint="sod123"
       pcbX={5.0}
       pcbY={1.0}
       pcbRotation={0.0}
@@ -130,7 +130,7 @@ export default () => (
     />
     <diode
       name="diode-4"
-      footprint="SOD-123"
+      footprint="sod123"
       pcbX={9.0}
       pcbY={17.0}
       pcbRotation={0.0}
@@ -142,7 +142,7 @@ export default () => (
     />
     <diode
       name="diode-5"
-      footprint="SOD-123"
+      footprint="sod123"
       pcbX={16.0}
       pcbY={9.0}
       pcbRotation={0.0}
@@ -169,7 +169,7 @@ export default () => (
     <chip
       name="chip-1"
       footprint="pinrow6"
-      pcbX={-10.0}
+      pcbX={-19.0}
       pcbY={-7.0}
       pcbRotation={0.0}
       layer="top"
@@ -231,7 +231,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-1"
-      footprint="pinheader6"
+      footprint="pinrow6"
       pcbX={-17.0}
       pcbY={15.0}
       pcbRotation={15.0}
@@ -249,7 +249,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-2"
-      footprint="pinheader6"
+      footprint="pinrow6"
       pcbX={-15.0}
       pcbY={-19.0}
       pcbRotation={0.0}
@@ -267,7 +267,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-3"
-      footprint="pinheader2"
+      footprint="pinrow2"
       pcbX={1.0}
       pcbY={-9.0}
       pcbRotation={45.0}

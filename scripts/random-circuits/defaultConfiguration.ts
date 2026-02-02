@@ -5,7 +5,7 @@ import type { GenerationConfiguration } from "types/GenerationConfiguration"
  */
 export const defaultConfiguration: GenerationConfiguration = {
   allowedStartIndex: 100,
-  count: 1,
+  count: 100,
   minParts: 4,
   maxParts: 30,
   seed: 42,

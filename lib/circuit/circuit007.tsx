@@ -9,7 +9,17 @@ import { sel } from "tscircuit"
  * - Lights an LED when the button signal is active.
  */
 export default () => (
-  <board width="20.32mm" height="20.32mm">
+  <board
+    routingDisabled={
+      (typeof globalThis !== "undefined" &&
+        (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
+      (typeof process !== "undefined" &&
+        !!process.env &&
+        process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
+    }
+    width="20.32mm"
+    height="20.32mm"
+  >
     <pinheader
       name="J1"
       pinCount={4}

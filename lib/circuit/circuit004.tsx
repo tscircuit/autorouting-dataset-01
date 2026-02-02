@@ -16,7 +16,17 @@ import { sel } from "tscircuit"
  * - Shows power/activity with an on-board LED.
  */
 export default () => (
-  <board width="25.40mm" height="50.80mm">
+  <board
+    routingDisabled={
+      (typeof globalThis !== "undefined" &&
+        (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
+      (typeof process !== "undefined" &&
+        !!process.env &&
+        process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
+    }
+    width="25.40mm"
+    height="50.80mm"
+  >
     <schematictext text="ATTiny85" fontSize={0.4} color="brown" schY={6} />
     <schematictext
       text="Vin: 2.7-5.5V"

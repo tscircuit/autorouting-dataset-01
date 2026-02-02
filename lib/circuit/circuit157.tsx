@@ -9,8 +9,8 @@ export default () => (
       pcbRotation={0.0}
       layer="top"
       connections={{
-        pin2: "net.N7",
-        pin1: "net.N9",
+        pin2: "net.N2",
+        pin1: "net.N5",
       }}
       resistance="1k"
     />
@@ -22,8 +22,8 @@ export default () => (
       pcbRotation={45.0}
       layer="top"
       connections={{
-        pin1: "net.N3",
-        pin2: "net.N6",
+        pin2: "net.N3",
+        pin1: "net.N4",
       }}
       resistance="1k"
     />
@@ -35,8 +35,8 @@ export default () => (
       pcbRotation={0.0}
       layer="top"
       connections={{
-        pin2: "net.N3",
-        pin1: "net.N6",
+        pin1: "net.N3",
+        pin2: "net.N8",
       }}
       capacitance="0.1uF"
     />
@@ -49,7 +49,7 @@ export default () => (
       layer="top"
       connections={{
         pin2: "net.N1",
-        pin1: "net.N11",
+        pin1: "net.N2",
       }}
       capacitance="0.1uF"
     />
@@ -61,8 +61,8 @@ export default () => (
       pcbRotation={0.0}
       layer="top"
       connections={{
-        pin1: "net.N1",
         pin2: "net.N3",
+        pin1: "net.N5",
       }}
       inductance="10uH"
     />
@@ -74,8 +74,8 @@ export default () => (
       pcbRotation={45.0}
       layer="bottom"
       connections={{
-        pin2: "net.N2",
-        pin1: "net.N8",
+        pin1: "net.N2",
+        pin2: "net.N6",
       }}
       inductance="10uH"
     />
@@ -87,8 +87,8 @@ export default () => (
       pcbRotation={0.0}
       layer="bottom"
       connections={{
-        pin1: "net.N2",
-        pin2: "net.N9",
+        pin1: "net.N4",
+        pin2: "net.N10",
       }}
       inductance="10uH"
     />
@@ -100,85 +100,82 @@ export default () => (
       pcbRotation={90.0}
       layer="bottom"
       connections={{
-        pin1: "net.N4",
-        pin2: "net.N13",
-        pin3: "net.N13",
+        pin3: "net.N7",
+        pin2: "net.N10",
+        pin1: "net.N10",
       }}
       type="pnp"
     />
-    <chip
-      name="chip-1"
-      footprint="pinrow6"
-      pcbX={7.5}
-      pcbY={7.5}
-      pcbRotation={0.0}
-      layer="top"
-      connections={{
-        pin5: "net.N1",
-        pin1: "net.N7",
-        pin4: "net.N8",
-        pin6: "net.N11",
-        pin3: "net.N12",
-        pin2: "net.N12",
-      }}
-      manufacturerPartNumber="GENERIC"
-    />
     <pinheader
       name="pinhead-1"
-      footprint="pinheader2"
+      footprint="pinrow2"
       pcbX={3.5}
-      pcbY={-8.5}
+      pcbY={5.5}
       pcbRotation={0.0}
       layer="top"
       connections={{
-        pin1: "net.N5",
-        pin2: "net.N10",
+        pin2: "net.N6",
+        pin1: "net.N9",
       }}
       pinCount={2}
       pitch="2.54mm"
     />
     <pinheader
       name="pinhead-2"
-      footprint="pinheader2"
+      footprint="pinrow2"
       pcbX={-6.5}
       pcbY={-6.5}
       pcbRotation={0.0}
       layer="top"
       connections={{
-        pin2: "net.N4",
-        pin1: "net.N11",
+        pin2: "net.N7",
+        pin1: "net.N7",
       }}
       pinCount={2}
       pitch="2.54mm"
     />
     <pinheader
       name="pinhead-3"
-      footprint="pinheader2"
+      footprint="pinrow2"
+      pcbX={1.5}
+      pcbY={-8.5}
+      pcbRotation={0.0}
+      layer="top"
+      connections={{
+        pin1: "net.N1",
+        pin2: "net.N8",
+      }}
+      pinCount={2}
+      pitch="2.54mm"
+    />
+    <pinheader
+      name="pinhead-4"
+      footprint="pinrow2"
       pcbX={-0.5}
       pcbY={-0.5}
       pcbRotation={0.0}
       layer="top"
       connections={{
+        pin1: "net.N2",
         pin2: "net.N5",
-        pin1: "net.N10",
       }}
       pinCount={2}
       pitch="2.54mm"
     />
     <pinheader
       name="pinhead-6"
-      footprint="pinheader6"
+      footprint="pinrow6"
       pcbX={-2.5}
       pcbY={3.5}
       pcbRotation={0.0}
       layer="bottom"
       connections={{
-        pin6: "net.N3",
-        pin1: "net.N6",
-        pin5: "net.N7",
-        pin4: "net.N10",
-        pin2: "net.N11",
-        pin3: "net.N12",
+        pin1: "net.N1",
+        pin5: "net.N1",
+        pin2: "net.N4",
+        pin6: "net.N4",
+        pin4: "net.N7",
+        pin3: "net.N9",
       }}
       pinCount={6}
       pitch="2.54mm"

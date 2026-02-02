@@ -9,5 +9,8 @@ export const normalizeFootprintForFootprinter = (footprint: string): string => {
   if (normalized.startsWith("pinheader")) {
     return normalized.replace(/^pinheader/, "pinrow")
   }
+  if (normalized === "sod123" || normalized === "sod323") {
+    return normalized
+  }
   return normalized
 }

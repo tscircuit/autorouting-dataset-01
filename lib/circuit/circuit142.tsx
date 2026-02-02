@@ -107,7 +107,7 @@ export default () => (
     />
     <diode
       name="diode-1"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={-18.0}
       pcbY={-4.0}
       pcbRotation={0.0}
@@ -119,7 +119,7 @@ export default () => (
     />
     <diode
       name="diode-2"
-      footprint="SOD-123"
+      footprint="sod123"
       pcbX={1.0}
       pcbY={-15.0}
       pcbRotation={45.0}
@@ -131,7 +131,7 @@ export default () => (
     />
     <diode
       name="diode-3"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={-18.0}
       pcbY={8.0}
       pcbRotation={0.0}
@@ -143,7 +143,7 @@ export default () => (
     />
     <diode
       name="diode-4"
-      footprint="SOD-123"
+      footprint="sod123"
       pcbX={-11.0}
       pcbY={-12.0}
       pcbRotation={0.0}
@@ -155,7 +155,7 @@ export default () => (
     />
     <diode
       name="diode-5"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={12.0}
       pcbY={2.0}
       pcbRotation={90.0}
@@ -210,7 +210,7 @@ export default () => (
     <chip
       name="chip-1"
       footprint="pinrow6"
-      pcbX={15.0}
+      pcbX={22.0}
       pcbY={-22.0}
       pcbRotation={0.0}
       layer="top"
@@ -227,8 +227,8 @@ export default () => (
     <chip
       name="chip-2"
       footprint="pinrow6"
-      pcbX={15.0}
-      pcbY={2.0}
+      pcbX={-2.0}
+      pcbY={-2.0}
       pcbRotation={15.0}
       layer="top"
       connections={{
@@ -243,7 +243,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-1"
-      footprint="pinheader2"
+      footprint="pinrow2"
       pcbX={4.0}
       pcbY={-22.0}
       pcbRotation={0.0}
@@ -257,7 +257,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-2"
-      footprint="pinheader2"
+      footprint="pinrow2"
       pcbX={12.0}
       pcbY={-12.0}
       pcbRotation={0.0}
@@ -271,7 +271,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-3"
-      footprint="pinheader6"
+      footprint="pinrow6"
       pcbX={-2.0}
       pcbY={12.0}
       pcbRotation={0.0}
@@ -289,7 +289,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-4"
-      footprint="pinheader6"
+      footprint="pinrow6"
       pcbX={-20.0}
       pcbY={20.0}
       pcbRotation={0.0}

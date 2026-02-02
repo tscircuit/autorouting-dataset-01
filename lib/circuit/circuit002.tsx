@@ -11,7 +11,17 @@ import { sel } from "tscircuit"
  * - Intended as a compact test board for routing and power layouts.
  */
 export default () => (
-  <board width="15.24mm" height="20.32mm">
+  <board
+    routingDisabled={
+      (typeof globalThis !== "undefined" &&
+        (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
+      (typeof process !== "undefined" &&
+        !!process.env &&
+        process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
+    }
+    width="15.24mm"
+    height="20.32mm"
+  >
     <schematictext
       text="TC78H670FTG Motor Driver IC"
       fontSize={0.4}

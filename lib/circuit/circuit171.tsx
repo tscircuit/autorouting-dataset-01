@@ -94,7 +94,7 @@ export default () => (
     />
     <diode
       name="diode-1"
-      footprint="SOD-123"
+      footprint="sod123"
       pcbX={7.5}
       pcbY={-1.0}
       pcbRotation={0.0}
@@ -153,7 +153,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-1"
-      footprint="pinheader6"
+      footprint="pinrow6"
       pcbX={6.5}
       pcbY={11.0}
       pcbRotation={0.0}
@@ -171,7 +171,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-2"
-      footprint="pinheader6"
+      footprint="pinrow6"
       pcbX={-7.5}
       pcbY={-1.0}
       pcbRotation={0.0}
@@ -189,7 +189,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-3"
-      footprint="pinheader4"
+      footprint="pinrow4"
       pcbX={-7.5}
       pcbY={-9.0}
       pcbRotation={0.0}

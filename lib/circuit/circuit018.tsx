@@ -95,7 +95,17 @@ export const J_FOOTPRINT = (
 )
 
 export default () => (
-  <board width="25.4mm" height="25.4mm">
+  <board
+    routingDisabled={
+      (typeof globalThis !== "undefined" &&
+        (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
+      (typeof process !== "undefined" &&
+        !!process.env &&
+        process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
+    }
+    width="25.4mm"
+    height="25.4mm"
+  >
     <schematictext
       text="Accelerometer - ISM330DHCX"
       fontSize={0.4}

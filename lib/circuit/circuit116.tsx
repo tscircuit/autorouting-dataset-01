@@ -98,7 +98,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-1"
-      footprint="pinheader2"
+      footprint="pinrow2"
       pcbX={-10.0}
       pcbY={10.0}
       pcbRotation={0.0}
@@ -112,7 +112,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-2"
-      footprint="pinheader2"
+      footprint="pinrow2"
       pcbX={-2.0}
       pcbY={0.0}
       pcbRotation={0.0}
@@ -126,7 +126,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-3"
-      footprint="pinheader2"
+      footprint="pinrow2"
       pcbX={-6.0}
       pcbY={8.0}
       pcbRotation={45.0}

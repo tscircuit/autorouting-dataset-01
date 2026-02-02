@@ -94,7 +94,7 @@ export default () => (
     />
     <diode
       name="diode-1"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={-28.0}
       pcbY={-1.0}
       pcbRotation={0.0}
@@ -106,7 +106,7 @@ export default () => (
     />
     <diode
       name="diode-2"
-      footprint="SOD-123"
+      footprint="sod123"
       pcbX={-9.0}
       pcbY={3.0}
       pcbRotation={0.0}
@@ -118,7 +118,7 @@ export default () => (
     />
     <diode
       name="diode-3"
-      footprint="SOD-123"
+      footprint="sod123"
       pcbX={5.0}
       pcbY={13.0}
       pcbRotation={0.0}
@@ -130,7 +130,7 @@ export default () => (
     />
     <diode
       name="diode-4"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={17.0}
       pcbY={-3.0}
       pcbRotation={0.0}
@@ -142,7 +142,7 @@ export default () => (
     />
     <diode
       name="diode-5"
-      footprint="SOD-123"
+      footprint="sod123"
       pcbX={-25.0}
       pcbY={-13.0}
       pcbRotation={0.0}
@@ -154,7 +154,7 @@ export default () => (
     />
     <diode
       name="diode-6"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={-26.0}
       pcbY={-2.0}
       pcbRotation={0.0}
@@ -166,7 +166,7 @@ export default () => (
     />
     <diode
       name="diode-7"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={24.0}
       pcbY={-9.0}
       pcbRotation={0.0}
@@ -178,7 +178,7 @@ export default () => (
     />
     <diode
       name="diode-8"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={-1.0}
       pcbY={-14.0}
       pcbRotation={0.0}
@@ -233,7 +233,7 @@ export default () => (
     <chip
       name="chip-1"
       footprint="pinrow6"
-      pcbX={-25.0}
+      pcbX={-30.0}
       pcbY={13.0}
       pcbRotation={0.0}
       layer="top"
@@ -269,8 +269,8 @@ export default () => (
     <chip
       name="chip-3"
       footprint="pinrow6"
-      pcbX={6.0}
-      pcbY={-7.0}
+      pcbX={30.0}
+      pcbY={-3.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -305,8 +305,8 @@ export default () => (
     <chip
       name="chip-5"
       footprint="dip8"
-      pcbX={-10.0}
-      pcbY={-13.0}
+      pcbX={6.0}
+      pcbY={-3.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -324,8 +324,8 @@ export default () => (
     <chip
       name="chip-6"
       footprint="soic8"
-      pcbX={18.0}
-      pcbY={5.0}
+      pcbX={-10.0}
+      pcbY={-15.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -342,9 +342,9 @@ export default () => (
     />
     <pinheader
       name="pinhead-1"
-      footprint="pinheader4"
-      pcbX={26.0}
-      pcbY={-3.0}
+      footprint="pinrow4"
+      pcbX={16.0}
+      pcbY={9.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -358,9 +358,9 @@ export default () => (
     />
     <pinheader
       name="pinhead-2"
-      footprint="pinheader4"
-      pcbX={12.0}
-      pcbY={3.0}
+      footprint="pinrow4"
+      pcbX={-16.0}
+      pcbY={-15.0}
       pcbRotation={90.0}
       layer="top"
       connections={{
@@ -374,9 +374,9 @@ export default () => (
     />
     <pinheader
       name="pinhead-3"
-      footprint="pinheader2"
-      pcbX={22.0}
-      pcbY={13.0}
+      footprint="pinrow2"
+      pcbX={-8.0}
+      pcbY={11.0}
       pcbRotation={90.0}
       layer="top"
       connections={{
@@ -388,7 +388,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-4"
-      footprint="pinheader4"
+      footprint="pinrow4"
       pcbX={-28.0}
       pcbY={-5.0}
       pcbRotation={0.0}
@@ -404,8 +404,8 @@ export default () => (
     />
     <pinheader
       name="pinhead-5"
-      footprint="pinheader4"
-      pcbX={28.0}
+      footprint="pinrow4"
+      pcbX={24.0}
       pcbY={3.0}
       pcbRotation={0.0}
       layer="top"
@@ -420,9 +420,9 @@ export default () => (
     />
     <pinheader
       name="pinhead-6"
-      footprint="pinheader2"
-      pcbX={-6.0}
-      pcbY={15.0}
+      footprint="pinrow2"
+      pcbX={30.0}
+      pcbY={11.0}
       pcbRotation={0.0}
       layer="top"
       connections={{

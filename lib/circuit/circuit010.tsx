@@ -12,7 +12,17 @@ import { sel } from "tscircuit"
  * - Adds two large current holes for the primary conductor path.
  */
 export default () => (
-  <board width="50mm" height="30mm">
+  <board
+    routingDisabled={
+      (typeof globalThis !== "undefined" &&
+        (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
+      (typeof process !== "undefined" &&
+        !!process.env &&
+        process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
+    }
+    width="50mm"
+    height="30mm"
+  >
     <schematictext
       text="ACS37800 Power Meter"
       fontSize={0.4}

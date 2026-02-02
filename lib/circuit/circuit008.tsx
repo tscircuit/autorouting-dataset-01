@@ -6,6 +6,13 @@ import manaulEdits from "assets/manual-edits.json"
 export default () => {
   return (
     <board
+      routingDisabled={
+        (typeof globalThis !== "undefined" &&
+          (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
+        (typeof process !== "undefined" &&
+          !!process.env &&
+          process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
+      }
       width="25mm"
       height="25mm"
       autorouter="auto-cloud"

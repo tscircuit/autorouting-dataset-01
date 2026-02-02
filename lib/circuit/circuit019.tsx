@@ -68,7 +68,17 @@ export const U1_FOOTPRINT = (
 )
 
 export default () => (
-  <board width="7.62mm" height="13.97mm">
+  <board
+    routingDisabled={
+      (typeof globalThis !== "undefined" &&
+        (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
+      (typeof process !== "undefined" &&
+        !!process.env &&
+        process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
+    }
+    width="7.62mm"
+    height="13.97mm"
+  >
     <pinheader
       gender="female"
       footprint="pinrow3_p2.54_id1.016_od1.8796_nosquareplating_pinlabeltextalignright_pinlabelorthogonal"

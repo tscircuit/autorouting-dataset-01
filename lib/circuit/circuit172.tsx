@@ -42,7 +42,7 @@ export default () => (
     />
     <diode
       name="diode-1"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={4.5}
       pcbY={2.5}
       pcbRotation={0.0}
@@ -54,7 +54,7 @@ export default () => (
     />
     <diode
       name="diode-2"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={-4.5}
       pcbY={1.5}
       pcbRotation={0.0}
@@ -66,7 +66,7 @@ export default () => (
     />
     <diode
       name="diode-3"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={-0.5}
       pcbY={2.5}
       pcbRotation={0.0}
@@ -78,7 +78,7 @@ export default () => (
     />
     <diode
       name="diode-4"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={0.5}
       pcbY={-2.5}
       pcbRotation={0.0}

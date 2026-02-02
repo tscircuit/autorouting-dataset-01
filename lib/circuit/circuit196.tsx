@@ -42,7 +42,7 @@ export default () => (
     />
     <diode
       name="diode-1"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={2.5}
       pcbY={-4.5}
       pcbRotation={0.0}

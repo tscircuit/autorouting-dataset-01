@@ -11,7 +11,17 @@ import { sel } from "tscircuit"
  * - Adds a gate pull-down and a signal LED for quick debugging.
  */
 export default () => (
-  <board width="22mm" height="22mm">
+  <board
+    routingDisabled={
+      (typeof globalThis !== "undefined" &&
+        (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
+      (typeof process !== "undefined" &&
+        !!process.env &&
+        process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
+    }
+    width="22mm"
+    height="22mm"
+  >
     <schematictext
       text="Low-Side Switch"
       fontSize={0.35}
