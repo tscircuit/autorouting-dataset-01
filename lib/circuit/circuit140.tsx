@@ -202,8 +202,8 @@ export default () => (
     <chip
       name="chip-4"
       footprint="pinrow6"
-      pcbX={-16.0}
-      pcbY={-4.0}
+      pcbX={-8.0}
+      pcbY={-8.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -219,9 +219,9 @@ export default () => (
     <chip
       name="chip-5"
       footprint="pinrow8"
-      pcbX={16.0}
-      pcbY={12.0}
-      pcbRotation={0.0}
+      pcbX={10.0}
+      pcbY={8.0}
+      pcbRotation={90.0}
       layer="top"
       connections={{
         pin8: "net.N2",

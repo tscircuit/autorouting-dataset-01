@@ -163,7 +163,7 @@ export default () => (
     <chip
       name="chip-2"
       footprint="pinrow6"
-      pcbX={10.0}
+      pcbX={4.0}
       pcbY={20.0}
       pcbRotation={0.0}
       layer="top"
@@ -181,7 +181,7 @@ export default () => (
       name="chip-3"
       footprint="soic16"
       pcbX={6.0}
-      pcbY={-20.0}
+      pcbY={-17.0}
       pcbRotation={0.0}
       layer="top"
       connections={{

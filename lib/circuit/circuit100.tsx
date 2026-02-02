@@ -17,7 +17,7 @@ export default () => (
     <resistor
       name="resistor-2"
       footprint="0402"
-      pcbX={0.0}
+      pcbX={1.0}
       pcbY={2.0}
       pcbRotation={15.0}
       layer="top"

@@ -17,8 +17,8 @@ export default () => (
     <capacitor
       name="capacitor-2"
       footprint="0603"
-      pcbX={-1.0}
-      pcbY={-6.0}
+      pcbX={-4.5}
+      pcbY={-9.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -67,8 +67,8 @@ export default () => (
     <chip
       name="chip-1"
       footprint="dip8"
-      pcbX={4.0}
-      pcbY={-8.0}
+      pcbX={2.0}
+      pcbY={-3.0}
       pcbRotation={0.0}
       layer="bottom"
       connections={{

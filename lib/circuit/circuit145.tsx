@@ -219,7 +219,7 @@ export default () => (
     <chip
       name="chip-2"
       footprint="soic8"
-      pcbX={-20.0}
+      pcbX={-18.0}
       pcbY={-4.0}
       pcbRotation={45.0}
       layer="top"
