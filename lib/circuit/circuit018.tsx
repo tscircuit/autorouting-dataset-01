@@ -2,6 +2,7 @@
 
 import { ISM330DHCX } from "lib/imports/ISM330DHCX"
 import { MMC5983MA_QFN16 } from "lib/imports/MMC5983MA_QFN16"
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 import { sel } from "tscircuit"
 
 export const D1_FOOTPRINT = (
@@ -96,13 +97,7 @@ export const J_FOOTPRINT = (
 
 export default () => (
   <board
-    routingDisabled={
-      (typeof globalThis !== "undefined" &&
-        (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
-      (typeof process !== "undefined" &&
-        !!process.env &&
-        process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
-    }
+    routingDisabled={!shouldAutorouterRun()}
     width="25.4mm"
     height="25.4mm"
   >

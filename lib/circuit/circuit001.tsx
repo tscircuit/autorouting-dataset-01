@@ -1,20 +1,10 @@
 /** Minimal RC network demo board: one resistor, one capacitor, and a single trace between them. */
-// @ts-expect-error
 import { SmdUsbC } from "@tsci/seveibar.smd-usb-c"
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 
 export default () => {
   return (
-    <board
-      routingDisabled={
-        (typeof globalThis !== "undefined" &&
-          (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
-        (typeof process !== "undefined" &&
-          !!process.env &&
-          process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
-      }
-      width="12mm"
-      height="30mm"
-    >
+    <board routingDisabled={!shouldAutorouterRun()} width="12mm" height="30mm">
       <SmdUsbC
         name="J1"
         connections={{

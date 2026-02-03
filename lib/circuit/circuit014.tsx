@@ -1,4 +1,5 @@
 import { JoystickThumb } from "lib/imports/JoystickThumb"
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 import { sel } from "tscircuit"
 
 /**
@@ -9,17 +10,7 @@ import { sel } from "tscircuit"
  * - Provides a simple 1x8 header with all joystick signals.
  */
 export default () => (
-  <board
-    routingDisabled={
-      (typeof globalThis !== "undefined" &&
-        (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
-      (typeof process !== "undefined" &&
-        !!process.env &&
-        process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
-    }
-    width="40mm"
-    height="35mm"
-  >
+  <board routingDisabled={!shouldAutorouterRun()} width="40mm" height="35mm">
     <JoystickThumb
       name="U1"
       pcbX={5}

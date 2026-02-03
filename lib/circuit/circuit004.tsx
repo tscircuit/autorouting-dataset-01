@@ -3,6 +3,7 @@ import { AVR_ISP_2x3 } from "lib/imports/AVR_ISP_2x3"
 import { JoystickThumb } from "lib/imports/JoystickThumb"
 import { PinHeader1x4 } from "lib/imports/PinHeader1x4"
 import { SM04B_SRSS_TB_LF__SN } from "lib/imports/SM04B_SRSS_TB_LF__SN"
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 import { sel } from "tscircuit"
 
 /**
@@ -17,13 +18,7 @@ import { sel } from "tscircuit"
  */
 export default () => (
   <board
-    routingDisabled={
-      (typeof globalThis !== "undefined" &&
-        (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
-      (typeof process !== "undefined" &&
-        !!process.env &&
-        process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
-    }
+    routingDisabled={!shouldAutorouterRun()}
     width="25.40mm"
     height="50.80mm"
   >

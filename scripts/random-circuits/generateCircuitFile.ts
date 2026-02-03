@@ -27,10 +27,12 @@ export const generateCircuitFile = async (options: {
   const source = `/** Randomly generated circuit ${
     allowedStartIndex + circuitOffset
   }. */
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
+
 export default () => (
-  <board width="${boardSize.width.toFixed(2)}mm" height="${boardSize.height.toFixed(
+  <board routingDisabled={!shouldAutorouterRun()} width="${boardSize.width.toFixed(
     2,
-  )}mm">
+  )}mm" height="${boardSize.height.toFixed(2)}mm">
 ${body}
   </board>
 )

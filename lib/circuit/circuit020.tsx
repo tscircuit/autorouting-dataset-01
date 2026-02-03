@@ -1,5 +1,6 @@
 /** QRE1113 analog line sensor breakout with labeled silkscreen and 3-pin header. */
 import { sel } from "@tscircuit/core"
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 export const JP1_FOOTPRINT = (
   <footprint>
     <smtpad
@@ -88,13 +89,7 @@ export const R_FOOTPRINT = (
 )
 export default () => (
   <board
-    routingDisabled={
-      (typeof globalThis !== "undefined" &&
-        (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
-      (typeof process !== "undefined" &&
-        !!process.env &&
-        process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
-    }
+    routingDisabled={!shouldAutorouterRun()}
     width="7.62mm"
     height="24.13mm"
   >

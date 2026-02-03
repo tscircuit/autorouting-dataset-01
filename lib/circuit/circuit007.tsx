@@ -1,3 +1,4 @@
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 import { sel } from "tscircuit"
 
 /**
@@ -10,13 +11,7 @@ import { sel } from "tscircuit"
  */
 export default () => (
   <board
-    routingDisabled={
-      (typeof globalThis !== "undefined" &&
-        (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
-      (typeof process !== "undefined" &&
-        !!process.env &&
-        process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
-    }
+    routingDisabled={!shouldAutorouterRun()}
     width="20.32mm"
     height="20.32mm"
   >

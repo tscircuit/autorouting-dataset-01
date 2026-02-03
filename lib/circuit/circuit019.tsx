@@ -1,5 +1,6 @@
 /** QRE1113 reflectance sensor breakout with 3-pin header and bias resistors. */
 import { sel } from "@tscircuit/core"
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 
 export const JP1_FOOTPRINT = (
   <footprint>
@@ -69,13 +70,7 @@ export const U1_FOOTPRINT = (
 
 export default () => (
   <board
-    routingDisabled={
-      (typeof globalThis !== "undefined" &&
-        (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
-      (typeof process !== "undefined" &&
-        !!process.env &&
-        process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
-    }
+    routingDisabled={!shouldAutorouterRun()}
     width="7.62mm"
     height="13.97mm"
   >

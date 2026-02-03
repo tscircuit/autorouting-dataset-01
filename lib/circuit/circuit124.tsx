@@ -1,6 +1,12 @@
 /** Randomly generated circuit 124. */
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
+
 export default () => (
-  <board width="32.00mm" height="19.00mm">
+  <board
+    routingDisabled={!shouldAutorouterRun()}
+    width="32.00mm"
+    height="19.00mm"
+  >
     <capacitor
       name="capacitor-1"
       footprint="0805"

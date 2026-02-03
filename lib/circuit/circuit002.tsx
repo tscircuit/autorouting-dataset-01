@@ -1,5 +1,6 @@
 import { TC78H670FTG_EL } from "lib/imports/TC78H670FTG_EL"
 import { VGF39NCHXT_B103 } from "lib/imports/VGF39NCHXT_B103"
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 import { sel } from "tscircuit"
 
 /**
@@ -12,13 +13,7 @@ import { sel } from "tscircuit"
  */
 export default () => (
   <board
-    routingDisabled={
-      (typeof globalThis !== "undefined" &&
-        (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
-      (typeof process !== "undefined" &&
-        !!process.env &&
-        process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
-    }
+    routingDisabled={!shouldAutorouterRun()}
     width="15.24mm"
     height="20.32mm"
   >

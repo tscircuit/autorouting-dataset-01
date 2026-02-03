@@ -1,3 +1,4 @@
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 import { sel } from "tscircuit"
 
 /**
@@ -8,17 +9,7 @@ import { sel } from "tscircuit"
  * - Exposes IN/OUT/GND for each channel on a single header.
  */
 export default () => (
-  <board
-    routingDisabled={
-      (typeof globalThis !== "undefined" &&
-        (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") ||
-      (typeof process !== "undefined" &&
-        !!process.env &&
-        process.env.TSCIRCUIT_ROUTING_DISABLED === "1")
-    }
-    width="35mm"
-    height="32mm"
-  >
+  <board routingDisabled={!shouldAutorouterRun()} width="35mm" height="32mm">
     <pinheader
       name="J1"
       pinCount={12}
