@@ -1,7 +1,7 @@
 {
   "$schema": "https://cdn.jsdelivr.net/npm/@tscircuit/cli/types/tscircuit.config.schema.json",
   "mainEntrypoint": "lib/circuit/circuit001.tsx",
-  "ignoredFiles": ["lib/circuit/circuit016.tsx", "lib/circuit/circuit017.tsx"],
+  "ignoredFiles": ["lib/circuit/circuit016.tsx", "lib/circuit/circuit017.tsx", "lib/circuit/circuit117.tsx", "lib/circuit/circuit122.tsx", "lib/circuit/circuit154.tsx", "lib/circuit/circuit191.tsx", "lib/circuit/circuit198.tsx"],
   "includeBoardFiles": [
     "lib/circuit/circuit002.tsx",
     "lib/circuit/circuit003.tsx",
@@ -38,12 +38,10 @@
     "lib/circuit/circuit114.tsx",
     "lib/circuit/circuit115.tsx",
     "lib/circuit/circuit116.tsx",
-    "lib/circuit/circuit117.tsx",
     "lib/circuit/circuit118.tsx",
     "lib/circuit/circuit119.tsx",
     "lib/circuit/circuit120.tsx",
     "lib/circuit/circuit121.tsx",
-    "lib/circuit/circuit122.tsx",
     "lib/circuit/circuit123.tsx",
     "lib/circuit/circuit124.tsx",
     "lib/circuit/circuit125.tsx",
@@ -73,7 +71,6 @@
     "lib/circuit/circuit150.tsx",
     "lib/circuit/circuit151.tsx",
     "lib/circuit/circuit152.tsx",
-    "lib/circuit/circuit154.tsx",
     "lib/circuit/circuit155.tsx",
     "lib/circuit/circuit156.tsx",
     "lib/circuit/circuit157.tsx",
@@ -106,13 +103,11 @@
     "lib/circuit/circuit188.tsx",
     "lib/circuit/circuit189.tsx",
     "lib/circuit/circuit190.tsx",
-    "lib/circuit/circuit191.tsx",
     "lib/circuit/circuit193.tsx",
     "lib/circuit/circuit194.tsx",
     "lib/circuit/circuit195.tsx",
     "lib/circuit/circuit196.tsx",
     "lib/circuit/circuit197.tsx",
-    "lib/circuit/circuit198.tsx",
     "lib/circuit/circuit199.tsx"
   ]
 }
