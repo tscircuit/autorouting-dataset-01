@@ -8,14 +8,14 @@ export const generateSummaryTable = (summary_json: {
   const header_html = summary_json.tableHeaderList
     .map(
       (header) =>
-        `<th class="px-4 py-3 text-left text-blue-300 font-semibold">${header}</th>`,
+        `<th class="px-4 py-3 text-left text-blue-700 font-semibold">${header}</th>`,
     )
     .join("")
 
   const rows_html = summary_json.tableRowList
     .map(
       (row) => `
-      <tr class="hover:bg-gray-800 transition-colors">
+      <tr class="hover:bg-gray-50 transition-colors">
           ${row.map((cell) => `<td class="px-4 py-3">${cell}</td>`).join("")}
       </tr>
     `,
@@ -23,14 +23,14 @@ export const generateSummaryTable = (summary_json: {
     .join("")
 
   return `<section class="mb-8">
-    <h2 class="text-2xl font-semibold text-blue-300 mb-4">Summary Table</h2>
+    <h2 class="text-2xl font-semibold text-blue-700 mb-4">Summary Table</h2>
     <benchmark-card>
         <div class="overflow-x-auto">
             <table class="w-full text-sm">
-                <thead class="bg-gray-800">
+                <thead class="bg-gray-100">
                     <tr>${header_html}</tr>
                 </thead>
-                <tbody class="divide-y divide-gray-700">${rows_html}</tbody>
+                <tbody class="divide-y divide-gray-200">${rows_html}</tbody>
             </table>
         </div>
     </benchmark-card>

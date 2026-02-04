@@ -59,7 +59,10 @@ const main = async () => {
   console.log(outputText)
 
   const summaryJson = buildBenchmarkSummaryJson({ resultRowList, scenarioList })
-  const detailJson = buildBenchmarkDetailsJson({ scenarioResultList })
+  const detailJson = buildBenchmarkDetailsJson({
+    scenarioResultList,
+    scenarioList,
+  })
   const summaryJsonText = JSON.stringify(summaryJson, null, 2)
   const detailJsonText = JSON.stringify(detailJson, null, 2)
 
