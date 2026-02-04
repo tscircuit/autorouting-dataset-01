@@ -3,8 +3,6 @@ import { createDatasetFromLib } from "scripts/create-dataset/createDatasetFromLi
 
 type TscircuitConfig = {
   mainEntrypoint?: string
-  mainEntryPoints?: string | string[]
-  mainEntrypoints?: string[]
   ignoredFiles?: string[]
   includeBoardFiles?: string[]
 }
@@ -19,20 +17,10 @@ const main = async () => {
   const ignoredFileSet = new Set(tscircuitConfig.ignoredFiles ?? [])
   const includeBoardFiles = tscircuitConfig.includeBoardFiles ?? []
   const mainEntrypointList: string[] = []
-  const { mainEntrypoint, mainEntryPoints, mainEntrypoints } = tscircuitConfig
+  const { mainEntrypoint } = tscircuitConfig
 
   if (typeof mainEntrypoint === "string") {
     mainEntrypointList.push(mainEntrypoint)
-  }
-
-  if (typeof mainEntryPoints === "string") {
-    mainEntrypointList.push(mainEntryPoints)
-  } else if (Array.isArray(mainEntryPoints)) {
-    mainEntrypointList.push(...mainEntryPoints)
-  }
-
-  if (Array.isArray(mainEntrypoints)) {
-    mainEntrypointList.push(...mainEntrypoints)
   }
 
   const circuitFilePathList = Array.from(
