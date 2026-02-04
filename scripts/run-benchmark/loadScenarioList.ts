@@ -9,7 +9,7 @@ const loadScenarioList = async (inputs: {
 }): Promise<Scenario[]> => {
   const { datasetDirectory, scenarioCountLimit } = inputs
   const datasetFileList = (await readdir(datasetDirectory))
-    .filter((fileName) => fileName.endsWith(".simple-route-before.json"))
+    .filter((fileName) => fileName.endsWith(".simple-route.json"))
     .sort()
   const limitedFileList =
     scenarioCountLimit === null
@@ -23,7 +23,7 @@ const loadScenarioList = async (inputs: {
   const scenarioList: Scenario[] = []
 
   for (const fileName of limitedFileList) {
-    const scenarioName = fileName.replace(".simple-route-before.json", "")
+    const scenarioName = fileName.replace(".simple-route.json", "")
     const simpleRouteJsonPath = path.join(datasetDirectory, fileName)
     const simpleRouteJsonText = await readFile(simpleRouteJsonPath, "utf8")
     const simpleRouteJson = JSON.parse(simpleRouteJsonText) as SimpleRouteJson
