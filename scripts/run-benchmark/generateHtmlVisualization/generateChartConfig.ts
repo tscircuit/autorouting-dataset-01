@@ -7,17 +7,17 @@ export const generateChartConfig = () => {
         maintainAspectRatio: true,
         plugins: {
             legend: {
-                labels: { color: '#e5e7eb' }
+                labels: { color: '#1f2937' }
             }
         },
         scales: {
             y: {
-                ticks: { color: '#9ca3af' },
-                grid: { color: '#374151' }
+                ticks: { color: '#4b5563' },
+                grid: { color: '#e5e7eb' }
             },
             x: {
-                ticks: { color: '#9ca3af' },
-                grid: { color: '#374151' }
+                ticks: { color: '#4b5563' },
+                grid: { color: '#e5e7eb' }
             }
         }
     };`

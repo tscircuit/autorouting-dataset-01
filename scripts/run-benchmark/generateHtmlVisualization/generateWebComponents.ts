@@ -8,8 +8,8 @@ export const generateWebComponents = () => {
             const title = this.getAttribute('title');
             const content = this.innerHTML;
             this.innerHTML = \`
-                <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 shadow-lg">
-                    \${title ? \`<h3 class="text-lg font-semibold text-blue-200 mb-4">\${title}</h3>\` : ''}
+                <div class="bg-white rounded-lg p-6 border border-gray-300 shadow-lg">
+                    \${title ? \`<h3 class="text-lg font-semibold text-blue-800 mb-4">\${title}</h3>\` : ''}
                     <div>\${content}</div>
                 </div>
             \`;
