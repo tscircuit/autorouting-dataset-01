@@ -49,7 +49,7 @@ export default () => (
     <capacitor
       name="capacitor-2"
       footprint="0805"
-      pcbX={-19.0}
+      pcbX={-15.0}
       pcbY={10.0}
       pcbRotation={0.0}
       layer="top"
@@ -200,8 +200,8 @@ export default () => (
     <chip
       name="chip-2"
       footprint="pinrow8"
-      pcbX={19.0}
-      pcbY={-17.0}
+      pcbX={12.0}
+      pcbY={-20.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -234,7 +234,7 @@ export default () => (
       name="pinhead-2"
       footprint="pinrow6"
       pcbX={-21.0}
-      pcbY={21.0}
+      pcbY={15.0}
       pcbRotation={90.0}
       layer="top"
       connections={{
@@ -251,9 +251,9 @@ export default () => (
     <pinheader
       name="pinhead-3"
       footprint="pinrow6"
-      pcbX={21.0}
-      pcbY={19.0}
-      pcbRotation={45.0}
+      pcbX={12.0}
+      pcbY={20.0}
+      pcbRotation={0.0}
       layer="top"
       connections={{
         pin4: "net.N8",
@@ -299,8 +299,8 @@ export default () => (
     <pinheader
       name="pinhead-6"
       footprint="pinrow6"
-      pcbX={-17.0}
-      pcbY={-19.0}
+      pcbX={-22.0}
+      pcbY={-12.0}
       pcbRotation={90.0}
       layer="top"
       connections={{

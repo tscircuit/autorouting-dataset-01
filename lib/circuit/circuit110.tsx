@@ -75,8 +75,8 @@ export default () => (
     <diode
       name="diode-1"
       footprint="sod323"
-      pcbX={-4.0}
-      pcbY={5.0}
+      pcbX={-2.0}
+      pcbY={6.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -99,8 +99,8 @@ export default () => (
     <chip
       name="chip-1"
       footprint="pinrow6"
-      pcbX={-6.0}
-      pcbY={-6.0}
+      pcbX={-7.0}
+      pcbY={-0.0}
       pcbRotation={90.0}
       layer="bottom"
       connections={{

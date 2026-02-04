@@ -341,7 +341,7 @@ export default () => (
       footprint="pinrow6"
       pcbX={-13.0}
       pcbY={12.0}
-      pcbRotation={45.0}
+      pcbRotation={90.0}
       layer="bottom"
       connections={{
         pin4: "net.N1",

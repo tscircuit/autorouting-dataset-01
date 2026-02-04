@@ -178,8 +178,8 @@ export default () => (
     <chip
       name="chip-1"
       footprint="dip8"
-      pcbX={13.0}
-      pcbY={13.0}
+      pcbX={10.0}
+      pcbY={12.0}
       pcbRotation={0.0}
       layer="top"
       connections={{

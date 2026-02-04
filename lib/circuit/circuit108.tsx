@@ -230,8 +230,8 @@ export default () => (
     <chip
       name="chip-3"
       footprint="pinrow8"
-      pcbX={4.0}
-      pcbY={8.0}
+      pcbX={-5.0}
+      pcbY={5}
       pcbRotation={90.0}
       layer="bottom"
       connections={{
