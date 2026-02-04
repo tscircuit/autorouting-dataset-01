@@ -1,6 +1,6 @@
 {
   "name": "@tscircuit/autorouting-dataset-01",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "main": "lib/dataset/index.ts",
   "files": [
     "lib/dataset"
