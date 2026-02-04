@@ -15,7 +15,7 @@
 //   const R2 = useResistor("R2", { resistance: "5.1k", footprint: "0402" })
 
 //   return (
-//     <board width="20mm" height="48mm" schAutoLayoutEnabled>
+//     <board routingDisabled={((typeof globalThis !== "undefined" && (globalThis as any).TSCIRCUIT_ROUTING_DISABLED === "1") || (typeof process !== "undefined" && !!process.env && process.env.TSCIRCUIT_ROUTING_DISABLED === "1"))} width="20mm" height="48mm" schAutoLayoutEnabled>
 //       <Usb pcbY={-20} />
 //       <Esp32 pcbY={5} />
 //       <Reg5vTo3v3 pcbX={2} pcbY={-12} />

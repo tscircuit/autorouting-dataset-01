@@ -2,6 +2,7 @@
 
 import { ISM330DHCX } from "lib/imports/ISM330DHCX"
 import { MMC5983MA_QFN16 } from "lib/imports/MMC5983MA_QFN16"
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 import { sel } from "tscircuit"
 
 export const D1_FOOTPRINT = (
@@ -95,7 +96,11 @@ export const J_FOOTPRINT = (
 )
 
 export default () => (
-  <board width="25.4mm" height="25.4mm">
+  <board
+    routingDisabled={!shouldAutorouterRun()}
+    width="25.4mm"
+    height="25.4mm"
+  >
     <schematictext
       text="Accelerometer - ISM330DHCX"
       fontSize={0.4}

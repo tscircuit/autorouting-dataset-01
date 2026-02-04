@@ -1,4 +1,5 @@
 import { SM04B_SRSS_TB_LF__SN } from "lib/imports/SM04B_SRSS_TB_LF__SN"
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 import { sel } from "tscircuit"
 
 /**
@@ -10,7 +11,7 @@ import { sel } from "tscircuit"
  * - Includes 2.2k pull-ups and a local decoupling capacitor.
  */
 export default () => (
-  <board width="32mm" height="20mm">
+  <board routingDisabled={!shouldAutorouterRun()} width="32mm" height="20mm">
     <schematictext
       text="I2C Qwiic Splitter"
       fontSize={0.35}

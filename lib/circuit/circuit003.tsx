@@ -3,6 +3,7 @@ import { AVR_ISP_2x3 } from "lib/imports/AVR_ISP_2x3"
 import { JoystickThumb } from "lib/imports/JoystickThumb"
 import { PinHeader1x4 } from "lib/imports/PinHeader1x4"
 import { SM04B_SRSS_TB_LF__SN } from "lib/imports/SM04B_SRSS_TB_LF__SN"
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 import { sel } from "tscircuit"
 
 /**
@@ -16,7 +17,11 @@ import { sel } from "tscircuit"
  * - Shows power/activity with an on-board LED.
  */
 export default () => (
-  <board width="25.40mm" height="50.80mm">
+  <board
+    routingDisabled={!shouldAutorouterRun()}
+    width="25.40mm"
+    height="50.80mm"
+  >
     <schematictext text="ATTiny85" fontSize={0.4} color="brown" schY={6} />
     <schematictext
       text="Vin: 2.7-5.5V"

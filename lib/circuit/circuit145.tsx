@@ -1,6 +1,12 @@
 /** Randomly generated circuit 145. */
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
+
 export default () => (
-  <board width="46.00mm" height="46.00mm">
+  <board
+    routingDisabled={!shouldAutorouterRun()}
+    width="46.00mm"
+    height="46.00mm"
+  >
     <resistor
       name="resistor-1"
       footprint="0402"
@@ -133,7 +139,7 @@ export default () => (
     />
     <diode
       name="diode-1"
-      footprint="SOD-123"
+      footprint="sod123"
       pcbX={-5.0}
       pcbY={14.0}
       pcbRotation={0.0}
@@ -145,7 +151,7 @@ export default () => (
     />
     <diode
       name="diode-2"
-      footprint="SOD-123"
+      footprint="sod123"
       pcbX={7.0}
       pcbY={6.0}
       pcbRotation={0.0}
@@ -219,7 +225,7 @@ export default () => (
     <chip
       name="chip-2"
       footprint="soic8"
-      pcbX={-18.0}
+      pcbX={-20.0}
       pcbY={-4.0}
       pcbRotation={45.0}
       layer="top"
@@ -256,7 +262,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-1"
-      footprint="pinheader2"
+      footprint="pinrow2"
       pcbX={20.0}
       pcbY={10.0}
       pcbRotation={0.0}
@@ -270,7 +276,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-2"
-      footprint="pinheader2"
+      footprint="pinrow2"
       pcbX={-12.0}
       pcbY={-14.0}
       pcbRotation={0.0}

@@ -1,6 +1,12 @@
 /** Randomly generated circuit 125. */
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
+
 export default () => (
-  <board width="40.00mm" height="23.00mm">
+  <board
+    routingDisabled={!shouldAutorouterRun()}
+    width="40.00mm"
+    height="23.00mm"
+  >
     <resistor
       name="resistor-1"
       footprint="0805"
@@ -68,7 +74,7 @@ export default () => (
     />
     <diode
       name="diode-1"
-      footprint="SOD-123"
+      footprint="sod123"
       pcbX={1.0}
       pcbY={-0.5}
       pcbRotation={0.0}
@@ -80,7 +86,7 @@ export default () => (
     />
     <diode
       name="diode-2"
-      footprint="SOD-123"
+      footprint="sod123"
       pcbX={7.0}
       pcbY={2.5}
       pcbRotation={0.0}
@@ -92,7 +98,7 @@ export default () => (
     />
     <diode
       name="diode-3"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={-12.0}
       pcbY={3.5}
       pcbRotation={90.0}
@@ -104,7 +110,7 @@ export default () => (
     />
     <diode
       name="diode-4"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={-17.0}
       pcbY={-7.5}
       pcbRotation={0.0}
@@ -132,7 +138,7 @@ export default () => (
       name="chip-1"
       footprint="soic16"
       pcbX={7.0}
-      pcbY={5.5}
+      pcbY={7.5}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -157,7 +163,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-1"
-      footprint="pinheader6"
+      footprint="pinrow6"
       pcbX={-7.0}
       pcbY={1.5}
       pcbRotation={45.0}
@@ -175,7 +181,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-2"
-      footprint="pinheader2"
+      footprint="pinrow2"
       pcbX={17.0}
       pcbY={-4.5}
       pcbRotation={0.0}
@@ -189,7 +195,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-3"
-      footprint="pinheader2"
+      footprint="pinrow2"
       pcbX={-9.0}
       pcbY={-6.5}
       pcbRotation={0.0}
@@ -203,7 +209,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-4"
-      footprint="pinheader6"
+      footprint="pinrow6"
       pcbX={-17.0}
       pcbY={-6.5}
       pcbRotation={90.0}

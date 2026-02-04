@@ -2,10 +2,12 @@
 // @ts-expect-error
 import { TB6612FNG_C_8_EL as MotorDriver } from "@tsci/imrishabh18.TB6612FNG"
 import manaulEdits from "assets/manual-edits.json"
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 
 export default () => {
   return (
     <board
+      routingDisabled={!shouldAutorouterRun()}
       width="25mm"
       height="25mm"
       autorouter="auto-cloud"

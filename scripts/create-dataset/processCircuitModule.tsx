@@ -5,12 +5,12 @@ import { RootCircuit } from "@tscircuit/core"
 /**
  * Loads a circuit module and saves its simple route JSON to the dataset.
  */
-export const processCircuitModule = async (options: {
+export const processCircuitModule = async (processCircuitRequest: {
   baseName: string
   modulePath: string
   datasetDirectory: string
 }): Promise<string | null> => {
-  const { baseName, modulePath, datasetDirectory } = options
+  const { baseName, modulePath, datasetDirectory } = processCircuitRequest
   let Circuit: any
   try {
     ;({ default: Circuit } = await import(modulePath))
@@ -30,7 +30,7 @@ export const processCircuitModule = async (options: {
 
   const outputPath = path.join(
     datasetDirectory,
-    `${baseName}.simple-route-before.json`,
+    `${baseName}.simple-route.json`,
   )
 
   console.log("[Start]", baseName)

@@ -1,5 +1,6 @@
 /** QRE1113 reflectance sensor breakout with 3-pin header and bias resistors. */
 import { sel } from "@tscircuit/core"
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 
 export const JP1_FOOTPRINT = (
   <footprint>
@@ -68,7 +69,11 @@ export const U1_FOOTPRINT = (
 )
 
 export default () => (
-  <board width="7.62mm" height="13.97mm">
+  <board
+    routingDisabled={!shouldAutorouterRun()}
+    width="7.62mm"
+    height="13.97mm"
+  >
     <pinheader
       gender="female"
       footprint="pinrow3_p2.54_id1.016_od1.8796_nosquareplating_pinlabeltextalignright_pinlabelorthogonal"

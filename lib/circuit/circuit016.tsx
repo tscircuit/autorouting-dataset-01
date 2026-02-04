@@ -4,6 +4,7 @@
 import { KeyMatrix, layouts } from "@tsci/seveibar.keyboard-utils"
 // @ts-expect-error
 import { PICO } from "@tsci/seveibar.PICO"
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 
 // We'll need more rows and columns for a 60% keyboard
 const rowPins = ["net.ROW0", "net.ROW1", "net.ROW2", "net.ROW3", "net.ROW4"]
@@ -26,7 +27,7 @@ const colPins = [
 ]
 
 export default () => (
-  <board>
+  <board routingDisabled={!shouldAutorouterRun()}>
     {/* Place the Pico */}
     <PICO
       name="U1"

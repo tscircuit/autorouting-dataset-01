@@ -3,11 +3,12 @@
 import { usePICO_W } from "@tsci/seveibar.PICO_W"
 import { WS2812B_2020 as LedWithIc } from "@tsci/seveibar.WS2812B_2020"
 import { grid } from "@tscircuit/math-utils"
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 
 export default () => {
   const U1 = usePICO_W("U1")
   return (
-    <board width="65mm" height="60mm">
+    <board routingDisabled={!shouldAutorouterRun()} width="65mm" height="60mm">
       <U1 pcbRotation="90deg" pcbX={-15} pcbY={0} />
 
       {/* LED matrix */}

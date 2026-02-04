@@ -3,25 +3,23 @@ import path from "node:path"
 import { processCircuitModule } from "scripts/create-dataset/processCircuitModule"
 
 /**
- * Iterates through the lib directory and processes each TSX file into the dataset.
+ * Processes the provided circuit file paths into the dataset.
  */
-export const createDatasetFromLib = async (): Promise<void> => {
-  const circuitsDirectory = path.resolve("lib", "circuit")
+export const createDatasetFromLib = async (createDatasetRequest: {
+  circuitFilePathList: string[]
+}): Promise<void> => {
   const datasetDirectory = path.resolve("lib", "dataset")
 
   await mkdir(datasetDirectory, { recursive: true })
 
-  const files = (await readdir(circuitsDirectory)).filter((file) =>
-    file.endsWith(".tsx"),
-  )
+  const circuitFilePathList = [
+    ...createDatasetRequest.circuitFilePathList,
+  ].sort()
+  const processedBaseNameList: string[] = []
 
-  files.sort()
-
-  const processedBaseNames: string[] = []
-
-  for (const file of files) {
-    const baseName = file.replace(/\.tsx$/, "")
-    const modulePath = `lib/circuit/${baseName}`
+  for (const circuitFilePath of circuitFilePathList) {
+    const baseName = path.basename(circuitFilePath, ".tsx")
+    const modulePath = circuitFilePath.replace(/\.tsx$/, "")
 
     const result = await processCircuitModule({
       baseName,
@@ -30,17 +28,17 @@ export const createDatasetFromLib = async (): Promise<void> => {
     })
 
     if (result) {
-      processedBaseNames.push(result)
+      processedBaseNameList.push(result)
     }
   }
 
   const datasetFiles = (await readdir(datasetDirectory)).filter((file) =>
-    file.endsWith(".simple-route-before.json"),
+    file.endsWith(".simple-route.json"),
   )
 
   const indexContent = datasetFiles
     .map((file) => {
-      const name = file.replace(".simple-route-before.json", "")
+      const name = file.replace(".simple-route.json", "")
       return `export { default as ${name.replace(/-/g, "_")} } from "./${file}"`
     })
     .join("\n")

@@ -1,6 +1,12 @@
 /** Randomly generated circuit 127. */
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
+
 export default () => (
-  <board width="14.00mm" height="14.00mm">
+  <board
+    routingDisabled={!shouldAutorouterRun()}
+    width="14.00mm"
+    height="14.00mm"
+  >
     <inductor
       name="inductor-1"
       footprint="0402"
@@ -16,7 +22,7 @@ export default () => (
     />
     <diode
       name="diode-1"
-      footprint="SOD-123"
+      footprint="sod123"
       pcbX={3.0}
       pcbY={-4.0}
       pcbRotation={0.0}

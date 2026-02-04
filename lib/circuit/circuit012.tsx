@@ -1,5 +1,6 @@
 import { PinHeader1x3 } from "lib/imports/PinHeader1x3"
 import { VGF39NCHXT_B103 } from "lib/imports/VGF39NCHXT_B103"
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 import { sel } from "tscircuit"
 
 /**
@@ -11,7 +12,7 @@ import { sel } from "tscircuit"
  * - Adds a gate pull-down and a signal LED for quick debugging.
  */
 export default () => (
-  <board width="22mm" height="22mm">
+  <board routingDisabled={!shouldAutorouterRun()} width="22mm" height="22mm">
     <schematictext
       text="Low-Side Switch"
       fontSize={0.35}

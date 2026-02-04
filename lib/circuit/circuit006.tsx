@@ -1,3 +1,4 @@
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 import { sel } from "tscircuit"
 
 /**
@@ -8,7 +9,11 @@ import { sel } from "tscircuit"
  * - Exposes IN_A/OUT_A and IN_B/OUT_B on a 1x6 header.
  */
 export default () => (
-  <board width="22.86mm" height="17.78mm">
+  <board
+    routingDisabled={!shouldAutorouterRun()}
+    width="22.86mm"
+    height="17.78mm"
+  >
     <pinheader
       name="J1"
       pinCount={6}

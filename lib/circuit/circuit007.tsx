@@ -1,3 +1,4 @@
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 import { sel } from "tscircuit"
 
 /**
@@ -9,7 +10,11 @@ import { sel } from "tscircuit"
  * - Lights an LED when the button signal is active.
  */
 export default () => (
-  <board width="20.32mm" height="20.32mm">
+  <board
+    routingDisabled={!shouldAutorouterRun()}
+    width="20.32mm"
+    height="20.32mm"
+  >
     <pinheader
       name="J1"
       pinCount={4}

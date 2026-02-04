@@ -1,5 +1,6 @@
 import { ACS37800 } from "lib/imports/ACS37800"
 import { SM04B_SRSS_TB_LF__SN } from "lib/imports/SM04B_SRSS_TB_LF__SN"
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 import { sel } from "tscircuit"
 
 /**
@@ -12,7 +13,7 @@ import { sel } from "tscircuit"
  * - Adds two large current holes for the primary conductor path.
  */
 export default () => (
-  <board width="50mm" height="30mm">
+  <board routingDisabled={!shouldAutorouterRun()} width="50mm" height="30mm">
     <schematictext
       text="ACS37800 Power Meter"
       fontSize={0.4}

@@ -1,3 +1,4 @@
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 import { sel } from "tscircuit"
 
 /**
@@ -9,7 +10,7 @@ import { sel } from "tscircuit"
  * - Breaks out VCC/GND and two LED control pins on a 1x4 header.
  */
 export default () => (
-  <board width="20mm" height="18mm">
+  <board routingDisabled={!shouldAutorouterRun()} width="20mm" height="18mm">
     <pinheader
       name="J1"
       pinCount={4}

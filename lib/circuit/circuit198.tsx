@@ -1,6 +1,12 @@
 /** Randomly generated circuit 198. */
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
+
 export default () => (
-  <board width="31.00mm" height="31.00mm">
+  <board
+    routingDisabled={!shouldAutorouterRun()}
+    width="31.00mm"
+    height="31.00mm"
+  >
     <resistor
       name="resistor-1"
       footprint="0805"
@@ -172,7 +178,7 @@ export default () => (
     />
     <diode
       name="diode-1"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={0.5}
       pcbY={1.5}
       pcbRotation={0.0}
@@ -184,7 +190,7 @@ export default () => (
     />
     <diode
       name="diode-2"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={10.5}
       pcbY={-4.5}
       pcbRotation={0.0}
@@ -196,7 +202,7 @@ export default () => (
     />
     <diode
       name="diode-3"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={-7.5}
       pcbY={-2.5}
       pcbRotation={0.0}
@@ -208,7 +214,7 @@ export default () => (
     />
     <diode
       name="diode-4"
-      footprint="SOD-323"
+      footprint="sod323"
       pcbX={-9.5}
       pcbY={4.5}
       pcbRotation={0.0}
@@ -248,7 +254,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-2"
-      footprint="pinheader6"
+      footprint="pinrow6"
       pcbX={5.5}
       pcbY={-12.5}
       pcbRotation={90.0}
@@ -266,7 +272,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-3"
-      footprint="pinheader2"
+      footprint="pinrow2"
       pcbX={-10.5}
       pcbY={-4.5}
       pcbRotation={0.0}
@@ -280,7 +286,7 @@ export default () => (
     />
     <pinheader
       name="pinhead-4"
-      footprint="pinheader2"
+      footprint="pinrow2"
       pcbX={3.5}
       pcbY={7.5}
       pcbRotation={0.0}

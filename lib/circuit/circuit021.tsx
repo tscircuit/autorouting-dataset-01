@@ -1,5 +1,6 @@
 /** RFID reader module breakout for ID-xx boards with dual headers. */
 import { sel } from "@tscircuit/core"
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 
 const pinLabels = {
   pin1: "GND",
@@ -16,7 +17,11 @@ const pinLabels = {
 }
 
 export default () => (
-  <board width="25.4mm" height="25.4mm">
+  <board
+    routingDisabled={!shouldAutorouterRun()}
+    width="25.4mm"
+    height="25.4mm"
+  >
     <chip
       name="U1"
       pinLabels={pinLabels}

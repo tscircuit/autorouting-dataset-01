@@ -1,10 +1,10 @@
 /** Minimal RC network demo board: one resistor, one capacitor, and a single trace between them. */
-// @ts-ignore
 import { SmdUsbC } from "@tsci/seveibar.smd-usb-c"
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 
 export default () => {
   return (
-    <board width="12mm" height="30mm">
+    <board routingDisabled={!shouldAutorouterRun()} width="12mm" height="30mm">
       <SmdUsbC
         name="J1"
         connections={{
@@ -22,6 +22,7 @@ export default () => {
         }}
         color="red"
         footprint="0603"
+        pcbX={3}
         pcbY={12}
       />
       <pushbutton
@@ -33,7 +34,7 @@ export default () => {
           jlcpcb: ["C110153"],
         }}
       />
-      <resistor name="R1" footprint="0603" resistance="1k" pcbY={7} />
+      <resistor name="R1" footprint="0603" resistance="1k" pcbX={-3} pcbY={7} />
 
       <trace from="R1.neg" to="LED.pos" />
       <trace from="LED.neg" to="net.GND" />

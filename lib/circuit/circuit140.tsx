@@ -1,6 +1,12 @@
 /** Randomly generated circuit 140. */
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
+
 export default () => (
-  <board width="38.00mm" height="38.00mm">
+  <board
+    routingDisabled={!shouldAutorouterRun()}
+    width="38.00mm"
+    height="38.00mm"
+  >
     <resistor
       name="resistor-1"
       footprint="0603"
@@ -202,8 +208,8 @@ export default () => (
     <chip
       name="chip-4"
       footprint="pinrow6"
-      pcbX={-8.0}
-      pcbY={-8.0}
+      pcbX={16.0}
+      pcbY={-12.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -219,9 +225,9 @@ export default () => (
     <chip
       name="chip-5"
       footprint="pinrow8"
-      pcbX={10.0}
-      pcbY={8.0}
-      pcbRotation={90.0}
+      pcbX={16.0}
+      pcbY={12.0}
+      pcbRotation={0.0}
       layer="top"
       connections={{
         pin8: "net.N2",
@@ -237,9 +243,9 @@ export default () => (
     />
     <pinheader
       name="pinhead-1"
-      footprint="pinheader6"
-      pcbX={14.0}
-      pcbY={-10.0}
+      footprint="pinrow6"
+      pcbX={-16.0}
+      pcbY={-12.0}
       pcbRotation={0.0}
       layer="top"
       connections={{

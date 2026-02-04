@@ -1,3 +1,4 @@
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 import { sel } from "tscircuit"
 
 /**
@@ -9,7 +10,11 @@ import { sel } from "tscircuit"
  * - Drives an LED from VOUT through a current-limit resistor.
  */
 export default () => (
-  <board width="30.32mm" height="15.24mm">
+  <board
+    routingDisabled={!shouldAutorouterRun()}
+    width="30.32mm"
+    height="15.24mm"
+  >
     <pinheader
       name="J1"
       pinCount={3}
