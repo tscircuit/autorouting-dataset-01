@@ -151,7 +151,7 @@ export default () => (
     <diode
       name="diode-3"
       footprint="sod123"
-      pcbX={0.0}
+      pcbX={-4.0}
       pcbY={13.0}
       pcbRotation={0.0}
       layer="top"
@@ -224,7 +224,7 @@ export default () => (
     <pinheader
       name="pinhead-1"
       footprint="pinrow6"
-      pcbX={-16.0}
+      pcbX={-10.0}
       pcbY={4.0}
       pcbRotation={0.0}
       layer="top"

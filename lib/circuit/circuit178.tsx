@@ -114,7 +114,7 @@ export default () => (
     <capacitor
       name="capacitor-4"
       footprint="0402"
-      pcbX={-5.5}
+      pcbX={0.5}
       pcbY={-8.5}
       pcbRotation={0.0}
       layer="top"
@@ -166,8 +166,8 @@ export default () => (
     <inductor
       name="inductor-1"
       footprint="0805"
-      pcbX={-6.5}
-      pcbY={-12.5}
+      pcbX={8.5}
+      pcbY={-13.5}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -300,7 +300,7 @@ export default () => (
     <chip
       name="chip-1"
       footprint="dip8"
-      pcbX={-12.5}
+      pcbX={-8.5}
       pcbY={-8.5}
       pcbRotation={90.0}
       layer="bottom"
@@ -338,8 +338,8 @@ export default () => (
     <chip
       name="chip-3"
       footprint="soic16"
-      pcbX={-12.5}
-      pcbY={11.5}
+      pcbX={-10.5}
+      pcbY={8.5}
       pcbRotation={0.0}
       layer="bottom"
       connections={{

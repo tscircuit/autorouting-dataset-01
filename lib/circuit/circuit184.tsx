@@ -326,8 +326,8 @@ export default () => (
       name="chip-2"
       footprint="soic16"
       pcbX={16.0}
-      pcbY={-14.0}
-      pcbRotation={0.0}
+      pcbY={-12.0}
+      pcbRotation={90.0}
       layer="top"
       connections={{
         pin11: "net.N1",
@@ -384,7 +384,7 @@ export default () => (
     <pinheader
       name="pinhead-3"
       footprint="pinrow4"
-      pcbX={-28.0}
+      pcbX={-25.0}
       pcbY={-10.0}
       pcbRotation={0.0}
       layer="top"

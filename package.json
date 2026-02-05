@@ -41,9 +41,8 @@
     "@tscircuit/math-utils": "^0.0.33",
     "@types/react": "^19.2.9",
     "circuit-json": "^0.0.371",
-    "tscircuit": "^0.0.1168"
-  },
-  "dependencies": {
-    "@tscircuit/solver-utils": "^0.0.14"
+    "tscircuit": "^0.0.1168",
+    "@tscircuit/solver-utils": "^0.0.14",
+    "graphics-debug": "^0.0.79"
   }
 }

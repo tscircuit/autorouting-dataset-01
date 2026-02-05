@@ -75,7 +75,7 @@ export default () => (
     <resistor
       name="resistor-6"
       footprint="0402"
-      pcbX={11.0}
+      pcbX={15.0}
       pcbY={5.0}
       pcbRotation={0.0}
       layer="top"
@@ -89,7 +89,7 @@ export default () => (
       name="capacitor-1"
       footprint="0603"
       pcbX={8.0}
-      pcbY={7.0}
+      pcbY={9.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -101,7 +101,7 @@ export default () => (
     <capacitor
       name="capacitor-2"
       footprint="0805"
-      pcbX={7.0}
+      pcbX={5.0}
       pcbY={-11.0}
       pcbRotation={0.0}
       layer="top"
@@ -166,7 +166,7 @@ export default () => (
     <inductor
       name="inductor-3"
       footprint="0402"
-      pcbX={8.0}
+      pcbX={12.0}
       pcbY={-8.0}
       pcbRotation={0.0}
       layer="top"
@@ -302,8 +302,8 @@ export default () => (
     <pinheader
       name="pinhead-2"
       footprint="pinrow4"
-      pcbX={14.0}
-      pcbY={0.0}
+      pcbX={10.0}
+      pcbY={2.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -334,7 +334,7 @@ export default () => (
     <pinheader
       name="pinhead-4"
       footprint="pinrow6"
-      pcbX={8.0}
+      pcbX={9.0}
       pcbY={-8.0}
       pcbRotation={90.0}
       layer="bottom"

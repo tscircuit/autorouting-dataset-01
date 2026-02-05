@@ -286,7 +286,7 @@ export default () => (
     <chip
       name="chip-5"
       footprint="soic16"
-      pcbX={26.0}
+      pcbX={20.0}
       pcbY={-5.0}
       pcbRotation={0.0}
       layer="bottom"
@@ -314,7 +314,7 @@ export default () => (
       name="pinhead-1"
       footprint="pinrow4"
       pcbX={-24.0}
-      pcbY={13.0}
+      pcbY={10.0}
       pcbRotation={90.0}
       layer="top"
       connections={{

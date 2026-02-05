@@ -75,7 +75,7 @@ export default () => (
     <capacitor
       name="capacitor-3"
       footprint="0402"
-      pcbX={2.0}
+      pcbX={3.0}
       pcbY={3.0}
       pcbRotation={0.0}
       layer="top"
@@ -88,7 +88,7 @@ export default () => (
     <inductor
       name="inductor-1"
       footprint="0402"
-      pcbX={5.0}
+      pcbX={6.0}
       pcbY={-4.0}
       pcbRotation={15.0}
       layer="top"

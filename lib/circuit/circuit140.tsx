@@ -36,7 +36,7 @@ export default () => (
     <resistor
       name="resistor-3"
       footprint="0805"
-      pcbX={3.0}
+      pcbX={1.0}
       pcbY={2.0}
       pcbRotation={15.0}
       layer="top"
@@ -208,7 +208,7 @@ export default () => (
     <chip
       name="chip-4"
       footprint="pinrow6"
-      pcbX={16.0}
+      pcbX={10.0}
       pcbY={-12.0}
       pcbRotation={0.0}
       layer="top"
@@ -225,9 +225,9 @@ export default () => (
     <chip
       name="chip-5"
       footprint="pinrow8"
-      pcbX={16.0}
-      pcbY={12.0}
-      pcbRotation={0.0}
+      pcbX={10.0}
+      pcbY={11.0}
+      pcbRotation={45.0}
       layer="top"
       connections={{
         pin8: "net.N2",
@@ -244,7 +244,7 @@ export default () => (
     <pinheader
       name="pinhead-1"
       footprint="pinrow6"
-      pcbX={-16.0}
+      pcbX={-10.0}
       pcbY={-12.0}
       pcbRotation={0.0}
       layer="top"
