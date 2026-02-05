@@ -34,7 +34,7 @@
     "@tsci/seveibar.push-button": "^0.1.1",
     "@tsci/seveibar.reg-5v-to-3v": "^0.0.1",
     "@tsci/seveibar.smd-usb-c": "^0.0.2",
-    "@tscircuit/capacity-autorouter": "^0.0.266",
+    "@tscircuit/capacity-autorouter": "^0.0.267",
     "@tscircuit/checks": "^0.0.87",
     "@tscircuit/core": "^0.0.1005",
     "@tscircuit/footprints": "^0.0.21",
