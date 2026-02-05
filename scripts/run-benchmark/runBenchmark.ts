@@ -40,7 +40,11 @@ const runBenchmark = async (inputs: {
     for (const [scenarioIndex, scenario] of scenarioList.entries()) {
       const solver = new solverClass(scenario.simpleRouteJson)
       const startMs = Date.now()
-      solver.solve()
+      try {
+        solver.solve()
+      } catch (_error) {
+        solver.solved = false
+      }
       const elapsedMs = Date.now() - startMs
       const connectionsCount = scenario.simpleRouteJson.connections?.length ?? 0
       totalTimeMs += elapsedMs
