@@ -23,7 +23,7 @@ export default () => (
     <resistor
       name="resistor-2"
       footprint="0402"
-      pcbX={10.5}
+      pcbX={5.5}
       pcbY={-27.0}
       pcbRotation={0.0}
       layer="top"
@@ -274,7 +274,7 @@ export default () => (
       name="chip-2"
       footprint="soic8"
       pcbX={-5.5}
-      pcbY={-27.0}
+      pcbY={-25.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -292,7 +292,7 @@ export default () => (
     <chip
       name="chip-3"
       footprint="pinrow8"
-      pcbX={10.5}
+      pcbX={5.5}
       pcbY={-15.0}
       pcbRotation={0.0}
       layer="top"

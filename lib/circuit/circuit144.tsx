@@ -219,7 +219,7 @@ export default () => (
     <chip
       name="chip-1"
       footprint="pinrow6"
-      pcbX={-9.5}
+      pcbX={-3.5}
       pcbY={-19.0}
       pcbRotation={0.0}
       layer="top"

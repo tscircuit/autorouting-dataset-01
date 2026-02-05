@@ -89,7 +89,7 @@ export default () => (
       name="inductor-3"
       footprint="0402"
       pcbX={-16.0}
-      pcbY={22.0}
+      pcbY={15.0}
       pcbRotation={45.0}
       layer="top"
       connections={{
@@ -216,7 +216,7 @@ export default () => (
     <chip
       name="chip-1"
       footprint="pinrow6"
-      pcbX={22.0}
+      pcbX={15.0}
       pcbY={-22.0}
       pcbRotation={0.0}
       layer="top"
@@ -296,7 +296,7 @@ export default () => (
     <pinheader
       name="pinhead-4"
       footprint="pinrow6"
-      pcbX={-20.0}
+      pcbX={-15.0}
       pcbY={20.0}
       pcbRotation={0.0}
       layer="bottom"

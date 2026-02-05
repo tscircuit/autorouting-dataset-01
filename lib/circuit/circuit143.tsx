@@ -177,7 +177,7 @@ export default () => (
     <transistor
       name="transistor-2"
       footprint="SOT-23"
-      pcbX={10.5}
+      pcbX={0}
       pcbY={-5.0}
       pcbRotation={0.0}
       layer="top"
@@ -210,8 +210,8 @@ export default () => (
     <chip
       name="chip-2"
       footprint="pinrow6"
-      pcbX={8.5}
-      pcbY={-19.0}
+      pcbX={5.5}
+      pcbY={-23.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -227,7 +227,7 @@ export default () => (
     <chip
       name="chip-4"
       footprint="soic16"
-      pcbX={-11.5}
+      pcbX={10.5}
       pcbY={17.0}
       pcbRotation={0.0}
       layer="bottom"

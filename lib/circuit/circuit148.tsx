@@ -23,7 +23,7 @@ export default () => (
     <capacitor
       name="capacitor-2"
       footprint="0805"
-      pcbX={0.0}
+      pcbX={5.0}
       pcbY={5.0}
       pcbRotation={0.0}
       layer="top"
@@ -50,9 +50,9 @@ export default () => (
       name="transistor-1"
       footprint="SOT-23"
       pcbX={-4.0}
-      pcbY={0.0}
+      pcbY={2.0}
       pcbRotation={0.0}
-      layer="top"
+      layer="bottom"
       connections={{
         pin2: "net.N1",
         pin1: "net.N4",
@@ -91,7 +91,7 @@ export default () => (
     <chip
       name="chip-1"
       footprint="pinrow6"
-      pcbX={-6.0}
+      pcbX={-3.0}
       pcbY={-6.0}
       pcbRotation={0.0}
       layer="top"
@@ -108,8 +108,8 @@ export default () => (
     <chip
       name="chip-3"
       footprint="dip8"
-      pcbX={-10.0}
-      pcbY={10.0}
+      pcbX={-7.0}
+      pcbY={5.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -127,7 +127,7 @@ export default () => (
     <pinheader
       name="pinhead-1"
       footprint="pinrow2"
-      pcbX={8.0}
+      pcbX={2.0}
       pcbY={10.0}
       pcbRotation={0.0}
       layer="bottom"

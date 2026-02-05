@@ -74,7 +74,7 @@ export default () => (
       name="transistor-1"
       footprint="SOT-223"
       pcbX={-1.0}
-      pcbY={-1.0}
+      pcbY={-3.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -115,7 +115,7 @@ export default () => (
     <pinheader
       name="pinhead-1"
       footprint="pinrow6"
-      pcbX={7.0}
+      pcbX={5.0}
       pcbY={-7.0}
       pcbRotation={0.0}
       layer="top"
