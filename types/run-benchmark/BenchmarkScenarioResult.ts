@@ -8,4 +8,5 @@ export type BenchmarkScenarioResult = {
   scenarioName: string
   simpleRouteJsonPath: string
   solverResultBySolverName: Record<string, SolverResult>
+  circuitPreviewSvg: string
 }

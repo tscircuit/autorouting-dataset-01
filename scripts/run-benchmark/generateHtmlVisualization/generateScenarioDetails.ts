@@ -36,6 +36,7 @@ export const generateScenarioDetails = (detail_json: BenchmarkDetailsJson) => {
       generateScenarioCard({
         scenario_path,
         solver_results: scenario_detail.solverResults,
+        circuit_preview_svg: scenario_detail.circuitPreviewSvg,
       }),
     )
     .join("")
