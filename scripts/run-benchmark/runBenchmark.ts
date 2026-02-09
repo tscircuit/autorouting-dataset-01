@@ -1,3 +1,4 @@
+import { getSvgFromGraphicsObject } from "graphics-debug"
 import { detectUnfixableRoutingIssues } from "lib/checks/detectUnfixableRoutingIssues"
 import { convertToCircuteJson } from "lib/converter/srj-to-circuit-json"
 import { formatTimeSeconds } from "scripts/run-benchmark/formatTimeSeconds"
@@ -23,6 +24,7 @@ const runBenchmark = async (inputs: {
       scenarioName: scenario.scenarioName,
       simpleRouteJsonPath: scenario.simpleRouteJsonPath,
       solverResultBySolverName: {},
+      circuitPreviewSvg: "",
     }),
   )
   const totalRunCount = scenarioList.length * solverConstructorList.length
@@ -39,6 +41,9 @@ const runBenchmark = async (inputs: {
 
     for (const [scenarioIndex, scenario] of scenarioList.entries()) {
       const solver = new solverClass(scenario.simpleRouteJson)
+      // Generate circuit preview SVG before running the solver
+      const rawSvg = getSvgFromGraphicsObject(solver.visualize())
+      scenarioResultList[scenarioIndex].circuitPreviewSvg = rawSvg
       const startMs = Date.now()
       try {
         solver.solve()

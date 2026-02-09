@@ -25,9 +25,11 @@ const buildBenchmarkDetailsJson = (inputs: {
     if (!simpleRouteJson) {
       continue
     }
+
     detailsByScenarioPath[scenarioFileName] = {
       simpleRouteJson,
       solverResults: scenarioResult.solverResultBySolverName,
+      circuitPreviewSvg: scenarioResult.circuitPreviewSvg,
     }
   }
 

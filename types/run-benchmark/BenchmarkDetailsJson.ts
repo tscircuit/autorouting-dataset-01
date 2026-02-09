@@ -6,5 +6,6 @@ export type BenchmarkDetailsJson = Record<
   {
     simpleRouteJson: SimpleRouteJson
     solverResults: Record<string, SolverResult>
+    circuitPreviewSvg: string
   }
 >
