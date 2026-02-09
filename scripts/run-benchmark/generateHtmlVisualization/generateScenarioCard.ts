@@ -10,6 +10,24 @@ export const generateScenarioCard = (inputs: {
 }) => {
   const { scenario_path, solver_results } = inputs
 
+  const solver_preview_html = Object.entries(solver_results)
+    .map(([solver_name, solver_result]) => {
+      const badge_class = solver_result.didSolve
+        ? "bg-emerald-100 text-emerald-700 border-emerald-200"
+        : "bg-rose-100 text-rose-700 border-rose-200"
+      const status_text = solver_result.didSolve ? "Solved" : "Failed"
+      return `<span title="${solver_name}" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border text-xs font-medium ${badge_class}">
+        <span class="font-semibold">${solver_name}</span>
+        <span class="opacity-75">${status_text}</span>
+      </span>`
+    })
+    .join("")
+
+  const solver_tag_list = Object.entries(solver_results).map(
+    ([solver_name, solver_result]) =>
+      `solver:${solver_name}:${solver_result.didSolve ? "pass" : "fail"}`,
+  )
+
   const solver_cards_html = Object.entries(solver_results)
     .map(([solver_name, solver_result]) =>
       generateSolverResultCard({
@@ -20,11 +38,14 @@ export const generateScenarioCard = (inputs: {
     )
     .join("")
 
-  return `<details class="bg-white rounded-lg border border-gray-300">
-    <summary class="px-6 py-4 cursor-pointer hover:bg-gray-50 transition-colors font-medium text-blue-700">
-        ${scenario_path}
+  return `<details class="js-scenario-card bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow" data-tags="${solver_tag_list.join(" ")}">
+    <summary class="px-6 py-4 cursor-pointer hover:bg-slate-50 transition-colors">
+        <div class="flex items-start justify-between gap-4">
+          <span class="font-mono text-sm text-slate-700 break-all pt-1">${scenario_path}</span>
+          <span class="flex flex-wrap items-center gap-2 shrink-0">${solver_preview_html}</span>
+        </div>
     </summary>
-    <div class="px-6 py-4 border-t border-gray-300">
+    <div class="px-6 py-4 border-t border-gray-200 bg-slate-50">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             ${solver_cards_html}
         </div>
