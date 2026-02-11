@@ -1,14 +1,14 @@
+import { access, mkdir, writeFile } from "node:fs/promises"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
-import { writeFile, access, mkdir } from "node:fs/promises"
+import { getCliOptions } from "lib/cli/getCliOptions"
+import { loadUserAutorouter } from "lib/cli/loadUserAutorouter"
+import { runSingleSolverBenchmark } from "lib/cli/runSingleSolverBenchmark"
 import { buildBenchmarkDetailsJson } from "scripts/run-benchmark/buildBenchmarkDetailsJson"
 import { buildBenchmarkSummaryJson } from "scripts/run-benchmark/buildBenchmarkSummaryJson"
 import { generateHtmlVisualization } from "scripts/run-benchmark/generateHtmlVisualization"
 import { loadScenarioList } from "scripts/run-benchmark/loadScenarioList"
 import { outputTabled } from "scripts/run-benchmark/outputTabled"
-import { getCliOptions } from "lib/cli/getCliOptions"
-import { loadUserAutorouter } from "lib/cli/loadUserAutorouter"
-import { runSingleSolverBenchmark } from "lib/cli/runSingleSolverBenchmark"
 
 /**
  * Find the dataset directory, checking multiple possible locations.
