@@ -15,7 +15,7 @@ import type { SimpleRouteJson, SimplifiedPcbTrace } from "tscircuit"
 /**
  * Convert a SimpleRouteJson and its routed traces into Circuit JSON for DRC use.
  */
-export const convertToCircuteJson = (inputs: {
+export const convertToCircuitJson = (inputs: {
   srjWithPointPairs: SimpleRouteJson
   routes: SimplifiedPcbTrace[]
   minTraceWidth?: number

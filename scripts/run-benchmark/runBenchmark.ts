@@ -1,6 +1,6 @@
 import { getSvgFromGraphicsObject } from "graphics-debug"
 import { detectUnfixableRoutingIssues } from "lib/checks/detectUnfixableRoutingIssues"
-import { convertToCircuteJson } from "lib/converter/srj-to-circuit-json"
+import { convertToCircuitJson } from "lib/converter/srj-to-circuit-json"
 import { formatTimeSeconds } from "scripts/run-benchmark/formatTimeSeconds"
 import { getPercentileMs } from "scripts/run-benchmark/getPercentileMs"
 import { solverDisplayNameByConstructor } from "scripts/run-benchmark/solvers"
@@ -73,7 +73,7 @@ const runBenchmark = async (inputs: {
         `[Progress] ${completedRunCount}/${totalRunCount} (${percentComplete.toFixed(1)}%) ETA ${formatTimeSeconds(etaMs)}`,
       )
 
-      const circuitJson = convertToCircuteJson({
+      const circuitJson = convertToCircuitJson({
         srjWithPointPairs: solver.srjWithPointPairs! as any,
         minTraceWidth: scenario.simpleRouteJson.minTraceWidth,
         minViaDiameter: scenario.simpleRouteJson.minViaDiameter,
