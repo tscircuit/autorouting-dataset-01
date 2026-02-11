@@ -28,6 +28,7 @@
     "check:write": "biome check --write --unsafe",
     "build": "tsci build --disable-parts-engine --ignore-errors",
     "build:cli": "tsup",
+    "setup": "bun run build:cli && npm install -g .",
     "prepublishOnly": "bun run build:cli"
   },
   "publishConfig": {
