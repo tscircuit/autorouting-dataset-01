@@ -1,6 +1,7 @@
 {
   "$schema": "https://cdn.jsdelivr.net/npm/@tscircuit/cli/types/tscircuit.config.schema.json",
   "mainEntrypoint": "lib/circuit/circuit001.tsx",
+  "previewComponentPath": "lib/circuit/circuit002.tsx",
   "ignoredFiles": [
     "lib/circuit/circuit016.tsx",
     "lib/circuit/circuit017.tsx",
