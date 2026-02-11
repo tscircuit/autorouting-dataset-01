@@ -11,7 +11,7 @@ export default defineConfig({
   target: "node18",
   platform: "node",
   banner: {
-    js: "#!/usr/bin/env node",
+    js: "#!/usr/bin/env bun",
   },
   // Bundle all internal code but keep node_modules external
   noExternal: [/^(lib|scripts|types)\//],
