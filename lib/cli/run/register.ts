@@ -1,5 +1,4 @@
-import { execSync } from "node:child_process"
-import { access, mkdir, readFile, writeFile } from "node:fs/promises"
+import { access, mkdir, writeFile } from "node:fs/promises"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
 import type { Command } from "commander"
@@ -135,23 +134,6 @@ export const registerRun = (program: Command) => {
             scenarioList,
           })
 
-          // Read the autorouter source code for embedding in HTML
-          // If the solver comes from an npm package with source map, use extracted source
-          let sourceCode = ""
-          let sourceFilename = path.basename(absolutePath)
-
-          if (packageInfo?.sourceCode) {
-            sourceCode = packageInfo.sourceCode
-            sourceFilename =
-              packageInfo.sourceFilename || `${finalSolverName}.ts`
-          } else {
-            try {
-              sourceCode = await readFile(absolutePath, "utf-8")
-            } catch {
-              sourceCode = "// Source code could not be read"
-            }
-          }
-
           // Bundle the autorouter for client-side use
           console.log(
             kleur.cyan("Bundling autorouter for HTML visualization..."),
@@ -175,51 +157,12 @@ export const registerRun = (program: Command) => {
             )
           }
 
-          // Get version from package info or try to find it
-          let version = packageInfo?.version || "unknown"
-          let gitHash = ""
-
-          // If no package info, try to find version from local package.json
-          if (!packageInfo) {
-            try {
-              let searchDir = path.dirname(absolutePath)
-              while (searchDir !== path.dirname(searchDir)) {
-                const pkgPath = path.join(searchDir, "package.json")
-                try {
-                  await access(pkgPath)
-                  const pkg = JSON.parse(await readFile(pkgPath, "utf-8"))
-                  if (pkg.version) {
-                    version = pkg.version
-                    break
-                  }
-                } catch {
-                  // package.json not found in this directory, try parent
-                }
-                searchDir = path.dirname(searchDir)
-              }
-            } catch {}
-          }
-
-          try {
-            gitHash = execSync("git rev-parse --short HEAD", {
-              cwd: path.dirname(absolutePath),
-              encoding: "utf-8",
-            }).trim()
-          } catch {}
-
           const htmlText = generateHtmlVisualization({
             summary_json: summaryJson,
             detail_json: detailJson,
             result_row_list: resultRowList,
-            autorouter_source: {
-              filename: sourceFilename,
-              code: sourceCode,
-              version,
-              gitHash,
-              solverName: finalSolverName,
-              packageName: packageInfo?.name,
-            },
             bundle_filename: bundleFilename,
+            solver_name: finalSolverName,
           })
 
           const outputDir = path.resolve("results")

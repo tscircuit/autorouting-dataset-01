@@ -9,42 +9,6 @@ type LoadedAutorouter = {
   packageInfo?: {
     name: string
     version: string
-    sourceCode?: string
-    sourceFilename?: string
-  }
-}
-
-/**
- * Extracts solver source code from a package's source map.
- */
-const extractSourceFromSourceMap = (
-  packageDir: string,
-  solverName: string,
-): { sourceCode: string; sourceFilename: string } | undefined => {
-  try {
-    // Look for source map in dist folder
-    const sourceMapPath = path.join(packageDir, "dist", "index.js.map")
-    const sourceMap = JSON.parse(readFileSync(sourceMapPath, "utf-8"))
-
-    if (!sourceMap.sources || !sourceMap.sourcesContent) {
-      return undefined
-    }
-
-    // Find the source file that matches the solver name
-    const sourceIndex = sourceMap.sources.findIndex((s: string) =>
-      s.includes(solverName),
-    )
-
-    if (sourceIndex === -1) {
-      return undefined
-    }
-
-    return {
-      sourceCode: sourceMap.sourcesContent[sourceIndex],
-      sourceFilename: path.basename(sourceMap.sources[sourceIndex]),
-    }
-  } catch {
-    return undefined
   }
 }
 
@@ -55,7 +19,6 @@ const AUTOROUTER_PACKAGE = "@tscircuit/capacity-autorouter"
  */
 const detectPackageInfo = (
   autorouterPath: string,
-  solverName: string,
 ): LoadedAutorouter["packageInfo"] | undefined => {
   try {
     // Search for node_modules containing the autorouter package
@@ -70,14 +33,9 @@ const detectPackageInfo = (
         const pkgJsonPath = path.join(packageDir, "package.json")
         const pkgJson = JSON.parse(readFileSync(pkgJsonPath, "utf-8"))
 
-        // Try to extract source code from source map
-        const sourceInfo = extractSourceFromSourceMap(packageDir, solverName)
-
         return {
           name: AUTOROUTER_PACKAGE,
           version: pkgJson.version,
-          sourceCode: sourceInfo?.sourceCode,
-          sourceFilename: sourceInfo?.sourceFilename,
         }
       } catch {
         // Package not found in this node_modules, try parent
@@ -195,7 +153,7 @@ const loadUserAutorouter = async (
           `Available solvers: ${availableNames.join(", ") || "(none)"}`,
       )
     }
-    packageInfo = detectPackageInfo(autorouterPath, requestedSolverName)
+    packageInfo = detectPackageInfo(autorouterPath)
     return {
       solverConstructor: requestedExport.value as SolverConstructor,
       solverName: requestedSolverName,
@@ -235,7 +193,7 @@ const loadUserAutorouter = async (
     )
   }
 
-  packageInfo = detectPackageInfo(autorouterPath, preferredExport.name)
+  packageInfo = detectPackageInfo(autorouterPath)
   return {
     solverConstructor,
     solverName: preferredExport.name,
