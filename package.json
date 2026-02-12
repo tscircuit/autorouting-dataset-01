@@ -31,7 +31,12 @@
     "setup": "bun run build:cli && npm install -g .",
     "prepublishOnly": "bun run build:cli"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tscircuit/autorouting-dataset-01.git"
+  },
   "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
     "access": "public"
   },
   "dependencies": {
