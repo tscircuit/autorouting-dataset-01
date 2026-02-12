@@ -1,22 +1,5 @@
 import path from "node:path"
 
-// Bun types for bundling
-declare const Bun: {
-  write(path: string, content: string): Promise<number>
-  build(options: {
-    entrypoints: string[]
-    target: "browser" | "node" | "bun"
-    minify: boolean
-    sourcemap: "none" | "inline" | "external"
-    external: string[]
-  }): Promise<{
-    success: boolean
-    outputs: { text(): Promise<string> }[]
-    logs: { message: string }[]
-  }>
-  file(path: string): { exists(): Promise<boolean> }
-}
-
 /**
  * Bundles the autorouter file and its dependencies into a single browser-compatible ES module.
  * The bundle exports the solver constructor for use by the debugger.
