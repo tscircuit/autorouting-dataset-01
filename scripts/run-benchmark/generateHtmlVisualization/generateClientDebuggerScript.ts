@@ -7,6 +7,8 @@ const escapeJsonForHtml = (json: string) => json.replace(/</g, "\\u003c")
  */
 export const generateClientDebuggerScript = (
   detail_json: BenchmarkDetailsJson,
+  bundle_filename?: string,
+  solverName?: string,
 ) => {
   const detail_json_text = escapeJsonForHtml(JSON.stringify(detail_json))
 
@@ -18,6 +20,16 @@ export const generateClientDebuggerScript = (
       "export * from 'https://esm.sh/svgson@5.2.1?target=es2022';",
     ].join(""),
   )
+
+  // Import solver from bundle file or fall back to esm.sh
+  const solverImport = bundle_filename
+    ? `import SolverConstructor, { solverName as bundledSolverName } from "./${bundle_filename}";
+    const solverConstructors = SolverConstructor ? { [bundledSolverName || "${solverName || "Autorouter"}"]: SolverConstructor } : {};`
+    : `import { AutoroutingPipeline1_OriginalUnravel, AutoroutingPipelineSolver as AutoroutingPipelineSolver2_PortPointPathing } from "https://esm.sh/@tscircuit/capacity-autorouter@latest";
+    const solverConstructors = {
+      AutoroutingPipelineSolver2_PortPointPathing,
+      AutoroutingPipeline1_OriginalUnravel
+    };`
 
   return `<script>
     window.__benchmark_details = ${detail_json_text};
@@ -39,15 +51,8 @@ export const generateClientDebuggerScript = (
     import React, { useMemo } from "react";
     import { createRoot } from "react-dom/client";
     import { GenericSolverDebugger } from "https://esm.sh/@tscircuit/solver-utils@latest/react?external=react,react-dom,svgson";
-    import {
-      AutoroutingPipeline1_OriginalUnravel,
-      AutoroutingPipelineSolver as AutoroutingPipelineSolver2_PortPointPathing
-    } from "https://esm.sh/@tscircuit/capacity-autorouter@latest";
 
-    const solverConstructors = {
-      AutoroutingPipelineSolver2_PortPointPathing,
-      AutoroutingPipeline1_OriginalUnravel
-    };
+    ${solverImport}
 
     const modal = document.getElementById("solver-debugger-modal");
     const modalTitle = document.getElementById("solver-debugger-title");

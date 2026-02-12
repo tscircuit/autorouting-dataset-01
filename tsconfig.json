@@ -14,6 +14,6 @@
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "types": ["tscircuit", "node"]
+    "types": ["tscircuit", "node", "bun"]
   }
 }

@@ -20,8 +20,16 @@ export const generateHtmlVisualization = (inputs: {
   }
   detail_json: BenchmarkDetailsJson
   result_row_list: BenchmarkRow[]
+  bundle_filename?: string
+  solver_name?: string
 }) => {
-  const { summary_json, detail_json, result_row_list } = inputs
+  const {
+    summary_json,
+    detail_json,
+    result_row_list,
+    bundle_filename,
+    solver_name,
+  } = inputs
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -42,7 +50,7 @@ export const generateHtmlVisualization = (inputs: {
     ${generateWebComponents()}
     ${generateSolverDebuggerModal()}
     ${generateChartScripts(result_row_list)}
-    ${generateClientDebuggerScript(detail_json)}
+    ${generateClientDebuggerScript(detail_json, bundle_filename, solver_name)}
 </body>
 </html>`
 }

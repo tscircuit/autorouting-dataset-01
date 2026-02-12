@@ -1,9 +1,51 @@
+import { readFileSync } from "node:fs"
+import path from "node:path"
 import { pathToFileURL } from "node:url"
 import type { SolverConstructor } from "types/run-benchmark/SolverConstructor"
 
 type LoadedAutorouter = {
   solverConstructor: SolverConstructor
   solverName: string
+  packageInfo?: {
+    name: string
+    version: string
+  }
+}
+
+const AUTOROUTER_PACKAGE = "@tscircuit/capacity-autorouter"
+
+/**
+ * Gets package info for the autorouter package.
+ */
+const detectPackageInfo = (
+  autorouterPath: string,
+): LoadedAutorouter["packageInfo"] | undefined => {
+  try {
+    // Search for node_modules containing the autorouter package
+    let searchDir = path.dirname(autorouterPath)
+    while (searchDir !== path.dirname(searchDir)) {
+      try {
+        const packageDir = path.join(
+          searchDir,
+          "node_modules",
+          AUTOROUTER_PACKAGE,
+        )
+        const pkgJsonPath = path.join(packageDir, "package.json")
+        const pkgJson = JSON.parse(readFileSync(pkgJsonPath, "utf-8"))
+
+        return {
+          name: AUTOROUTER_PACKAGE,
+          version: pkgJson.version,
+        }
+      } catch {
+        // Package not found in this node_modules, try parent
+      }
+      searchDir = path.dirname(searchDir)
+    }
+  } catch {
+    // Failed to detect package info
+  }
+  return undefined
 }
 
 /**
@@ -29,6 +71,9 @@ const loadUserAutorouter = async (
       `Failed to import autorouter from "${autorouterPath}": ${(error as Error).message}`,
     )
   }
+
+  // We'll detect package info after we know the solver name
+  let packageInfo: LoadedAutorouter["packageInfo"] | undefined
 
   // Check for a display name map (like solverDisplayNameByConstructor)
   let displayNameMap: Map<unknown, string> | null = null
@@ -108,9 +153,11 @@ const loadUserAutorouter = async (
           `Available solvers: ${availableNames.join(", ") || "(none)"}`,
       )
     }
+    packageInfo = detectPackageInfo(autorouterPath)
     return {
       solverConstructor: requestedExport.value as SolverConstructor,
       solverName: requestedSolverName,
+      packageInfo,
     }
   }
 
@@ -146,9 +193,11 @@ const loadUserAutorouter = async (
     )
   }
 
+  packageInfo = detectPackageInfo(autorouterPath)
   return {
     solverConstructor,
     solverName: preferredExport.name,
+    packageInfo,
   }
 }
 

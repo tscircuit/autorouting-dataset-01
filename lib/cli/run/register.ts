@@ -3,6 +3,7 @@ import path from "node:path"
 import { fileURLToPath } from "node:url"
 import type { Command } from "commander"
 import kleur from "kleur"
+import { bundleAutorouter } from "lib/cli/bundleAutorouter"
 import { loadUserAutorouter } from "lib/cli/loadUserAutorouter"
 import { buildBenchmarkDetailsJson } from "scripts/run-benchmark/buildBenchmarkDetailsJson"
 import { buildBenchmarkSummaryJson } from "scripts/run-benchmark/buildBenchmarkSummaryJson"
@@ -73,13 +74,21 @@ export const registerRun = (program: Command) => {
             `${kleur.cyan("Loading autorouter from:")} ${absolutePath}`,
           )
 
-          const { solverConstructor, solverName: detectedSolverName } =
-            await loadUserAutorouter(absolutePath, solverName)
+          const {
+            solverConstructor,
+            solverName: detectedSolverName,
+            packageInfo,
+          } = await loadUserAutorouter(absolutePath, solverName)
 
           const finalSolverName = solverName || detectedSolverName
           console.log(
             `${kleur.green("✓")} Using autorouter: ${kleur.bold(finalSolverName)}`,
           )
+          if (packageInfo) {
+            console.log(
+              `${kleur.green("✓")} From package: ${kleur.cyan(packageInfo.name)}@${packageInfo.version}`,
+            )
+          }
 
           // Register the solver's display name for runBenchmark
           solverDisplayNameByConstructor.set(solverConstructor, finalSolverName)
@@ -125,10 +134,35 @@ export const registerRun = (program: Command) => {
             scenarioList,
           })
 
+          // Bundle the autorouter for client-side use
+          console.log(
+            kleur.cyan("Bundling autorouter for HTML visualization..."),
+          )
+          let autorouterBundle = ""
+          let bundleFilename = ""
+          try {
+            autorouterBundle = await bundleAutorouter(
+              absolutePath,
+              finalSolverName,
+            )
+            bundleFilename = `${finalSolverName}.bundle.js`
+            console.log(
+              `${kleur.green("✓")} Bundled autorouter (${(autorouterBundle.length / 1024).toFixed(1)} KB)`,
+            )
+          } catch (bundleError) {
+            console.warn(
+              kleur.yellow(
+                `Warning: Could not bundle autorouter: ${bundleError instanceof Error ? bundleError.message : String(bundleError)}`,
+              ),
+            )
+          }
+
           const htmlText = generateHtmlVisualization({
             summary_json: summaryJson,
             detail_json: detailJson,
             result_row_list: resultRowList,
+            bundle_filename: bundleFilename,
+            solver_name: finalSolverName,
           })
 
           const outputDir = path.resolve("results")
@@ -138,9 +172,18 @@ export const registerRun = (program: Command) => {
             ? path.resolve(options.output)
             : path.join(outputDir, `${finalSolverName}.html`)
 
+          // Write the bundle file
+          if (autorouterBundle && bundleFilename) {
+            const bundlePath = path.join(outputDir, bundleFilename)
+            await writeFile(bundlePath, autorouterBundle)
+            console.log(
+              `${kleur.green("✓")} Bundle written to: ${kleur.cyan(bundlePath)}`,
+            )
+          }
+
           await writeFile(outputPath, htmlText)
           console.log(
-            `\n${kleur.green("✓")} HTML results written to: ${kleur.cyan(outputPath)}`,
+            `${kleur.green("✓")} HTML results written to: ${kleur.cyan(outputPath)}`,
           )
 
           process.exit(0)
