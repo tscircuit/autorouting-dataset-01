@@ -4,6 +4,10 @@ import { generateHeader } from "scripts/run-benchmark/generateHtmlVisualization/
 import { generatePerformanceOverview } from "scripts/run-benchmark/generateHtmlVisualization/generatePerformanceOverview"
 import { generateScenarioDetails } from "scripts/run-benchmark/generateHtmlVisualization/generateScenarioDetails"
 import { generateSolverDebuggerModal } from "scripts/run-benchmark/generateHtmlVisualization/generateSolverDebuggerModal"
+import {
+  type AutorouterSource,
+  generateSourceCodeSection,
+} from "scripts/run-benchmark/generateHtmlVisualization/generateSourceCodeSection"
 import { generateSummaryTable } from "scripts/run-benchmark/generateHtmlVisualization/generateSummaryTable"
 import { generateWebComponents } from "scripts/run-benchmark/generateHtmlVisualization/generateWebComponents"
 import type { BenchmarkDetailsJson } from "types/run-benchmark/BenchmarkDetailsJson"
@@ -20,8 +24,16 @@ export const generateHtmlVisualization = (inputs: {
   }
   detail_json: BenchmarkDetailsJson
   result_row_list: BenchmarkRow[]
+  autorouter_source?: AutorouterSource
+  bundle_filename?: string
 }) => {
-  const { summary_json, detail_json, result_row_list } = inputs
+  const {
+    summary_json,
+    detail_json,
+    result_row_list,
+    autorouter_source,
+    bundle_filename,
+  } = inputs
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -35,6 +47,7 @@ export const generateHtmlVisualization = (inputs: {
 <body class="bg-white text-gray-900 min-h-screen p-8">
     <div class="max-w-7xl mx-auto">
         ${generateHeader(summary_json)}
+        ${generateSourceCodeSection(autorouter_source)}
         ${generatePerformanceOverview()}
         ${generateSummaryTable(summary_json)}
         ${generateScenarioDetails(detail_json)}
@@ -42,7 +55,7 @@ export const generateHtmlVisualization = (inputs: {
     ${generateWebComponents()}
     ${generateSolverDebuggerModal()}
     ${generateChartScripts(result_row_list)}
-    ${generateClientDebuggerScript(detail_json)}
+    ${generateClientDebuggerScript(detail_json, bundle_filename, autorouter_source?.solverName)}
 </body>
 </html>`
 }
