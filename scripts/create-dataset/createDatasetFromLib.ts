@@ -2,6 +2,21 @@ import { mkdir, readdir, writeFile } from "node:fs/promises"
 import path from "node:path"
 import { processCircuitModule } from "scripts/create-dataset/processCircuitModule"
 
+const writeDatasetIndex = async (datasetDirectory: string): Promise<void> => {
+  const datasetFiles = (await readdir(datasetDirectory))
+    .filter((file) => file.endsWith(".simple-route.json"))
+    .sort()
+
+  const indexContent = datasetFiles
+    .map((file) => {
+      const name = file.replace(".simple-route.json", "")
+      return `export { default as ${name.replace(/-/g, "_")} } from "./${file}"`
+    })
+    .join("\n")
+
+  await writeFile(path.join(datasetDirectory, "index.ts"), indexContent)
+}
+
 /**
  * Processes the provided circuit file paths into the dataset.
  */
@@ -15,7 +30,6 @@ export const createDatasetFromLib = async (createDatasetRequest: {
   const circuitFilePathList = [
     ...createDatasetRequest.circuitFilePathList,
   ].sort()
-  const processedBaseNameList: string[] = []
 
   for (const circuitFilePath of circuitFilePathList) {
     const baseName = path.basename(circuitFilePath, ".tsx")
@@ -28,19 +42,7 @@ export const createDatasetFromLib = async (createDatasetRequest: {
     })
 
     if (result) {
-      processedBaseNameList.push(result)
+      await writeDatasetIndex(datasetDirectory)
     }
   }
-
-  const datasetFiles = (await readdir(datasetDirectory)).filter((file) =>
-    file.endsWith(".simple-route.json"),
-  )
-
-  const indexContent = datasetFiles
-    .map((file) => {
-      const name = file.replace(".simple-route.json", "")
-      return `export { default as ${name.replace(/-/g, "_")} } from "./${file}"`
-    })
-    .join("\n")
-  await writeFile(path.join(datasetDirectory, "index.ts"), indexContent)
 }
