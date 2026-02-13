@@ -37,6 +37,7 @@
   "dependencies": {
     "@tscircuit/capacity-autorouter": "^0.0.267",
     "@tscircuit/checks": "^0.0.87",
+    "@tscircuit/circuit-json-util": "^0.0.77",
     "circuit-json": "^0.0.371",
     "commander": "^12.1.0",
     "graphics-debug": "^0.0.79",
