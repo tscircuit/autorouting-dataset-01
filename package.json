@@ -35,7 +35,11 @@
     "access": "public"
   },
   "dependencies": {
+    "@tscircuit/capacity-autorouter": "^0.0.267",
+    "@tscircuit/checks": "^0.0.87",
+    "circuit-json": "^0.0.371",
     "commander": "^12.1.0",
+    "graphics-debug": "^0.0.79",
     "kleur": "^4.1.5"
   },
   "devDependencies": {
@@ -49,16 +53,12 @@
     "@tsci/seveibar.push-button": "^0.1.1",
     "@tsci/seveibar.reg-5v-to-3v": "^0.0.1",
     "@tsci/seveibar.smd-usb-c": "^0.0.2",
-    "@tscircuit/capacity-autorouter": "^0.0.267",
-    "@tscircuit/checks": "^0.0.87",
     "@tscircuit/core": "^0.0.1005",
     "@tscircuit/footprints": "^0.0.21",
     "@tscircuit/math-utils": "^0.0.33",
     "@tscircuit/solver-utils": "^0.0.14",
     "@types/bun": "^1.3.9",
     "@types/react": "^19.2.9",
-    "circuit-json": "^0.0.371",
-    "graphics-debug": "^0.0.79",
     "tscircuit": "^0.0.1168",
     "tsup": "^8.2.4"
   }
