@@ -1,5 +1,5 @@
-import { Obstacle } from "tscircuit"
 import { mapLayerNameToZ } from "lib/layer/mapLayerNameToZ"
+import type { Obstacle } from "tscircuit"
 
 /** Checks whether two obstacles share at least one layer. */
 export const obstacleShareLayers = (

@@ -1,7 +1,7 @@
-import { OverArgs } from "./types"
 import { allAreWithInOutline } from "./allAreWithInOutline"
 import { getObstacleThatHavePointsToConnect } from "./getObstacleThatHavePointsToConnect"
 import { hasOverlappingObstacles } from "./hasOverlappingObstacles"
+import type { OverArgs } from "./types"
 
 /** Validates SRJs for obstacle overlaps and outline bounds violations. */
 export const check = (params: OverArgs[]) => {

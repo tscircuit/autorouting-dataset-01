@@ -1,4 +1,4 @@
-import { SimpleRouteJson } from "tscircuit"
+import type { SimpleRouteJson } from "tscircuit"
 
 export type OverArgs = {
   srj: SimpleRouteJson

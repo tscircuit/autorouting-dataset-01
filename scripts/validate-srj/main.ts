@@ -1,8 +1,8 @@
-import fs from "fs"
-import { SimpleRouteJson } from "tscircuit"
-import { exit } from "process"
+import fs from "node:fs"
+import { exit } from "node:process"
+import type { SimpleRouteJson } from "tscircuit"
 import { check } from "./check"
-import { OverArgs } from "./types"
+import type { OverArgs } from "./types"
 
 /** Runs the SRJ checker CLI against a target directory. */
 export const main = () => {

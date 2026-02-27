@@ -1,9 +1,9 @@
-import { Obstacle } from "tscircuit"
 import {
   boundsAreaOverlap,
   centerSizeToBounds,
   doBoundsOverlap,
 } from "lib/maths/box"
+import type { Obstacle } from "tscircuit"
 import { obstacleShareLayers } from "./obstacleShareLayers"
 
 /** Finds overlapping obstacles on shared layers and reports the first conflict. */
