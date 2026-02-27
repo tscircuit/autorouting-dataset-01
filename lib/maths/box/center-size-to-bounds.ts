@@ -1,5 +1,5 @@
 import type { Bounds } from "@tscircuit/math-utils"
-import { getBoundsCenter } from "@tscircuit/math-utils";
+import { getBoundsCenter } from "@tscircuit/math-utils"
 
 type CenterPoint = {
   x: number
