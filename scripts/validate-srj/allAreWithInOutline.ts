@@ -1,0 +1,16 @@
+import { Obstacle } from "tscircuit"
+import { type Bounds, centerSizeToBounds, doBoundsOverlap } from "lib/maths/box"
+
+/** Verifies every obstacle overlaps with the board outline bounds. */
+export const allAreWithInOutline = (
+  obstacles: Obstacle[],
+  outlineBounds: Bounds | undefined,
+): boolean => {
+  if (!outlineBounds) {
+    return true
+  }
+  const bounds = obstacles.map((obstacle) =>
+    centerSizeToBounds(obstacle.center, obstacle),
+  )
+  return bounds.every((bound) => doBoundsOverlap(bound, outlineBounds))
+}
