@@ -1,0 +1,47 @@
+Found overlapping obstacles in the following files:
+- circuit010.simple-route.json: obstacles1 at center: x:-2.2 y:2.8 size: w:0.6 h:1.6 and obstacles2 at center: x:-2.2 y:2 size: w:0.6 h:1.6
+- circuit100.simple-route.json: obstacles1 at center: x:-8.415425233947097 y:-10.751300955010706 size: w:0.9015611460128481 h:0.5225 and obstacles2 at center: x:-8.751300955010706 y:-10.415425233947097 size: w:0.9015611460128481 h:0.5225
+- circuit101.simple-route.json: obstacles1 at center: x:-1.325 y:14 size: w:0.8 h:0.95 and obstacles2 at center: x:-1.69 y:15 size: w:1.5 h:1.5
+- circuit104.simple-route.json: obstacles1 at center: x:-1.8710741905246513 y:-1.697505241036429 size: w:0.56375 h:1.4849409174197372 and obstacles2 at center: x:-1.27 y:-1 size: w:1.5 h:1.5
+- circuit107.simple-route.json: obstacles1 at center: x:-2.9154252339470963 y:-4.751300955010707 size: w:0.9015611460128481 h:0.5225 and obstacles2 at center: x:-3.2513009550107066 y:-4.415425233947096 size: w:0.9015611460128481 h:0.5225
+- circuit108.simple-route.json: obstacles1 at center: x:9.584574766052903 y:2.2486990449892934 size: w:0.9015611460128481 h:0.5225 and obstacles2 at center: x:9.248699044989294 y:2.5845747660529037 size: w:0.9015611460128481 h:0.5225
+- circuit109.simple-route.json: obstacles1 at center: x:9.584574766052903 y:-17.751300955010706 size: w:0.9015611460128481 h:0.5225 and obstacles2 at center: x:9.248699044989294 y:-17.415425233947097 size: w:0.9015611460128481 h:0.5225
+- circuit111.simple-route.json: obstacles1 at center: x:-2.045405845398161 y:-13.621141776686233 size: w:1.0606601717798214 h:0.66 and obstacles2 at center: x:-1.6211417766862324 y:-14.045405845398161 size: w:1.0606601717798214 h:0.66
+- circuit113.simple-route.json: obstacles1 at center: x:11.584574766052903 y:-9.751300955010706 size: w:0.9015611460128481 h:0.5225 and obstacles2 at center: x:11.248699044989294 y:-9.415425233947097 size: w:0.9015611460128481 h:0.5225
+- circuit114.simple-route.json: obstacles1 at center: x:4.045405845398161 y:-7.378858223313767 size: w:1.0606601717798214 h:0.66 and obstacles2 at center: x:3.6211417766862324 y:-6.954594154601839 size: w:1.0606601717798214 h:0.66
+- circuit115.simple-route.json: obstacles1 at center: x:3.5845747660529037 y:-1.2513009550107066 size: w:0.9015611460128481 h:0.5225 and obstacles2 at center: x:3.2486990449892934 y:-0.9154252339470966 size: w:0.9015611460128481 h:0.5225
+- circuit116.simple-route.json: obstacles1 at center: x:4.397747564417433 y:-1.1072776887519837 size: w:1.2197591975467945 h:0.77 and obstacles2 at center: x:4.892722311248017 y:-1.602252435582567 size: w:1.2197591975467945 h:0.77
+- circuit119.simple-route.json: obstacles1 at center: x:-0.9154252339470966 y:-1.2513009550107066 size: w:0.9015611460128481 h:0.5225 and obstacles2 at center: x:-1.2513009550107066 y:-0.9154252339470966 size: w:0.9015611460128481 h:0.5225
+- circuit120.simple-route.json: obstacles1 at center: x:-27.602252435582567 y:-6.107277688751983 size: w:1.2197591975467945 h:0.77 and obstacles2 at center: x:-27.10727768875198 y:-6.602252435582567 size: w:1.2197591975467945 h:0.77
+- circuit121.simple-route.json: obstacles1 at center: x:-0.6022524355825669 y:5.892722311248017 size: w:1.2197591975467945 h:0.77 and obstacles2 at center: x:-0.10727768875198374 y:5.397747564417433 size: w:1.2197591975467945 h:0.77
+- circuit123.simple-route.json: obstacles1 at center: x:-0.6022524355825669 y:19.89272231124802 size: w:1.2197591975467945 h:0.77 and obstacles2 at center: x:-0.10727768875198374 y:19.397747564417433 size: w:1.2197591975467945 h:0.77
+- circuit124.simple-route.json: obstacles1 at center: x:-7.397747564417433 y:-5.392722311248017 size: w:1.2197591975467943 h:0.77 and obstacles2 at center: x:-7.892722311248017 y:-4.897747564417433 size: w:1.2197591975467943 h:0.77
+- circuit133.simple-route.json: obstacles1 at center: x:-3.9545941546018386 y:1.6211417766862324 size: w:1.0606601717798214 h:0.66 and obstacles2 at center: x:-4.378858223313767 y:2.045405845398161 size: w:1.0606601717798214 h:0.66
+- circuit134.simple-route.json: obstacles1 at center: x:15 y:-25.05 size: w:0.45 h:0.6 and obstacles2 at center: x:15.73 y:-25 size: w:1.5 h:1.5
+- circuit135.simple-route.json: obstacles1 at center: x:2.5845747660529037 y:0.7486990449892933 size: w:0.9015611460128481 h:0.5225 and obstacles2 at center: x:2.2486990449892934 y:1.0845747660529033 size: w:0.9015611460128481 h:0.5225
+- circuit137.simple-route.json: obstacles1 at center: x:-3.175 y:6 size: w:0.8 h:0.95 and obstacles2 at center: x:-2.73 y:6 size: w:1.5 h:1.5
+- circuit138.simple-route.json: obstacles1 at center: x:3.825 y:8 size: w:0.8 h:0.95 and obstacles2 at center: x:2.9999999999999996 y:7.19 size: w:1.5 h:1.5
+- circuit139.simple-route.json: obstacles1 at center: x:4.602252435582567 y:10.607277688751985 size: w:1.2197591975467943 h:0.77 and obstacles2 at center: x:4.107277688751983 y:11.102252435582567 size: w:1.2197591975467943 h:0.77
+- circuit140.simple-route.json: obstacles1 at center: x:-4.7 y:8.95 size: w:1 h:0.7 and obstacles2 at center: x:-3.81 y:8.19 size: w:1.6 h:1.6
+- circuit141.simple-route.json: obstacles1 at center: x:-9.2 y:-13.55 size: w:1 h:0.7 and obstacles2 at center: x:-8.850000000000001 y:-14.5 size: w:1.5 h:1.5
+- circuit142.simple-route.json: obstacles1 at center: x:0.04540584539816089 y:-16.378858223313767 size: w:1.0606601717798214 h:0.66 and obstacles2 at center: x:-0.37885822331376756 y:-15.954594154601839 size: w:1.0606601717798214 h:0.66
+- circuit143.simple-route.json: obstacles1 at center: x:-8.4125 y:-22 size: w:1.025 h:1.4 and obstacles2 at center: x:-8.23 y:-23 size: w:1.5 h:1.5
+- circuit146.simple-route.json: obstacles1 at center: x:21.602252435582567 y:9.107277688751985 size: w:1.2197591975467943 h:0.77 and obstacles2 at center: x:21.10727768875198 y:9.602252435582567 size: w:1.2197591975467943 h:0.77
+- circuit148.simple-route.json: obstacles1 at center: x:-2.7 y:2.95 size: w:1 h:0.7 and obstacles2 at center: x:-3.19 y:3.73 size: w:1.6 h:1.6
+- circuit149.simple-route.json: obstacles1 at center: x:-5.915425233947096 y:4.748699044989293 size: w:0.9015611460128481 h:0.5225 and obstacles2 at center: x:-6.251300955010707 y:5.084574766052904 size: w:0.9015611460128481 h:0.5225
+- circuit152.simple-route.json: obstacles1 at center: x:-11.415425233947097 y:-8.251300955010706 size: w:0.9015611460128481 h:0.5225 and obstacles2 at center: x:-11.751300955010706 y:-7.915425233947096 size: w:0.9015611460128481 h:0.5225
+- circuit155.simple-route.json: obstacles1 at center: x:-4.0875 y:-8 size: w:1.025 h:1.4 and obstacles2 at center: x:-5 y:-8.27 size: w:1.5 h:1.5
+- circuit156.simple-route.json: obstacles1 at center: x:8.954594154601839 y:16.378858223313767 size: w:1.0606601717798214 h:0.66 and obstacles2 at center: x:9.378858223313767 y:15.954594154601839 size: w:1.0606601717798214 h:0.66
+- circuit157.simple-route.json: obstacles1 at center: x:-7.915425233947096 y:-0.2513009550107067 size: w:0.9015611460128481 h:0.5225 and obstacles2 at center: x:-8.251300955010706 y:0.08457476605290337 size: w:0.9015611460128481 h:0.5225
+- circuit158.simple-route.json: obstacles1 at center: x:11.415425233947097 y:3.7513009550107066 size: w:0.9015611460128481 h:0.5225 and obstacles2 at center: x:11.751300955010706 y:3.4154252339470963 size: w:0.9015611460128481 h:0.5225
+- circuit164.simple-route.json: obstacles1 at center: x:-5.915425233947096 y:-19.751300955010706 size: w:0.9015611460128481 h:0.5225 and obstacles2 at center: x:-6.251300955010707 y:-19.415425233947097 size: w:0.9015611460128481 h:0.5225
+- circuit168.simple-route.json: obstacles1 at center: x:2.602252435582567 y:-1.8927223112480163 size: w:1.2197591975467943 h:0.77 and obstacles2 at center: x:2.1072776887519837 y:-1.397747564417433 size: w:1.2197591975467943 h:0.77
+- circuit174.simple-route.json: obstacles1 at center: x:-0.41542523394709663 y:2.2486990449892934 size: w:0.9015611460128481 h:0.5225 and obstacles2 at center: x:-0.7513009550107067 y:2.5845747660529037 size: w:0.9015611460128481 h:0.5225
+- circuit175.simple-route.json: obstacles1 at center: x:-1.35 y:6.5 size: w:0.9 h:1.2 and obstacles2 at center: x:-1.3499999999999996 y:7.5 size: w:1.5 h:1.5
+- circuit176.simple-route.json: obstacles1 at center: x:-21.397747564417433 y:0.6072776887519837 size: w:1.2197591975467943 h:0.77 and obstacles2 at center: x:-21.89272231124802 y:1.1022524355825671 size: w:1.2197591975467943 h:0.77
+- circuit177.simple-route.json: obstacles1 at center: x:-2.602252435582567 y:-6.107277688751983 size: w:1.2197591975467945 h:0.77 and obstacles2 at center: x:-2.1072776887519837 y:-6.602252435582567 size: w:1.2197591975467945 h:0.77
+- circuit178.simple-route.json: obstacles1 at center: x:10.084574766052903 y:11.748699044989294 size: w:0.9015611460128481 h:0.5225 and obstacles2 at center: x:9.748699044989294 y:12.084574766052903 size: w:0.9015611460128481 h:0.5225
+- circuit181.simple-route.json: obstacles1 at center: x:10.602252435582566 y:13.107277688751985 size: w:1.2197591975467943 h:0.77 and obstacles2 at center: x:10.107277688751983 y:13.602252435582567 size: w:1.2197591975467943 h:0.77
+
+Found obstacles that are out of board bounds in the following files:
+- circuit105.simple-route.json: 
