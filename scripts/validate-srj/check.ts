@@ -7,7 +7,7 @@ import type { OverArgs } from "./types"
 export const check = (params: OverArgs[]) => {
   const failedFileNamesForObstacleOverlap: {
     filesName: string
-    which: string
+    which?: string
   }[] = []
   const failedFileNamesForOutOfBoardBounds: {
     filesName: string

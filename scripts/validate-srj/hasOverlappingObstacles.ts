@@ -12,7 +12,7 @@ export const hasOverlappingObstacles = (
   layerCount: number,
 ): {
   ok: boolean
-  which: string
+  which?: string
 } => {
   const bounds = obstacles.map((obstacle) => getBoundFromCenteredRect(obstacle))
   for (let i = 0; i < bounds.length - 1; i++) {
@@ -36,5 +36,5 @@ export const hasOverlappingObstacles = (
       }
     }
   }
-  return { ok: true, which: "" }
+  return { ok: true, which: undefined }
 }
