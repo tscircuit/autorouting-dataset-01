@@ -6,7 +6,7 @@ import {
 import type { Obstacle } from "tscircuit"
 
 /** Verifies every obstacle overlaps with the board outline bounds. */
-export const allAreWithInOutline = (
+export const allAreWithinOutline = (
   obstacles: Obstacle[],
   outlineBounds: Bounds | undefined,
 ): boolean => {
