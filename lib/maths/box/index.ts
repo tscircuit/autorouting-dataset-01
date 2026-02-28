@@ -4,14 +4,14 @@ import {
   boundsDistance,
   doBoundsOverlap,
   isPointInsideBounds,
+  getBoundFromCenteredRect,
 } from "@tscircuit/math-utils"
-import { centerSizeToBounds } from "./center-size-to-bounds"
 
 export {
   type Bounds,
   doBoundsOverlap,
   boundsDistance,
   boundsAreaOverlap,
-  centerSizeToBounds,
+  getBoundFromCenteredRect,
   isPointInsideBounds,
 }

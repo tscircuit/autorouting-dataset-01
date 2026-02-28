@@ -1,7 +1,7 @@
 import {
   boundsAreaOverlap,
-  centerSizeToBounds,
   doBoundsOverlap,
+  getBoundFromCenteredRect,
 } from "lib/maths/box"
 import type { Obstacle } from "tscircuit"
 import { obstacleShareLayers } from "./obstacleShareLayers"
@@ -14,9 +14,7 @@ export const hasOverlappingObstacles = (
   ok: boolean
   which: string
 } => {
-  const bounds = obstacles.map((obstacle) =>
-    centerSizeToBounds(obstacle.center, obstacle),
-  )
+  const bounds = obstacles.map((obstacle) => getBoundFromCenteredRect(obstacle))
   for (let i = 0; i < bounds.length - 1; i++) {
     for (let j = i + 1; j < bounds.length; j++) {
       if (
