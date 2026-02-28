@@ -3,8 +3,8 @@ import {
   boundsAreaOverlap,
   boundsDistance,
   doBoundsOverlap,
-  isPointInsideBounds,
   getBoundFromCenteredRect,
+  isPointInsideBounds,
 } from "@tscircuit/math-utils"
 
 export {

@@ -1,4 +1,4 @@
-import { allAreWithinOutline } from "./allAreWithInOutline"
+import { allAreWithinOutline } from "./all-are-with-in-outline"
 import { getObstacleThatHavePointsToConnect } from "./getObstacleThatHavePointsToConnect"
 import { hasOverlappingObstacles } from "./hasOverlappingObstacles"
 import type { OverArgs } from "./types"
