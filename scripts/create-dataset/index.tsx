@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises"
+import path from "node:path"
 import { createDatasetFromLib } from "scripts/create-dataset/createDatasetFromLib"
 
 type TscircuitConfig = {
@@ -12,6 +13,24 @@ type TscircuitConfig = {
  * It uses tscircuit.config.json to decide which circuit files to render into `lib/dataset/`.
  */
 const main = async () => {
+  const filePath = process.argv[2]
+  if (filePath) {
+    // only make the srj for this single file
+    // targetFilesName.tsx -> targetFilesName.simple-route.json
+    if (!filePath.endsWith(".tsx")) {
+      console.error("Provided file path must end with .tsx")
+      process.exit(1)
+    }
+
+    const normalizedCircuitPath = filePath.replace(/^\.\//, "")
+
+    await createDatasetFromLib({
+      circuitFilePathList: [normalizedCircuitPath],
+    })
+
+    process.exit(0)
+  }
+
   const tscircuitConfigText = await readFile("tscircuit.config.json", "utf8")
   const tscircuitConfig = JSON.parse(tscircuitConfigText) as TscircuitConfig
   const ignoredFileSet = new Set(tscircuitConfig.ignoredFiles ?? [])
@@ -31,6 +50,7 @@ const main = async () => {
   )
 
   await createDatasetFromLib({ circuitFilePathList })
+  process.exit(0)
 }
 
 void main()

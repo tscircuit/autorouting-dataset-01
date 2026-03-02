@@ -25,7 +25,7 @@ export default () => (
       footprint="0805"
       pcbX={5.0}
       pcbY={11.5}
-      pcbRotation={45.0}
+      pcbRotation={0.0}
       layer="top"
       connections={{
         pin1: "net.N8",
@@ -77,7 +77,7 @@ export default () => (
       footprint="0603"
       pcbX={9.0}
       pcbY={10.5}
-      pcbRotation={90.0}
+      pcbRotation={0.0}
       layer="top"
       connections={{
         pin1: "net.N7",
@@ -155,7 +155,7 @@ export default () => (
       footprint="0805"
       pcbX={5.0}
       pcbY={-9.5}
-      pcbRotation={15.0}
+      pcbRotation={0.0}
       layer="top"
       connections={{
         pin1: "net.N6",
@@ -180,7 +180,7 @@ export default () => (
       footprint="sod323"
       pcbX={10.0}
       pcbY={-5.5}
-      pcbRotation={15.0}
+      pcbRotation={0.0}
       layer="top"
       connections={{
         pin1: "net.N4",
@@ -312,7 +312,7 @@ export default () => (
       footprint="pinrow2"
       pcbX={23.0}
       pcbY={10.5}
-      pcbRotation={45.0}
+      pcbRotation={0.0}
       layer="top"
       connections={{
         pin1: "net.N10",
@@ -326,7 +326,7 @@ export default () => (
       footprint="pinrow4"
       pcbX={-25.0}
       pcbY={-12.5}
-      pcbRotation={40.0}
+      pcbRotation={0.0}
       layer="top"
       connections={{
         pin4: "net.N3",
@@ -342,7 +342,7 @@ export default () => (
       footprint="pinrow6"
       pcbX={-20.0}
       pcbY={2.5}
-      pcbRotation={15.0}
+      pcbRotation={0.0}
       layer="top"
       connections={{
         pin5: "net.N11",

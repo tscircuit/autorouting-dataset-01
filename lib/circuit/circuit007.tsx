@@ -12,7 +12,7 @@ import { sel } from "tscircuit"
 export default () => (
   <board
     routingDisabled={!shouldAutorouterRun()}
-    width="20.32mm"
+    width="22.00mm"
     height="20.32mm"
   >
     <pinheader
