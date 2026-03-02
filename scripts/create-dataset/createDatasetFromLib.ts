@@ -22,7 +22,7 @@ const writeDatasetIndex = async (datasetDirectory: string): Promise<void> => {
  */
 export const createDatasetFromLib = async (createDatasetRequest: {
   circuitFilePathList: string[]
-}): Promise<void> => {
+}): Promise<string[]> => {
   const datasetDirectory = path.resolve("lib", "dataset")
 
   await mkdir(datasetDirectory, { recursive: true })
@@ -30,6 +30,8 @@ export const createDatasetFromLib = async (createDatasetRequest: {
   const circuitFilePathList = [
     ...createDatasetRequest.circuitFilePathList,
   ].sort()
+
+  const generatedBaseNames: string[] = []
 
   for (const circuitFilePath of circuitFilePathList) {
     const baseName = path.basename(circuitFilePath, ".tsx")
@@ -42,7 +44,10 @@ export const createDatasetFromLib = async (createDatasetRequest: {
     })
 
     if (result) {
+      generatedBaseNames.push(result)
       await writeDatasetIndex(datasetDirectory)
     }
   }
+
+  return generatedBaseNames
 }
