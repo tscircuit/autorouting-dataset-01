@@ -38,7 +38,7 @@ export default () => (
       footprint="0603"
       pcbX={4.0}
       pcbY={-1.0}
-      pcbRotation={15.0}
+      pcbRotation={0.0}
       layer="top"
       connections={{
         pin2: "net.N1",
@@ -64,7 +64,7 @@ export default () => (
       footprint="0603"
       pcbX={0.0}
       pcbY={3.0}
-      pcbRotation={45.0}
+      pcbRotation={0.0}
       layer="top"
       connections={{
         pin2: "net.N3",
@@ -77,7 +77,7 @@ export default () => (
       footprint="sod323"
       pcbX={-1.0}
       pcbY={-4.0}
-      pcbRotation={90.0}
+      pcbRotation={0.0}
       layer="top"
       connections={{
         pin1: "net.N2",
