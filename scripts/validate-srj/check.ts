@@ -1,4 +1,4 @@
-import { allAreWithinOutline } from "./all-are-with-in-outline"
+import { getObstaclesOutsideOutline } from "./getObstaclesOutsideOutline"
 import { getObstacleThatHavePointsToConnect } from "./getObstacleThatHavePointsToConnect"
 import { hasOverlappingObstacles } from "./hasOverlappingObstacles"
 import type { OverArgs } from "./types"
@@ -29,10 +29,15 @@ export const check = (params: OverArgs[]) => {
         which: overlapResult.which,
       })
     }
-    if (!allAreWithinOutline(obstaclesThatHavePointsToConnect, srj.bounds)) {
+    const obstaclesOutsideOutline = getObstaclesOutsideOutline(
+      srj.obstacles,
+      srj.bounds,
+    )
+    if (obstaclesOutsideOutline.length > 0) {
+      const firstObstacle = obstaclesOutsideOutline[0]
       failedFileNamesForOutOfBoardBounds.push({
         filesName: fileName,
-        which: "",
+        which: `obstacle at center: x:${firstObstacle.center.x} y:${firstObstacle.center.y} size: w:${firstObstacle.width} h:${firstObstacle.height}`,
       })
     }
   }
