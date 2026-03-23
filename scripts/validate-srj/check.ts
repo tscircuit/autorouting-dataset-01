@@ -19,7 +19,7 @@ export const check = (params: OverArgs[]) => {
     const pointsToConnectInsideObstacle = isPointsToConnectInsideObstacle(
       srj.obstacles,
       srj.connections.flatMap((connection) => connection.pointsToConnect),
-      srj.layerCount
+      srj.layerCount,
     )
     if (!pointsToConnectInsideObstacle) {
       failedFileNamesForOutOfBoardBounds.push({
