@@ -9,9 +9,9 @@ import {
 
 export {
   type Bounds,
-  doBoundsOverlap,
-  boundsDistance,
   boundsAreaOverlap,
+  boundsDistance,
+  doBoundsOverlap,
   getBoundFromCenteredRect,
   isPointInsideBounds,
 }

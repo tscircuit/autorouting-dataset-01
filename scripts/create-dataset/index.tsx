@@ -1,5 +1,4 @@
 import { readFile } from "node:fs/promises"
-import path from "node:path"
 import { createDatasetFromLib } from "scripts/create-dataset/createDatasetFromLib"
 
 type TscircuitConfig = {
