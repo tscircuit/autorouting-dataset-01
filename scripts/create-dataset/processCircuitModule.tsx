@@ -35,19 +35,21 @@ export const processCircuitModule = async (processCircuitRequest: {
 
   console.log("[Start]", baseName)
 
-  const simpleRouteWritten = new Promise<void>((resolve, reject) => {
+  const simpleRouteWritten = new Promise<string | null>((resolve, reject) => {
     let settled = false
+    let hasAutoroutingStarted = false
     const cleanup = () => {
       if (settled) return
       settled = true
     }
     circuit.on("autorouting:start", async ({ simpleRouteJson }) => {
       if (settled) return
+      hasAutoroutingStarted = true
       try {
         await writeFile(outputPath, JSON.stringify(simpleRouteJson, null, 2))
         console.log("[Done]", baseName)
         cleanup()
-        resolve()
+        resolve(baseName)
       } catch (error) {
         console.log("[Error] writeFile", baseName)
         cleanup()
@@ -60,18 +62,34 @@ export const processCircuitModule = async (processCircuitRequest: {
       cleanup()
       reject(error)
     })
+    circuit.on("renderComplete", () => {
+      if (settled || hasAutoroutingStarted) return
+      console.log(`[Ignored] ${baseName} due to missing autorouting output`)
+      cleanup()
+      resolve(null)
+    })
   })
 
   const timeoutMs = 60_000
-  const timeout = new Promise<void>((_, reject) => {
-    setTimeout(() => reject(new Error("autorouting timeout")), timeoutMs)
+  let timeoutHandle: ReturnType<typeof setTimeout> | undefined
+  const timeout = new Promise<string | null>((_, reject) => {
+    timeoutHandle = setTimeout(
+      () => reject(new Error("autorouting timeout")),
+      timeoutMs,
+    )
   })
 
   try {
-    circuit.render()
-    await Promise.race([simpleRouteWritten, timeout])
-    return baseName
+    void circuit.renderUntilSettled()
+    const result = await Promise.race([simpleRouteWritten, timeout])
+    if (timeoutHandle) {
+      clearTimeout(timeoutHandle)
+    }
+    return result
   } catch (error) {
+    if (timeoutHandle) {
+      clearTimeout(timeoutHandle)
+    }
     const errorMessage = error instanceof Error ? error.message : String(error)
     console.log(
       `[Ignored] ${baseName} due to autorouting failure: ${errorMessage}`,
