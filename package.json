@@ -39,6 +39,7 @@
     "@tscircuit/checks": "0.0.110",
     "@tscircuit/circuit-json-util": "^0.0.90",
     "circuit-json": "^0.0.371",
+    "circuit-json-to-gltf": "^0.0.85",
     "commander": "^12.1.0",
     "graphics-debug": "^0.0.79",
     "kleur": "^4.1.5"
