@@ -2,7 +2,7 @@ import { type GraphicsObject, getSvgFromGraphicsObject } from "graphics-debug"
 import { useMemo, useState } from "react"
 import type { SimpleRouteJson } from "tscircuit"
 
-// @ts-ignore
+// @ts-expect-error
 const srjModules = import.meta.glob("../lib/dataset/*.simple-route.json", {
   eager: true,
   import: "default",
@@ -72,6 +72,7 @@ export default function PreviewFixture() {
       {svg ? (
         <div
           className="overflow-auto border border-zinc-300 bg-white p-3"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: fixture preview renders trusted generated SVG output.
           dangerouslySetInnerHTML={{ __html: svg }}
         />
       ) : (
