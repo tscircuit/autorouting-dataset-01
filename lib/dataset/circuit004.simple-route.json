@@ -663,7 +663,11 @@
         "pcb_port_26",
         "pcb_smtpad_28",
         "pcb_port_28"
-      ]
+      ],
+      "offBoardConnectsTo": [
+        "source_component_internal_connection_0"
+      ],
+      "netIsAssignable": true
     },
     {
       "type": "rect",
@@ -698,7 +702,11 @@
         "pcb_port_26",
         "pcb_smtpad_28",
         "pcb_port_28"
-      ]
+      ],
+      "offBoardConnectsTo": [
+        "source_component_internal_connection_0"
+      ],
+      "netIsAssignable": true
     },
     {
       "type": "rect",
@@ -733,7 +741,11 @@
         "pcb_port_26",
         "pcb_smtpad_28",
         "pcb_port_28"
-      ]
+      ],
+      "offBoardConnectsTo": [
+        "source_component_internal_connection_0"
+      ],
+      "netIsAssignable": true
     },
     {
       "type": "rect",
@@ -787,7 +799,11 @@
         "pcb_port_26",
         "pcb_smtpad_28",
         "pcb_port_28"
-      ]
+      ],
+      "offBoardConnectsTo": [
+        "source_component_internal_connection_0"
+      ],
+      "netIsAssignable": true
     },
     {
       "type": "rect",
@@ -841,7 +857,11 @@
         "pcb_port_26",
         "pcb_smtpad_28",
         "pcb_port_28"
-      ]
+      ],
+      "offBoardConnectsTo": [
+        "source_component_internal_connection_0"
+      ],
+      "netIsAssignable": true
     },
     {
       "type": "rect",

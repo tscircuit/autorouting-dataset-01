@@ -68,7 +68,11 @@
         "pcb_port_83",
         "pcb_smtpad_77",
         "pcb_port_85"
-      ]
+      ],
+      "offBoardConnectsTo": [
+        "source_component_internal_connection_4"
+      ],
+      "netIsAssignable": true
     },
     {
       "type": "rect",
@@ -97,7 +101,11 @@
         "pcb_trace_3",
         "pcb_smtpad_70",
         "pcb_port_78"
-      ]
+      ],
+      "offBoardConnectsTo": [
+        "source_component_internal_connection_3"
+      ],
+      "netIsAssignable": true
     },
     {
       "type": "rect",
@@ -126,7 +134,11 @@
         "pcb_trace_3",
         "pcb_smtpad_70",
         "pcb_port_78"
-      ]
+      ],
+      "offBoardConnectsTo": [
+        "source_component_internal_connection_3"
+      ],
+      "netIsAssignable": true
     },
     {
       "type": "rect",
@@ -167,7 +179,11 @@
         "pcb_port_83",
         "pcb_smtpad_77",
         "pcb_port_85"
-      ]
+      ],
+      "offBoardConnectsTo": [
+        "source_component_internal_connection_4"
+      ],
+      "netIsAssignable": true
     },
     {
       "type": "rect",
@@ -208,7 +224,11 @@
         "pcb_port_83",
         "pcb_smtpad_77",
         "pcb_port_85"
-      ]
+      ],
+      "offBoardConnectsTo": [
+        "source_component_internal_connection_5"
+      ],
+      "netIsAssignable": true
     },
     {
       "type": "rect",
@@ -249,7 +269,11 @@
         "pcb_port_83",
         "pcb_smtpad_77",
         "pcb_port_85"
-      ]
+      ],
+      "offBoardConnectsTo": [
+        "source_component_internal_connection_5"
+      ],
+      "netIsAssignable": true
     },
     {
       "type": "rect",
@@ -311,7 +335,11 @@
         "pcb_port_83",
         "pcb_smtpad_77",
         "pcb_port_85"
-      ]
+      ],
+      "offBoardConnectsTo": [
+        "source_component_internal_connection_4"
+      ],
+      "netIsAssignable": true
     },
     {
       "type": "rect",
@@ -373,7 +401,11 @@
         "pcb_port_83",
         "pcb_smtpad_77",
         "pcb_port_85"
-      ]
+      ],
+      "offBoardConnectsTo": [
+        "source_component_internal_connection_4"
+      ],
+      "netIsAssignable": true
     }
   ],
   "connections": [
