@@ -1,4 +1,4 @@
-- scripts/create-dataset/index.tsx
+- scripts/create-dataset/index.ts
 Main script to generate a dataset from the circuits defined in lib/circuit. It iterates through all circuit files in `lib/circuit/`, renders them, and saves the resulting tscircuit JSON to the `lib/dataset/` directory.
 
 - scripts/generate-docs/index.ts
