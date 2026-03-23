@@ -27,3 +27,5 @@ yarn-error.log*
 
 bun.lock
 results/
+
+cosmos-export/
