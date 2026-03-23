@@ -5,34 +5,6 @@ import { MMC5983MA_QFN16 } from "lib/imports/MMC5983MA_QFN16"
 import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 import { sel } from "tscircuit"
 
-export const D1_FOOTPRINT = (
-  <footprint>
-    {/* Cathode pad (C) */}
-    <smtpad
-      pcbX="0.877mm"
-      pcbY="0mm"
-      width="1mm"
-      height="1mm"
-      shape="pill"
-      radius="0.15mm"
-      layer="top"
-      portHints={["C", "K", "cathode"]}
-    />
-
-    {/* Anode pad (A) */}
-    <smtpad
-      pcbX="-0.877mm"
-      pcbY="0mm"
-      width="1mm"
-      height="1mm"
-      shape="pill"
-      radius="0.15mm"
-      layer="top"
-      portHints={["A", "anode"]}
-    />
-  </footprint>
-)
-
 export const J_FOOTPRINT = (
   <footprint>
     {/* --- Mechanical support pads (NC1/NC2) --- */}
@@ -451,76 +423,75 @@ export default () => (
       schY={-6}
       schX={9}
     />
-    <group schY={-10} schX={9}>
+    <group schY={-10} schX={9} pcbX={-2}>
       <subcircuit>
-        <led
-          name="D1"
-          schRotation={-90}
-          pcbRotation={90}
-          footprint={D1_FOOTPRINT}
-        />
+        <group pcbFlex pcbFlexDirection="row" pcbFlexGap={3}>
+          <group pcbFlex pcbFlexDirection="column" pcbFlexGap={1}>
+            <resistor
+              footprint="0603"
+              name="R4"
+              pcbRotation={90}
+              resistance="1k"
+              schRotation={90}
+              connections={{
+                pin1: ".LED > .pin2",
+                pin2: sel.net.V3_3,
+              }}
+            />
 
-        <resistor
-          footprint="0603"
-          name="R4"
-          pcbRotation={90}
-          resistance="1k"
-          schRotation={90}
-          connections={{
-            pin1: sel.D1.pin1,
-            pin2: sel.net.V3_3,
-          }}
-        />
+            <solderjumper
+              name="LED"
+              pinCount={2}
+              layer="bottom"
+              footprint="solderjumper2_bridged12_pw0.6604_ph1.27_p1.0414"
+              bridgedPins={[["1", "2"]]}
+              schRotation={90}
+              connections={{
+                pin1: sel.net.GND,
+                pin2: sel.R4.pin1,
+              }}
+            />
+          </group>
 
-        <solderjumper
-          name="LED"
-          pinCount={2}
-          layer="bottom"
-          footprint="solderjumper2_bridged12_pw0.6604_ph1.27_p1.0414"
-          bridgedPins={[["1", "2"]]}
-          schRotation={90}
-          connections={{
-            pin1: sel.net.GND,
-            pin2: sel.D1.pin2,
-          }}
-        />
-
-        <solderjumper
-          name="I2C_PU"
-          layer="bottom"
-          pinCount={3}
-          footprint="solderjumper3_bridged123_pw0.6604_ph1.27_p1.0414"
-          bridgedPins={[
-            ["1", "2"],
-            ["2", "3"],
-          ]}
-          schRotation={180}
-          connections={{
-            pin2: sel.net.V3_3,
-          }}
-        />
-        <group pcbFlex pcbFlexDirection="column" pcbY={-5} pcbX={0}>
-          <resistor
-            footprint="0603"
-            name="R1"
-            resistance="2.2k"
-            schRotation={90}
-            connections={{
-              pin1: sel.net().SCL_SCK,
-              pin2: ".I2C_PU > .pin3",
-            }}
-          />
-          <resistor
-            footprint="0603"
-            name="R2"
-            pcbRotation={180}
-            resistance="2.2k"
-            schRotation={90}
-            connections={{
-              pin1: sel.net().SDA_PICO,
-              pin2: ".I2C_PU > .pin1",
-            }}
-          />
+          <group pcbFlex pcbFlexDirection="column" pcbFlexGap={1}>
+            <solderjumper
+              name="I2C_PU"
+              layer="bottom"
+              pinCount={3}
+              footprint="solderjumper3_bridged123_pw0.6604_ph1.27_p1.0414"
+              bridgedPins={[
+                ["1", "2"],
+                ["2", "3"],
+              ]}
+              schRotation={180}
+              connections={{
+                pin2: sel.net.V3_3,
+              }}
+            />
+            <group pcbFlex pcbFlexDirection="row" pcbFlexGap={1}>
+              <resistor
+                footprint="0603"
+                name="R1"
+                resistance="2.2k"
+                schRotation={90}
+                connections={{
+                  pin1: sel.net().SCL_SCK,
+                  pin2: ".I2C_PU > .pin3",
+                }}
+              />
+              <resistor
+                footprint="0603"
+                name="R2"
+                pcbRotation={180}
+                resistance="2.2k"
+                schRotation={90}
+                connections={{
+                  pin1: sel.net().SDA_PICO,
+                  pin2: ".I2C_PU > .pin1",
+                }}
+              />
+            </group>
+          </group>
         </group>
       </subcircuit>
     </group>
