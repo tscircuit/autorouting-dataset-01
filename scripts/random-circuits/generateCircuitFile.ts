@@ -12,6 +12,7 @@ export const generateCircuitFile = async (options: {
   circuitOffset: number
   components: ComponentSpecification[]
   boardSize: { width: number; height: number }
+  layerCount: 2 | 4
 }): Promise<void> => {
   const {
     libDirectory,
@@ -19,6 +20,7 @@ export const generateCircuitFile = async (options: {
     circuitOffset,
     components,
     boardSize,
+    layerCount,
   } = options
   const body = components.map(componentToJsx).join("\n")
   const circuitId = String(allowedStartIndex + circuitOffset).padStart(3, "0")
@@ -30,7 +32,7 @@ export const generateCircuitFile = async (options: {
 import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 
 export default () => (
-  <board routingDisabled={!shouldAutorouterRun()} width="${boardSize.width.toFixed(
+  <board routingDisabled={!shouldAutorouterRun()} layers={${layerCount}} width="${boardSize.width.toFixed(
     2,
   )}mm" height="${boardSize.height.toFixed(2)}mm">
 ${body}

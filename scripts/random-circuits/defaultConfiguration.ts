@@ -11,4 +11,5 @@ export const defaultConfiguration: GenerationConfiguration = {
   seed: 42,
   minGapBetweenParts: 1,
   maxGapBetweenParts: 3,
+  layerCount: 4,
 }

@@ -20,8 +20,19 @@ import type { GenerationContext } from "types/GenerationContext"
 export const generateRandomDataset = async (
   ctx: GenerationContext,
 ): Promise<void> => {
-  const rotationAngles = [0, 15, 45, 90]
-  const rotationWeights = [0.75, 0.05, 0.075, 0.125]
+  if (
+    ctx.configuration.layerCount !== 2 &&
+    ctx.configuration.layerCount !== 4
+  ) {
+    throw new Error(
+      `random circuit generation only supports 2-layer or 4-layer boards; received ${ctx.configuration.layerCount}`,
+    )
+  }
+
+  // Non-orthogonal rotations can produce self-overlapping pad obstacles in the
+  // generated SRJ, so keep random placements aligned to right angles.
+  const rotationAngles = [0, 90, 180, 270]
+  const rotationWeights = [0.6, 0.25, 0.1, 0.05]
   const layers = ["top", "bottom"] as const
   const layerWeights = [0.8, 0.2]
   const transistorTypes = ["npn", "pnp", "bjt", "jfet", "mosfet"] as const
@@ -125,6 +136,7 @@ export const generateRandomDataset = async (
       circuitOffset,
       components: placedComponents,
       boardSize,
+      layerCount: ctx.configuration.layerCount,
     })
   }
 }
