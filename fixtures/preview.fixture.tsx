@@ -1,4 +1,8 @@
-import { type GraphicsObject, getSvgFromGraphicsObject } from "graphics-debug"
+import {
+  type GraphicsObject,
+  Line,
+  getSvgFromGraphicsObject,
+} from "graphics-debug"
 import { useMemo, useState } from "react"
 import type { SimpleRouteJson } from "tscircuit"
 
@@ -11,29 +15,124 @@ const srjModules = import.meta.glob("../lib/dataset/*.simple-route.json", {
 const getCircuitFilePath = (circuitId: number) =>
   `../lib/dataset/circuit${String(circuitId).padStart(3, "0")}.simple-route.json`
 
+const hashString = (value: string) => {
+  let hash = 2166136261
+
+  for (let index = 0; index < value.length; index += 1) {
+    hash ^= value.charCodeAt(index)
+    hash = Math.imul(hash, 16777619)
+  }
+
+  return hash >>> 0
+}
+
+const getNetColor = (netName: string) => {
+  const hash = hashString(netName)
+  const blockedHueRanges = [
+    [0, 20],
+    [220, 260],
+    [275, 315],
+  ] as const
+  const allowedHueRanges = [
+    [21, 219],
+    [261, 274],
+    [316, 359],
+  ] as const
+  const totalAllowedHueCount = allowedHueRanges.reduce(
+    (sum, [start, end]) => sum + (end - start + 1),
+    0,
+  )
+
+  let hueOffset = hash % totalAllowedHueCount
+  let hue: number = allowedHueRanges[0][0]
+  for (const [start, end] of allowedHueRanges) {
+    const rangeSize = end - start + 1
+    if (hueOffset < rangeSize) {
+      hue = start + hueOffset
+      break
+    }
+    hueOffset -= rangeSize
+  }
+
+  if (blockedHueRanges.some(([start, end]) => hue >= start && hue <= end)) {
+    hue = 140
+  }
+
+  const saturation = 62 + (hash % 18)
+  const lightness = 42 + ((hash >>> 8) % 12)
+
+  return `hsl(${hue} ${saturation}% ${lightness}%)`
+}
+
 const getGraphicsFromSrj = (srj: SimpleRouteJson): GraphicsObject => {
-  const rects =
-    srj.obstacles.map((obstacle, index) => ({
-      center: obstacle.center,
-      width: obstacle.width ?? 0,
-      height: obstacle.height ?? 0,
-      fill: "rgba(220, 38, 38, 0.18)",
-      stroke: "#dc2626",
-      label: obstacle.connectedTo?.[0] ?? `obstacle-${index + 1}`,
-    })) ?? []
+  const topAndBottomRects =
+    srj.obstacles
+      .filter(
+        (obstacle) =>
+          obstacle.layers.includes("top") && obstacle.layers.includes("bottom"),
+      )
+      .map((obstacle, index) => ({
+        center: obstacle.center,
+        width: obstacle.width ?? 0,
+        height: obstacle.height ?? 0,
+        fill: "rgba(128, 0, 128, 0.18)",
+      })) ?? []
+
+  const topOnlyRects =
+    srj.obstacles
+      .filter(
+        (obstacle) =>
+          obstacle.layers.includes("top") &&
+          !obstacle.layers.includes("bottom"),
+      )
+      .map((obstacle, index) => ({
+        center: obstacle.center,
+        width: obstacle.width ?? 0,
+        height: obstacle.height ?? 0,
+        fill: "red",
+      })) ?? []
+
+  const bottomOnlyRects =
+    srj.obstacles
+      .filter(
+        (obstacle) =>
+          obstacle.layers.includes("bottom") &&
+          !obstacle.layers.includes("top"),
+      )
+      .map((obstacle, index) => ({
+        center: obstacle.center,
+        width: obstacle.width ?? 0,
+        height: obstacle.height ?? 0,
+        fill: "blue",
+      })) ?? []
+
+  const lines: Line[] =
+    srj.connections?.flatMap((connection) => {
+      const netColor = getNetColor(connection.name)
+      const line: Line = {
+        points: connection.pointsToConnect.map((point) => ({
+          x: point.x,
+          y: point.y,
+        })),
+        strokeColor: netColor,
+        label: connection.name,
+      }
+      return line
+    }) ?? []
 
   const points =
     srj.connections?.flatMap((connection) =>
       connection.pointsToConnect.map((point) => ({
         x: point.x,
         y: point.y,
-        color: "#2563eb",
+        color: getNetColor(connection.name),
         label: point.pointId ?? connection.name,
       })),
     ) ?? []
 
   return {
-    rects,
+    rects: [topAndBottomRects, topOnlyRects, bottomOnlyRects].flat(),
+    lines,
     points,
   }
 }
