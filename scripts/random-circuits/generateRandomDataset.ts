@@ -20,7 +20,10 @@ import type { GenerationContext } from "types/GenerationContext"
 export const generateRandomDataset = async (
   ctx: GenerationContext,
 ): Promise<void> => {
-  if (ctx.configuration.layerCount !== 2 && ctx.configuration.layerCount !== 4) {
+  if (
+    ctx.configuration.layerCount !== 2 &&
+    ctx.configuration.layerCount !== 4
+  ) {
     throw new Error(
       `random circuit generation only supports 2-layer or 4-layer boards; received ${ctx.configuration.layerCount}`,
     )
