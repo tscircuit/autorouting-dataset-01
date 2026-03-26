@@ -9,4 +9,5 @@ export type GenerationConfiguration = {
   minGapBetweenParts: number
   maxGapBetweenParts: number
   seed: number
+  layerCount: 2 | 4
 }
