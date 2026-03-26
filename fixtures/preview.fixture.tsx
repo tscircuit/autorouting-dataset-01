@@ -1,7 +1,7 @@
 import {
   type GraphicsObject,
-  Line,
   getSvgFromGraphicsObject,
+  type Line,
 } from "graphics-debug"
 import { useMemo, useState } from "react"
 import type { SimpleRouteJson } from "tscircuit"
@@ -71,7 +71,7 @@ const getGraphicsFromSrj = (srj: SimpleRouteJson): GraphicsObject => {
         (obstacle) =>
           obstacle.layers.includes("top") && obstacle.layers.includes("bottom"),
       )
-      .map((obstacle, index) => ({
+      .map((obstacle, _index) => ({
         center: obstacle.center,
         width: obstacle.width ?? 0,
         height: obstacle.height ?? 0,
@@ -85,7 +85,7 @@ const getGraphicsFromSrj = (srj: SimpleRouteJson): GraphicsObject => {
           obstacle.layers.includes("top") &&
           !obstacle.layers.includes("bottom"),
       )
-      .map((obstacle, index) => ({
+      .map((obstacle, _index) => ({
         center: obstacle.center,
         width: obstacle.width ?? 0,
         height: obstacle.height ?? 0,
@@ -99,7 +99,7 @@ const getGraphicsFromSrj = (srj: SimpleRouteJson): GraphicsObject => {
           obstacle.layers.includes("bottom") &&
           !obstacle.layers.includes("top"),
       )
-      .map((obstacle, index) => ({
+      .map((obstacle, _index) => ({
         center: obstacle.center,
         width: obstacle.width ?? 0,
         height: obstacle.height ?? 0,
