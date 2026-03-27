@@ -10,4 +10,6 @@ export type GenerationConfiguration = {
   maxGapBetweenParts: number
   seed: number
   layerCount: 2 | 4
+  tscircuitConfig: string
+  rootPath: string
 }

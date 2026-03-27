@@ -1,3 +1,4 @@
+import path from "node:path"
 import type { GenerationConfiguration } from "types/GenerationConfiguration"
 
 /**
@@ -12,4 +13,11 @@ export const defaultConfiguration: GenerationConfiguration = {
   minGapBetweenParts: 1,
   maxGapBetweenParts: 3,
   layerCount: 4,
+  tscircuitConfig: path.join(
+    import.meta.dir,
+    "..",
+    "..",
+    "tscircuit.config.json",
+  ),
+  rootPath: path.join(import.meta.dir, "..", ".."),
 }

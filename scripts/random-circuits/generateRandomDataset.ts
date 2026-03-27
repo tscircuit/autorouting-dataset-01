@@ -137,6 +137,8 @@ export const generateRandomDataset = async (
       components: placedComponents,
       boardSize,
       layerCount: ctx.configuration.layerCount,
+      tscircuitConfig: ctx.configuration.tscircuitConfig,
+      rootPath: ctx.configuration.rootPath,
     })
   }
 }
