@@ -2,6 +2,7 @@ import {
   type GraphicsObject,
   getSvgFromGraphicsObject,
   type Line,
+  type Rect,
 } from "graphics-debug"
 import { useMemo, useState } from "react"
 import type { SimpleRouteJson } from "tscircuit"
@@ -130,8 +131,22 @@ const getGraphicsFromSrj = (srj: SimpleRouteJson): GraphicsObject => {
       })),
     ) ?? []
 
+  const broadBound: Rect = {
+    center: {
+      x: srj.bounds.minX + (srj.bounds.maxX - srj.bounds.minX) / 2,
+      y: srj.bounds.minY + (srj.bounds.maxY - srj.bounds.minY) / 2,
+    },
+    width: srj.bounds.maxX - srj.bounds.minX,
+    height: srj.bounds.maxY - srj.bounds.minY,
+  }
+
   return {
-    rects: [topAndBottomRects, topOnlyRects, bottomOnlyRects].flat(),
+    rects: [
+      broadBound,
+      topAndBottomRects,
+      topOnlyRects,
+      bottomOnlyRects,
+    ].flat(),
     lines,
     points,
   }
