@@ -18,7 +18,7 @@ export const writeDatasetIndex = async (
     })
     .join("\n")
 
-  await writeFile(path.join(datasetDirectory, "index.ts"), indexContent)
+  await writeFile(path.join(datasetDirectory, "index.js"), indexContent)
 }
 
 /**
