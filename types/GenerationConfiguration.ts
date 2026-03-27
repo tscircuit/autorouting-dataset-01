@@ -8,6 +8,8 @@ export type GenerationConfiguration = {
   maxParts: number
   minGapBetweenParts: number
   maxGapBetweenParts: number
+  minRandomMarginBetweenParts: number
+  maxRandomMarginBetweenParts: number
   seed: number
   layerCount: 2 | 4
   tscircuitConfig: string

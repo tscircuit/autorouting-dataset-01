@@ -14,6 +14,8 @@ const ctx: GenerationContext = {
     maxGapBetweenParts: 3,
     seed: 42,
     layerCount: 4,
+    minRandomMarginBetweenParts: 2,
+    maxRandomMarginBetweenParts: 5,
     tscircuitConfig: "",
     rootPath: "",
   },
@@ -45,6 +47,12 @@ test("resolveComponentOverlapsIteratively separates overlapping parts across lay
       layer: "top",
       width: 2.45,
       height: 0.95,
+      placementMargin: {
+        left: 2,
+        right: 3,
+        top: 1,
+        bottom: 2,
+      },
       connections: {},
     },
     {
@@ -59,12 +67,19 @@ test("resolveComponentOverlapsIteratively separates overlapping parts across lay
       layer: "bottom",
       width: 9.12,
       height: 1.5,
+      placementMargin: {
+        left: 4,
+        right: 2,
+        top: 3,
+        bottom: 4,
+      },
       connections: {},
     },
   ]
 
   const resolved = resolveComponentOverlapsIteratively(
     {
+      rng: () => 0.5,
       components,
       boardSize: { width: 40, height: 40 },
       maxIterations: 50,
