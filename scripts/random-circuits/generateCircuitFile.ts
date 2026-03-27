@@ -1,4 +1,4 @@
-import { writeFile } from "node:fs/promises"
+import { readFile, writeFile } from "node:fs/promises"
 import path from "node:path"
 import { componentToJsx } from "scripts/random-circuits/componentToJsx"
 import type { ComponentSpecification } from "types/ComponentSpecification"
@@ -13,6 +13,8 @@ export const generateCircuitFile = async (options: {
   components: ComponentSpecification[]
   boardSize: { width: number; height: number }
   layerCount: 2 | 4
+  tscircuitConfig: string
+  rootPath: string
 }): Promise<void> => {
   const {
     libDirectory,
@@ -21,6 +23,8 @@ export const generateCircuitFile = async (options: {
     components,
     boardSize,
     layerCount,
+    tscircuitConfig,
+    rootPath,
   } = options
   const body = components.map(componentToJsx).join("\n")
   const circuitId = String(allowedStartIndex + circuitOffset).padStart(3, "0")
@@ -39,5 +43,17 @@ ${body}
   </board>
 )
 `
+  const tsconfigFile = await readFile(tscircuitConfig)
+  const stringFile = tsconfigFile.toString()
+  let json: { includeBoardFiles: string[] } = { includeBoardFiles: [] }
+  try {
+    json = JSON.parse(stringFile)
+  } catch (_e) {
+    console.error("Something went wrong when reading ", tscircuitConfig)
+    process.exit(1)
+  }
+  json?.includeBoardFiles.push(path.relative(rootPath, outputPath))
+
   await writeFile(outputPath, source)
+  await writeFile(tscircuitConfig, JSON.stringify(json, null, 2))
 }
