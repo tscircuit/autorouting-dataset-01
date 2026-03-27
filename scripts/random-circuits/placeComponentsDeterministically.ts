@@ -1,5 +1,5 @@
 import type { Bounds } from "lib/maths/box"
-import { getBoundsGapViolation, isBoundsInsideBounds } from "lib/maths/box"
+import { isBoundsInsideBounds } from "lib/maths/box"
 import { getBoardBoundsWithPadding } from "scripts/random-circuits/getBoardBoundsWithPadding"
 import type { ComponentSpecification } from "types/ComponentSpecification"
 import type { ComponentType } from "types/ComponentType"
@@ -36,6 +36,53 @@ const getRotatedBounds = (
   }
 }
 
+const getExpandedBounds = (
+  bounds: Bounds,
+  component: ComponentSpecification,
+  gap: number,
+): Bounds => ({
+  minX: bounds.minX - component.placementMargin.left - gap / 2,
+  maxX: bounds.maxX + component.placementMargin.right + gap / 2,
+  minY: bounds.minY - component.placementMargin.bottom - gap / 2,
+  maxY: bounds.maxY + component.placementMargin.top + gap / 2,
+})
+
+const getOverlapViolationForPair = (
+  componentA: ComponentSpecification,
+  componentB: ComponentSpecification,
+): {
+  collides: boolean
+  overlapX: number
+  overlapY: number
+} => {
+  const gap = Math.max(
+    gridGapByType[componentA.type],
+    gridGapByType[componentB.type],
+  )
+  const expandedA = getExpandedBounds(
+    getRotatedBounds(componentA),
+    componentA,
+    gap,
+  )
+  const expandedB = getExpandedBounds(
+    getRotatedBounds(componentB),
+    componentB,
+    gap,
+  )
+  const overlapX =
+    Math.min(expandedA.maxX, expandedB.maxX) -
+    Math.max(expandedA.minX, expandedB.minX)
+  const overlapY =
+    Math.min(expandedA.maxY, expandedB.maxY) -
+    Math.max(expandedA.minY, expandedB.minY)
+
+  return {
+    collides: overlapX > 0 && overlapY > 0,
+    overlapX,
+    overlapY,
+  }
+}
+
 const clampComponentToBounds = (
   component: ComponentSpecification,
   outerBounds: Bounds,
@@ -61,14 +108,44 @@ const cloneComponents = (
   components: ComponentSpecification[],
 ): ComponentSpecification[] => components.map((component) => ({ ...component }))
 
-const getGapForPair = (
-  componentA: ComponentSpecification,
-  componentB: ComponentSpecification,
-): number =>
-  Math.max(gridGapByType[componentA.type], gridGapByType[componentB.type])
+const initializeComponentPositions = (options: {
+  components: ComponentSpecification[]
+  boardBounds: Bounds
+  rng: () => number
+}) => {
+  const { components, boardBounds, rng } = options
+  const gridSize = Math.ceil(Math.sqrt(components.length))
+  const stepX = (boardBounds.maxX - boardBounds.minX) / Math.max(1, gridSize)
+  const stepY = (boardBounds.maxY - boardBounds.minY) / Math.max(1, gridSize)
+  const cells: Array<{ x: number; y: number }> = []
+
+  for (let row = 0; row < gridSize; row++) {
+    for (let col = 0; col < gridSize; col++) {
+      cells.push({
+        x: boardBounds.minX + stepX * (col + 0.5),
+        y: boardBounds.minY + stepY * (row + 0.5),
+      })
+    }
+  }
+
+  for (let i = cells.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1))
+    ;[cells[i], cells[j]] = [cells[j], cells[i]]
+  }
+
+  for (let index = 0; index < components.length; index++) {
+    const component = components[index]
+    const cell = cells[index % cells.length]
+    const jitterX = (rng() - 0.5) * stepX * 0.45
+    const jitterY = (rng() - 0.5) * stepY * 0.45
+    component.pcbX = cell.x + jitterX
+    component.pcbY = cell.y + jitterY
+  }
+}
 
 export const resolveComponentOverlapsIteratively = (
   options: {
+    rng: () => number
     components: ComponentSpecification[]
     boardSize: { width: number; height: number }
     maxIterations?: number
@@ -77,8 +154,18 @@ export const resolveComponentOverlapsIteratively = (
 ): ComponentSpecification[] | null => {
   const maxIterations = options.maxIterations ?? 50
   const components = cloneComponents(options.components)
-  const padding = Math.max(2, ctx.configuration.maxGapBetweenParts)
+  const padding = Math.max(
+    2,
+    ctx.configuration.maxGapBetweenParts,
+    ctx.configuration.maxRandomMarginBetweenParts,
+  )
   const innerBounds = getBoardBoundsWithPadding(options.boardSize, padding)
+
+  initializeComponentPositions({
+    components,
+    boardBounds: innerBounds,
+    rng: options.rng,
+  })
 
   for (const component of components) {
     if (!clampComponentToBounds(component, innerBounds)) {
@@ -93,13 +180,7 @@ export const resolveComponentOverlapsIteratively = (
       for (let j = i + 1; j < components.length; j++) {
         const componentA = components[i]
         const componentB = components[j]
-        const boundsA = getRotatedBounds(componentA)
-        const boundsB = getRotatedBounds(componentB)
-        const violation = getBoundsGapViolation(
-          boundsA,
-          boundsB,
-          getGapForPair(componentA, componentB),
-        )
+        const violation = getOverlapViolationForPair(componentA, componentB)
 
         if (!violation.collides) continue
 
@@ -156,7 +237,11 @@ export const placeComponentsDeterministically = (
   ctx: GenerationContext,
 ): ComponentSpecification[] | null => {
   const components = cloneComponents(options.components)
-  const padding = Math.max(2, ctx.configuration.maxGapBetweenParts)
+  const padding = Math.max(
+    2,
+    ctx.configuration.maxGapBetweenParts,
+    ctx.configuration.maxRandomMarginBetweenParts,
+  )
   const innerBounds = getBoardBoundsWithPadding(options.boardSize, padding)
 
   for (const component of components) {
@@ -167,6 +252,7 @@ export const placeComponentsDeterministically = (
 
   return resolveComponentOverlapsIteratively(
     {
+      rng: options.rng,
       components,
       boardSize: options.boardSize,
       maxIterations: options.maxIterations,

@@ -5,188 +5,229 @@ export default () => (
   <board
     routingDisabled={!shouldAutorouterRun()}
     layers={4}
-    width="34.00mm"
-    height="20.00mm"
+    width="46.56mm"
+    height="36.88mm"
   >
     <resistor
       name="resistor-1"
-      footprint="0603"
-      pcbX={11.0}
-      pcbY={3.0}
-      pcbRotation={180.0}
-      layer="bottom"
+      footprint="0402"
+      pcbX={-13.3}
+      pcbY={4.57}
+      pcbRotation={0.0}
+      layer="top"
       connections={{
-        pin2: "net.N2",
-        pin1: "net.N3",
+        pin1: "net.N13",
+        pin2: "net.N14",
       }}
       resistance="1k"
     />
-    <capacitor
-      name="capacitor-1"
-      footprint="0805"
-      pcbX={-2.0}
-      pcbY={-7.0}
+    <chip
+      name="chip-1"
+      footprint="qfn24"
+      pcbX={16.72}
+      pcbY={8.62}
       pcbRotation={0.0}
-      layer="bottom"
+      layer="top"
       connections={{
-        pin2: "net.N1",
-        pin1: "net.N13",
+        pin6: "net.N1",
+        pin14: "net.N3",
+        pin10: "net.N3",
+        pin24: "net.N4",
+        pin19: "net.N5",
+        pin8: "net.N6",
+        pin4: "net.N6",
+        pin22: "net.N6",
+        pin7: "net.N8",
+        pin2: "net.N9",
+        pin9: "net.N9",
+        pin11: "net.N9",
+        pin20: "net.N10",
+        pin12: "net.N10",
+        pin23: "net.N12",
+        pin16: "net.N12",
+        pin18: "net.N13",
+        pin5: "net.N14",
+        pin3: "net.N14",
+        pin1: "net.N16",
+        pin17: "net.N16",
+        pin13: "net.N19",
+        pin21: "net.N19",
+        pin15: "net.N20",
       }}
-      capacitance="0.1uF"
+      manufacturerPartNumber="GENERIC"
     />
     <inductor
       name="inductor-1"
       footprint="0402"
-      pcbX={14.0}
-      pcbY={3.0}
-      pcbRotation={0.0}
+      pcbX={3.74}
+      pcbY={13.05}
+      pcbRotation={90.0}
       layer="top"
       connections={{
-        pin2: "net.N15",
-        pin1: "net.N18",
+        pin1: "net.N6",
+        pin2: "net.N14",
       }}
       inductance="10uH"
     />
     <diode
       name="diode-1"
       footprint="sod323"
-      pcbX={-1.0}
-      pcbY={-6.0}
+      pcbX={-6.43}
+      pcbY={13.1}
       pcbRotation={0.0}
       layer="top"
       connections={{
         pin2: "net.N7",
-        pin1: "net.N19",
+        pin1: "net.N10",
       }}
+    />
+    <capacitor
+      name="capacitor-1"
+      footprint="1210"
+      pcbX={17.42}
+      pcbY={-4.81}
+      pcbRotation={90.0}
+      layer="top"
+      connections={{
+        pin2: "net.N2",
+        pin1: "net.N20",
+      }}
+      capacitance="0.1uF"
+    />
+    <resistor
+      name="resistor-2"
+      footprint="axial_p0.2in"
+      pcbX={6.96}
+      pcbY={-4.18}
+      pcbRotation={0.0}
+      layer="top"
+      connections={{
+        pin2: "net.N7",
+        pin1: "net.N15",
+      }}
+      resistance="1k"
+    />
+    <inductor
+      name="inductor-2"
+      footprint="0402"
+      pcbX={-16.95}
+      pcbY={-11.75}
+      pcbRotation={270.0}
+      layer="bottom"
+      connections={{
+        pin2: "net.N11",
+        pin1: "net.N20",
+      }}
+      inductance="10uH"
+    />
+    <capacitor
+      name="capacitor-2"
+      footprint="1210"
+      pcbX={-16.73}
+      pcbY={-4.52}
+      pcbRotation={0.0}
+      layer="top"
+      connections={{
+        pin2: "net.N5",
+        pin1: "net.N17",
+      }}
+      capacitance="0.1uF"
     />
     <transistor
       name="transistor-1"
-      footprint="SOT-23"
-      pcbX={-10.0}
-      pcbY={-5.0}
-      pcbRotation={0.0}
-      layer="top"
-      connections={{
-        pin2: "net.N3",
-        pin3: "net.N9",
-        pin1: "net.N15",
-      }}
-      type="mosfet"
-    />
-    <transistor
-      name="transistor-2"
       footprint="SOT-223"
-      pcbX={4.0}
-      pcbY={-1.0}
-      pcbRotation={0.0}
+      pcbX={5.0}
+      pcbY={4.45}
+      pcbRotation={90.0}
       layer="top"
       connections={{
-        pin3: "net.N5",
-        pin1: "net.N7",
-        pin2: "net.N19",
+        pin2: "net.N4",
+        pin3: "net.N11",
+        pin1: "net.N19",
       }}
       type="jfet"
     />
     <transistor
-      name="transistor-3"
-      footprint="SOT-23"
-      pcbX={-6.0}
-      pcbY={7.0}
-      pcbRotation={90.0}
+      name="transistor-2"
+      footprint="SOT-223"
+      pcbX={-15.1}
+      pcbY={11.97}
+      pcbRotation={270.0}
       layer="top"
       connections={{
-        pin1: "net.N4",
-        pin2: "net.N11",
-        pin3: "net.N13",
+        pin2: "net.N2",
+        pin3: "net.N4",
+        pin1: "net.N18",
       }}
-      type="mosfet"
-    />
-    <chip
-      name="chip-1"
-      footprint="soic16"
-      pcbX={-10.0}
-      pcbY={1.0}
-      pcbRotation={0.0}
-      layer="bottom"
-      connections={{
-        pin12: "net.N2",
-        pin1: "net.N5",
-        pin5: "net.N6",
-        pin15: "net.N7",
-        pin13: "net.N8",
-        pin6: "net.N10",
-        pin9: "net.N10",
-        pin16: "net.N11",
-        pin2: "net.N12",
-        pin4: "net.N13",
-        pin7: "net.N14",
-        pin11: "net.N15",
-        pin10: "net.N16",
-        pin3: "net.N16",
-        pin14: "net.N18",
-        pin8: "net.N18",
-      }}
-      manufacturerPartNumber="GENERIC"
-    />
-    <chip
-      name="chip-2"
-      footprint="soic16"
-      pcbX={-14.0}
-      pcbY={5.0}
-      pcbRotation={90.0}
-      layer="top"
-      connections={{
-        pin10: "net.N1",
-        pin1: "net.N2",
-        pin15: "net.N4",
-        pin5: "net.N6",
-        pin16: "net.N8",
-        pin14: "net.N8",
-        pin12: "net.N11",
-        pin3: "net.N12",
-        pin13: "net.N14",
-        pin7: "net.N16",
-        pin6: "net.N17",
-        pin8: "net.N17",
-        pin11: "net.N17",
-        pin9: "net.N17",
-        pin2: "net.N20",
-        pin4: "net.N20",
-      }}
-      manufacturerPartNumber="GENERIC"
-    />
-    <chip
-      name="chip-3"
-      footprint="soic8"
-      pcbX={14.0}
-      pcbY={-7.0}
-      pcbRotation={90.0}
-      layer="top"
-      connections={{
-        pin7: "net.N2",
-        pin6: "net.N3",
-        pin4: "net.N4",
-        pin2: "net.N4",
-        pin1: "net.N9",
-        pin3: "net.N14",
-        pin8: "net.N15",
-        pin5: "net.N16",
-      }}
-      manufacturerPartNumber="GENERIC"
+      type="pnp"
     />
     <pinheader
       name="pinhead-1"
       footprint="pinrow2"
-      pcbX={4.0}
-      pcbY={7.0}
-      pcbRotation={0.0}
-      layer="bottom"
+      pcbX={-4.27}
+      pcbY={6.64}
+      pcbRotation={90.0}
+      layer="top"
       connections={{
-        pin1: "net.N12",
-        pin2: "net.N12",
+        pin1: "net.N13",
+        pin2: "net.N16",
       }}
       pinCount={2}
       pitch="2.54mm"
+    />
+    <resistor
+      name="resistor-3"
+      footprint="0805"
+      pcbX={-6.26}
+      pcbY={-4.08}
+      pcbRotation={0.0}
+      layer="bottom"
+      connections={{
+        pin2: "net.N8",
+        pin1: "net.N17",
+      }}
+      resistance="1k"
+    />
+    <resistor
+      name="resistor-4"
+      footprint="2512"
+      pcbX={6.61}
+      pcbY={-10.64}
+      pcbRotation={0.0}
+      layer="top"
+      connections={{
+        pin1: "net.N1",
+        pin2: "net.N15",
+      }}
+      resistance="1k"
+    />
+    <pinheader
+      name="pinhead-2"
+      footprint="pinrow2"
+      pcbX={-6.33}
+      pcbY={-11.82}
+      pcbRotation={270.0}
+      layer="top"
+      connections={{
+        pin1: "net.N16",
+        pin2: "net.N18",
+      }}
+      pinCount={2}
+      pitch="2.54mm"
+    />
+    <transistor
+      name="transistor-3"
+      footprint="SOT-223"
+      pcbX={14.5}
+      pcbY={-13.64}
+      pcbRotation={90.0}
+      layer="top"
+      connections={{
+        pin2: "net.N1",
+        pin1: "net.N4",
+        pin3: "net.N15",
+      }}
+      type="pnp"
     />
   </board>
 )

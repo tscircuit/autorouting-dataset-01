@@ -17,6 +17,29 @@ import type { GenerationContext } from "types/GenerationContext"
 const MAX_PLACEMENT_ITERATIONS = 50
 const MAX_REGENERATION_ATTEMPTS = 50
 
+const createPlacementMargin = (rng: () => number, ctx: GenerationContext) => ({
+  left: randInt({
+    rng,
+    min: ctx.configuration.minRandomMarginBetweenParts,
+    max: ctx.configuration.maxRandomMarginBetweenParts + 1,
+  }),
+  right: randInt({
+    rng,
+    min: ctx.configuration.minRandomMarginBetweenParts,
+    max: ctx.configuration.maxRandomMarginBetweenParts + 1,
+  }),
+  top: randInt({
+    rng,
+    min: ctx.configuration.minRandomMarginBetweenParts,
+    max: ctx.configuration.maxRandomMarginBetweenParts + 1,
+  }),
+  bottom: randInt({
+    rng,
+    min: ctx.configuration.minRandomMarginBetweenParts,
+    max: ctx.configuration.maxRandomMarginBetweenParts + 1,
+  }),
+})
+
 const createRandomCircuitSpec = (
   rng: () => number,
   ctx: GenerationContext,
@@ -40,26 +63,11 @@ const createRandomCircuitSpec = (
     chip: 0,
     pinhead: 0,
   }
-  const innerPadding = Math.max(2, ctx.configuration.maxGapBetweenParts)
-
-  const boardSize = {
-    width:
-      partsCount *
-        randInt({
-          rng,
-          min: ctx.configuration.minGapBetweenParts,
-          max: ctx.configuration.maxGapBetweenParts,
-        }) +
-      innerPadding * 2,
-    height:
-      partsCount *
-        randInt({
-          rng,
-          min: ctx.configuration.minGapBetweenParts,
-          max: ctx.configuration.maxGapBetweenParts,
-        }) +
-      innerPadding * 2,
-  }
+  const innerPadding = Math.max(
+    2,
+    ctx.configuration.maxGapBetweenParts,
+    ctx.configuration.maxRandomMarginBetweenParts,
+  )
 
   // Non-orthogonal rotations can produce self-overlapping pad obstacles in the
   // generated SRJ, so keep random placements aligned to right angles.
@@ -93,6 +101,7 @@ const createRandomCircuitSpec = (
       weights: rotationWeights,
     })
     const layer = pickWeighted({ rng, items: layers, weights: layerWeights })
+    const placementMargin = createPlacementMargin(rng, ctx)
     components.push({
       type: componentType,
       name: componentName,
@@ -105,12 +114,34 @@ const createRandomCircuitSpec = (
       layer,
       width: size.width,
       height: size.height,
+      placementMargin,
       connections: {},
       transistorType:
         componentType === "transistor"
           ? pick({ rng, items: transistorTypes })
           : undefined,
     })
+  }
+
+  const estimatedArea = components.reduce((sum, component) => {
+    const cellWidth =
+      component.width +
+      (component.placementMargin.left + component.placementMargin.right) *
+        1.25 +
+      ctx.configuration.maxGapBetweenParts
+    const cellHeight =
+      component.height +
+      (component.placementMargin.top + component.placementMargin.bottom) *
+        1.25 +
+      ctx.configuration.maxGapBetweenParts
+    return sum + cellWidth * cellHeight
+  }, 0)
+  const aspectRatio = 0.85 + rng() * 0.5
+  const estimatedWidth = Math.sqrt(estimatedArea * aspectRatio)
+  const estimatedHeight = Math.sqrt(estimatedArea / aspectRatio)
+  const boardSize = {
+    width: Number((estimatedWidth + innerPadding * 2).toFixed(2)),
+    height: Number((estimatedHeight + innerPadding * 2).toFixed(2)),
   }
 
   return { boardSize, components }
