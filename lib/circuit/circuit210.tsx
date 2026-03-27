@@ -1,0 +1,132 @@
+/** Randomly generated circuit 210. */
+import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
+
+export default () => (
+  <board
+    routingDisabled={!shouldAutorouterRun()}
+    layers={4}
+    width="25.00mm"
+    height="25.00mm"
+  >
+    <resistor
+      name="resistor-1"
+      footprint="0805"
+      pcbX={-2.0}
+      pcbY={-3.0}
+      pcbRotation={90.0}
+      layer="top"
+      connections={{
+        pin2: "net.N6",
+        pin1: "net.N7",
+      }}
+      resistance="1k"
+    />
+    <resistor
+      name="resistor-2"
+      footprint="0805"
+      pcbX={4.0}
+      pcbY={5.0}
+      pcbRotation={90.0}
+      layer="bottom"
+      connections={{
+        pin2: "net.N4",
+        pin1: "net.N7",
+      }}
+      resistance="1k"
+    />
+    <capacitor
+      name="capacitor-1"
+      footprint="0402"
+      pcbX={-1.0}
+      pcbY={1.0}
+      pcbRotation={0.0}
+      layer="top"
+      connections={{
+        pin2: "net.N7",
+        pin1: "net.N7",
+      }}
+      capacitance="0.1uF"
+    />
+    <inductor
+      name="inductor-1"
+      footprint="0805"
+      pcbX={2.0}
+      pcbY={-4.0}
+      pcbRotation={0.0}
+      layer="bottom"
+      connections={{
+        pin2: "net.N1",
+        pin1: "net.N6",
+      }}
+      inductance="10uH"
+    />
+    <inductor
+      name="inductor-2"
+      footprint="0603"
+      pcbX={6.0}
+      pcbY={-6.0}
+      pcbRotation={0.0}
+      layer="top"
+      connections={{
+        pin1: "net.N2",
+        pin2: "net.N5",
+      }}
+      inductance="10uH"
+    />
+    <diode
+      name="diode-1"
+      footprint="sod323"
+      pcbX={-4.0}
+      pcbY={9.0}
+      pcbRotation={0.0}
+      layer="top"
+      connections={{
+        pin2: "net.N1",
+        pin1: "net.N3",
+      }}
+    />
+    <diode
+      name="diode-2"
+      footprint="sod123"
+      pcbX={-4.0}
+      pcbY={2.0}
+      pcbRotation={270.0}
+      layer="top"
+      connections={{
+        pin1: "net.N3",
+        pin2: "net.N4",
+      }}
+    />
+    <chip
+      name="chip-4"
+      footprint="pinrow6"
+      pcbX={8.0}
+      pcbY={4.0}
+      pcbRotation={90.0}
+      layer="top"
+      connections={{
+        pin5: "net.N1",
+        pin6: "net.N1",
+        pin3: "net.N5",
+        pin2: "net.N5",
+        pin4: "net.N6",
+        pin1: "net.N7",
+      }}
+      manufacturerPartNumber="GENERIC"
+    />
+    <pinheader
+      name="pinhead-1"
+      footprint="pinrow2"
+      pcbX={-6.0}
+      pcbY={-4.0}
+      pcbRotation={90.0}
+      layer="top"
+      connections={{
+        pin1: "net.N2",
+        pin2: "net.N2",
+      }}
+      pinCount={2}
+      pitch="2.54mm"
+    />
+  </board>
+)
