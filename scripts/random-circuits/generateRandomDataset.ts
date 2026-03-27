@@ -17,10 +17,7 @@ import type { GenerationContext } from "types/GenerationContext"
 const MAX_PLACEMENT_ITERATIONS = 50
 const MAX_REGENERATION_ATTEMPTS = 50
 
-const createPlacementMargin = (
-  rng: () => number,
-  ctx: GenerationContext,
-) => ({
+const createPlacementMargin = (rng: () => number, ctx: GenerationContext) => ({
   left: randInt({
     rng,
     min: ctx.configuration.minRandomMarginBetweenParts,
@@ -129,11 +126,13 @@ const createRandomCircuitSpec = (
   const estimatedArea = components.reduce((sum, component) => {
     const cellWidth =
       component.width +
-      (component.placementMargin.left + component.placementMargin.right) * 1.25 +
+      (component.placementMargin.left + component.placementMargin.right) *
+        1.25 +
       ctx.configuration.maxGapBetweenParts
     const cellHeight =
       component.height +
-      (component.placementMargin.top + component.placementMargin.bottom) * 1.25 +
+      (component.placementMargin.top + component.placementMargin.bottom) *
+        1.25 +
       ctx.configuration.maxGapBetweenParts
     return sum + cellWidth * cellHeight
   }, 0)
