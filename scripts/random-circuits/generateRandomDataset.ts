@@ -14,6 +14,108 @@ import type { ComponentSpecification } from "types/ComponentSpecification"
 import type { ComponentType } from "types/ComponentType"
 import type { GenerationContext } from "types/GenerationContext"
 
+const MAX_PLACEMENT_ITERATIONS = 50
+const MAX_REGENERATION_ATTEMPTS = 50
+
+const createRandomCircuitSpec = (
+  rng: () => number,
+  ctx: GenerationContext,
+): {
+  boardSize: { width: number; height: number }
+  components: ComponentSpecification[]
+} => {
+  const partsCount = randInt({
+    rng,
+    min: ctx.configuration.minParts,
+    max: ctx.configuration.maxParts + 1,
+  })
+
+  const components: ComponentSpecification[] = []
+  const typeCounts: Record<ComponentType, number> = {
+    resistor: 0,
+    capacitor: 0,
+    inductor: 0,
+    diode: 0,
+    transistor: 0,
+    chip: 0,
+    pinhead: 0,
+  }
+  const innerPadding = Math.max(2, ctx.configuration.maxGapBetweenParts)
+
+  const boardSize = {
+    width:
+      partsCount *
+        randInt({
+          rng,
+          min: ctx.configuration.minGapBetweenParts,
+          max: ctx.configuration.maxGapBetweenParts,
+        }) +
+      innerPadding * 2,
+    height:
+      partsCount *
+        randInt({
+          rng,
+          min: ctx.configuration.minGapBetweenParts,
+          max: ctx.configuration.maxGapBetweenParts,
+        }) +
+      innerPadding * 2,
+  }
+
+  // Non-orthogonal rotations can produce self-overlapping pad obstacles in the
+  // generated SRJ, so keep random placements aligned to right angles.
+  const rotationAngles = [0, 90, 180, 270]
+  const rotationWeights = [0.6, 0.25, 0.1, 0.05]
+  const layers = ["top", "bottom"] as const
+  const layerWeights = [0.8, 0.2]
+  const transistorTypes = ["npn", "pnp", "bjt", "jfet", "mosfet"] as const
+
+  for (let p = 0; p < partsCount; p++) {
+    const componentType = pick({
+      rng,
+      items: [
+        "resistor",
+        "capacitor",
+        "inductor",
+        "diode",
+        "transistor",
+        "chip",
+        "pinhead",
+      ] as const,
+    })
+    typeCounts[componentType] += 1
+    const componentName = `${componentType}-${typeCounts[componentType]}`
+    const footprint = pick({ rng, items: footprints[componentType] })
+    const size = footprintSizes[footprint]
+    const pinInfo = getPinInfo(componentType, footprint)
+    const pcbRotation = pickWeighted({
+      rng,
+      items: rotationAngles,
+      weights: rotationWeights,
+    })
+    const layer = pickWeighted({ rng, items: layers, weights: layerWeights })
+    components.push({
+      type: componentType,
+      name: componentName,
+      footprint: footprint,
+      pinCount: pinInfo.pinCount,
+      pinNames: pinInfo.pinNames,
+      pcbX: 0,
+      pcbY: 0,
+      pcbRotation,
+      layer,
+      width: size.width,
+      height: size.height,
+      connections: {},
+      transistorType:
+        componentType === "transistor"
+          ? pick({ rng, items: transistorTypes })
+          : undefined,
+    })
+  }
+
+  return { boardSize, components }
+}
+
 /**
  * Orchestrates the creation of a dataset of random circuit designs.
  */
@@ -29,13 +131,6 @@ export const generateRandomDataset = async (
     )
   }
 
-  // Non-orthogonal rotations can produce self-overlapping pad obstacles in the
-  // generated SRJ, so keep random placements aligned to right angles.
-  const rotationAngles = [0, 90, 180, 270]
-  const rotationWeights = [0.6, 0.25, 0.1, 0.05]
-  const layers = ["top", "bottom"] as const
-  const layerWeights = [0.8, 0.2]
-  const transistorTypes = ["npn", "pnp", "bjt", "jfet", "mosfet"] as const
   const libDirectory = path.resolve("lib", "circuit")
   await mkdir(libDirectory, { recursive: true })
 
@@ -44,92 +139,46 @@ export const generateRandomDataset = async (
     circuitOffset < ctx.configuration.count;
     circuitOffset++
   ) {
-    const rng = mulberry32(ctx.configuration.seed + circuitOffset * 997)
-    const partsCount = randInt({
-      rng,
-      min: ctx.configuration.minParts,
-      max: ctx.configuration.maxParts + 1,
-    })
+    let placedComponents: ComponentSpecification[] | null = null
+    let boardSize: { width: number; height: number } | null = null
 
-    const components: ComponentSpecification[] = []
-    const typeCounts: Record<ComponentType, number> = {
-      resistor: 0,
-      capacitor: 0,
-      inductor: 0,
-      diode: 0,
-      transistor: 0,
-      chip: 0,
-      pinhead: 0,
-    }
-    const innerPadding = Math.max(2, ctx.configuration.maxGapBetweenParts)
-    const boardSize = {
-      width:
-        partsCount *
-          randInt({
-            rng,
-            min: ctx.configuration.minGapBetweenParts,
-            max: ctx.configuration.maxGapBetweenParts,
-          }) +
-        innerPadding * 2,
-      height:
-        partsCount *
-          randInt({
-            rng,
-            min: ctx.configuration.minGapBetweenParts,
-            max: ctx.configuration.maxGapBetweenParts,
-          }) +
-        innerPadding * 2,
+    for (let attempt = 0; attempt < MAX_REGENERATION_ATTEMPTS; attempt++) {
+      const rng = mulberry32(
+        ctx.configuration.seed + circuitOffset * 997 + attempt * 7919,
+      )
+      const candidate = createRandomCircuitSpec(rng, ctx)
+      const placedCandidate = placeComponentsDeterministically(
+        {
+          rng,
+          components: candidate.components,
+          boardSize: candidate.boardSize,
+          maxIterations: MAX_PLACEMENT_ITERATIONS,
+        },
+        ctx,
+      )
+
+      if (placedCandidate === null) {
+        continue
+      }
+
+      placedComponents = placedCandidate
+      boardSize = candidate.boardSize
+      break
     }
 
-    for (let p = 0; p < partsCount; p++) {
-      const componentType = pick({
-        rng,
-        items: [
-          "resistor",
-          "capacitor",
-          "inductor",
-          "diode",
-          "transistor",
-          "chip",
-          "pinhead",
-        ] as const,
-      })
-      typeCounts[componentType] += 1
-      const componentName = `${componentType}-${typeCounts[componentType]}`
-      const footprint = pick({ rng, items: footprints[componentType] })
-      const size = footprintSizes[footprint]
-      const pinInfo = getPinInfo(componentType, footprint)
-      const pcbRotation = pickWeighted({
-        rng,
-        items: rotationAngles,
-        weights: rotationWeights,
-      })
-      const layer = pickWeighted({ rng, items: layers, weights: layerWeights })
-      components.push({
-        type: componentType,
-        name: componentName,
-        footprint: footprint,
-        pinCount: pinInfo.pinCount,
-        pinNames: pinInfo.pinNames,
-        pcbX: 0,
-        pcbY: 0,
-        pcbRotation,
-        layer,
-        width: size.width,
-        height: size.height,
-        connections: {},
-        transistorType:
-          componentType === "transistor"
-            ? pick({ rng, items: transistorTypes })
-            : undefined,
-      })
+    if (placedComponents === null || boardSize === null) {
+      console.warn(
+        `Skipping circuit ${
+          ctx.configuration.allowedStartIndex + circuitOffset
+        } after ${MAX_REGENERATION_ATTEMPTS} failed placement attempts`,
+      )
+      continue
     }
 
-    const placedComponents = placeComponentsDeterministically(
-      { rng, components, boardSize },
-      ctx,
+    buildConnections(
+      mulberry32(ctx.configuration.seed + circuitOffset * 1597),
+      placedComponents,
     )
-    buildConnections(rng, placedComponents)
     await generateCircuitFile({
       libDirectory,
       allowedStartIndex: ctx.configuration.allowedStartIndex,
