@@ -1,6 +1,6 @@
 {
   "name": "@tscircuit/autorouting-dataset-01",
-  "version": "1.0.46",
+  "version": "1.0.47",
   "type": "module",
   "main": "lib/dataset/index.js",
   "bin": {
