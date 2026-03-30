@@ -16,6 +16,45 @@ const srjModules = import.meta.glob("../lib/dataset/*.simple-route.json", {
 const getCircuitFilePath = (circuitId: number) =>
   `../lib/dataset/circuit${String(circuitId).padStart(3, "0")}.simple-route.json`
 
+const validCircuitIds = Object.keys(srjModules)
+  .map((filePath) => filePath.match(/circuit(\d+)\.simple-route\.json$/)?.[1])
+  .filter((value): value is string => value !== undefined)
+  .map((value) => Number(value))
+  .sort((a, b) => a - b)
+
+const maxCircuitId = validCircuitIds.at(-1) ?? 0
+
+const findNearestValidCircuitId = (
+  requestedCircuitId: number,
+  previousCircuitId: number,
+) => {
+  if (requestedCircuitId <= 0) {
+    return 0
+  }
+
+  if (srjModules[getCircuitFilePath(requestedCircuitId)]) {
+    return requestedCircuitId
+  }
+
+  const direction = requestedCircuitId >= previousCircuitId ? 1 : -1
+
+  if (direction > 0) {
+    const nextValidCircuitId = validCircuitIds.find(
+      (circuitId) => circuitId >= requestedCircuitId,
+    )
+    return nextValidCircuitId ?? previousCircuitId
+  }
+
+  for (let index = validCircuitIds.length - 1; index >= 0; index -= 1) {
+    const candidateCircuitId = validCircuitIds[index]
+    if (candidateCircuitId <= requestedCircuitId) {
+      return candidateCircuitId
+    }
+  }
+
+  return 0
+}
+
 const hashString = (value: string) => {
   let hash = 2166136261
 
@@ -165,23 +204,45 @@ export default function PreviewFixture() {
 
   return (
     <div className="grid gap-3">
-      <label className="flex flex-row items-center gap-1.5">
-        <span>Circuit ID</span>
-        <input
-          className="rounded border border-zinc-300 px-2 py-1"
-          type="number"
-          min={1}
-          max={999}
-          step={1}
-          value={circuitId}
-          onChange={(event) => {
-            const nextValue = Number(event.target.value)
-            if (Number.isFinite(nextValue)) {
-              setCircuitId(nextValue)
-            }
-          }}
-        />
-      </label>
+      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <label className="flex flex-row items-center gap-1.5">
+          <span>Circuit ID</span>
+          <input
+            className="rounded border border-zinc-300 px-2 py-1"
+            type="number"
+            min={0}
+            max={maxCircuitId}
+            step={1}
+            value={circuitId}
+            onChange={(event) => {
+              const nextValue = Number(event.target.value)
+              if (!Number.isFinite(nextValue)) {
+                return
+              }
+
+              setCircuitId(
+                findNearestValidCircuitId(
+                  Math.max(0, Math.trunc(nextValue)),
+                  circuitId,
+                ),
+              )
+            }}
+          />
+        </label>
+
+        <a
+          style={{ marginLeft: "auto", display: "inline-flex" }}
+          href="https://github.com/tscircuit/autorouting-dataset-01"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="GitHub repository"
+        >
+          <img
+            alt="GitHub"
+            src="https://img.shields.io/badge/GitHub-tscircuit%2Fautorouting--dataset--01-181717?logo=github"
+          />
+        </a>
+      </div>
 
       {svg ? (
         <div
