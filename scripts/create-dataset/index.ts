@@ -47,6 +47,10 @@ const runCircuitInFreshProcess = async (
       ["scripts/create-dataset/createDatasetFromLib.ts", circuitFilePath],
       {
         cwd: process.cwd(),
+        env: {
+          ...process.env,
+          TSCIRCUIT_DATASET_DISABLE_AUTOROUTER: "true",
+        },
         stdio: "inherit",
       },
     )

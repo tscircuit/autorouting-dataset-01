@@ -1,6 +1,7 @@
 import { writeFile } from "node:fs/promises"
 import path from "node:path"
 import { RootCircuit } from "@tscircuit/core"
+import { getSimpleRouteJsonFromCircuitJson } from "tscircuit"
 
 /**
  * Loads a circuit module and saves its simple route JSON to the dataset.
@@ -21,11 +22,8 @@ export const processCircuitModule = async (processCircuitRequest: {
   }
 
   const circuit = new RootCircuit()
-  // TODO: more research on which parts to disable so we still get the callbacks
-  // but the autorouter is disabled
-  // circuit.pcbRoutingDisabled = true
+  process.env.TSCIRCUIT_DATASET_DISABLE_AUTOROUTER = "true"
   circuit.schematicDisabled = true
-  // circuit.pcbDisabled = true
   circuit.add(<Circuit />)
 
   const outputPath = path.join(
@@ -35,65 +33,17 @@ export const processCircuitModule = async (processCircuitRequest: {
 
   console.log("[Start]", baseName)
 
-  const simpleRouteWritten = new Promise<string | null>((resolve, reject) => {
-    let settled = false
-    let hasAutoroutingStarted = false
-    const cleanup = () => {
-      if (settled) return
-      settled = true
-    }
-    circuit.on("autorouting:start", async ({ simpleRouteJson }) => {
-      if (settled) return
-      hasAutoroutingStarted = true
-      try {
-        await writeFile(outputPath, JSON.stringify(simpleRouteJson, null, 2))
-        console.log("[Done]", baseName)
-        cleanup()
-        resolve(baseName)
-      } catch (error) {
-        console.log("[Error] writeFile", baseName)
-        cleanup()
-        reject(error)
-      }
-    })
-    circuit.on("autorouting:error", (error) => {
-      if (settled) return
-      console.log("[Error] autorouting", baseName)
-      cleanup()
-      reject(error)
-    })
-    circuit.on("renderComplete", () => {
-      if (settled || hasAutoroutingStarted) return
-      console.log(`[Ignored] ${baseName} due to missing autorouting output`)
-      cleanup()
-      resolve(null)
-    })
-  })
-
-  const timeoutMs = 60_000
-  let timeoutHandle: ReturnType<typeof setTimeout> | undefined
-  const timeout = new Promise<string | null>((_, reject) => {
-    timeoutHandle = setTimeout(
-      () => reject(new Error("autorouting timeout")),
-      timeoutMs,
-    )
-  })
-
   try {
-    void circuit.renderUntilSettled()
-    const result = await Promise.race([simpleRouteWritten, timeout])
-    if (timeoutHandle) {
-      clearTimeout(timeoutHandle)
-    }
-    return result
+    await circuit.renderUntilSettled()
+    const { simpleRouteJson } = getSimpleRouteJsonFromCircuitJson({
+      circuitJson: circuit.getCircuitJson(),
+    })
+    await writeFile(outputPath, JSON.stringify(simpleRouteJson, null, 2))
+    console.log("[Done]", baseName)
+    return baseName
   } catch (error) {
-    if (timeoutHandle) {
-      clearTimeout(timeoutHandle)
-    }
     const errorMessage = error instanceof Error ? error.message : String(error)
-    console.log(
-      `[Ignored] ${baseName} due to autorouting failure: ${errorMessage}`,
-    )
+    console.log(`[Ignored] ${baseName} due to render failure: ${errorMessage}`)
     return null
   }
 }
