@@ -1,43 +1,8 @@
 /** TB6612FNG motor driver board with dual 8-pin headers and bypass capacitors. */
-import type { ChipProps } from "@tscircuit/props"
+// @ts-expect-error
+import { TB6612FNG_C_8_EL as MotorDriver } from "@tsci/imrishabh18.TB6612FNG"
 import manaulEdits from "assets/manual-edits.json"
 import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
-
-const motorDriverPinLabels = {
-  pin1: ["pin1"],
-  pin2: ["pin2"],
-  pin3: ["pin3"],
-  pin4: ["pin4"],
-  pin5: ["pin5"],
-  pin6: ["pin6"],
-  pin7: ["pin7"],
-  pin8: ["pin8"],
-  pin9: ["pin9"],
-  pin10: ["pin10"],
-  pin11: ["pin11"],
-  pin12: ["pin12"],
-  pin13: ["pin13"],
-  pin14: ["pin14"],
-  pin15: ["pin15"],
-  pin16: ["pin16"],
-  pin17: ["pin17"],
-  pin18: ["pin18"],
-  pin19: ["pin19"],
-  pin20: ["pin20"],
-  pin21: ["pin21"],
-  pin22: ["pin22"],
-  pin23: ["pin23"],
-  pin24: ["pin24"],
-} as const
-
-const MotorDriver = (props: ChipProps<typeof motorDriverPinLabels>) => (
-  <chip
-    pinLabels={motorDriverPinLabels}
-    manufacturerPartNumber="TB6612FNG"
-    footprint="qfn24"
-    {...props}
-  />
-)
 
 export default () => {
   return (
