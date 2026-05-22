@@ -7,16 +7,17 @@
   },
   "obstacles": [
     {
+      "componentId": "pcb_component_0",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
         "x": -0.8300000000000001,
-        "y": -2.17
+        "y": -2.0075
       },
-      "width": 0.7,
-      "height": 1,
+      "width": 0.6,
+      "height": 1.325,
       "connectedTo": [
         "pcb_smtpad_0",
         "connectivity_net45",
@@ -32,16 +33,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_0",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
-        "x": 0.11999999999999991,
-        "y": -2.17
+        "x": 0.11999999999999993,
+        "y": -2.0075
       },
-      "width": 0.7,
-      "height": 1,
+      "width": 0.6,
+      "height": 1.325,
       "connectedTo": [
         "pcb_smtpad_1",
         "connectivity_net121",
@@ -65,16 +67,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_0",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
         "x": 1.0699999999999998,
-        "y": -2.17
+        "y": -2.0075
       },
-      "width": 0.7,
-      "height": 1,
+      "width": 0.6,
+      "height": 1.325,
       "connectedTo": [
         "pcb_smtpad_2",
         "connectivity_net97",
@@ -94,16 +97,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_0",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
         "x": 1.07,
-        "y": 0.43000000000000005
+        "y": 0.26749999999999996
       },
-      "width": 0.7,
-      "height": 1,
+      "width": 0.6,
+      "height": 1.325,
       "connectedTo": [
         "pcb_smtpad_3",
         "connectivity_net271",
@@ -113,16 +117,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_0",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
-        "x": 0.12000000000000008,
-        "y": 0.43000000000000005
+        "x": 0.12000000000000006,
+        "y": 0.26749999999999996
       },
-      "width": 0.7,
-      "height": 1,
+      "width": 0.6,
+      "height": 1.325,
       "connectedTo": [
         "pcb_smtpad_4",
         "connectivity_net272",
@@ -132,16 +137,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_0",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
         "x": -0.8299999999999998,
-        "y": 0.43000000000000005
+        "y": 0.26749999999999996
       },
-      "width": 0.7,
-      "height": 1,
+      "width": 0.6,
+      "height": 1.325,
       "connectedTo": [
         "pcb_smtpad_5",
         "connectivity_net273",
@@ -151,6 +157,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_1",
       "type": "rect",
       "layers": [
         "top"
@@ -180,6 +187,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_1",
       "type": "rect",
       "layers": [
         "top"
@@ -205,16 +213,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_2",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
-        "x": 5.96,
+        "x": 6.1225,
         "y": 9.08
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_8",
         "connectivity_net113",
@@ -234,16 +243,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_2",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
-        "x": 5.96,
+        "x": 6.1225,
         "y": 8.13
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_9",
         "connectivity_net23",
@@ -263,16 +273,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_2",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
-        "x": 5.96,
+        "x": 6.1225,
         "y": 7.180000000000001
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_10",
         "connectivity_net111",
@@ -296,16 +307,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_2",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
-        "x": 8.56,
+        "x": 8.397499999999999,
         "y": 7.180000000000001
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_11",
         "connectivity_net274",
@@ -315,16 +327,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_2",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
-        "x": 8.56,
+        "x": 8.397499999999999,
         "y": 8.13
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_12",
         "connectivity_net275",
@@ -334,16 +347,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_2",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
-        "x": 8.56,
+        "x": 8.397499999999999,
         "y": 9.08
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_13",
         "connectivity_net276",
@@ -353,6 +367,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_3",
       "type": "rect",
       "layers": [
         "top"
@@ -386,6 +401,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_3",
       "type": "rect",
       "layers": [
         "top"
@@ -415,6 +431,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_4",
       "type": "rect",
       "layers": [
         "top"
@@ -448,6 +465,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_4",
       "type": "rect",
       "layers": [
         "top"
@@ -481,16 +499,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_7",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
         "x": 13.74,
-        "y": -10.31
+        "y": -10.147499999999999
       },
-      "width": 0.7,
-      "height": 1,
+      "width": 0.6,
+      "height": 1.325,
       "connectedTo": [
         "pcb_smtpad_18",
         "connectivity_net93",
@@ -510,16 +529,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_7",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
         "x": 14.69,
-        "y": -10.31
+        "y": -10.147499999999999
       },
-      "width": 0.7,
-      "height": 1,
+      "width": 0.6,
+      "height": 1.325,
       "connectedTo": [
         "pcb_smtpad_19",
         "connectivity_net45",
@@ -535,16 +555,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_7",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
         "x": 15.639999999999999,
-        "y": -10.31
+        "y": -10.147499999999999
       },
-      "width": 0.7,
-      "height": 1,
+      "width": 0.6,
+      "height": 1.325,
       "connectedTo": [
         "pcb_smtpad_20",
         "connectivity_net115",
@@ -564,16 +585,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_7",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
         "x": 15.639999999999999,
-        "y": -7.71
+        "y": -7.8725
       },
-      "width": 0.7,
-      "height": 1,
+      "width": 0.6,
+      "height": 1.325,
       "connectedTo": [
         "pcb_smtpad_21",
         "connectivity_net277",
@@ -583,16 +605,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_7",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
         "x": 14.69,
-        "y": -7.71
+        "y": -7.8725
       },
-      "width": 0.7,
-      "height": 1,
+      "width": 0.6,
+      "height": 1.325,
       "connectedTo": [
         "pcb_smtpad_22",
         "connectivity_net278",
@@ -602,16 +625,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_7",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
         "x": 13.74,
-        "y": -7.71
+        "y": -7.8725
       },
-      "width": 0.7,
-      "height": 1,
+      "width": 0.6,
+      "height": 1.325,
       "connectedTo": [
         "pcb_smtpad_23",
         "connectivity_net279",
@@ -621,6 +645,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_8",
       "type": "rect",
       "layers": [
         "top"
@@ -654,6 +679,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_8",
       "type": "rect",
       "layers": [
         "top"
@@ -683,6 +709,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_9",
       "type": "rect",
       "layers": [
         "top"
@@ -712,6 +739,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_9",
       "type": "rect",
       "layers": [
         "top"
@@ -745,6 +773,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_10",
       "type": "rect",
       "layers": [
         "top"
@@ -778,6 +807,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_10",
       "type": "rect",
       "layers": [
         "top"
@@ -807,6 +837,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_11",
       "type": "rect",
       "layers": [
         "top"
@@ -840,6 +871,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_11",
       "type": "rect",
       "layers": [
         "top"
@@ -873,16 +905,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_12",
       "type": "rect",
       "layers": [
         "bottom"
       ],
       "center": {
-        "x": -0.7299999999999998,
+        "x": -0.8924999999999998,
         "y": -7.13
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_32",
         "connectivity_net113",
@@ -902,16 +935,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_12",
       "type": "rect",
       "layers": [
         "bottom"
       ],
       "center": {
-        "x": -0.7299999999999998,
+        "x": -0.8924999999999998,
         "y": -8.08
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_33",
         "connectivity_net75",
@@ -927,16 +961,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_12",
       "type": "rect",
       "layers": [
         "bottom"
       ],
       "center": {
-        "x": -0.7299999999999998,
+        "x": -0.8924999999999998,
         "y": -9.03
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_34",
         "connectivity_net71",
@@ -956,16 +991,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_12",
       "type": "rect",
       "layers": [
         "bottom"
       ],
       "center": {
-        "x": -3.33,
+        "x": -3.1674999999999995,
         "y": -9.03
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_35",
         "connectivity_net280",
@@ -975,16 +1011,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_12",
       "type": "rect",
       "layers": [
         "bottom"
       ],
       "center": {
-        "x": -3.33,
+        "x": -3.1674999999999995,
         "y": -8.08
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_36",
         "connectivity_net281",
@@ -994,16 +1031,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_12",
       "type": "rect",
       "layers": [
         "bottom"
       ],
       "center": {
-        "x": -3.33,
+        "x": -3.1674999999999995,
         "y": -7.13
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_37",
         "connectivity_net282",
@@ -1013,6 +1051,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_13",
       "type": "rect",
       "layers": [
         "top"
@@ -1038,6 +1077,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_13",
       "type": "rect",
       "layers": [
         "top"
@@ -1071,16 +1111,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_14",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
-        "x": 6.29,
+        "x": 6.4525,
         "y": -6.97
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_40",
         "connectivity_net89",
@@ -1100,16 +1141,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_14",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
-        "x": 6.29,
+        "x": 6.4525,
         "y": -7.92
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_41",
         "connectivity_net117",
@@ -1133,16 +1175,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_14",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
-        "x": 6.29,
+        "x": 6.4525,
         "y": -8.87
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_42",
         "connectivity_net117",
@@ -1166,16 +1209,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_14",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
-        "x": 8.89,
+        "x": 8.7275,
         "y": -8.87
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_43",
         "connectivity_net283",
@@ -1185,16 +1229,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_14",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
-        "x": 8.89,
+        "x": 8.7275,
         "y": -7.92
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_44",
         "connectivity_net284",
@@ -1204,16 +1249,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_14",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
-        "x": 8.89,
+        "x": 8.7275,
         "y": -6.97
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_45",
         "connectivity_net285",
@@ -1223,6 +1269,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_15",
       "type": "rect",
       "layers": [
         "top"
@@ -1256,6 +1303,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_15",
       "type": "rect",
       "layers": [
         "top"
@@ -1285,6 +1333,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_16",
       "type": "rect",
       "layers": [
         "top"
@@ -1314,6 +1363,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_16",
       "type": "rect",
       "layers": [
         "top"
@@ -1347,6 +1397,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_17",
       "type": "rect",
       "layers": [
         "top"
@@ -1376,6 +1427,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_17",
       "type": "rect",
       "layers": [
         "top"
@@ -1405,6 +1457,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_18",
       "type": "rect",
       "layers": [
         "top"
@@ -1438,6 +1491,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_18",
       "type": "rect",
       "layers": [
         "top"
@@ -1471,6 +1525,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_19",
       "type": "rect",
       "layers": [
         "top"
@@ -1504,6 +1559,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_19",
       "type": "rect",
       "layers": [
         "top"
@@ -1537,16 +1593,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_20",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
-        "x": 2.63,
+        "x": 2.4675,
         "y": -14.649999999999999
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_56",
         "connectivity_net111",
@@ -1570,16 +1627,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_20",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
-        "x": 2.63,
+        "x": 2.4675000000000002,
         "y": -13.7
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_57",
         "connectivity_net107",
@@ -1603,16 +1661,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_20",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
-        "x": 2.6300000000000003,
+        "x": 2.4675000000000002,
         "y": -12.75
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_58",
         "connectivity_net109",
@@ -1628,16 +1687,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_20",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
-        "x": 0.03000000000000025,
+        "x": 0.19250000000000034,
         "y": -12.75
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_59",
         "connectivity_net286",
@@ -1647,16 +1707,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_20",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
-        "x": 0.030000000000000027,
+        "x": 0.19250000000000012,
         "y": -13.7
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_60",
         "connectivity_net287",
@@ -1666,16 +1727,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_20",
       "type": "rect",
       "layers": [
         "top"
       ],
       "center": {
-        "x": 0.029999999999999805,
+        "x": 0.1924999999999999,
         "y": -14.649999999999999
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_61",
         "connectivity_net288",
@@ -1685,16 +1747,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_21",
       "type": "rect",
       "layers": [
         "bottom"
       ],
       "center": {
-        "x": -16.24,
+        "x": -16.0775,
         "y": -18.349999999999998
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_62",
         "connectivity_net117",
@@ -1718,16 +1781,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_21",
       "type": "rect",
       "layers": [
         "bottom"
       ],
       "center": {
-        "x": -16.24,
+        "x": -16.0775,
         "y": -17.4
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_63",
         "connectivity_net115",
@@ -1747,16 +1811,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_21",
       "type": "rect",
       "layers": [
         "bottom"
       ],
       "center": {
-        "x": -16.24,
+        "x": -16.0775,
         "y": -16.45
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_64",
         "connectivity_net113",
@@ -1776,16 +1841,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_21",
       "type": "rect",
       "layers": [
         "bottom"
       ],
       "center": {
-        "x": -13.639999999999999,
+        "x": -13.802499999999998,
         "y": -16.45
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_65",
         "connectivity_net289",
@@ -1795,16 +1861,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_21",
       "type": "rect",
       "layers": [
         "bottom"
       ],
       "center": {
-        "x": -13.639999999999999,
+        "x": -13.8025,
         "y": -17.4
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_66",
         "connectivity_net290",
@@ -1814,16 +1881,17 @@
       ]
     },
     {
+      "componentId": "pcb_component_21",
       "type": "rect",
       "layers": [
         "bottom"
       ],
       "center": {
-        "x": -13.64,
+        "x": -13.8025,
         "y": -18.349999999999998
       },
-      "width": 1,
-      "height": 0.7,
+      "width": 1.325,
+      "height": 0.6,
       "connectedTo": [
         "pcb_smtpad_67",
         "connectivity_net291",
@@ -1833,6 +1901,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_22",
       "type": "rect",
       "layers": [
         "top"
@@ -1866,6 +1935,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_22",
       "type": "rect",
       "layers": [
         "top"
@@ -1899,6 +1969,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_5",
       "type": "oval",
       "layers": [
         "top",
@@ -1927,6 +1998,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_5",
       "type": "oval",
       "layers": [
         "top",
@@ -1955,6 +2027,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_6",
       "type": "oval",
       "layers": [
         "top",
@@ -1987,6 +2060,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_6",
       "type": "oval",
       "layers": [
         "top",
@@ -2025,7 +2099,7 @@
       "pointsToConnect": [
         {
           "x": 1.0699999999999998,
-          "y": -2.17,
+          "y": -2.0075,
           "layer": "top",
           "pointId": "pcb_port_2",
           "pcb_port_id": "pcb_port_2"
@@ -2051,14 +2125,14 @@
       "pointsToConnect": [
         {
           "x": -0.8300000000000001,
-          "y": -2.17,
+          "y": -2.0075,
           "layer": "top",
           "pointId": "pcb_port_0",
           "pcb_port_id": "pcb_port_0"
         },
         {
           "x": 14.69,
-          "y": -10.31,
+          "y": -10.147499999999999,
           "layer": "top",
           "pointId": "pcb_port_23",
           "pcb_port_id": "pcb_port_23"
@@ -2069,8 +2143,8 @@
       "name": "source_net_2",
       "pointsToConnect": [
         {
-          "x": 0.11999999999999991,
-          "y": -2.17,
+          "x": 0.11999999999999993,
+          "y": -2.0075,
           "layer": "top",
           "pointId": "pcb_port_1",
           "pcb_port_id": "pcb_port_1"
@@ -2109,7 +2183,7 @@
           "pcb_port_id": "pcb_port_6"
         },
         {
-          "x": 5.96,
+          "x": 6.1225,
           "y": 8.13,
           "layer": "top",
           "pointId": "pcb_port_9",
@@ -2135,7 +2209,7 @@
           "pcb_port_id": "pcb_port_7"
         },
         {
-          "x": 2.6300000000000003,
+          "x": 2.4675000000000002,
           "y": -12.75,
           "layer": "top",
           "pointId": "pcb_port_62",
@@ -2147,21 +2221,21 @@
       "name": "source_net_5",
       "pointsToConnect": [
         {
-          "x": 5.96,
+          "x": 6.1225,
           "y": 9.08,
           "layer": "top",
           "pointId": "pcb_port_8",
           "pcb_port_id": "pcb_port_8"
         },
         {
-          "x": -0.7299999999999998,
+          "x": -0.8924999999999998,
           "y": -7.13,
           "layer": "bottom",
           "pointId": "pcb_port_36",
           "pcb_port_id": "pcb_port_36"
         },
         {
-          "x": -16.24,
+          "x": -16.0775,
           "y": -16.45,
           "layer": "bottom",
           "pointId": "pcb_port_68",
@@ -2173,7 +2247,7 @@
       "name": "source_net_6",
       "pointsToConnect": [
         {
-          "x": 5.96,
+          "x": 6.1225,
           "y": 7.180000000000001,
           "layer": "top",
           "pointId": "pcb_port_10",
@@ -2194,7 +2268,7 @@
           "pcb_port_id": "pcb_port_58"
         },
         {
-          "x": 2.63,
+          "x": 2.4675,
           "y": -14.649999999999999,
           "layer": "top",
           "pointId": "pcb_port_60",
@@ -2298,7 +2372,7 @@
           "pcb_port_id": "pcb_port_18"
         },
         {
-          "x": -0.7299999999999998,
+          "x": -0.8924999999999998,
           "y": -8.08,
           "layer": "bottom",
           "pointId": "pcb_port_37",
@@ -2318,13 +2392,13 @@
         },
         {
           "x": 15.639999999999999,
-          "y": -10.31,
+          "y": -10.147499999999999,
           "layer": "top",
           "pointId": "pcb_port_24",
           "pcb_port_id": "pcb_port_24"
         },
         {
-          "x": -16.24,
+          "x": -16.0775,
           "y": -17.4,
           "layer": "bottom",
           "pointId": "pcb_port_67",
@@ -2343,7 +2417,7 @@
           "pcb_port_id": "pcb_port_20"
         },
         {
-          "x": 6.29,
+          "x": 6.4525,
           "y": -6.97,
           "layer": "top",
           "pointId": "pcb_port_44",
@@ -2363,7 +2437,7 @@
       "pointsToConnect": [
         {
           "x": 13.74,
-          "y": -10.31,
+          "y": -10.147499999999999,
           "layer": "top",
           "pointId": "pcb_port_22",
           "pcb_port_id": "pcb_port_22"
@@ -2402,7 +2476,7 @@
           "pcb_port_id": "pcb_port_33"
         },
         {
-          "x": -0.7299999999999998,
+          "x": -0.8924999999999998,
           "y": -9.03,
           "layer": "bottom",
           "pointId": "pcb_port_38",
@@ -2435,7 +2509,7 @@
           "pcb_port_id": "pcb_port_57"
         },
         {
-          "x": 2.63,
+          "x": 2.4675000000000002,
           "y": -13.7,
           "layer": "top",
           "pointId": "pcb_port_61",
@@ -2454,21 +2528,21 @@
           "pcb_port_id": "pcb_port_32"
         },
         {
-          "x": 6.29,
+          "x": 6.4525,
           "y": -7.92,
           "layer": "top",
           "pointId": "pcb_port_45",
           "pcb_port_id": "pcb_port_45"
         },
         {
-          "x": 6.29,
+          "x": 6.4525,
           "y": -8.87,
           "layer": "top",
           "pointId": "pcb_port_46",
           "pcb_port_id": "pcb_port_46"
         },
         {
-          "x": -16.24,
+          "x": -16.0775,
           "y": -18.349999999999998,
           "layer": "bottom",
           "pointId": "pcb_port_66",
@@ -2478,5 +2552,15 @@
     }
   ],
   "layerCount": 4,
-  "minTraceWidth": 0.15
+  "minTraceWidth": 0.1,
+  "minViaDiameter": 0.3,
+  "minViaHoleDiameter": 0.2,
+  "minViaPadDiameter": 0.3,
+  "min_via_hole_diameter": 0.2,
+  "min_via_pad_diameter": 0.3,
+  "minTraceToPadEdgeClearance": 0.1,
+  "minViaHoleEdgeToViaHoleEdgeClearance": 0.1,
+  "minPlatedHoleDrillEdgeToDrillEdgeClearance": 0.15,
+  "minPadEdgeToPadEdgeClearance": 0.1,
+  "minBoardEdgeClearance": 0.2
 }
