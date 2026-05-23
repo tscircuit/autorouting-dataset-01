@@ -17,7 +17,11 @@ const pinLabels = {
 }
 
 export default () => (
-  <board routingDisabled={!shouldAutorouterRun()} width="30mm" height="30mm">
+  <board
+    routingDisabled={!shouldAutorouterRun()}
+    width="25.4mm"
+    height="25.4mm"
+  >
     <chip
       name="U1"
       pinLabels={pinLabels}
