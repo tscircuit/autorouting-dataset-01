@@ -7,6 +7,7 @@
   },
   "obstacles": [
     {
+      "componentId": "pcb_component_1",
       "type": "rect",
       "layers": [
         "top"
@@ -34,6 +35,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_1",
       "type": "rect",
       "layers": [
         "top"
@@ -59,6 +61,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_2",
       "type": "rect",
       "layers": [
         "top"
@@ -82,6 +85,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_2",
       "type": "rect",
       "layers": [
         "top"
@@ -107,6 +111,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_3",
       "type": "rect",
       "layers": [
         "top"
@@ -130,6 +135,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_3",
       "type": "rect",
       "layers": [
         "top"
@@ -155,6 +161,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_3",
       "type": "rect",
       "layers": [
         "top"
@@ -182,6 +189,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_3",
       "type": "rect",
       "layers": [
         "top"
@@ -207,6 +215,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_0",
       "type": "oval",
       "layers": [
         "top",
@@ -229,6 +238,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_0",
       "type": "oval",
       "layers": [
         "top",
@@ -259,6 +269,7 @@
       ]
     },
     {
+      "componentId": "pcb_component_0",
       "type": "oval",
       "layers": [
         "top",
