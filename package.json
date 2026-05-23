@@ -21,6 +21,8 @@
     "snapshot": "tsci snapshot",
     "snapshot:update": "tsci snapshot --update",
     "start": "tsci dev",
+    "cosmos": "cosmos",
+    "build:site": "cosmos-export",
     "format": "biome format --write",
     "lint": "biome lint",
     "lint:fix": "biome lint --write",
@@ -44,7 +46,7 @@
     "kleur": "^4.1.5"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.3.13",
+    "@biomejs/biome": "2.4.15",
     "@tsci/imrishabh18.TB6612FNG": "^0.1.0",
     "@tsci/seveibar.PICO": "^0.1.0",
     "@tsci/seveibar.PICO_W": "^0.1.0",
@@ -60,7 +62,12 @@
     "@tscircuit/solver-utils": "^0.0.14",
     "@types/bun": "^1.3.9",
     "@types/react": "^19.2.9",
+    "react": "^19.2.6",
+    "react-cosmos": "^7.3.0",
+    "react-cosmos-plugin-vite": "^7.3.0",
+    "react-dom": "^19.2.6",
     "tscircuit": "^0.0.1168",
-    "tsup": "^8.2.4"
+    "tsup": "^8.2.4",
+    "vite": "^8.0.14"
   }
 }
