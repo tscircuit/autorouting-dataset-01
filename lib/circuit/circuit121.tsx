@@ -4,15 +4,15 @@ import { shouldAutorouterRun } from "lib/shouldAutorouterRun"
 export default () => (
   <board
     routingDisabled={!shouldAutorouterRun()}
-    width="56.70mm"
-    height="56.70mm"
+    width="28.00mm"
+    height="28.00mm"
   >
     <resistor
       name="resistor-1"
       footprint="0805"
-      pcbX={-1.875}
-      pcbY={9.375}
-      pcbRotation={0.0}
+      pcbX={-1.0}
+      pcbY={5.0}
+      pcbRotation={45.0}
       layer="bottom"
       connections={{
         pin2: "net.N8",
@@ -23,9 +23,9 @@ export default () => (
     <resistor
       name="resistor-2"
       footprint="0805"
-      pcbX={7.5}
-      pcbY={13.125}
-      pcbRotation={0.0}
+      pcbX={4.0}
+      pcbY={7.0}
+      pcbRotation={90.0}
       layer="top"
       connections={{
         pin2: "net.N5",
@@ -36,8 +36,8 @@ export default () => (
     <capacitor
       name="capacitor-1"
       footprint="0402"
-      pcbX={-18.75}
-      pcbY={13.125}
+      pcbX={-10.0}
+      pcbY={7.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -49,9 +49,9 @@ export default () => (
     <inductor
       name="inductor-1"
       footprint="0603"
-      pcbX={5.625}
-      pcbY={20.625}
-      pcbRotation={0.0}
+      pcbX={3.0}
+      pcbY={11.0}
+      pcbRotation={45.0}
       layer="bottom"
       connections={{
         pin2: "net.N7",
@@ -62,8 +62,8 @@ export default () => (
     <diode
       name="diode-1"
       footprint="sod323"
-      pcbX={-13.125}
-      pcbY={1.875}
+      pcbX={-7.0}
+      pcbY={1.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -75,7 +75,7 @@ export default () => (
       name="diode-2"
       footprint="sod323"
       pcbX={0.0}
-      pcbY={1.875}
+      pcbY={1.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -86,8 +86,8 @@ export default () => (
     <transistor
       name="transistor-1"
       footprint="SOT-223"
-      pcbX={-20.625}
-      pcbY={5.625}
+      pcbX={-11.0}
+      pcbY={3.0}
       pcbRotation={0.0}
       layer="bottom"
       connections={{
@@ -100,8 +100,8 @@ export default () => (
     <transistor
       name="transistor-2"
       footprint="SOT-23"
-      pcbX={9.375}
-      pcbY={-1.875}
+      pcbX={5.0}
+      pcbY={-1.0}
       pcbRotation={0.0}
       layer="top"
       connections={{
@@ -114,9 +114,9 @@ export default () => (
     <pinheader
       name="pinhead-1"
       footprint="pinrow4"
-      pcbX={-5.625}
-      pcbY={-9.375}
-      pcbRotation={0.0}
+      pcbX={-3.0}
+      pcbY={-5.0}
+      pcbRotation={90.0}
       layer="bottom"
       connections={{
         pin2: "net.N2",
@@ -130,9 +130,9 @@ export default () => (
     <pinheader
       name="pinhead-2"
       footprint="pinrow4"
-      pcbX={-15.0}
-      pcbY={-16.875}
-      pcbRotation={0.0}
+      pcbX={-8.0}
+      pcbY={-9.0}
+      pcbRotation={45.0}
       layer="top"
       connections={{
         pin4: "net.N3",
@@ -146,8 +146,8 @@ export default () => (
     <pinheader
       name="pinhead-3"
       footprint="pinrow6"
-      pcbX={11.25}
-      pcbY={-9.375}
+      pcbX={6.0}
+      pcbY={-5.0}
       pcbRotation={0.0}
       layer="top"
       connections={{

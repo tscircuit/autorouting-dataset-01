@@ -2,11 +2,7 @@ import { mkdir, readdir, writeFile } from "node:fs/promises"
 import path from "node:path"
 import { processCircuitModule } from "scripts/create-dataset/processCircuitModule"
 
-export const writeDatasetIndex = async (
-  datasetDirectory = path.resolve("lib", "dataset"),
-): Promise<void> => {
-  await mkdir(datasetDirectory, { recursive: true })
-
+const writeDatasetIndex = async (datasetDirectory: string): Promise<void> => {
   const datasetFiles = (await readdir(datasetDirectory))
     .filter((file) => file.endsWith(".simple-route.json"))
     .sort()
@@ -18,7 +14,7 @@ export const writeDatasetIndex = async (
     })
     .join("\n")
 
-  await writeFile(path.join(datasetDirectory, "index.js"), indexContent)
+  await writeFile(path.join(datasetDirectory, "index.ts"), indexContent)
 }
 
 /**
@@ -26,7 +22,7 @@ export const writeDatasetIndex = async (
  */
 export const createDatasetFromLib = async (createDatasetRequest: {
   circuitFilePathList: string[]
-}): Promise<string[]> => {
+}): Promise<void> => {
   const datasetDirectory = path.resolve("lib", "dataset")
 
   await mkdir(datasetDirectory, { recursive: true })
@@ -34,8 +30,6 @@ export const createDatasetFromLib = async (createDatasetRequest: {
   const circuitFilePathList = [
     ...createDatasetRequest.circuitFilePathList,
   ].sort()
-
-  const generatedBaseNames: string[] = []
 
   for (const circuitFilePath of circuitFilePathList) {
     const baseName = path.basename(circuitFilePath, ".tsx")
@@ -48,40 +42,7 @@ export const createDatasetFromLib = async (createDatasetRequest: {
     })
 
     if (result) {
-      generatedBaseNames.push(result)
+      await writeDatasetIndex(datasetDirectory)
     }
   }
-
-  await writeDatasetIndex(datasetDirectory)
-
-  return generatedBaseNames
-}
-
-const main = async () => {
-  const circuitFilePath = process.argv[2]
-
-  if (!circuitFilePath) {
-    console.error(
-      "Usage: bun scripts/create-dataset/createDatasetFromLib.ts <circuit-file.tsx>",
-    )
-    process.exit(1)
-  }
-
-  if (!circuitFilePath.endsWith(".tsx")) {
-    console.error("Provided file path must end with .tsx")
-    process.exit(1)
-  }
-
-  await createDatasetFromLib({
-    circuitFilePathList: [circuitFilePath.replace(/^\.\//, "")],
-  })
-
-  process.exit(0)
-}
-
-if (import.meta.main) {
-  void main().catch((error) => {
-    console.error(error)
-    process.exit(1)
-  })
 }

@@ -35,7 +35,7 @@ export default () => (
     <diode
       name="diode-2"
       footprint="sod123"
-      pcbX={2.5}
+      pcbX={2.0}
       pcbY={-2.0}
       pcbRotation={0.0}
       layer="top"
@@ -47,7 +47,7 @@ export default () => (
     <diode
       name="diode-3"
       footprint="sod123"
-      pcbX={-2.5}
+      pcbX={-2.0}
       pcbY={-2.0}
       pcbRotation={0.0}
       layer="top"

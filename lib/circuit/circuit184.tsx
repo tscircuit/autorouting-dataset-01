@@ -90,7 +90,7 @@ export default () => (
       footprint="0805"
       pcbX={-25.0}
       pcbY={10.0}
-      pcbRotation={0.0}
+      pcbRotation={45.0}
       layer="top"
       connections={{
         pin2: "net.N16",
@@ -167,7 +167,7 @@ export default () => (
       name="inductor-5"
       footprint="0805"
       pcbX={20.0}
-      pcbY={5.0}
+      pcbY={2.0}
       pcbRotation={90.0}
       layer="bottom"
       connections={{
@@ -228,9 +228,9 @@ export default () => (
     <diode
       name="diode-4"
       footprint="sod123"
-      pcbX={11.0}
+      pcbX={13.0}
       pcbY={2.0}
-      pcbRotation={0.0}
+      pcbRotation={45.0}
       layer="top"
       connections={{
         pin1: "net.N12",
@@ -366,7 +366,7 @@ export default () => (
     <pinheader
       name="pinhead-2"
       footprint="pinrow6"
-      pcbX={22.0}
+      pcbX={24.0}
       pcbY={2.0}
       pcbRotation={0.0}
       layer="top"

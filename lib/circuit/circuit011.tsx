@@ -11,7 +11,7 @@ import { sel } from "tscircuit"
  * - Includes 2.2k pull-ups and a local decoupling capacitor.
  */
 export default () => (
-  <board routingDisabled={!shouldAutorouterRun()} width="32mm" height="22mm">
+  <board routingDisabled={!shouldAutorouterRun()} width="32mm" height="20mm">
     <schematictext
       text="I2C Qwiic Splitter"
       fontSize={0.35}

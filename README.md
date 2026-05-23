@@ -1,85 +1,24 @@
 # autorouting-dataset-01
 
-Benchmark dataset and tooling for evaluating autorouters against a shared set of `tscircuit` board layouts.
+A set of tscircuit problems to benchmark autorouting (currently 16 circuits in `lib/`).
 
-The repository currently publishes 205 generated `SimpleRouteJson` scenarios from the `lib/dataset/` package entrypoint. Scenario IDs are intentionally sparse: source circuits are numbered, but some are ignored or do not produce dataset output.
+## Problems in this repo
 
-## What is in this repo
+1. Bootstrap `tsci init`
+2. Generate TSX files use footprint strings (can have scripts to generate, problems just need to be varied) (No overlapping components etc.)
+3. Script that generates sample001.srj.json, sample002.srj.json
+4. Literally publish to npm, and use for benchmarks inside autorouter repo
 
-- `lib/circuit/`: source TSX circuit definitions.
-- `lib/dataset/`: generated `*.simple-route.json` benchmark scenarios and `index.js` exports.
-- `fixtures/preview.fixture.tsx`: local preview page for browsing SRJ scenarios.
-- `lib/cli/`: CLI for running an autorouter implementation against the dataset.
-- `scripts/create-dataset/`: dataset generation from `lib/circuit/`.
-- `scripts/run-benchmark/`: benchmark execution and HTML report generation.
+## Progression of stuff
 
-## Install
+1. Get 200 problems
+2. Convert 200 problems to simple route json
+3. Run against every pipeline, and report completion %, inside a file. Check for fatal DRC errors. (Completed 43%, DRC Pass 30%)
 
-```bash
-bun install
-```
+| Pipeline | Completed | DRC Pass | Avg Time per Circuit |
+| -------- | --------- | -------- | ----- |
+| `AutoroutingPipeline2` | 43% | 30% | 5s |
+| `AutoroutingPipeline4_HyperGraphPortPoint` | 50% | 30% | 4s |
 
-## Local development
-
-Run the preview/dev environment:
-
-```bash
-bun run dev
-```
-
-Open the preview fixture to inspect generated scenarios from `lib/dataset/`.
-
-## Dataset generation
-
-Generate the dataset from the circuit files listed in `tscircuit.config.json`:
-
-```bash
-bun scripts/create-dataset/index.ts
-```
-
-Generate a single circuit:
-
-```bash
-bun scripts/create-dataset/index.ts lib/circuit/circuit001.tsx
-```
-
-This writes `*.simple-route.json` files into `lib/dataset/` and refreshes `lib/dataset/index.js`.
-
-## Benchmark CLI
-
-Build the CLI bundle:
-
-```bash
-bun run build:cli
-```
-
-Run a benchmark against an autorouter export:
-
-```bash
-autorouting-dataset-runner <autorouter-path> [solver-name]
-```
-
-Useful options:
-
-- `--scenario-limit <count>`: run only part of the dataset.
-- `--output <path>`: write the HTML report to a custom location.
-
-The CLI writes benchmark reports into `results/` by default.
-
-## Quality checks
-
-Run formatting/linting checks:
-
-```bash
-bun run check
-```
-
-Run tests:
-
-```bash
-bun test
-```
-
-## Publishing
-
-The published package entrypoint is `lib/dataset/index.js`, which re-exports every generated scenario for downstream benchmark consumers.
+4. Script for generating benchmark against all pipelines
+5. Script for generating for a single pipeline (allows comparing)
