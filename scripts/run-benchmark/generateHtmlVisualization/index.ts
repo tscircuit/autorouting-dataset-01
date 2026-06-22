@@ -17,6 +17,7 @@ export const generateHtmlVisualization = (inputs: {
     tableHeaderList: string[]
     tableRowList: string[][]
     scenarioCount: number
+    previousBestRow?: BenchmarkRow | null
   }
   detail_json: BenchmarkDetailsJson
   result_row_list: BenchmarkRow[]

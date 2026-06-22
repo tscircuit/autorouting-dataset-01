@@ -8,6 +8,7 @@ import { loadUserAutorouter } from "lib/cli/loadUserAutorouter"
 import { buildBenchmarkDetailsJson } from "scripts/run-benchmark/buildBenchmarkDetailsJson"
 import { buildBenchmarkSummaryJson } from "scripts/run-benchmark/buildBenchmarkSummaryJson"
 import { generateHtmlVisualization } from "scripts/run-benchmark/generateHtmlVisualization"
+import { loadPreviousBestBenchmarkRow } from "scripts/run-benchmark/loadPreviousBestBenchmarkRow"
 import { loadScenarioList } from "scripts/run-benchmark/loadScenarioList"
 import { outputTabled } from "scripts/run-benchmark/outputTabled"
 import { runBenchmark } from "scripts/run-benchmark/runBenchmark"
@@ -16,6 +17,7 @@ import { solverDisplayNameByConstructor } from "scripts/run-benchmark/solvers"
 interface RunOptions {
   scenarioLimit?: string
   output?: string
+  previousResults?: string
 }
 
 const findDatasetDirectory = async (): Promise<string> => {
@@ -62,6 +64,10 @@ export const registerRun = (program: Command) => {
     .argument("[solver-name]", "Specific export name to use as solver")
     .option("-l, --scenario-limit <count>", "Limit number of scenarios to run")
     .option("-o, --output <path>", "Output HTML file path")
+    .option(
+      "--previous-results <path>",
+      "Previous benchmark-output.json to show old best result",
+    )
     .action(
       async (
         autorouterPath: string,
@@ -121,13 +127,22 @@ export const registerRun = (program: Command) => {
             solverConstructorList: [solverConstructor],
           })
 
-          const outputText = outputTabled({ resultRowList, scenarioList })
+          const previousBestRow = await loadPreviousBestBenchmarkRow(
+            options.previousResults,
+          )
+
+          const outputText = outputTabled({
+            resultRowList,
+            scenarioList,
+            previousBestRow,
+          })
           console.log("")
           console.log(outputText)
 
           const summaryJson = buildBenchmarkSummaryJson({
             resultRowList,
             scenarioList,
+            previousBestRow,
           })
           const detailJson = buildBenchmarkDetailsJson({
             scenarioResultList,

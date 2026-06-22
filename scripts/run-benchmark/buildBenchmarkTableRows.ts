@@ -6,8 +6,9 @@ import type { BenchmarkRow } from "types/run-benchmark/BenchmarkRow"
  */
 const buildBenchmarkTableRows = (inputs: {
   resultRowList: BenchmarkRow[]
+  previousBestRow?: BenchmarkRow | null
 }): { tableHeaderList: string[]; tableRowList: string[][] } => {
-  const { resultRowList } = inputs
+  const { resultRowList, previousBestRow } = inputs
   const tableHeaderList = [
     "Solver",
     "Completed %",
@@ -25,6 +26,18 @@ const buildBenchmarkTableRows = (inputs: {
     formatTimeSeconds(result.p50TimeMs),
     formatTimeSeconds(result.p95TimeMs),
   ])
+
+  if (previousBestRow) {
+    tableRowList.push([
+      `Old Best (${previousBestRow.solverName})`,
+      `${previousBestRow.successRatePercent.toFixed(1)}%`,
+      previousBestRow.relaxedDrcRatePercent === null
+        ? "n/a"
+        : `${previousBestRow.relaxedDrcRatePercent.toFixed(1)}%`,
+      formatTimeSeconds(previousBestRow.p50TimeMs),
+      formatTimeSeconds(previousBestRow.p95TimeMs),
+    ])
+  }
 
   return { tableHeaderList, tableRowList }
 }
