@@ -15,6 +15,7 @@ import { solverDisplayNameByConstructor } from "scripts/run-benchmark/solvers"
 
 interface RunOptions {
   scenarioLimit?: string
+  concurrency?: string
   output?: string
 }
 
@@ -61,6 +62,10 @@ export const registerRun = (program: Command) => {
     .argument("<autorouter-path>", "Path to autorouter TypeScript file")
     .argument("[solver-name]", "Specific export name to use as solver")
     .option("-l, --scenario-limit <count>", "Limit number of scenarios to run")
+    .option(
+      "-c, --concurrency <count>",
+      "Number of benchmark jobs to run in parallel",
+    )
     .option("-o, --output <path>", "Output HTML file path")
     .action(
       async (
@@ -97,6 +102,9 @@ export const registerRun = (program: Command) => {
           const scenarioCountLimit = options.scenarioLimit
             ? Number.parseInt(options.scenarioLimit, 10)
             : null
+          const concurrency = options.concurrency
+            ? Number.parseInt(options.concurrency, 10)
+            : undefined
 
           const scenarioList = await loadScenarioList({
             datasetDirectory,
@@ -119,6 +127,7 @@ export const registerRun = (program: Command) => {
           const { resultRowList, scenarioResultList } = await runBenchmark({
             scenarioList,
             solverConstructorList: [solverConstructor],
+            concurrency,
           })
 
           const outputText = outputTabled({ resultRowList, scenarioList })
