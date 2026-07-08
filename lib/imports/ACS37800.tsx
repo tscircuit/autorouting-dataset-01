@@ -31,64 +31,64 @@ export const ACS37800 = (props: ChipProps<typeof pinLabels>) => {
             portHints={["pin1"]}
             pcbX="-2.2mm"
             pcbY="2.8mm"
-            width="0.6mm"
-            height="1.6mm"
+            width="1.6mm"
+            height="0.6mm"
             shape="rect"
           />
           <smtpad
             portHints={["pin2"]}
             pcbX="-2.2mm"
             pcbY="2.0mm"
-            width="0.6mm"
-            height="1.6mm"
+            width="1.6mm"
+            height="0.6mm"
             shape="rect"
           />
           <smtpad
             portHints={["pin3"]}
             pcbX="-2.2mm"
             pcbY="1.2mm"
-            width="0.6mm"
-            height="1.6mm"
+            width="1.6mm"
+            height="0.6mm"
             shape="rect"
           />
           <smtpad
             portHints={["pin4"]}
             pcbX="-2.2mm"
             pcbY="0.4mm"
-            width="0.6mm"
-            height="1.6mm"
+            width="1.6mm"
+            height="0.6mm"
             shape="rect"
           />
           <smtpad
             portHints={["pin5"]}
             pcbX="-2.2mm"
             pcbY="-0.4mm"
-            width="0.6mm"
-            height="1.6mm"
+            width="1.6mm"
+            height="0.6mm"
             shape="rect"
           />
           <smtpad
             portHints={["pin6"]}
             pcbX="-2.2mm"
             pcbY="-1.2mm"
-            width="0.6mm"
-            height="1.6mm"
+            width="1.6mm"
+            height="0.6mm"
             shape="rect"
           />
           <smtpad
             portHints={["pin7"]}
             pcbX="-2.2mm"
             pcbY="-2.0mm"
-            width="0.6mm"
-            height="1.6mm"
+            width="1.6mm"
+            height="0.6mm"
             shape="rect"
           />
           <smtpad
             portHints={["pin8"]}
             pcbX="-2.2mm"
             pcbY="-2.8mm"
-            width="0.6mm"
-            height="1.6mm"
+            width="1.6mm"
+            height="0.6mm"
             shape="rect"
           />
 
@@ -96,64 +96,64 @@ export const ACS37800 = (props: ChipProps<typeof pinLabels>) => {
             portHints={["pin9"]}
             pcbX="2.2mm"
             pcbY="-2.8mm"
-            width="0.6mm"
-            height="1.6mm"
+            width="1.6mm"
+            height="0.6mm"
             shape="rect"
           />
           <smtpad
             portHints={["pin10"]}
             pcbX="2.2mm"
             pcbY="-2.0mm"
-            width="0.6mm"
-            height="1.6mm"
+            width="1.6mm"
+            height="0.6mm"
             shape="rect"
           />
           <smtpad
             portHints={["pin11"]}
             pcbX="2.2mm"
             pcbY="-1.2mm"
-            width="0.6mm"
-            height="1.6mm"
+            width="1.6mm"
+            height="0.6mm"
             shape="rect"
           />
           <smtpad
             portHints={["pin12"]}
             pcbX="2.2mm"
             pcbY="-0.4mm"
-            width="0.6mm"
-            height="1.6mm"
+            width="1.6mm"
+            height="0.6mm"
             shape="rect"
           />
           <smtpad
             portHints={["pin13"]}
             pcbX="2.2mm"
             pcbY="0.4mm"
-            width="0.6mm"
-            height="1.6mm"
+            width="1.6mm"
+            height="0.6mm"
             shape="rect"
           />
           <smtpad
             portHints={["pin14"]}
             pcbX="2.2mm"
             pcbY="1.2mm"
-            width="0.6mm"
-            height="1.6mm"
+            width="1.6mm"
+            height="0.6mm"
             shape="rect"
           />
           <smtpad
             portHints={["pin15"]}
             pcbX="2.2mm"
             pcbY="2.0mm"
-            width="0.6mm"
-            height="1.6mm"
+            width="1.6mm"
+            height="0.6mm"
             shape="rect"
           />
           <smtpad
             portHints={["pin16"]}
             pcbX="2.2mm"
             pcbY="2.8mm"
-            width="0.6mm"
-            height="1.6mm"
+            width="1.6mm"
+            height="0.6mm"
             shape="rect"
           />
 
