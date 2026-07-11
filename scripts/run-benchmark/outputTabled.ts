@@ -8,10 +8,12 @@ import type { Scenario } from "types/run-benchmark/Scenario"
 const outputTabled = (inputs: {
   resultRowList: BenchmarkRow[]
   scenarioList: Scenario[]
+  previousBestRow?: BenchmarkRow | null
 }): string => {
-  const { resultRowList, scenarioList } = inputs
+  const { resultRowList, scenarioList, previousBestRow } = inputs
   const { tableHeaderList, tableRowList } = buildBenchmarkTableRows({
     resultRowList,
+    previousBestRow,
   })
 
   const columnWidths = tableHeaderList.map((header, columnIndex) => {

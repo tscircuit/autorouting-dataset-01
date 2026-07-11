@@ -1,6 +1,7 @@
 type CliOptions = {
   scenarioCountLimit: number | null
   outputDirectory: string
+  previousResultsPath: string | null
   shouldShowHelp: boolean
 }
 
@@ -12,9 +13,14 @@ const getCliOptionsFromArgList = (argList: string[]): CliOptions => {
   const cliOptions: CliOptions = {
     scenarioCountLimit: null,
     outputDirectory: defaultOutputDirectory,
+    previousResultsPath: null,
     shouldShowHelp: false,
   }
-  let parseState: "default" | "scenario_limit" | "output_dir" = "default"
+  let parseState:
+    | "default"
+    | "scenario_limit"
+    | "output_dir"
+    | "previous_results" = "default"
 
   for (const arg of argList) {
     switch (parseState) {
@@ -36,6 +42,13 @@ const getCliOptionsFromArgList = (argList: string[]): CliOptions => {
         parseState = "default"
         break
       }
+      case "previous_results": {
+        if (arg.length > 0) {
+          cliOptions.previousResultsPath = arg
+        }
+        parseState = "default"
+        break
+      }
       default: {
         if (arg === "--help" || arg === "-h") {
           cliOptions.shouldShowHelp = true
@@ -43,6 +56,8 @@ const getCliOptionsFromArgList = (argList: string[]): CliOptions => {
           parseState = "scenario_limit"
         } else if (arg === "--output-dir") {
           parseState = "output_dir"
+        } else if (arg === "--previous-results") {
+          parseState = "previous_results"
         } else if (arg.startsWith("--scenario-limit=")) {
           const scenarioLimitText = arg.split("=", 2)[1]
           const scenarioLimitNumber = Number(scenarioLimitText)
@@ -56,6 +71,11 @@ const getCliOptionsFromArgList = (argList: string[]): CliOptions => {
           const outputDirectoryText = arg.split("=", 2)[1]
           if (outputDirectoryText.length > 0) {
             cliOptions.outputDirectory = outputDirectoryText
+          }
+        } else if (arg.startsWith("--previous-results=")) {
+          const previousResultsText = arg.split("=", 2)[1]
+          if (previousResultsText.length > 0) {
+            cliOptions.previousResultsPath = previousResultsText
           }
         }
         break

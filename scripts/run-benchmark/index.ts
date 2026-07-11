@@ -3,6 +3,7 @@ import { buildBenchmarkDetailsJson } from "scripts/run-benchmark/buildBenchmarkD
 import { buildBenchmarkSummaryJson } from "scripts/run-benchmark/buildBenchmarkSummaryJson"
 import { generateHtmlVisualization } from "scripts/run-benchmark/generateHtmlVisualization"
 import { getCliOptionsFromArgList } from "scripts/run-benchmark/getCliOptionsFromArgList"
+import { loadPreviousBestBenchmarkRow } from "scripts/run-benchmark/loadPreviousBestBenchmarkRow"
 import { loadScenarioList } from "scripts/run-benchmark/loadScenarioList"
 import { outputTabled } from "scripts/run-benchmark/outputTabled"
 import { runBenchmark } from "scripts/run-benchmark/runBenchmark"
@@ -26,6 +27,7 @@ const main = async () => {
         "Options:",
         "  --scenario-limit <count>  Limit number of scenarios (default: all)",
         "  --output-dir <path>       Output directory (default: cwd)",
+        "  --previous-results <path> Previous benchmark-output.json to show old best result",
         "  -h, --help                Show this help text",
         "",
         "Examples:",
@@ -55,10 +57,22 @@ const main = async () => {
     solverConstructorList: SOLVER_CONSTRUCTOR_LIST,
   })
 
-  const outputText = outputTabled({ resultRowList, scenarioList })
+  const previousBestRow = await loadPreviousBestBenchmarkRow(
+    cliOptions.previousResultsPath,
+  )
+
+  const outputText = outputTabled({
+    resultRowList,
+    scenarioList,
+    previousBestRow,
+  })
   console.log(outputText)
 
-  const summaryJson = buildBenchmarkSummaryJson({ resultRowList, scenarioList })
+  const summaryJson = buildBenchmarkSummaryJson({
+    resultRowList,
+    scenarioList,
+    previousBestRow,
+  })
   const detailJson = buildBenchmarkDetailsJson({
     scenarioResultList,
     scenarioList,
