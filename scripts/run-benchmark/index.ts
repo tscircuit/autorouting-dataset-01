@@ -25,6 +25,7 @@ const main = async () => {
         "",
         "Options:",
         "  --scenario-limit <count>  Limit number of scenarios (default: all)",
+        "  --concurrency <count>     Number of benchmark jobs to run in parallel (default: CPU count)",
         "  --output-dir <path>       Output directory (default: cwd)",
         "  -h, --help                Show this help text",
         "",
@@ -53,6 +54,7 @@ const main = async () => {
   const { resultRowList, scenarioResultList } = await runBenchmark({
     scenarioList,
     solverConstructorList: SOLVER_CONSTRUCTOR_LIST,
+    concurrency: cliOptions.concurrency ?? undefined,
   })
 
   const outputText = outputTabled({ resultRowList, scenarioList })
