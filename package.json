@@ -68,7 +68,7 @@
     "react-cosmos": "^7.3.0",
     "react-cosmos-plugin-vite": "^7.3.0",
     "react-dom": "^19.2.6",
-    "tscircuit": "^0.0.2030",
+    "tscircuit": "^0.0.2255",
     "tsup": "^8.2.4",
     "vite": "^8.0.14"
   }

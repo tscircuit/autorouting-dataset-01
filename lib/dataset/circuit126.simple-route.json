@@ -231,8 +231,6 @@
       "type": "rect",
       "layers": [
         "top",
-        "inner1",
-        "inner2",
         "bottom"
       ],
       "center": {
@@ -260,8 +258,6 @@
       "type": "oval",
       "layers": [
         "top",
-        "inner1",
-        "inner2",
         "bottom"
       ],
       "center": {
@@ -293,8 +289,6 @@
       "type": "oval",
       "layers": [
         "top",
-        "inner1",
-        "inner2",
         "bottom"
       ],
       "center": {
@@ -322,8 +316,6 @@
       "type": "oval",
       "layers": [
         "top",
-        "inner1",
-        "inner2",
         "bottom"
       ],
       "center": {
@@ -355,8 +347,6 @@
       "type": "oval",
       "layers": [
         "top",
-        "inner1",
-        "inner2",
         "bottom"
       ],
       "center": {
@@ -384,8 +374,6 @@
       "type": "oval",
       "layers": [
         "top",
-        "inner1",
-        "inner2",
         "bottom"
       ],
       "center": {
@@ -413,8 +401,6 @@
       "type": "oval",
       "layers": [
         "top",
-        "inner1",
-        "inner2",
         "bottom"
       ],
       "center": {
@@ -446,8 +432,6 @@
       "type": "oval",
       "layers": [
         "top",
-        "inner1",
-        "inner2",
         "bottom"
       ],
       "center": {
@@ -474,152 +458,192 @@
   "connections": [
     {
       "name": "source_net_0",
+      "nominalTraceWidth": 0.1,
+      "width": 0.1,
       "pointsToConnect": [
         {
           "x": -0.9125,
           "y": 6,
           "layer": "bottom",
           "pointId": "pcb_port_1",
-          "pcb_port_id": "pcb_port_1"
+          "pcb_port_id": "pcb_port_1",
+          "port_selector": "resistor-1.pin2"
         },
         {
           "x": 2,
           "y": 7.05,
           "layer": "top",
           "pointId": "pcb_port_7",
-          "pcb_port_id": "pcb_port_7"
+          "pcb_port_id": "pcb_port_7",
+          "port_selector": "diode-1.pin2"
         },
         {
           "x": -4.490128060534578,
           "y": -5.490128060534577,
           "layer": "top",
           "pointId": "pcb_port_9",
-          "pcb_port_id": "pcb_port_9"
+          "pcb_port_id": "pcb_port_9",
+          "port_selector": "chip-1.pin2"
         }
       ]
     },
     {
       "name": "source_net_1",
+      "nominalTraceWidth": 0.1,
+      "width": 0.1,
       "pointsToConnect": [
         {
           "x": 0.9125,
           "y": 6,
           "layer": "bottom",
           "pointId": "pcb_port_0",
-          "pcb_port_id": "pcb_port_0"
+          "pcb_port_id": "pcb_port_0",
+          "port_selector": "resistor-1.pin1"
         },
         {
           "x": 2.6940768363207455,
           "y": 1.694076836320745,
           "layer": "top",
           "pointId": "pcb_port_13",
-          "pcb_port_id": "pcb_port_13"
+          "pcb_port_id": "pcb_port_13",
+          "port_selector": "chip-1.pin6"
         }
       ]
     },
     {
       "name": "source_net_2",
+      "nominalTraceWidth": 0.1,
+      "width": 0.1,
       "pointsToConnect": [
         {
           "x": 1.0875,
           "y": -4,
           "layer": "bottom",
           "pointId": "pcb_port_3",
-          "pcb_port_id": "pcb_port_3"
+          "pcb_port_id": "pcb_port_3",
+          "port_selector": "capacitor-1.pin2"
         },
         {
           "x": 4.490128060534577,
           "y": 3.490128060534576,
           "layer": "top",
           "pointId": "pcb_port_14",
-          "pcb_port_id": "pcb_port_14"
+          "pcb_port_id": "pcb_port_14",
+          "port_selector": "chip-1.pin7"
         },
         {
           "x": -0.8980256121069158,
           "y": -1.8980256121069154,
           "layer": "top",
           "pointId": "pcb_port_11",
-          "pcb_port_id": "pcb_port_11"
+          "pcb_port_id": "pcb_port_11",
+          "port_selector": "chip-1.pin4"
         }
       ]
     },
     {
       "name": "source_net_3",
+      "nominalTraceWidth": 0.1,
+      "width": 0.1,
       "pointsToConnect": [
         {
           "x": 2.9125,
           "y": -4,
           "layer": "bottom",
           "pointId": "pcb_port_2",
-          "pcb_port_id": "pcb_port_2"
+          "pcb_port_id": "pcb_port_2",
+          "port_selector": "capacitor-1.pin1"
         },
         {
           "x": 2,
           "y": 4.95,
           "layer": "top",
           "pointId": "pcb_port_6",
-          "pcb_port_id": "pcb_port_6"
+          "pcb_port_id": "pcb_port_6",
+          "port_selector": "diode-1.pin1"
         }
       ]
     },
     {
       "name": "source_net_4",
+      "nominalTraceWidth": 0.1,
+      "width": 0.1,
       "pointsToConnect": [
         {
           "x": -6.825,
           "y": 0,
           "layer": "top",
           "pointId": "pcb_port_4",
-          "pcb_port_id": "pcb_port_4"
+          "pcb_port_id": "pcb_port_4",
+          "port_selector": "inductor-1.pin1"
         },
         {
           "x": -5.175,
           "y": 0,
           "layer": "top",
           "pointId": "pcb_port_5",
-          "pcb_port_id": "pcb_port_5"
+          "pcb_port_id": "pcb_port_5",
+          "port_selector": "inductor-1.pin2"
         }
       ]
     },
     {
       "name": "source_net_5",
+      "nominalTraceWidth": 0.1,
+      "width": 0.1,
       "pointsToConnect": [
         {
           "x": -2.694076836320747,
           "y": -3.6940768363207463,
           "layer": "top",
           "pointId": "pcb_port_10",
-          "pcb_port_id": "pcb_port_10"
+          "pcb_port_id": "pcb_port_10",
+          "port_selector": "chip-1.pin3"
         },
         {
           "x": 6.286179284748409,
           "y": 5.286179284748408,
           "layer": "top",
           "pointId": "pcb_port_15",
-          "pcb_port_id": "pcb_port_15"
+          "pcb_port_id": "pcb_port_15",
+          "port_selector": "chip-1.pin8"
         }
       ]
     },
     {
       "name": "source_net_6",
+      "nominalTraceWidth": 0.1,
+      "width": 0.1,
       "pointsToConnect": [
         {
           "x": -6.286179284748409,
           "y": -7.286179284748408,
           "layer": "top",
           "pointId": "pcb_port_8",
-          "pcb_port_id": "pcb_port_8"
+          "pcb_port_id": "pcb_port_8",
+          "port_selector": "chip-1.pin1"
         },
         {
           "x": 0.8980256121069151,
           "y": -0.101974387893085,
           "layer": "top",
           "pointId": "pcb_port_12",
-          "pcb_port_id": "pcb_port_12"
+          "pcb_port_id": "pcb_port_12",
+          "port_selector": "chip-1.pin5"
         }
       ]
     }
   ],
   "layerCount": 2,
-  "minTraceWidth": 0.15
+  "minTraceWidth": 0.1,
+  "minViaDiameter": 0.3,
+  "minViaHoleDiameter": 0.2,
+  "minViaPadDiameter": 0.3,
+  "min_via_hole_diameter": 0.2,
+  "min_via_pad_diameter": 0.3,
+  "minTraceToPadEdgeClearance": 0.1,
+  "minViaHoleEdgeToViaHoleEdgeClearance": 0.1,
+  "minPlatedHoleDrillEdgeToDrillEdgeClearance": 0.15,
+  "minPadEdgeToPadEdgeClearance": 0.1,
+  "minBoardEdgeClearance": 0.2
 }
