@@ -300,8 +300,8 @@ export default () => (
     <pinheader
       name="pinhead-1"
       footprint="pinrow2"
-      pcbX={-9.5}
-      pcbY={-23.0}
+      pcbX={-10.5}
+      pcbY={-24.0}
       pcbRotation={0.0}
       layer="top"
       connections={{

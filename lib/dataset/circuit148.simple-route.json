@@ -646,8 +646,8 @@
         "bottom"
       ],
       "center": {
-        "x": -9.35,
-        "y": -6
+        "x": -10.35,
+        "y": -7
       },
       "width": 1.5,
       "height": 1.5,
@@ -683,8 +683,8 @@
         "bottom"
       ],
       "center": {
-        "x": -6.81,
-        "y": -6
+        "x": -7.81,
+        "y": -7
       },
       "width": 1.5,
       "height": 1.5,
@@ -720,8 +720,8 @@
         "bottom"
       ],
       "center": {
-        "x": -4.27,
-        "y": -6
+        "x": -5.27,
+        "y": -7
       },
       "width": 1.5,
       "height": 1.5,
@@ -749,8 +749,8 @@
         "bottom"
       ],
       "center": {
-        "x": -1.7299999999999995,
-        "y": -6
+        "x": -2.7299999999999995,
+        "y": -7
       },
       "width": 1.5,
       "height": 1.5,
@@ -782,8 +782,8 @@
         "bottom"
       ],
       "center": {
-        "x": 0.8100000000000005,
-        "y": -6
+        "x": -0.1899999999999995,
+        "y": -7
       },
       "width": 1.5,
       "height": 1.5,
@@ -811,8 +811,8 @@
         "bottom"
       ],
       "center": {
-        "x": 3.3499999999999996,
-        "y": -6
+        "x": 2.3499999999999996,
+        "y": -7
       },
       "width": 1.5,
       "height": 1.5,
@@ -840,8 +840,8 @@
         "bottom"
       ],
       "center": {
-        "x": -10.81,
-        "y": 8.81
+        "x": -8.81,
+        "y": 6.8100000000000005
       },
       "width": 1.6,
       "height": 1.6,
@@ -873,8 +873,8 @@
         "bottom"
       ],
       "center": {
-        "x": -10.81,
-        "y": 6.27
+        "x": -8.81,
+        "y": 4.27
       },
       "width": 1.6,
       "height": 1.6,
@@ -910,8 +910,8 @@
         "bottom"
       ],
       "center": {
-        "x": -10.81,
-        "y": 3.73
+        "x": -8.81,
+        "y": 1.73
       },
       "width": 1.6,
       "height": 1.6,
@@ -947,8 +947,8 @@
         "bottom"
       ],
       "center": {
-        "x": -10.81,
-        "y": 1.19
+        "x": -8.81,
+        "y": -0.81
       },
       "width": 1.6,
       "height": 1.6,
@@ -980,8 +980,8 @@
         "bottom"
       ],
       "center": {
-        "x": -3.19,
-        "y": 1.19
+        "x": -1.19,
+        "y": -0.81
       },
       "width": 1.6,
       "height": 1.6,
@@ -1017,8 +1017,8 @@
         "bottom"
       ],
       "center": {
-        "x": -3.19,
-        "y": 3.73
+        "x": -1.19,
+        "y": 1.73
       },
       "width": 1.6,
       "height": 1.6,
@@ -1046,8 +1046,8 @@
         "bottom"
       ],
       "center": {
-        "x": -3.19,
-        "y": 6.27
+        "x": -1.19,
+        "y": 4.27
       },
       "width": 1.6,
       "height": 1.6,
@@ -1083,8 +1083,8 @@
         "bottom"
       ],
       "center": {
-        "x": -3.19,
-        "y": 8.81
+        "x": -1.19,
+        "y": 6.8100000000000005
       },
       "width": 1.6,
       "height": 1.6,
@@ -1177,22 +1177,22 @@
           "pcb_port_id": "pcb_port_0"
         },
         {
-          "x": -6.81,
-          "y": -6,
+          "x": -7.81,
+          "y": -7,
           "layer": "top",
           "pointId": "pcb_port_25",
           "pcb_port_id": "pcb_port_25"
         },
         {
-          "x": -3.19,
-          "y": 6.27,
+          "x": -1.19,
+          "y": 4.27,
           "layer": "top",
           "pointId": "pcb_port_36",
           "pcb_port_id": "pcb_port_36"
         },
         {
-          "x": -10.81,
-          "y": 6.27,
+          "x": -8.81,
+          "y": 4.27,
           "layer": "top",
           "pointId": "pcb_port_31",
           "pcb_port_id": "pcb_port_31"
@@ -1307,22 +1307,22 @@
           "pcb_port_id": "pcb_port_6"
         },
         {
-          "x": -9.35,
-          "y": -6,
+          "x": -10.35,
+          "y": -7,
           "layer": "top",
           "pointId": "pcb_port_24",
           "pcb_port_id": "pcb_port_24"
         },
         {
-          "x": -10.81,
-          "y": 3.73,
+          "x": -8.81,
+          "y": 1.73,
           "layer": "top",
           "pointId": "pcb_port_32",
           "pcb_port_id": "pcb_port_32"
         },
         {
-          "x": -3.19,
-          "y": 1.19,
+          "x": -1.19,
+          "y": -0.81,
           "layer": "top",
           "pointId": "pcb_port_34",
           "pcb_port_id": "pcb_port_34"
@@ -1340,8 +1340,8 @@
           "pcb_port_id": "pcb_port_8"
         },
         {
-          "x": -3.19,
-          "y": 8.81,
+          "x": -1.19,
+          "y": 6.8100000000000005,
           "layer": "top",
           "pointId": "pcb_port_37",
           "pcb_port_id": "pcb_port_37"
@@ -1366,8 +1366,8 @@
           "pcb_port_id": "pcb_port_19"
         },
         {
-          "x": -10.81,
-          "y": 8.81,
+          "x": -8.81,
+          "y": 6.8100000000000005,
           "layer": "top",
           "pointId": "pcb_port_30",
           "pcb_port_id": "pcb_port_30"
@@ -1385,15 +1385,15 @@
           "pcb_port_id": "pcb_port_12"
         },
         {
-          "x": -1.7299999999999995,
-          "y": -6,
+          "x": -2.7299999999999995,
+          "y": -7,
           "layer": "top",
           "pointId": "pcb_port_27",
           "pcb_port_id": "pcb_port_27"
         },
         {
-          "x": -10.81,
-          "y": 1.19,
+          "x": -8.81,
+          "y": -0.81,
           "layer": "top",
           "pointId": "pcb_port_33",
           "pcb_port_id": "pcb_port_33"
@@ -1404,15 +1404,15 @@
       "name": "source_net_9",
       "pointsToConnect": [
         {
-          "x": 0.8100000000000005,
-          "y": -6,
+          "x": -0.1899999999999995,
+          "y": -7,
           "layer": "top",
           "pointId": "pcb_port_28",
           "pcb_port_id": "pcb_port_28"
         },
         {
-          "x": -4.27,
-          "y": -6,
+          "x": -5.27,
+          "y": -7,
           "layer": "top",
           "pointId": "pcb_port_26",
           "pcb_port_id": "pcb_port_26"
@@ -1423,15 +1423,15 @@
       "name": "source_net_10",
       "pointsToConnect": [
         {
-          "x": 3.3499999999999996,
-          "y": -6,
+          "x": 2.3499999999999996,
+          "y": -7,
           "layer": "top",
           "pointId": "pcb_port_29",
           "pcb_port_id": "pcb_port_29"
         },
         {
-          "x": -3.19,
-          "y": 3.73,
+          "x": -1.19,
+          "y": 1.73,
           "layer": "top",
           "pointId": "pcb_port_35",
           "pcb_port_id": "pcb_port_35"

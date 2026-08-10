@@ -320,7 +320,7 @@ export default () => (
     <chip
       name="chip-5"
       footprint="dip8"
-      pcbX={-1.0}
+      pcbX={-2.0}
       pcbY={2.0}
       pcbRotation={0.0}
       layer="top"
