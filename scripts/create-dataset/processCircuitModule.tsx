@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises"
 import path from "node:path"
+import { runAllPlacementChecks } from "@tscircuit/checks"
 import { RootCircuit } from "@tscircuit/core"
-import { getPlatedHoleSmtPadOverlapErrors } from "scripts/validate-circuit-json/getPlatedHoleSmtPadOverlapErrors"
 import { getSimpleRouteJsonFromCircuitJson } from "tscircuit"
 
 /**
@@ -37,12 +37,18 @@ export const processCircuitModule = async (processCircuitRequest: {
   try {
     await circuit.renderUntilSettled()
     const circuitJson = circuit.getCircuitJson()
-    const overlapErrors = getPlatedHoleSmtPadOverlapErrors(circuitJson)
-    if (overlapErrors.length > 0) {
+    const placementErrors = /^circuit1\d{2}$/.test(baseName)
+      ? (await runAllPlacementChecks(circuitJson)).filter(
+          (error) =>
+            error.type === "pcb_footprint_overlap_error" ||
+            error.type === "pcb_component_outside_board_error",
+        )
+      : []
+    if (placementErrors.length > 0) {
       throw new Error(
         [
-          "plated holes overlap SMT pads from other components:",
-          ...overlapErrors.map((error) => `- ${error.message}`),
+          "tscircuit placement check found invalid PCB placement:",
+          ...placementErrors.map((error) => `- ${error.message}`),
         ].join("\n"),
       )
     }

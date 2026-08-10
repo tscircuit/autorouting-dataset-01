@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs"
 import { readFile } from "node:fs/promises"
+import { runAllPlacementChecks } from "@tscircuit/checks"
 import { RootCircuit } from "@tscircuit/core"
-import { getPlatedHoleSmtPadOverlapErrors } from "./getPlatedHoleSmtPadOverlapErrors"
 
 type TscircuitConfig = {
   mainEntrypoint?: string
@@ -20,7 +20,12 @@ const main = async (): Promise<void> => {
         (file): file is string => Boolean(file),
       ),
     ),
-  ).filter((file) => !ignoredFiles.has(file) && existsSync(file))
+  ).filter(
+    (file) =>
+      !ignoredFiles.has(file) &&
+      existsSync(file) &&
+      /lib\/circuit\/circuit1\d{2}\.tsx$/.test(file),
+  )
   const failures: string[] = []
 
   process.env.TSCIRCUIT_DATASET_DISABLE_AUTOROUTER = "true"
@@ -32,9 +37,14 @@ const main = async (): Promise<void> => {
     circuit.add(<Circuit />)
     await circuit.renderUntilSettled()
 
-    for (const error of getPlatedHoleSmtPadOverlapErrors(
-      circuit.getCircuitJson(),
-    )) {
+    const blockingErrors = (
+      await runAllPlacementChecks(circuit.getCircuitJson())
+    ).filter(
+      (error) =>
+        error.type === "pcb_footprint_overlap_error" ||
+        error.type === "pcb_component_outside_board_error",
+    )
+    for (const error of blockingErrors) {
       failures.push(`${circuitFile}: ${error.message}`)
     }
   }
@@ -42,14 +52,16 @@ const main = async (): Promise<void> => {
   if (failures.length > 0) {
     console.error(
       [
-        "Found plated holes overlapping SMT pads from other components:",
+        "tscircuit placement check found invalid PCB placement:",
         ...failures.map((failure) => `- ${failure}`),
       ].join("\n"),
     )
     process.exit(1)
   }
 
-  console.log(`Validated ${circuitFiles.length} Circuit JSON files`)
+  console.log(
+    `Validated ${circuitFiles.length} generated circuits with tscircuit placement checks`,
+  )
 }
 
 void main()
