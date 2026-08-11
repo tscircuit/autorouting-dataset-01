@@ -22,3 +22,25 @@ A set of tscircuit problems to benchmark autorouting (currently 16 circuits in `
 
 4. Script for generating benchmark against all pipelines
 5. Script for generating for a single pipeline (allows comparing)
+
+## CLI Usage
+
+```bash
+npm install -g @tscircuit/autorouting-dataset-01
+
+autorouting-dataset-runner ./path/to/AutoroutingPipeline2.ts
+```
+
+Outputs HTML file for that autorouter maybe some stats to the terminal
+
+```tsx
+// internally the dataset does this:
+const exportsFromAutorouterFile = await import(userProvidedPathToPipelineFile)
+
+for (const export in exportsFromAutorouterFile) {
+  if (export.includes("Pipeline")) {
+     // ok i have my autorouter class
+  }
+}
+```
+
