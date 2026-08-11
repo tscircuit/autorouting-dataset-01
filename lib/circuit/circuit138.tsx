@@ -183,8 +183,8 @@ export default () => (
     <chip
       name="chip-1"
       footprint="pinrow6"
-      pcbX={3.0}
-      pcbY={11.0}
+      pcbX={1.0}
+      pcbY={9.0}
       pcbRotation={90.0}
       layer="top"
       connections={{

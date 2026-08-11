@@ -36,8 +36,8 @@ export default () => (
     <resistor
       name="resistor-3"
       footprint="0603"
-      pcbX={-4.0}
-      pcbY={6.0}
+      pcbX={-6.0}
+      pcbY={4.0}
       pcbRotation={0.0}
       layer="bottom"
       connections={{
