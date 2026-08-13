@@ -50,7 +50,7 @@ export default () => (
       pinCount={4}
       pitch="2.54mm"
       pcbX={0}
-      pcbY={-6}
+      pcbY={-5.2}
       pcbRotation={90}
       connections={{
         pin1: sel.net().VCC,

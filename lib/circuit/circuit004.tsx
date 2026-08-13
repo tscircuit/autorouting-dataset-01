@@ -242,7 +242,7 @@ export default () => (
     <solderjumper
       name="JP7"
       bridgedPins={[["1", "2", "3"]]}
-      pcbX={-7.62}
+      pcbX={-6.35}
       pcbY={19.05}
       pcbRotation={270}
       layer="bottom"
@@ -431,7 +431,7 @@ export default () => (
     <JoystickThumb
       name="S1"
       pcbX={1.27}
-      pcbY={-13.97}
+      pcbY={-11.43}
       pcbRotation={0}
       schPinArrangement={{
         leftSide: {

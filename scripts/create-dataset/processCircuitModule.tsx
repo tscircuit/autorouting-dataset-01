@@ -37,7 +37,7 @@ export const processCircuitModule = async (processCircuitRequest: {
   try {
     await circuit.renderUntilSettled()
     const circuitJson = circuit.getCircuitJson()
-    const placementErrors = /^circuit1\d{2}$/.test(baseName)
+    const placementErrors = /^circuit\d{3}$/.test(baseName)
       ? (await runAllPlacementChecks(circuitJson)).filter(
           (error) =>
             error.type === "pcb_footprint_overlap_error" ||

@@ -24,7 +24,7 @@ const main = async (): Promise<void> => {
     (file) =>
       !ignoredFiles.has(file) &&
       existsSync(file) &&
-      /lib\/circuit\/circuit1\d{2}\.tsx$/.test(file),
+      /lib\/circuit\/circuit\d{3}\.tsx$/.test(file),
   )
   const failures: string[] = []
 
