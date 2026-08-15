@@ -1,6 +1,7 @@
 import { allAreWithinOutline } from "./all-are-with-in-outline"
 import { getObstacleThatHavePointsToConnect } from "./getObstacleThatHavePointsToConnect"
 import { hasOverlappingObstacles } from "./hasOverlappingObstacles"
+import { isPointsToConnectInsideObstacle } from "./isPointsToConnectInsideObstacle"
 import type { OverArgs } from "./types"
 
 /** Validates SRJs for obstacle overlaps and outline bounds violations. */
@@ -15,6 +16,19 @@ export const check = (params: OverArgs[]) => {
   }[] = []
 
   for (const { srj, fileName } of params) {
+    const pointsToConnectInsideObstacle = isPointsToConnectInsideObstacle(
+      srj.obstacles,
+      srj.connections.flatMap((connection) => connection.pointsToConnect),
+      srj.layerCount,
+    )
+    if (!pointsToConnectInsideObstacle) {
+      failedFileNamesForOutOfBoardBounds.push({
+        filesName: fileName,
+        which: "pointsToConnect outside obstacle",
+      })
+      continue
+    }
+
     const obstaclesThatHavePointsToConnect = getObstacleThatHavePointsToConnect(
       srj.obstacles,
       srj.connections.flatMap((connection) => connection.pointsToConnect),
